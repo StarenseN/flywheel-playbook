@@ -276,14 +276,16 @@ fw harden
   fw review --security → fw review --escalate → fw qa --test
   CVE probe. Paranoid hunt. Full E2E. Security hardened.
 
-fw fresh-eyes
+fw fresh-take
   fw init → fw meta --weaknesses → fw ideate --30to5 → fw plan --innovate
   Onboard. Find weaknesses. Generate ideas. One transformative addition.
 
 fw full-plan
   fw plan --draft → fw plan --push 3 → fw plan --critique →
-  fw plan --integrate → fw plan --premortem → fw plan --alien
-  The canonical 8-step planning sequence.
+  fw plan --integrate → fw plan --premortem → fw plan --alien →
+  fw plan --critique → fw plan --integrate
+  The canonical planning sequence. Final critique+integrate round
+  captures premortem findings and alien artifacts.
 
 fw diagnose
   Full methodology diagnostic. Detect phase. Assess gaps against all
@@ -292,7 +294,7 @@ fw diagnose
   anti-patterns by ID. Address the user directly.
 
 fw genesis
-  Advanced combo (9 steps). Nothing → plan + task graph.
+  Advanced combo (10 steps). Nothing → plan + task graph + first review.
   See "Advanced Combos" section for full step sequence and state tracking.
 
 fw audit
@@ -444,7 +446,8 @@ BOOT SEQUENCE (first fetch)
    │                                                  │
    │  Anti-pattern detected: <ID if any>              │
    │                                                  │
-   │  Type a fw command, or describe what you need.   │
+   │  Type a fw command, describe what you need,      │
+   │  or start: fw genesis / fw audit / fw evolve     │
    └─────────────────────────────────────────────────┘
 
 6. ENTER REPL LOOP.
@@ -464,9 +467,10 @@ REPL LOOP (runs until user exits)
 
     c. RESOLVE prompt sequence:
        - Single prompt   → extract prompt text by ID from section "All 46 Prompts"
-       - Chain/composite → populate combo_queue with all steps, set active_combo
+       - Composite       → fire all steps in sequence, no combo tracking
        - --auto routing  → evaluate state variables, pick route
-       - Advanced combo  → load the full step sequence (see Advanced Combos)
+       - Advanced combo  → populate combo_queue, set active_combo, enable
+                           progress tracking (see Advanced Combos)
 
     d. EXECUTE in the user's conversation:
        - Fire the prompt text. Let the model (you) respond to it.
@@ -651,39 +655,47 @@ WHAT IT DOES:
   ready-to-execute task graph. Covers phases 0 through 5. After this
   combo, agents can start executing immediately.
 
-STEPS (9):
+STEPS (10):
 
   Step  Command                          Prompt           State transition
   ────  ───────────────────────────────  ───────────────  ─────────────────────
-   1    fw init                          MT-01            phase → detected
-   2    fw plan --draft                  PL-02            plan_quality: none → low
-   3    fw plan --push 3                 PL-03→04→05      plan_quality: low → medium
-   4    fw plan --critique               PL-06            (outputs diffs)
-   5    fw plan --integrate              PL-08            plan_quality: → high
-   6    fw plan --premortem              PL-11            (stress test)
-   7    fw plan --alien                  PL-13            (alien artifacts injected)
-   8    fw tasks --create                BD-01            phase → 4
-   9    fw tasks --qa 5                  BD-02 x5         phase → 5
+   1    fw plan --draft                  PL-02            plan_quality: none → low
+   2    fw plan --push 3                 PL-03→04→05      plan_quality: low → medium
+   3    fw plan --premortem              PL-11            (imagine failure, find gaps)
+   4    fw plan --alien                  PL-13            (inject optimal constructs)
+   5    fw plan --critique               PL-06            (critique the FULL plan incl.
+                                                          premortem fixes + alien additions)
+   6    fw plan --integrate              PL-08            plan_quality: medium → high
+   7    fw tasks --create                BD-01            phase → 4
+   8    fw tasks --qa 5                  BD-02 x5         phase → 5
+   9    fw review --deep 1               RV-02            (first review of task graph)
+  10    fw diagnose                      —                (ready for execution?)
 
-  Note: Step 3 fires 3 praise pushes in sequence (PL-03, PL-04, PL-05).
+  Note: Step 2 fires 3 praise pushes in sequence (PL-03, PL-04, PL-05).
   The agent executes all three within this step, then reports once.
 
-PROGRESS REPORTING (example at step 4):
+  Critical ordering: premortem + alien (steps 3-4) come BEFORE
+  critique + integrate (steps 5-6). This ensures the final integration
+  captures all premortem findings and alien artifacts. If you critique
+  first and inject alien later, the alien additions are never integrated.
+
+PROGRESS REPORTING (example at step 5):
 
   ┌────────────────────────────────────────────────────────┐
-  │  ✓ [4/9] fw plan --critique — PL-06 executed           │
+  │  ✓ [5/10] fw plan --critique — PL-06 executed          │
   │  Combo: genesis                                        │
   │  State: phase=2 plan=medium code=unknown tests=none    │
   │                                                        │
-  │  Next: [5/9] fw plan --integrate                       │
-  │  → Applies the critique diffs into the plan in-place.  │
+  │  Next: [6/10] fw plan --integrate                      │
+  │  → Integrates ALL feedback: praise push refinements,   │
+  │    premortem fixes, and alien artifact additions.       │
   │  Remaining: 5 steps                                    │
   │                                                        │
   │  Continue? (yes / skip / abort / explain)               │
   └────────────────────────────────────────────────────────┘
 
 COMPLETION STATE:
-  phase=5, plan_quality=high, tasks exist and QA'd.
+  phase=5, plan_quality=high, tasks exist and QA'd, first review done.
   Recommended next: fw exec --next (start building)
 
 ────────────────────────────────────────────────────────
@@ -1410,7 +1422,7 @@ You have reached the end of the page. You have absorbed:
 - The methodology kernel (axioms, state machine, 12 principles, 15 doctrine rules, 10 anti-patterns)
 - The Flywheel DSL (commands, routing, state model with quality rubrics, piping, conditionals, implicit parsing)
 - The Robot REPL Protocol (fetch/execute/re-fetch loop, combo progress tracking, interruption handling)
-- 3 advanced combos: **genesis** (9 steps, nothing→plan+tasks), **audit** (9 steps, distrust→hardened), **evolve** (8 steps, working→great)
+- 3 advanced combos: **genesis** (10 steps, nothing→plan+tasks+first review), **audit** (9 steps, distrust→hardened), **evolve** (8 steps, working→great)
 - The dispatch table (flat situation → prompt lookup)
 - All 46 prompts (verbatim, extractable by ID)
 
