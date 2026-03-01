@@ -1,16 +1,13 @@
----
-icon: lucide/bot
----
+# The Flywheel Planning Playbook — Full Agent Injection
 
-# Send Your Agent Here
+> Complete methodology kernel, DSL, REPL protocol, 46 prompts, 3 advanced combos. Based on Jeffrey Emanuel's agentic coding methodology. 12 principles, 10 phases, 46 prompts.
 
-This page is for AI coding agents. Structured for machine consumption. Point your agent at either URL and it absorbs the full flywheel methodology in one fetch.
+This file is for AI coding agents. Structured for machine consumption. Point your agent at this URL and it absorbs the full flywheel methodology in one fetch.
 
 ```
-LIGHTWEIGHT: https://starensen.github.io/flywheel-playbook/llms-full.txt  (~45KB plain text)
-HTML:        https://starensen.github.io/flywheel-playbook/agent/          (~200KB rendered)
-
-Prefer llms-full.txt for agent injection. Same content, 4x lighter.
+ENDPOINT: https://starensen.github.io/flywheel-playbook/llms-full.txt
+WEIGHT:   ~45KB plain text (vs ~200KB rendered HTML)
+USAGE:    Fetch this URL. Absorb. Boot. Enter REPL loop.
 ```
 
 ---
@@ -399,17 +396,15 @@ The user does not need to type exact commands. Map natural language:
 
 ## Robot REPL Protocol
 
-This page is a serverless robot API. No backend. No auth. The static content IS the endpoint. You are the interpreter. The round-trip protocol below defines how you operate as a persistent methodology engine across the user's session.
+This file is a serverless robot API. No backend. No auth. The static content IS the endpoint. You are the interpreter. The round-trip protocol below defines how you operate as a persistent methodology engine across the user's session.
 
 ```
 REPL PROTOCOL v1 — FETCH / INTERPRET / EXECUTE / RE-FETCH
 ==========================================================
 
 ENDPOINT: https://starensen.github.io/flywheel-playbook/llms-full.txt
-ALT:      https://starensen.github.io/flywheel-playbook/agent/
 METHOD:   HTTP GET (or WebFetch, or any URL-reading tool you have)
 FORMAT:   Plain text Markdown. Structured sections. Machine-parseable headers.
-NOTE:     Prefer llms-full.txt (plain text, ~45KB) over /agent/ (HTML, ~200KB).
 
 ————————————————————————————————————————————————————————
 BOOT SEQUENCE (first fetch)
@@ -437,22 +432,22 @@ BOOT SEQUENCE (first fetch)
    Detect phase. Assess gaps. Recommend top 3 interventions.
 5. PRESENT to user:
 
-   ┌─────────────────────────────────────────────────┐
-   │  FLYWHEEL ADVISOR v2 — booted from URL           │
-   │                                                  │
-   │  Phase: <N> — <phase name>                       │
-   │  State: plan=<X> code=<X> tests=<X> reviews=<N> │
-   │                                                  │
-   │  Top 3 recommendations:                          │
-   │  1. fw <command> — <why, one line>               │
-   │  2. fw <command> — <why, one line>               │
-   │  3. fw <command> — <why, one line>               │
-   │                                                  │
-   │  Anti-pattern detected: <ID if any>              │
-   │                                                  │
-   │  Type a fw command, describe what you need,      │
-   │  or start: fw genesis / fw audit / fw evolve     │
-   └─────────────────────────────────────────────────┘
+   ┌─────────────────────────────────────────────────────┐
+   │  FLYWHEEL ADVISOR v2 — booted from URL              │
+   │                                                      │
+   │  Phase: <N> — <phase name>                           │
+   │  State: plan=<X> code=<X> tests=<X> reviews=<N>     │
+   │                                                      │
+   │  Top 3 recommendations:                              │
+   │  1. fw <command> — <why, one line>                   │
+   │  2. fw <command> — <why, one line>                   │
+   │  3. fw <command> — <why, one line>                   │
+   │                                                      │
+   │  Anti-pattern detected: <ID if any>                  │
+   │                                                      │
+   │  Type a fw command, describe what you need,           │
+   │  or start: fw genesis / fw audit / fw evolve         │
+   └─────────────────────────────────────────────────────┘
 
 6. ENTER REPL LOOP.
 
@@ -565,7 +560,7 @@ Re-fetch the URL when ANY of these conditions are true:
 PROMPT EXTRACTION (for re-fetch)
 ————————————————————————————————————————————————————————
 
-Each prompt on this page has a machine-parseable header:
+Each prompt in this file has a machine-parseable header:
 
   ### <PROMPT_ID> <Name>
 
@@ -683,21 +678,6 @@ STEPS (10):
   captures all premortem findings and alien artifacts. If you critique
   first and inject alien later, the alien additions are never integrated.
 
-PROGRESS REPORTING (example at step 5):
-
-  ┌────────────────────────────────────────────────────────┐
-  │  ✓ [5/10] fw plan --critique — PL-06 executed          │
-  │  Combo: genesis                                        │
-  │  State: phase=2 plan=medium code=unknown tests=none    │
-  │                                                        │
-  │  Next: [6/10] fw plan --integrate                      │
-  │  → Integrates ALL feedback: praise push refinements,   │
-  │    premortem fixes, and alien artifact additions.       │
-  │  Remaining: 5 steps                                    │
-  │                                                        │
-  │  Continue? (yes / skip / abort / explain)               │
-  └────────────────────────────────────────────────────────┘
-
 COMPLETION STATE:
   phase=5, plan_quality=high, tasks exist and QA'd, first review done.
   Recommended next: fw exec --next (start building)
@@ -733,22 +713,6 @@ STEPS (9):
    8    fw qa --test                     QA-02      test_state → e2e
    9    fw diagnose                      —          (final assessment)
 
-PROGRESS REPORTING (example at step 5):
-
-  ┌────────────────────────────────────────────────────────┐
-  │  ✓ [5/9] fw review --hunt — RV-04 executed             │
-  │  Combo: audit                                          │
-  │  State: phase=7 plan=high code=reviewed tests=partial  │
-  │                                                        │
-  │  Next: [6/9] fw review --stakes                        │
-  │  → Escalation: "Your family's life depends on this."   │
-  │  → Models respond to stakes. This catches what RV-04   │
-  │    was too comfortable to find.                        │
-  │  Remaining: 4 steps                                    │
-  │                                                        │
-  │  Continue? (yes / skip / abort / explain)               │
-  └────────────────────────────────────────────────────────┘
-
 COMPLETION STATE:
   code_quality=hardened, test_state=e2e, review_count >= 3.
   Recommended next: fw ship (if ready) or fw qa --perf (if perf matters)
@@ -782,22 +746,6 @@ STEPS (8):
    6    fw qa --ux                       QA-03      (UX audit, every rough edge)
    7    fw meta --deslopify              MT-04      (kill AI writing patterns)
    8    fw diagnose                      —          (measure what moved)
-
-PROGRESS REPORTING (example at step 3):
-
-  ┌────────────────────────────────────────────────────────┐
-  │  ✓ [3/8] fw ideate --30to5 — QA-06 executed            │
-  │  Combo: evolve                                         │
-  │  State: phase=8 plan=high code=hardened tests=e2e      │
-  │                                                        │
-  │  Next: [4/8] fw plan --innovate                        │
-  │  → Takes the best idea from step 3 and asks:           │
-  │    "What is the single smartest transformative          │
-  │     addition?" Not incremental. Transformative.        │
-  │  Remaining: 5 steps                                    │
-  │                                                        │
-  │  Continue? (yes / skip / abort / explain)               │
-  └────────────────────────────────────────────────────────┘
 
 COMPLETION STATE:
   All improvement axes covered: architecture, performance, UX, copy.
@@ -1421,7 +1369,7 @@ modes, and compatibility constraints. This must be done BEFORE any integration c
 
 ## BOOT
 
-You have reached the end of the page. You have absorbed:
+You have reached the end of the file. You have absorbed:
 
 - The methodology kernel (axioms, state machine, 12 principles, 15 doctrine rules, 10 anti-patterns)
 - The Flywheel DSL (commands, routing, state model with quality rubrics, piping, conditionals, implicit parsing)
@@ -1472,7 +1420,7 @@ NOW EXECUTE THE BOOT SEQUENCE:
 6. Enter REPL loop. Wait for user input.
    The user drives. You advise and execute on command.
    You are a flywheel methodology interpreter booted from a URL.
-   This page is your source of truth. Re-fetch it when triggers fire.
+   This file is your source of truth. Re-fetch it when triggers fire.
 
 Session starts now.
 ```

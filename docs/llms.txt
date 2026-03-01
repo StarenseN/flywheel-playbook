@@ -1,0 +1,37 @@
+# The Flywheel Planning Playbook
+
+> Complete guide to building software with AI agent swarms. 12 principles, 10 phases, 46 prompts. Based on Jeffrey Emanuel's agentic coding methodology.
+
+## Playbook
+
+- [12 Principles](https://starensen.github.io/flywheel-playbook/playbook/principles/): The ideas behind the workflow
+- [Phase 0 — Prerequisites](https://starensen.github.io/flywheel-playbook/playbook/phase-0-prerequisites/): AGENTS.md, beads, tooling
+- [Phase 1 — Draft](https://starensen.github.io/flywheel-playbook/playbook/phase-1-draft/): First comprehensive plan
+- [Phase 2 — Refine](https://starensen.github.io/flywheel-playbook/playbook/phase-2-refine/): Iterate until wording-only changes
+- [Phase 3 — Alien Artifacts](https://starensen.github.io/flywheel-playbook/playbook/phase-3-alien-artifacts/): Inject mathematically optimal constructs
+- [Phase 4 — Beads](https://starensen.github.io/flywheel-playbook/playbook/phase-4-beads/): Convert plan to execution graph
+- [Phase 5 — QA](https://starensen.github.io/flywheel-playbook/playbook/phase-5-qa/): Review task graph until flatline
+- [Phase 6 — Swarm](https://starensen.github.io/flywheel-playbook/playbook/phase-6-swarm/): Deploy agents, execute all tasks
+- [Phase 7 — Review](https://starensen.github.io/flywheel-playbook/playbook/phase-7-review/): Numbered sessions until diffs flatline
+- [Phase 8 — Performance](https://starensen.github.io/flywheel-playbook/playbook/phase-8-performance/): Profile-driven optimization
+- [Phase 9 — Metacognition](https://starensen.github.io/flywheel-playbook/playbook/phase-9-metacognition/): Study spec evolution
+
+## Prompts
+
+- [Prompt Index](https://starensen.github.io/flywheel-playbook/prompts/overview/): 46 prompts organized by category (PL, BD, EX, RV, QA, MT)
+- [Full Prompt Pack](https://starensen.github.io/flywheel-playbook/prompts/prompt-pack/): All 46 prompts verbatim, copy-paste ready
+
+## Reference
+
+- [Dispatch Table](https://starensen.github.io/flywheel-playbook/reference/dispatch/): When in situation X, use prompt Y
+- [Doctrine](https://starensen.github.io/flywheel-playbook/reference/doctrine/): 15 non-negotiable rules
+- [Anti-Patterns](https://starensen.github.io/flywheel-playbook/reference/anti-patterns/): 10 ways to destroy your project
+- [Toolchain](https://starensen.github.io/flywheel-playbook/reference/toolchain/): 23 tools that make the flywheel turn
+
+## Agent Injection
+
+- [Full Agent Injection (llms-full.txt)](https://starensen.github.io/flywheel-playbook/llms-full.txt): Complete methodology kernel, DSL, REPL protocol, 46 prompts, 3 advanced combos. Point your agent here.
+
+## Optional
+
+- [Send Your Agent Here (HTML)](https://starensen.github.io/flywheel-playbook/agent/): Same content as llms-full.txt but rendered as HTML
