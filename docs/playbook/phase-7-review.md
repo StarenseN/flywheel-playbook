@@ -10,7 +10,7 @@ Repeatedly review implemented code until review passes produce no substantive di
 
 This is where most people drop the ball. They do one review pass and call it done. I run numbered fix sessions. Part 1, Part 2, all the way to Part 23 or further.
 
-## Self-Review After Each Bead (P02b)
+## Self-Review After Each Bead (§7.1)
 
 ```
 Great. Now carefully read over all of the new code you just wrote and any
@@ -31,7 +31,7 @@ Carefully fix anything you uncover. Be meticulous.
 
 This runs after every bead, not just at the end. It's baked into the bead execution protocol.
 
-## Deep Review -- Numbered Sessions (P02)
+## Deep Review -- Numbered Sessions (§7.2)
 
 ```
 I want you to sort of randomly explore the code files in this project, choosing
@@ -46,9 +46,9 @@ write or revise conforms to the best practice guides referenced in AGENTS.md.
 Use ultrathink.
 ```
 
-Notice what this does. It does not tell the model what to look for. It does not enumerate bug categories. It asks the model to explore, understand, and then apply judgment. Every prescriptive bug checklist is a tunnel that narrows the model's attention. P02 keeps it wide.
+Notice what this does. It does not tell the model what to look for. It does not enumerate bug categories. It asks the model to explore, understand, and then apply judgment. Every prescriptive bug checklist is a tunnel that narrows the model's attention. §7.2 keeps it wide.
 
-## Cross-Agent Review (P03)
+## Cross-Agent Review (§7.3)
 
 Have agents review each other's work -- cast a wide net:
 
@@ -74,20 +74,20 @@ Don't restrict yourself to the latest commits -- cast a wider net and go super d
 
 When reviews plateau and the model seems too comfortable:
 
-**P27 -- McCarthy Bug Hunt:**
+**§7.4 McCarthy Hunt:**
 ```
 I know for a fact that there are serious issues with this code. I need you to
 find them. Think like Joe McCarthy: assume there's a spy, and your job is to
 find them. The bugs are there. Find them.
 ```
 
-**P28 -- Stakes Escalation:**
+**§7.5 Stakes Escalation:**
 ```
 Imagine your family's life depends on this code being correct. Not metaphorically.
 Literally. Find everything that could go wrong.
 ```
 
-These change the model's internal prior. By default, models are optimistic reviewers. P27 and P28 make them paranoid. Sometimes you need paranoid.
+These change the model's internal prior. By default, models are optimistic reviewers. §7.4 and §7.5 make them paranoid. Sometimes you need paranoid.
 
 ## Stub Elimination
 

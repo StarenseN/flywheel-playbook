@@ -8,7 +8,7 @@ Deploy coordinated agents to execute beads systematically.
 
 ---
 
-## Swarm Marching Orders (P08)
+## Swarm Marching Orders (§6.1 Execute Beads)
 
 ```
 Reread AGENTS.md so it's still fresh in your mind. Now check Agent Mail for any
@@ -18,7 +18,7 @@ bead execution protocol in AGENTS.md exactly. Use ultrathink.
 
 That's it. No task assignment. No role description. The bead system handles coordination. Agent Mail handles communication.
 
-## Fresh Agent Spawn (P18)
+## Fresh Agent Spawn (§6.3 Agent Introduction)
 
 For new agents or after context loss:
 
@@ -32,7 +32,7 @@ then proceed meticulously with your next assigned beads. Don't get stuck in
 "communication purgatory." Use ultrathink.
 ```
 
-## Post-Compaction Refresh (P20)
+## Post-Compaction Refresh (§6.4)
 
 When agents hit context compaction:
 
@@ -50,7 +50,7 @@ Simple. The agent just lost half its context window. Give it the constitution ba
 - **Bead IDs in commit messages are the coordination surface** -- agents read git messages to know what's done. Agent Mail is for higher-level coordination.
 - **Agent failure is normal operations** -- Gemini agents will hit shell restrictions. Log it, handle it gracefully, move on.
 
-## The Commit Agent (P11)
+## The Commit Agent (§6.6 Git Commit)
 
 One agent is different: the commit agent. It does not modify code.
 

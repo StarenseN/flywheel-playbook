@@ -44,7 +44,7 @@ Do NOT stop between beads. Keep the loop going.
 ```
 
 !!! note
-    Notice the self-review step. This is P02b baked into the workflow. The agent reviews its own code before closing the bead. Not a hook. Not a separate agent. The coder, with fresh eyes, on its own work.
+    Notice the self-review step. This is §7.1 Self-Review baked into the workflow. The agent reviews its own code before closing the bead. Not a hook. Not a separate agent. The coder, with fresh eyes, on its own work.
 
 ## About Beads
 

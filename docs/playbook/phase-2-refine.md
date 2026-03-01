@@ -12,14 +12,14 @@ Iterate through critique rounds until improvements become incremental. This is w
 
 Push the model past its default posture. These look ridiculous. They work. The model is not a static function. It responds to the emotional register of the conversation.
 
-**Round 1 -- P30:**
+**Round 1 -- §2.1 Praise Push I:**
 ```
 That's a decent start but it barely scratches the surface and is light years away
 from being OPTIMAL. Please try again and revise your existing plan document in-place
 to make it MUCH, MUCH, MUCH better in EVERY WAY. Use ultrathink.
 ```
 
-**Round 2 -- P31:**
+**Round 2 -- §2.2 Praise Push II:**
 ```
 That's a lot better than before but STILL is a far cry from being OPTIMAL. Please
 try again and revise your existing plan document in-place to make it MUCH, MUCH,
@@ -27,14 +27,14 @@ MUCH better in EVERY WAY. I believe in you, you can do this! Show me how brillia
 you really are! Use ultrathink.
 ```
 
-**Round 3 -- P32:**
+**Round 3 -- §2.3 Praise Push III:**
 ```
 OK this is getting really good now but I KNOW you can do even better. Dig deep.
 Give me your ABSOLUTE BEST work. This is your chance to show the world what
 frontier AI can produce. Use ultrathink.
 ```
 
-## Single-Model Critique (Round Type A -- P04)
+## Single-Model Critique (Round Type A -- §2.4)
 
 After the praise rounds, switch to analytical mode:
 
@@ -58,7 +58,7 @@ For each proposed change:
 <PASTE THE COMPLETE PLAN HERE>
 ```
 
-## Multi-Model Competition (Round Type B -- P15)
+## Multi-Model Competition (Round Type B -- §2.5)
 
 Fire competing models simultaneously -- this is a parallel compute job, not a conversation.
 

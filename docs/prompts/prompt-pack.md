@@ -4,13 +4,15 @@ icon: lucide/copy
 
 # Full Prompt Pack
 
-All 41 prompts on one page for copy-paste. Organized by phase.
+45 prompts on one page for copy-paste. Organized by phase. Each ID tells you WHEN and WHAT.
+
+**Naming:** `§phase.seq Name` — the phase number tells you when to use it, the name tells you what it does.
 
 ---
 
-## Planning Prompts (Phase 1-2)
+## §1 — Draft the Plan
 
-### P01 -- First Principles
+### §1.1 First Principles (ex P01)
 *Prefix for everything. Use before any significant decision.*
 
 ```
@@ -19,7 +21,8 @@ might be wrong? What edge cases exist? What could fail? Consider multiple approa
 and their tradeoffs. Only proceed when you've thoroughly analyzed the problem space.
 ```
 
-### Plan Drafting (Phase 1)
+### §1.2 Plan Draft
+*The initial architect prompt. Produce the first comprehensive plan.*
 
 ```
 You are a senior architect and staff engineer. We are starting a greenfield project:
@@ -47,7 +50,11 @@ Be explicit and operational. Avoid vague advice.
 Assume this plan will be executed by multiple parallel agents.
 ```
 
-### P30 -- Praise Round 1
+---
+
+## §2 — Refine the Plan
+
+### §2.1 Praise Push I (ex P30)
 
 ```
 That's a decent start but it barely scratches the surface and is light years away
@@ -55,7 +62,7 @@ from being OPTIMAL. Please try again and revise your existing plan document in-p
 to make it MUCH, MUCH, MUCH better in EVERY WAY. Use ultrathink.
 ```
 
-### P31 -- Praise Round 2
+### §2.2 Praise Push II (ex P31)
 
 ```
 That's a lot better than before but STILL is a far cry from being OPTIMAL. Please
@@ -64,7 +71,7 @@ MUCH better in EVERY WAY. I believe in you, you can do this! Show me how brillia
 you really are! Use ultrathink.
 ```
 
-### P32 -- Praise Round 3
+### §2.3 Praise Push III (ex P32)
 
 ```
 OK this is getting really good now but I KNOW you can do even better. Dig deep.
@@ -72,7 +79,7 @@ Give me your ABSOLUTE BEST work. This is your chance to show the world what
 frontier AI can produce. Use ultrathink.
 ```
 
-### P04 -- Plan Critique (Round Type A)
+### §2.4 Plan Critique — Round Type A (ex P04)
 
 ```
 Carefully review this entire plan for me and come up with your best revisions in terms of:
@@ -92,7 +99,7 @@ For each proposed change:
 <PASTE THE COMPLETE PLAN HERE>
 ```
 
-### P15 -- Multi-Model Synthesis (Round Type B)
+### §2.5 Multi-Model Synthesis — Round Type B (ex P15)
 
 ```
 I asked 3 competing LLMs to do the exact same thing and they came up with pretty
@@ -112,7 +119,7 @@ Current plan: <PASTE CURRENT PLAN HERE>
 Competing outputs: <PASTE OTHER MODEL OUTPUTS HERE>
 ```
 
-### Integrate Critique -- Apply Feedback
+### §2.6 Integrate Critique
 
 ```
 Read AGENTS.md and keep all tool rules in mind.
@@ -128,7 +135,7 @@ At the end, list:
 <PASTE THE COMPLETE REVIEW OUTPUT HERE>
 ```
 
-### P17 -- Dueling Wizards
+### §2.7 Dueling Wizards (ex P17)
 
 ```
 I want two different frontier models to each independently propose their best
@@ -136,14 +143,14 @@ version of this. Score each proposal on: correctness, elegance, robustness,
 completeness, and novelty. Then synthesize the winner into the plan.
 ```
 
-### P26 -- Plan Innovation Boost
+### §2.8 Innovation Boost (ex P26)
 
 ```
 What is the single smartest addition we could make to this plan that would
 dramatically improve the project? Not incremental. Transformative. Use ultrathink.
 ```
 
-### Premortem Planner
+### §2.9 Premortem
 
 ```
 Before we proceed, I want you to do a "premortem" on this plan. Imagine we're
@@ -154,7 +161,7 @@ Now, with that pessimistic scenario fresh in your mind, revise the plan to addre
 the most likely failure modes.
 ```
 
-### Project Opinion Elicitor
+### §2.10 Project Opinion
 
 ```
 Now tell me what you actually THINK of the project -- is it even a good idea?
@@ -165,9 +172,9 @@ AND to AI coding agents?
 
 ---
 
-## Bead Prompts (Phase 4-5)
+## §4 — Convert Plan to Beads
 
-### P05 -- Plan to Beads
+### §4.1 Plan to Beads (ex P05)
 
 ```
 Reread AGENTS.md so it's fresh in your mind.
@@ -190,7 +197,8 @@ Also include beads for:
 Use only the bd tool to create and modify beads and add dependencies. Be exhaustive.
 ```
 
-### P06 -- QA the Beads (repeat N times)
+### §4.2 QA the Beads (ex P06)
+*Repeat N times until changes flatline.*
 
 ```
 Reread AGENTS.md so it's still fresh in your mind.
@@ -212,7 +220,7 @@ DO NOT LOSE ANY FEATURES OR FUNCTIONALITY.
 If improvements are needed, revise the beads accordingly using only bd.
 ```
 
-### P24 -- Use BV
+### §4.3 BV Triage (ex P24)
 
 ```
 Use bv --robot-triage to identify the highest-impact actionable beads.
@@ -221,9 +229,10 @@ Pick the best one you can usefully work on and get started. Use ultrathink.
 
 ---
 
-## Execution Prompts (Phase 6)
+## §6 — Swarm Execution
 
-### P08 -- Execute Beads (main loop)
+### §6.1 Execute Beads (ex P08)
+*The main loop. Every agent runs this.*
 
 ```
 Reread AGENTS.md so it's still fresh in your mind. Now check Agent Mail for any
@@ -231,7 +240,7 @@ messages from other agents. Execute the highest-priority ready bead. Follow the
 bead execution protocol in AGENTS.md exactly. Use ultrathink.
 ```
 
-### P09 -- Agent Mail Check & Continue
+### §6.2 Mail Check & Continue (ex P09)
 
 ```
 Check your agent mail and promptly respond if needed to any messages. Then proceed
@@ -240,7 +249,8 @@ purgatory" where nothing is getting done; be proactive about starting tasks that
 need to be done. Use ultrathink.
 ```
 
-### P18 -- Agent Introduction (fresh spawn)
+### §6.3 Agent Introduction (ex P18)
+*Fresh spawn or after context loss.*
 
 ```
 First read ALL of the AGENTS.md file and README.md file super carefully and
@@ -252,20 +262,21 @@ then proceed meticulously with your next assigned beads. Don't get stuck in
 "communication purgatory." Use ultrathink.
 ```
 
-### P20 -- Post-Compaction Refresh
+### §6.4 Post-Compaction Refresh (ex P20)
 
 ```
 Reread AGENTS.md so it's still fresh in your mind. Use ultrathink.
 ```
 
-### P25 -- Do All Of It (full push)
+### §6.5 Full Push (ex P25)
 
 ```
 I need you to do ALL of the remaining work. Every bead. Every test. Leave nothing
 undone. Be thorough, meticulous, and autonomous. Use ultrathink.
 ```
 
-### P11 -- Git Commit (commit agent only)
+### §6.6 Git Commit (ex P11)
+*Commit agent only. Does not modify code.*
 
 ```
 Based on your knowledge of the project, commit all changed files now in a series
@@ -276,24 +287,10 @@ Follow repo conventions and hooks.
 
 ---
 
-## Review Prompts (Phase 7)
+## §7 — Fresh-Eyes Review
 
-### P02 -- Deep Review / Fresh Eyes Bug Hunt
-
-```
-I want you to sort of randomly explore the code files in this project, choosing
-code files to deeply investigate and understand and trace their functionality and
-execution flows through the related code files which they import or which they are
-imported by. Once you understand the purpose of the code in the larger context of
-the workflows, I want you to do a super careful, methodical, and critical check
-with "fresh eyes" to find any obvious bugs, problems, errors, issues, silly
-mistakes, etc. and then systematically and meticulously and intelligently correct
-them. Be sure to comply with ALL rules in AGENTS.md and ensure that any code you
-write or revise conforms to the best practice guides referenced in AGENTS.md.
-Use ultrathink.
-```
-
-### P02b -- Post-Implementation Self-Review
+### §7.1 Self-Review (ex P02b)
+*Runs after every bead. Baked into the execution protocol.*
 
 ```
 Great. Now carefully read over all of the new code you just wrote and any
@@ -311,7 +308,23 @@ With fresh eyes, look for:
 Carefully fix anything you uncover. Be meticulous.
 ```
 
-### P03 -- Cross-Agent Review
+### §7.2 Deep Review (ex P02)
+*Numbered sessions: Part 1, Part 2, Part 3...*
+
+```
+I want you to sort of randomly explore the code files in this project, choosing
+code files to deeply investigate and understand and trace their functionality and
+execution flows through the related code files which they import or which they are
+imported by. Once you understand the purpose of the code in the larger context of
+the workflows, I want you to do a super careful, methodical, and critical check
+with "fresh eyes" to find any obvious bugs, problems, errors, issues, silly
+mistakes, etc. and then systematically and meticulously and intelligently correct
+them. Be sure to comply with ALL rules in AGENTS.md and ensure that any code you
+write or revise conforms to the best practice guides referenced in AGENTS.md.
+Use ultrathink.
+```
+
+### §7.3 Cross-Agent Review (ex P03)
 
 ```
 Now review code written by other agents across the project (not just the
@@ -327,7 +340,8 @@ Diagnose root causes using first-principles reasoning and then fix issues you fi
 Don't restrict yourself to the latest commits -- cast a wider net and go super deep!
 ```
 
-### P27 -- McCarthy Bug Hunt (escalation)
+### §7.4 McCarthy Hunt (ex P27)
+*Escalation. When reviews seem too comfortable.*
 
 ```
 I know for a fact that there are serious issues with this code. I need you to
@@ -335,21 +349,21 @@ find them. Think like Joe McCarthy: assume there's a spy, and your job is to
 find them. The bugs are there. Find them.
 ```
 
-### P28 -- Stakes Escalation
+### §7.5 Stakes Escalation (ex P28)
 
 ```
 Imagine your family's life depends on this code being correct. Not metaphorically.
 Literally. Find everything that could go wrong.
 ```
 
-### P29 -- CVE-Inspired Security Testing
+### §7.6 CVE Probe (ex P29)
 
 ```
 Research recent CVEs relevant to the libraries and patterns in this project.
 Create sandboxed tests that probe for similar vulnerabilities. Use ultrathink.
 ```
 
-### Stub Eliminator
+### §7.7 Stub Eliminator
 
 ```
 I need you to look for stubs, placeholders, mocks, of ANY KIND. These ALL must
@@ -357,14 +371,14 @@ be replaced with FULLY FLESHED OUT, working, correct, performant, idiomatic code
 as per the beads. Do this meticulously and carefully!
 ```
 
-### P21 -- UBS Scan
+### §7.8 UBS Scan (ex P21)
 
 ```
 Run ubs . to scan the entire codebase. Analyze the results carefully and identify
 any issues, improvements, or areas needing attention. Use ultrathink.
 ```
 
-### P23 -- Random Inspect
+### §7.9 Random Inspect (ex P23)
 
 ```
 Pick 5 random files in the project you haven't looked at recently. Read them
@@ -373,9 +387,40 @@ carefully. Trace their execution flows. Find anything wrong. Fix it. Use ultrath
 
 ---
 
-## Quality & Ideation Prompts
+## §8 — Performance
 
-### P12 -- Stripe-Level UI
+### §8.1 Deep Performance Audit
+
+```
+First read ALL of AGENTS.md and README.md super carefully.
+Then fully understand the code, architecture, and purpose of the project.
+
+Once you've deeply understood the entire system, investigate:
+- Are there gross inefficiencies in the core system?
+- Where would changes actually move the needle on latency/throughput?
+- Where can we prove changes are functionally isomorphic (same outputs)?
+- Where is there a clearly better algorithm or data structure?
+
+Consider: N+1 elimination, zero-copy, buffer reuse, scatter-gather I/O,
+serialization costs, bounded queues + backpressure, striped locks, memoization,
+dynamic programming, lazy evaluation, streaming/chunked processing,
+pre-computation, index-based lookup, binary search, two-pointer, prefix sums.
+
+METHODOLOGY:
+A) Baseline first: run tests + representative workload, record p50/p95/p99
+B) Profile before proposing: capture CPU + allocation + I/O profiles
+C) Equivalence oracle: define explicit golden outputs + invariants
+D) Isomorphism proof per change: short proof sketch why outputs cannot change
+E) Opportunity matrix: rank by (Impact x Confidence) / Effort before implementing
+F) Minimal diffs: one performance lever per change, no unrelated refactors
+G) Regression guardrails: add benchmark thresholds or monitoring hooks
+```
+
+---
+
+## §Q — Quality & Ideation (any phase)
+
+### §Q.1 Stripe-Level UI (ex P12)
 
 ```
 I want you to do a spectacular job building absolutely world-class UI/UX
@@ -386,7 +431,7 @@ the project. Carefully consider desktop UI/UX and mobile UI/UX separately and
 hyper-optimize for both. Use ultrathink.
 ```
 
-### P13 -- E2E Pipeline Validator
+### §Q.2 E2E Pipeline (ex P13)
 
 ```
 We really need totally complete, totally comprehensive, granular, perfect end
@@ -396,14 +441,14 @@ provable, ultra-rigorous way -- from "soup to nuts." Plus comprehensive unit
 tests with detailed logging. Use ultrathink.
 ```
 
-### P19 -- Audit UX
+### §Q.3 UX Audit (ex P19)
 
 ```
 Scrutinize the UX of the entire project. Find every rough edge, confusing flow,
 and unintuitive behavior. Fix them all. Use ultrathink.
 ```
 
-### P22 -- Fix Bug (root-cause only)
+### §Q.4 Root-Cause Fix (ex P22)
 
 ```
 Find the root cause of this bug. Don't patch symptoms. Understand why it happened,
@@ -411,7 +456,7 @@ fix the underlying issue, and verify the fix doesn't break anything else.
 Use ultrathink.
 ```
 
-### Deployment Verifier
+### §Q.5 Deploy & Verify
 
 ```
 Deploy to <PLATFORM> and verify that the deployment worked properly without any
@@ -421,7 +466,7 @@ js errors and look at the screenshots for potential problems and iterate and fix
 them all super carefully!
 ```
 
-### P16 -- Idea Wizard (30 to 5)
+### §Q.6 Idea Wizard 30→5 (ex P16)
 
 ```
 Come up with your very best ideas for improving this project to make it more
@@ -432,7 +477,7 @@ list down to your VERY best 5 ideas. Explain each of the 5 ideas in order from
 best to worst. Use ultrathink.
 ```
 
-### 100-to-10 Filter
+### §Q.7 100-to-10 Filter
 
 ```
 I want you to come up with your top 10 most brilliant ideas for adding extremely
@@ -445,18 +490,11 @@ come up with one HUNDRED ideas and then only tell me your 10 VERY BEST and most
 brilliant, clever, and radically innovative and powerful ideas.
 ```
 
-### P14 -- System Weaknesses Analyzer
-
-```
-Based on everything you've seen, what are the weakest/worst parts of the system?
-What is most needing of fresh ideas and innovative/creative/clever improvements?
-```
-
 ---
 
-## Meta Prompts
+## §M — Meta (any phase)
 
-### P10 -- Deep Project Primer
+### §M.1 Deep Project Primer (ex P10)
 
 ```
 First read ALL of the AGENTS.md file and README.md file super carefully and
@@ -464,7 +502,14 @@ understand ALL of both! Then use your code investigation agent mode to fully
 understand the code, and technical architecture and purpose of the project.
 ```
 
-### README Reviser
+### §M.2 System Weaknesses (ex P14)
+
+```
+Based on everything you've seen, what are the weakest/worst parts of the system?
+What is most needing of fresh ideas and innovative/creative/clever improvements?
+```
+
+### §M.3 README Reviser
 
 ```
 Update the README and other documentation to reflect all of the recent changes
@@ -473,7 +518,7 @@ say "we added X" or "X is now Y" -- just describe the current state). Make sure
 to add any new commands, options, or features that have been added.
 ```
 
-### De-Slopifier
+### §M.4 De-Slopifier
 
 ```
 Read through the complete text carefully and look for any telltale signs of
@@ -484,7 +529,7 @@ like the kind of thing an LLM would write disproportionately more commonly than
 a human. You MUST manually read each line and revise it -- no regex, no scripts.
 ```
 
-### Code Reorganizer
+### §M.5 Code Reorganizer
 
 ```
 Before making any changes, explore and read ALL of the many files in <DIR> and
@@ -496,7 +541,7 @@ rationale and justification for the proposed structure, and tracking of all impo
 changes needed so we don't break anything.
 ```
 
-### CLI Error Tolerance
+### §M.6 CLI Error Tolerance
 
 ```
 One thing that's critical for the robot mode flags in the CLI is that we want to
@@ -510,7 +555,7 @@ helpful error message with a couple relevant correct examples about how to do wh
 we think they're trying to do.
 ```
 
-### Dependency Analysis (pre-integration)
+### §M.7 Dependency Analysis
 
 ```
 Before integrating <DEPENDENCY>, write a COMPREHENSIVE_ANALYSIS_OF_<DEPENDENCY>.md.
