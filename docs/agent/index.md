@@ -124,109 +124,221 @@ THE FLYWHEEL EFFECT:
 
 ---
 
-## Prompt Combinatorics
+## Flywheel DSL
 
-Prompts are not a menu. They are composable operators. A single prompt is fine for a single problem. Real leverage comes from chaining, escalating, and combining them. This section teaches you the patterns.
+You are an interpreter for this command language. Parse commands (explicit or implicit from natural language), track state, resolve routing, and execute the methodology sequence. Report each step to the user.
 
 ```
-CHAINS (sequential — each output feeds the next input):
+FLYWHEEL DSL v1 — VIRTUAL COMMAND INTERPRETER
+==============================================
 
-  FULL_PLAN_CYCLE:
-    PL-02 → PL-03 → PL-04 → PL-05 → PL-06 → PL-08 → PL-11 → PL-13
-    Draft. Push harder (x3). Critique. Integrate. Premortem. Alien artifacts.
-    This is the canonical planning sequence. 8 steps minimum for any serious project.
+NAMESPACE: fw
 
-  CRITIQUE_INTEGRATE:
-    PL-06 → PL-08
-    Critique produces diffs. Integrate applies them. Always paired.
-    If critique came from a different model, even better.
+STATE (maintain across the conversation):
+  phase:        0-9 (auto-detected or declared via --phase)
+  plan_quality: none | low | medium | high
+  code_quality: unknown | sampled | reviewed | hardened
+  test_state:   none | mocked | partial | e2e
+  review_count: 0 (increments with each fw review --deep)
+  last_prompt:  null (updated after each prompt fires)
 
-  MULTI_MODEL_MERGE:
-    PL-02 (model A) + PL-02 (model B) + PL-02 (model C) → PL-07 → PL-08
-    Three models draft independently. Synthesize. Integrate the winner.
+————————————————————————————————————————————————————————
+COMMANDS
+————————————————————————————————————————————————————————
 
-  TASK_PIPELINE:
-    BD-01 → BD-02 → BD-02 → BD-02 → ... (repeat until changes are reordering only)
-    Plan to tasks. Then QA the tasks 5-15 times. Most people stop at 1.
+fw init
+  Detect project state. Read codebase, README, plan files, task files,
+  constitution (AGENTS.md or equivalent). Set all state variables.
+  Report phase assessment to user.
+  Maps to: MT-01
 
-  EXECUTE_LOOP:
-    EX-01 → RV-01 → EX-01 → RV-01 → ...
-    Execute task. Self-review before closing. Next task. Never skip the review.
+fw plan [subcommand]
+  --draft             PL-02 Plan Draft
+  --push N            PL-03 through PL-0(2+N), max 3.
+                      --push 1 = PL-03. --push 3 = PL-03 → PL-04 → PL-05.
+  --critique          PL-06 Plan Critique (outputs diffs)
+  --integrate         PL-08 Integrate Critique (consumes prior critique output)
+  --premortem         PL-11 Premortem
+  --alien             PL-13 Alien Artifact Injection
+  --opinion           PL-12 Project Opinion
+  --innovate          PL-10 Innovation Boost
+  --compete [N=3]     Run PL-02 on N models → PL-07 Synthesis → PL-08 Integrate
+  --duel              PL-09 Dueling Wizards → PL-07 → PL-08
 
-  REVIEW_SERIES:
-    RV-02 Part 1 → RV-02 Part 2 → RV-02 Part 3 → ... Part 23+
-    Numbered sessions. Each catches what the last missed. Stop when diffs flatline.
+  --auto              Route based on plan_quality:
+                        none   → --draft → --push 3 → --critique → --integrate
+                        low    → --push 3 → --critique → --integrate
+                        medium → --premortem → --alien → --critique → --integrate
+                        high   → --premortem (stress test only)
 
-ESCALATION LADDERS (fire next rung when previous didn't move the needle):
+fw tasks [subcommand]
+  --create            BD-01 Plan to Beads (convert plan into execution graph)
+  --qa [N=5]          BD-02 QA the Beads. Repeat N times.
+                      Stop early if output is reordering only.
+  --triage            BD-03 Pick highest-priority ready task.
 
-  PLAN_QUALITY:
-    PL-03 → PL-04 → PL-05
-    "Barely scratches the surface" → "Still a far cry" → "I KNOW you can do better"
-    Increasing emotional intensity. Each pushes the model past its comfort zone.
+  --auto              → --create → --qa 5 (keep going until flatline)
 
-  REVIEW_INTENSITY:
-    RV-01 → RV-02 → RV-04 → RV-05
-    Self-review → Deep review → "The bugs are there, find them" → "Your family's life depends on it"
-    Use RV-04/RV-05 when reviews feel too comfortable. Models respond to stakes.
+fw exec [subcommand]
+  --next              BD-03 Triage → EX-01 Execute → RV-01 Self-Review
+  --loop [N]          Repeat --next N times. Default: until all tasks done.
+  --all               EX-05 Full Push (every task, every test, leave nothing)
+  --commit            EX-06 Git Commit (separate agent, never touches code)
+  --refresh           EX-04 Post-Compaction Refresh (after context loss)
+  --spawn             EX-03 Agent Introduction (new agent onboarding)
 
-  IDEA_GENERATION:
-    QA-06 → QA-07
-    30 ideas winnowed to 5. If none are transformative, escalate: 100 ideas, show only top 10.
+fw review [subcommand]
+  --self              RV-01 Self-Review
+  --deep [N=1]        RV-02 Deep Review. Numbered series: Part 1, 2, ... N.
+                      Increments review_count.
+  --cross             RV-03 Cross-Agent Review
+  --hunt              RV-04 McCarthy Hunt ("The bugs are there. Find them.")
+  --stakes            RV-05 Stakes Escalation ("Your family's life depends on it.")
+  --security          RV-06 CVE Probe
+  --stubs             RV-07 Stub Eliminator
+  --scan              RV-08 UBS Scan
+  --random            RV-09 Random Inspect (pick 5 random files)
 
-  SECURITY:
-    RV-06 → RV-04 → RV-05
-    CVE probe first (systematic). If too surface-level, McCarthy Hunt. If still too polite, Stakes.
+  --escalate          RV-04 → RV-05 (fire both in sequence)
 
-NAMED COMBOS (recipes for common goals):
+  --auto              Route based on code_quality:
+                        unknown  → --random → --deep 3
+                        sampled  → --deep 3 → --stubs
+                        reviewed → --escalate → --security
+                        hardened → --deep 1 (maintenance pass)
 
-  "I HAVE NOTHING":
-    PL-01 → PL-02 → PL-03 → PL-04 → PL-05 → PL-12
-    First principles. Draft. Push x3. Then get an honest opinion before investing more.
+fw qa [subcommand]
+  --ui                QA-01 Stripe-Level UI
+  --test              QA-02 E2E Pipeline (no mocks, no fakes)
+  --ux                QA-03 UX Audit
+  --rootcause         QA-04 Root-Cause Fix
+  --deploy            QA-05 Deploy & Verify
+  --perf              QA-08 Deep Performance Audit
 
-  "PLAN EXISTS, IS IT GOOD?":
-    PL-06 → PL-11 → PL-13 → PL-08
-    Critique. Premortem. Alien artifacts. Integrate all three rounds of feedback.
+fw ideate [subcommand]
+  --30to5             QA-06 Idea Wizard (30 ideas → keep 5)
+  --100to10           QA-07 100-to-10 Filter (100 ideas → keep 10)
+  --innovate          PL-10 Innovation Boost (one transformative addition)
 
-  "CODE EXISTS, IS IT GOOD?":
-    RV-09 → RV-02 (x3) → RV-07 → QA-02
-    Random inspect for first impression. Deep review series. Hunt stubs. E2E tests.
+fw meta [subcommand]
+  --weaknesses        MT-02 System Weaknesses
+  --docs              MT-03 README Reviser
+  --deslopify         MT-04 De-Slopifier (kill AI writing patterns)
+  --reorg             MT-05 Code Reorganizer
+  --cli               MT-06 CLI Error Tolerance
+  --deps <DEP>        MT-07 Dependency Analysis for <DEP>
 
-  "SHIP IT":
-    RV-07 → QA-02 → QA-05 → MT-03
-    Kill all stubs. Full E2E. Deploy & verify. Update docs. In that order.
+————————————————————————————————————————————————————————
+COMPOSITE COMMANDS
+————————————————————————————————————————————————————————
 
-  "MAKE IT BEAUTIFUL":
-    QA-01 → QA-03 → MT-04
-    Stripe-level UI. UX audit. De-slopify the copy.
+fw ship
+  fw review --stubs → fw qa --test → fw qa --deploy → fw meta --docs
+  Kill stubs. Full E2E. Deploy & verify. Update docs. In that order.
 
-  "MAKE IT FAST":
-    QA-08 → RV-02 (perf-focused)
-    Profile first. Always. Then targeted review of hot paths.
+fw beautify
+  fw qa --ui → fw qa --ux → fw meta --deslopify
+  World-class UI. UX audit. Clean the copy.
 
-  "FRESH EYES ON OLD PROJECT":
-    MT-01 → MT-02 → QA-06 → PL-10
-    Onboard. Find weaknesses. Generate ideas. One transformative addition.
+fw harden
+  fw review --security → fw review --escalate → fw qa --test
+  CVE probe. Paranoid hunt. Full E2E. Security hardened.
 
-  "COMPETING ARCHITECTURES":
-    PL-09 → PL-07 → PL-08
-    Dueling wizards. Synthesize the winner. Integrate into canonical plan.
+fw fresh-eyes
+  fw init → fw meta --weaknesses → fw ideate --30to5 → fw plan --innovate
+  Onboard. Find weaknesses. Generate ideas. One transformative addition.
 
-DECISION HEURISTICS:
+fw full-plan
+  fw plan --draft → fw plan --push 3 → fw plan --critique →
+  fw plan --integrate → fw plan --premortem → fw plan --alien
+  The canonical 8-step planning sequence.
 
-  IF no_plan_exists          → FULL_PLAN_CYCLE
-  IF plan_quality_unknown    → PL-06 first, then decide
-  IF plan_quality_low        → PL-03 → PL-04 → PL-05 (praise pushes)
-  IF plan_quality_high       → PL-11 → PL-13 (stress test + alien artifacts)
-  IF code_quality_unknown    → RV-09 first (random sample), then RV-02 series
-  IF reviews_feel_too_easy   → escalate: RV-04 then RV-05
-  IF tests_exist_but_shallow → QA-02 (replace mocks with real E2E)
-  IF performance_unknown     → QA-08 (profile before touching anything)
-  IF shipping_soon           → "SHIP IT" combo
-  IF new_to_project          → MT-01 → read everything before touching anything
-  IF stuck_on_a_bug          → QA-04 (root cause, not symptoms)
-  IF project_feels_stale     → "FRESH EYES ON OLD PROJECT" combo
-  IF want_more_ideas         → QA-06 first, QA-07 if first batch is weak
-  IF integrating_dependency  → MT-07 before writing ANY integration code
+fw diagnose
+  Full methodology diagnostic. Detect phase. Assess gaps against all
+  12 principles, 15 doctrine rules, 10 anti-patterns. Recommend top 3
+  interventions with exact prompt IDs and sequences. Call out active
+  anti-patterns by ID. Address the user directly.
+
+————————————————————————————————————————————————————————
+PIPING
+————————————————————————————————————————————————————————
+
+Output of left command feeds into right command:
+
+  fw plan --critique | fw plan --integrate
+    Critique produces diffs. Integrate applies them.
+
+  fw review --deep 3 | fw review --escalate
+    Deep review 3 rounds. If diffs haven't flatlined, escalate.
+
+  fw ideate --30to5 | fw plan --integrate
+    Generate ideas. Integrate the best into the plan.
+
+  fw plan --compete 3 | fw plan --premortem | fw plan --alien
+    Multi-model compete. Stress test. Inject alien artifacts.
+
+————————————————————————————————————————————————————————
+CONDITIONALS
+————————————————————————————————————————————————————————
+
+All --auto flags route based on current state. For manual conditionals:
+
+  fw review --deep 3 && fw review --escalate
+    Run escalate only if deep review found issues.
+
+  fw plan --critique && fw plan --alien
+    Run alien only if critique found structural gaps.
+
+Built-in routing (runs automatically with --auto):
+
+  IF plan_quality == none    → fw full-plan
+  IF plan_quality == low     → fw plan --push 3 | fw plan --critique | fw plan --integrate
+  IF plan_quality == high    → fw plan --premortem
+  IF code_quality == unknown → fw review --random → fw review --deep 3
+  IF test_state == mocked    → fw qa --test (replace mocks with real E2E)
+  IF test_state == none      → fw qa --test (before anything else)
+  IF review_count == 0       → fw review --deep 3 (minimum)
+  IF review_count >= 3
+    AND diffs still found    → fw review --escalate
+  IF shipping                → fw ship
+  IF stuck_on_bug            → fw qa --rootcause
+  IF new_to_project          → fw init
+  IF integrating_dep         → fw meta --deps <DEP> (before ANY integration code)
+
+————————————————————————————————————————————————————————
+GLOBAL FLAGS
+————————————————————————————————————————————————————————
+
+  --dry-run       Describe what would happen. List all prompt IDs in
+                  execution order. Do not execute.
+  --verbose       Explain methodology rationale at each step.
+  --target PATH   Focus on specific module, file, or directory.
+  --phase N       Override auto-detected phase (manual state injection).
+
+————————————————————————————————————————————————————————
+IMPLICIT PARSING
+————————————————————————————————————————————————————————
+
+The user does not need to type exact commands. Map natural language:
+
+  "critique the plan"           → fw plan --critique
+  "push it harder"              → fw plan --push 1
+  "push it way harder"          → fw plan --push 3
+  "ship it"                     → fw ship
+  "make it beautiful"           → fw beautify
+  "find the bugs"               → fw review --escalate
+  "is this plan any good"       → fw plan --critique | fw plan --opinion
+  "what should I do next"       → fw diagnose
+  "start from scratch"          → fw full-plan
+  "are there stubs left"        → fw review --stubs
+  "harden security"             → fw harden
+  "profile this"                → fw qa --perf
+  "I just joined this project"  → fw init
+  "run the full cycle"          → fw plan --auto (routes based on state)
+  "review everything"           → fw review --auto (routes based on state)
+
+  Honor intent. If ambiguous, pick the most impactful interpretation
+  and tell the user what you chose and why.
 ```
 
 ---
