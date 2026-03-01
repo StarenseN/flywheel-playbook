@@ -10,11 +10,11 @@ These are the ideas behind the workflow. Understand these first; the phases are 
 
 ## 1. Planning is leverage
 
-High-quality planning compresses implementation time, reduces rework, and improves architecture and UX before code exists. This is not "writing docs before coding." This is recognizing that the plan IS the product; code is just the plan's compiled form.
+High-quality planning compresses implementation time, reduces rework, and improves architecture and UX before code exists. Not "writing docs before coding." The plan IS the product. Code is just the plan's compiled form.
 
 ## 2. Iterative refinement beats single-shot
 
-No single pass; no matter how good the model; catches everything. Repeated critique cycles reliably improve robustness, testability, and clarity. Four to five refinement rounds is the floor before diminishing returns; on a serious project, total revision count including multi-model passes, alien artifacts, and post-merge alignment will hit 8-15.
+No single pass -- no matter how good the model -- catches everything. Repeated critique cycles improve robustness, testability, and clarity. Four to five refinement rounds is the floor. On a serious project, total revision count including multi-model passes, alien artifacts, and post-merge alignment will hit 8-15.
 
 ## 3. Diff-based revisions are the key mechanic
 
@@ -28,7 +28,7 @@ Most people think there are two spaces: plan space and code space. Wrong. There 
 2. **Bead-map space** -- where the execution graph lives (`master-todo-bead-map.md`)
 3. **Code space** -- where the implementation lives (`src/`)
 
-The plan is read-once. After beads are created, `PLAN.md` is closed. Agents read the bead-map during execution, never the plan. The bead-map is the bridge artifact that connects design intent to executable work.
+The plan is read-once. After beads are created, `PLAN.md` is closed. Agents read the bead-map during execution, never the plan. The bead-map bridges design intent to executable work.
 
 ## 5. Use the right model for the job
 
@@ -53,20 +53,20 @@ The asymmetry: revising a bead takes seconds; fixing a wrong implementation take
 
 ## 8. Avoid communication purgatory
 
-Coordination is valuable, but progress requires agents to pick actionable beads and ship. If an agent is spending more time coordinating than coding, something is wrong. Be proactive about starting tasks; inform fellow agents when you start work, don't ask for permission. Mark beads appropriately so others can see what's claimed.
+Coordination is valuable, but progress requires agents to pick actionable beads and ship. If an agent spends more time coordinating than coding, something is wrong. Be proactive about starting tasks. Inform fellow agents when you start work, don't ask for permission. Mark beads so others can see what's claimed.
 
 ## 9. Fresh-eyes review loops work
 
-After agents implement, run repeated "reread what you wrote and fix obvious issues" loops until changes flatline. Each pass catches things the previous one missed. The first pass catches obvious bugs. The second catches architectural inconsistencies. The third catches edge cases. By the fourth or fifth, you're getting clean results. Run these as numbered sessions; Part 1, Part 2, all the way to Part 23 if needed.
+After agents implement, run repeated "reread what you wrote and fix obvious issues" loops until changes flatline. Each pass catches things the previous one missed. First pass: obvious bugs. Second: architectural inconsistencies. Third: edge cases. By the fourth or fifth, results are clean. Run these as numbered sessions -- Part 1, Part 2, all the way to Part 23 if needed.
 
 ## 10. Alien artifacts are a scheduled discipline
 
-Before converting the plan to beads, deliberately inject mathematically advanced constructs; BOCPD, VOI, conformal prediction, e-processes. This is a named phase, not an ad-hoc addition. Take the plan to a model strong at formal reasoning and tell it to add "alien artifacts"; theoretically optimal constructs that a brilliant but alien mathematician might suggest. This is what pushes plans beyond standard engineering into something genuinely novel.
+Before converting the plan to beads, deliberately inject mathematically advanced constructs -- BOCPD, VOI, conformal prediction, e-processes. A named phase, not an ad-hoc addition. Take the plan to a model strong at formal reasoning and tell it to add "alien artifacts" -- theoretically optimal constructs that a brilliant but alien mathematician might suggest. This pushes plans beyond standard engineering into genuinely novel territory.
 
 ## 11. Study yourself building
 
-Every major project gets an `ANALYSIS_OF_SPEC_DOC_DIFFS.md`. Same format every time: 10-bucket classification of every commit to the spec. Track how the spec evolved; logic fixes, architectural fixes, alien artifacts added, clarifications, noise. The evolution of the spec is a map of where your thinking was wrong. Over time these documents train your intuition.
+Every major project gets an `ANALYSIS_OF_SPEC_DOC_DIFFS.md`. Same format every time: 10-bucket classification of every commit to the spec. Track how the spec evolved -- logic fixes, architectural fixes, alien artifacts added, clarifications, noise. The evolution of the spec is a map of where your thinking was wrong. Over time, these documents train your intuition.
 
 ## 12. Every word in a prompt is a constraint
 
-Short prompts that force the model beyond its default posture beat long prompts that enumerate everything it should think about. This is counterintuitive. Models are not search engines with a personality; they are collaborators. They respond to how you frame things. They respond to stakes. They respond to praise. Use that.
+Short prompts that force the model beyond its default posture beat long prompts that enumerate everything it should think about. Counterintuitive, but true. Models are not search engines with a personality -- they are collaborators. They respond to framing. They respond to stakes. They respond to praise. Use that.

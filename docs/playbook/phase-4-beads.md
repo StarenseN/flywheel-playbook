@@ -57,7 +57,7 @@ Then create `master-todo-bead-map.md`:
 - [ ] CellAttrs + style flags -> bd-10i.3.3
 ```
 
-This exists for one reason: **agents should never need to reopen the plan.** The plan is read-once. The map is the execution surface. During implementation, agents read the map, pick a bead, implement it, close it, pick the next one. PLAN.md is closed.
+One purpose: **agents should never need to reopen the plan.** The plan is read-once. The map is the execution surface. During implementation, agents read the map, pick a bead, implement it, close it, pick the next one. PLAN.md is closed.
 
 !!! warning
     After beads exist, PLAN.md is closed. The bead-map is the execution surface. If an agent re-reads the plan during EX-01 Execute Beads, something went wrong in bead conversion.

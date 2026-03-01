@@ -20,6 +20,7 @@ When you're in situation X, use prompt Y.
 | Need a single transformative addition | PL-10 Innovation Boost | PL |
 | Ready to stress-test plan against failure | PL-11 Premortem | PL |
 | Need honest project assessment | PL-12 Project Opinion | PL |
+| Injecting alien artifacts | PL-13 Alien Artifact Injection | PL |
 | Converting plan to beads | BD-01 Plan to Beads | BD |
 | Reviewing bead quality | BD-02 QA the Beads | BD |
 | Picking next bead to work on | BD-03 BV Triage | BD |

@@ -41,7 +41,7 @@ If improvements are needed, revise the beads accordingly using only bd.
 | 4 | **Tests** -- is coverage comprehensive with detailed logging? |
 | 5 | **Security/ops** -- are there beads for threats, alerts, monitoring? |
 
-Run 5-15 passes. The number is not arbitrary -- it's however many it takes until changes become reordering and renaming instead of finding missing work.
+Run 5-15 passes. Not an arbitrary number -- however many it takes until changes are reordering and renaming, not finding missing work.
 
 !!! warning
     The two most common failure modes are **oversimplifying** and **losing features**. Agents under-scoping beads during QA is the single most common failure mode. Watch for it.

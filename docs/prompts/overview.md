@@ -4,7 +4,7 @@ icon: lucide/terminal
 
 # The Complete Prompt Catalog
 
-45 prompts organized by category. Verbatim. Copy-paste only. Do not paraphrase.
+46 prompts organized by category. Verbatim. Copy-paste only. Do not paraphrase.
 
 **Naming:** `XX-nn Name` — two-letter prefix tells you the category, number gives order within it.
 
@@ -12,7 +12,7 @@ icon: lucide/terminal
 
 | Prefix | Category | Count | Prompts |
 |:-------|:---------|:------|:--------|
-| **PL-** | Planning | 12 | PL-01 First Principles, PL-02 Plan Draft, PL-03 to PL-05 Praise Pushes, PL-06 Plan Critique, PL-07 Multi-Model Synthesis, PL-08 Integrate Critique, PL-09 Dueling Wizards, PL-10 Innovation Boost, PL-11 Premortem, PL-12 Project Opinion |
+| **PL-** | Planning | 13 | PL-01 First Principles, PL-02 Plan Draft, PL-03 to PL-05 Praise Pushes, PL-06 Plan Critique, PL-07 Multi-Model Synthesis, PL-08 Integrate Critique, PL-09 Dueling Wizards, PL-10 Innovation Boost, PL-11 Premortem, PL-12 Project Opinion, PL-13 Alien Artifact Injection |
 | **BD-** | Beads | 3 | BD-01 Plan to Beads, BD-02 QA the Beads, BD-03 BV Triage |
 | **EX-** | Execution | 6 | EX-01 Execute Beads, EX-02 Mail Check, EX-03 Agent Introduction, EX-04 Refresh, EX-05 Full Push, EX-06 Git Commit |
 | **RV-** | Review | 9 | RV-01 Self-Review, RV-02 Deep Review, RV-03 Cross-Agent Review, RV-04 McCarthy Hunt, RV-05 Stakes Escalation, RV-06 CVE Probe, RV-07 Stub Eliminator, RV-08 UBS Scan, RV-09 Random Inspect |

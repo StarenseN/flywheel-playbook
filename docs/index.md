@@ -13,7 +13,7 @@ Definitive guide to building software with AI agent swarms.
 
 Most people using AI agents are doing it wrong. Not slightly wrong. Catastrophically wrong. They open Claude, describe what they want, accept whatever comes back, and move on. Then they wonder why the code is brittle, the architecture is incoherent, and they spent three days debugging something an agent wrote in four minutes.
 
-Here is the fundamental insight: **planning tokens are cheap. Code tokens are expensive. Debugging tokens are ruinous.**
+**Planning tokens are cheap. Code tokens are expensive. Debugging tokens are ruinous.**
 
 | Activity | How most people work | How this works |
 |:---------|:---------------------|:---------------|
@@ -23,7 +23,7 @@ Here is the fundamental insight: **planning tokens are cheap. Code tokens are ex
 
 That's not a typo. Eighty-five percent planning. A 6-hour planning session prevents 60 hours of agent chaos. A bad plan wastes multi-agent hours across parallel workers. A good plan pays for itself before the first line of code.
 
-And there's a deeper flywheel most people miss: **each project you build becomes a library for the next project.** The tools compound. FrankenTUI feeds FrankenSQLite feeds FrankenTerm feeds Agent Mail Rust. The February 2026 Rust Agent Mail port stacks 10 self-built libraries. That compounding; each project consuming previous projects and becoming infrastructure for the next; is the actual flywheel. The planning methodology is just the engine that makes each rotation clean enough to build on.
+There is a deeper flywheel most people miss: **each project you build becomes a library for the next project.** The tools compound. FrankenTUI feeds FrankenSQLite feeds FrankenTerm feeds Agent Mail Rust. The February 2026 Rust Agent Mail port stacks 10 self-built libraries. That compounding -- each project consuming previous projects and becoming infrastructure for the next -- is the actual flywheel. The planning methodology is just the engine that makes each rotation clean enough to build on.
 
 ---
 
@@ -33,7 +33,7 @@ And there's a deeper flywheel most people miss: **each project you build becomes
 |:--------|:------------|
 | [12 Principles](playbook/principles.md) | The ideas behind the workflow |
 | [10 Phases](playbook/phase-0-prerequisites.md) | Sequential steps from prerequisites to metacognition |
-| [41 Prompts](prompts/prompt-pack.md) | Verbatim, copy-paste, organized by when you use them |
+| [46 Prompts](prompts/prompt-pack.md) | Verbatim, copy-paste, organized by category |
 | [Dispatch Table](reference/dispatch.md) | "When in situation X, use prompt Y" |
 | [Toolchain](reference/toolchain.md) | 23 tools that make the flywheel turn |
 | [Anti-Patterns](reference/anti-patterns.md) | 10 ways to destroy your project |

@@ -8,7 +8,7 @@ Repeatedly review implemented code until review passes produce no substantive di
 
 ---
 
-This is where most people drop the ball. They do one review pass and call it done. I run numbered fix sessions. Part 1, Part 2, all the way to Part 23 or further.
+Most people drop the ball here. One review pass, done. I run numbered fix sessions. Part 1, Part 2, all the way to Part 23 or further.
 
 ## Self-Review After Each Bead (RV-01)
 
@@ -29,7 +29,7 @@ With fresh eyes, look for:
 Carefully fix anything you uncover. Be meticulous.
 ```
 
-This runs after every bead, not just at the end. It's baked into the bead execution protocol.
+Runs after every bead, not just at the end. Baked into the bead execution protocol.
 
 ## Deep Review -- Numbered Sessions (RV-02)
 
@@ -101,9 +101,9 @@ as per the beads. Do this meticulously and carefully!
 
 Agents leave stubs during initial passes. This catches them all.
 
-## Why Fresh-Eyes Loops Work
+## The Mechanics
 
-Each review pass catches things the previous one missed because the agent's mental model has shifted. The first pass catches obvious bugs. The second catches architectural inconsistencies. The third catches edge cases. By the fourth or fifth pass, you're getting clean results. Run these as Part 1, Part 2, Part 3... the counter provides accountability and progress tracking.
+Each review pass catches things the previous one missed because the agent's mental model has shifted. First pass: obvious bugs. Second: architectural inconsistencies. Third: edge cases. By the fourth or fifth, results are clean. The numbered counter (Part 1, Part 2, Part 3...) provides accountability and progress tracking.
 
 !!! important
     **Stop condition:** Repeated fresh-eyes passes produce no substantive diffs. The code has converged.

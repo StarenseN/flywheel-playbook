@@ -4,11 +4,11 @@ icon: lucide/copy
 
 # Full Prompt Pack
 
-45 prompts on one page for copy-paste. Organized by category. Each ID is self-documenting: the prefix tells you the category, the number gives you order within it.
+46 prompts on one page for copy-paste. Organized by category. Each ID is self-documenting: the prefix tells you the category, the number gives you order within it.
 
 | Prefix | Category | Count |
 |:-------|:---------|:------|
-| **PL-** | Planning | 12 |
+| **PL-** | Planning | 13 |
 | **BD-** | Beads | 3 |
 | **EX-** | Execution | 6 |
 | **RV-** | Review | 9 |
@@ -171,6 +171,35 @@ Now tell me what you actually THINK of the project -- is it even a good idea?
 Is it useful? Is it well designed and architected? Pragmatic? What could we do
 to make it more useful and compelling and intuitive/user-friendly to both humans
 AND to AI coding agents?
+```
+
+### PL-13 Alien Artifact Injection
+
+```
+You are a brilliant mathematician and theoretical computer scientist reviewing
+a software engineering plan. Your job is to identify places where mathematically
+sophisticated constructs would be strictly superior to the standard engineering
+approaches currently specified.
+
+Look for opportunities to inject:
+- Bayesian Online Changepoint Detection (BOCPD) for regime shifts
+- Value of Information (VOI) for decision-making under uncertainty
+- Conformal prediction for distribution-free confidence intervals
+- E-processes / anytime-valid sequential testing
+- Information-theoretic bounds for compression or communication
+- Optimal stopping theory for resource allocation
+- Concentration inequalities for tail bounds
+
+For each suggestion:
+1. What it replaces in the current plan
+2. Why the mathematical construct is strictly better
+3. The specific algorithm or formula to implement
+4. Edge cases where it degrades gracefully to the naive approach
+
+Be precise. Provide equations where relevant. Do not suggest constructs that
+add complexity without measurable benefit.
+
+<PASTE THE COMPLETE PLAN HERE>
 ```
 
 ---

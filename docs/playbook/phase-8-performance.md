@@ -8,11 +8,11 @@ Profile-driven optimization as a scheduled phase, not reactive debugging.
 
 ---
 
-This is not reactive. It is a scheduled bead.
+Not reactive. A scheduled bead.
 
 Create beads for profiling: `bd-proj.flamegraph` and `bd-proj.heaptrack`. Assign them like any other work. The agents profile, analyze, write documents.
 
-## Deep Performance Audit
+## Deep Performance Audit (QA-08)
 
 For serious performance work, use the full methodology:
 
@@ -41,8 +41,36 @@ F) Minimal diffs: one performance lever per change, no unrelated refactors
 G) Regression guardrails: add benchmark thresholds or monitoring hooks
 ```
 
+## The Methodology in Practice
+
+The seven steps (A-G) prevent "optimization theater" -- proposing changes without profiling first.
+
+| Step | What it prevents |
+|:-----|:-----------------|
+| A) Baseline | Optimizing without knowing where you started |
+| B) Profile | Guessing at hotspots instead of measuring |
+| C) Equivalence oracle | Breaking correctness for speed |
+| D) Isomorphism proof | Shipping changes that subtly alter behavior |
+| E) Opportunity matrix | Working on low-impact changes first |
+| F) Minimal diffs | Mixing performance work with refactoring |
+| G) Regression guardrails | Losing gains in future commits |
+
+## Profiling Bead Examples
+
+```
+bd-proj.flamegraph
+  "Generate CPU flame graphs for the 3 primary workloads.
+   Identify the top 5 hotspots by cumulative time.
+   Document findings in PERFORMANCE_ANALYSIS.md."
+
+bd-proj.heaptrack
+  "Run heaptrack on the memory-intensive paths.
+   Identify allocation-heavy call sites.
+   Propose zero-copy or arena alternatives where justified."
+```
+
 !!! tip
-    The methodology requirements prevent "optimization theater." Profile before proposing. Prove correctness before shipping. One lever per diff.
+    Profile before proposing. Prove correctness before shipping. One lever per diff. No optimization theater.
 
 !!! important
     **Stop condition:** All profiling beads complete. No hotspot above threshold.

@@ -27,17 +27,17 @@ Classify every commit to the spec:
 | 9 | Clarification / disambiguation | Where the spec could be misread |
 | 10 | Other | Uncategorized |
 
-## Why This Matters
+## The Point
 
 The evolution of the spec is a map of where your thinking was wrong. Bucket 4 (conceptual/architectural fixes) tells you where you had the wrong abstraction. Bucket 8 (alien artifacts) tells you where the AI pushed beyond your original vision. Bucket 5 (scrivening) is noise; don't count it.
 
-This document has no audience except future-you starting the next project. It answers:
+Audience: future-you starting the next project. It answers:
 
 - What did you get wrong the fastest?
 - What survived every review unchanged?
 - What kept getting harder to specify?
 
-Over time these documents train your intuition. You learn which parts of a database spec will need 11 revisions before they're right (transaction slots). You learn which parts get it right in round 1 (documentation, always).
+Over time, these documents train your intuition. Which parts of a database spec need 11 revisions before they're right (transaction slots). Which parts get it right in round 1 (documentation, always).
 
 !!! note
     In frankensqlite, the 10-bucket taxonomy was used on 232 commits to the planning docs across 19 days. In frankentui, Jeff applied the same framework to his own project -- metacognitive feedback loop made explicit.
