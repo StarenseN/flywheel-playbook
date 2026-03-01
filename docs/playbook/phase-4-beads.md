@@ -1,15 +1,10 @@
 ---
-title: "Phase 4: Convert to Beads"
-layout: default
-parent: Playbook
-nav_order: 6
+icon: lucide/git-branch
 ---
 
 # Phase 4 -- Convert Plan to Beads
-{: .fs-8 }
 
 Transform the stable plan into a granular execution graph with epics, tasks, subtasks, and explicit dependencies.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -64,8 +59,8 @@ Then create `master-todo-bead-map.md`:
 
 This exists for one reason: **agents should never need to reopen the plan.** The plan is read-once. The map is the execution surface. During implementation, agents read the map, pick a bead, implement it, close it, pick the next one. PLAN.md is closed.
 
-After beads exist, PLAN.md is closed. The bead-map is the execution surface. If an agent re-reads the plan during P08, something went wrong in bead conversion.
-{: .warning }
+!!! warning
+    After beads exist, PLAN.md is closed. The bead-map is the execution surface. If an agent re-reads the plan during P08, something went wrong in bead conversion.
 
-**Stop condition:** All plan sections have been converted to beads with dependencies. No plan content is left unrepresented.
-{: .important }
+!!! important
+    **Stop condition:** All plan sections have been converted to beads with dependencies. No plan content is left unrepresented.

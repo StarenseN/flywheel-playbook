@@ -1,15 +1,10 @@
 ---
-title: "Phase 8: Performance"
-layout: default
-parent: Playbook
-nav_order: 10
+icon: lucide/gauge
 ---
 
 # Phase 8 -- Performance
-{: .fs-8 }
 
 Profile-driven optimization as a scheduled phase, not reactive debugging.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -46,8 +41,8 @@ F) Minimal diffs: one performance lever per change, no unrelated refactors
 G) Regression guardrails: add benchmark thresholds or monitoring hooks
 ```
 
-The methodology requirements prevent "optimization theater." Profile before proposing. Prove correctness before shipping. One lever per diff.
-{: .tip }
+!!! tip
+    The methodology requirements prevent "optimization theater." Profile before proposing. Prove correctness before shipping. One lever per diff.
 
-**Stop condition:** All profiling beads complete. No hotspot above threshold.
-{: .important }
+!!! important
+    **Stop condition:** All profiling beads complete. No hotspot above threshold.

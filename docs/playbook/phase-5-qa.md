@@ -1,15 +1,10 @@
 ---
-title: "Phase 5: QA the Beads"
-layout: default
-parent: Playbook
-nav_order: 7
+icon: lucide/search-check
 ---
 
 # Phase 5 -- QA the Beads
-{: .fs-8 }
 
 Run repeated review passes over the beads until revisions flatline. Check your beads N times, implement once.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -48,8 +43,8 @@ If improvements are needed, revise the beads accordingly using only bd.
 
 Run 5-15 passes. The number is not arbitrary -- it's however many it takes until changes become reordering and renaming instead of finding missing work.
 
-The two most common failure modes are **oversimplifying** and **losing features**. Agents under-scoping beads during QA is the single most common failure mode. Watch for it.
-{: .warning }
+!!! warning
+    The two most common failure modes are **oversimplifying** and **losing features**. Agents under-scoping beads during QA is the single most common failure mode. Watch for it.
 
-**Stop condition:** Beads changes are mostly reordering or renaming, not missing work or wrong dependencies. The graph has converged.
-{: .important }
+!!! important
+    **Stop condition:** Beads changes are mostly reordering or renaming, not missing work or wrong dependencies. The graph has converged.

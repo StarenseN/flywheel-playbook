@@ -1,15 +1,10 @@
 ---
-title: "Phase 7: Fresh-Eyes Review"
-layout: default
-parent: Playbook
-nav_order: 9
+icon: lucide/eye
 ---
 
 # Phase 7 -- Fresh-Eyes Review
-{: .fs-8 }
 
 Repeatedly review implemented code until review passes produce no substantive diffs. Numbered sessions, not one-shot.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -72,8 +67,8 @@ Diagnose root causes using first-principles reasoning and then fix issues you fi
 Don't restrict yourself to the latest commits -- cast a wider net and go super deep!
 ```
 
-Run this with a different model than the one that wrote the code for true "fresh eyes."
-{: .tip }
+!!! tip
+    Run this with a different model than the one that wrote the code for true "fresh eyes."
 
 ## Escalation Prompts
 
@@ -110,5 +105,5 @@ Agents leave stubs during initial passes. This catches them all.
 
 Each review pass catches things the previous one missed because the agent's mental model has shifted. The first pass catches obvious bugs. The second catches architectural inconsistencies. The third catches edge cases. By the fourth or fifth pass, you're getting clean results. Run these as Part 1, Part 2, Part 3... the counter provides accountability and progress tracking.
 
-**Stop condition:** Repeated fresh-eyes passes produce no substantive diffs. The code has converged.
-{: .important }
+!!! important
+    **Stop condition:** Repeated fresh-eyes passes produce no substantive diffs. The code has converged.

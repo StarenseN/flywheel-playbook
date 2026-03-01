@@ -1,15 +1,10 @@
 ---
-title: "Phase 3: Alien Artifacts"
-layout: default
-parent: Playbook
-nav_order: 5
+icon: lucide/sparkles
 ---
 
 # Phase 3 -- Alien Artifacts
-{: .fs-8 }
 
 Inject theoretically optimal constructs that standard engineering would never produce.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -21,8 +16,8 @@ The idea: a brilliant but alien mathematician reviews your plan and suggests the
 
 Version the output explicitly (e.g., V1.5 = "alien-artifact discipline"). After this, the plan is locked. It does not change unless you explicitly unlock it.
 
-This is what pushes plans beyond standard engineering into something genuinely novel. In frankensqlite, Version 1.5 was literally named "alien-artifact discipline" and added mathematically sophisticated constructs that survived every subsequent review unchanged.
-{: .tip }
+!!! tip
+    This is what pushes plans beyond standard engineering into something genuinely novel. In frankensqlite, Version 1.5 was literally named "alien-artifact discipline" and added mathematically sophisticated constructs that survived every subsequent review unchanged.
 
-**Stop condition:** The alien artifact pass is complete and the plan version is incremented.
-{: .important }
+!!! important
+    **Stop condition:** The alien artifact pass is complete and the plan version is incremented.

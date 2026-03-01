@@ -1,0 +1,75 @@
+[project]
+site_name = "The Flywheel Planning Playbook — Definitive Edition"
+site_description = "Complete guide to building software with AI agent swarms — 12 principles, 10 phases, 41 prompts. Based on Jeffrey Emanuel's agentic coding methodology."
+site_author = "Based on @doodlestein's methodology"
+
+copyright = """
+Based on <a href="https://jeffreyemanuel.com/">Jeffrey Emanuel's</a> agentic coding methodology. Extended by <a href="https://x.com/voidserf">@voidserf</a>.
+"""
+
+nav = [
+  { "Home" = "index.md" },
+  { "Playbook" = [
+    { "Overview" = "playbook/index.md" },
+    "playbook/principles.md",
+    "playbook/phase-0-prerequisites.md",
+    "playbook/phase-1-draft.md",
+    "playbook/phase-2-refine.md",
+    "playbook/phase-3-alien-artifacts.md",
+    "playbook/phase-4-beads.md",
+    "playbook/phase-5-qa.md",
+    "playbook/phase-6-swarm.md",
+    "playbook/phase-7-review.md",
+    "playbook/phase-8-performance.md",
+    "playbook/phase-9-metacognition.md",
+  ]},
+  { "Prompts" = [
+    { "Overview" = "prompts/overview.md" },
+    "prompts/prompt-pack.md",
+  ]},
+  { "Reference" = [
+    { "Overview" = "reference/index.md" },
+    "reference/dispatch.md",
+    "reference/doctrine.md",
+    "reference/anti-patterns.md",
+    "reference/toolchain.md",
+  ]},
+]
+
+[project.theme]
+language = "en"
+features = [
+    "content.code.copy",
+    "content.code.select",
+    "content.tabs.link",
+    "content.tooltips",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.path",
+    "navigation.sections",
+    "navigation.tabs",
+    "navigation.tabs.sticky",
+    "navigation.top",
+    "navigation.tracking",
+    "search.highlight",
+]
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to dark mode"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/StarenseN/flywheel-playbook"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/x-twitter"
+link = "https://x.com/voidserf"

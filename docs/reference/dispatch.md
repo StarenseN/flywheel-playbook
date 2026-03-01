@@ -1,15 +1,10 @@
 ---
-title: Prompt Dispatch Table
-layout: default
-parent: Reference
-nav_order: 1
+icon: lucide/route
 ---
 
 # Prompt Dispatch Table
-{: .fs-8 }
 
 When you're in situation X, use prompt Y.
-{: .fs-5 .fw-300 }
 
 ---
 

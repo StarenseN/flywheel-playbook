@@ -1,17 +1,13 @@
 ---
-title: Home
-layout: default
-nav_order: 1
+icon: lucide/home
 ---
 
 # The Flywheel Planning Playbook
-{: .fs-9 }
 
 Definitive guide to building software with AI agent swarms.
-{: .fs-6 .fw-300 }
 
-[Get Started](/flywheel-playbook/playbook/principles){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[Prompt Catalog](/flywheel-playbook/prompts/catalog){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Get Started](playbook/principles.md) |
+[Prompt Catalog](prompts/prompt-pack.md)
 
 ---
 
@@ -35,13 +31,13 @@ And there's a deeper flywheel most people miss: **each project you build becomes
 
 | Section | What you get |
 |:--------|:------------|
-| [12 Principles](/flywheel-playbook/playbook/principles) | The ideas behind the workflow |
-| [10 Phases](/flywheel-playbook/playbook/phase-0) | Sequential steps from prerequisites to metacognition |
-| [41 Prompts](/flywheel-playbook/prompts/catalog) | Verbatim, copy-paste, organized by when you use them |
-| [Dispatch Table](/flywheel-playbook/reference/dispatch) | "When in situation X, use prompt Y" |
-| [Toolchain](/flywheel-playbook/reference/toolchain) | 23 tools that make the flywheel turn |
-| [Anti-Patterns](/flywheel-playbook/reference/anti-patterns) | 10 ways to destroy your project |
-| [Doctrine](/flywheel-playbook/reference/doctrine) | 15 non-negotiable rules |
+| [12 Principles](playbook/principles.md) | The ideas behind the workflow |
+| [10 Phases](playbook/phase-0-prerequisites.md) | Sequential steps from prerequisites to metacognition |
+| [41 Prompts](prompts/prompt-pack.md) | Verbatim, copy-paste, organized by when you use them |
+| [Dispatch Table](reference/dispatch.md) | "When in situation X, use prompt Y" |
+| [Toolchain](reference/toolchain.md) | 23 tools that make the flywheel turn |
+| [Anti-Patterns](reference/anti-patterns.md) | 10 ways to destroy your project |
+| [Doctrine](reference/doctrine.md) | 15 non-negotiable rules |
 
 ---
 

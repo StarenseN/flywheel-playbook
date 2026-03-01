@@ -1,15 +1,10 @@
 ---
-title: Doctrine
-layout: default
-parent: Reference
-nav_order: 2
+icon: lucide/shield
 ---
 
 # Doctrine
-{: .fs-8 }
 
 15 rules that are not negotiable.
-{: .fs-5 .fw-300 }
 
 ---
 

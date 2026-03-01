@@ -1,15 +1,10 @@
 ---
-title: The 12 Principles
-layout: default
-parent: Playbook
-nav_order: 1
+icon: lucide/lightbulb
 ---
 
 # The 12 Principles
-{: .fs-8 }
 
 These are the ideas behind the workflow. Understand these first; the phases are just the implementation.
-{: .fs-5 .fw-300 }
 
 ---
 

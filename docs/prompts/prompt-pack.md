@@ -1,15 +1,10 @@
 ---
-title: Full Prompt Pack
-layout: default
-parent: Prompts
-nav_order: 1
+icon: lucide/copy
 ---
 
 # Full Prompt Pack
-{: .fs-8 }
 
 All 41 prompts on one page for copy-paste. Organized by phase.
-{: .fs-5 .fw-300 }
 
 ---
 

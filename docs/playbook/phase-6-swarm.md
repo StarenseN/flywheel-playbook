@@ -1,15 +1,10 @@
 ---
-title: "Phase 6: Implement with Swarm"
-layout: default
-parent: Playbook
-nav_order: 8
+icon: lucide/users
 ---
 
 # Phase 6 -- Implement with Agent Swarm
-{: .fs-8 }
 
 Deploy coordinated agents to execute beads systematically.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -79,5 +74,5 @@ It reads the diff, groups changes into logical commits, writes detailed messages
 
 Scale based on bead graph size and budget. All implementation agents are fungible generalists. Don't specialize.
 
-**Stop condition:** All beads are implemented and marked complete.
-{: .important }
+!!! important
+    **Stop condition:** All beads are implemented and marked complete.

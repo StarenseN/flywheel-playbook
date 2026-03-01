@@ -1,15 +1,10 @@
 ---
-title: Anti-Patterns
-layout: default
-parent: Reference
-nav_order: 3
+icon: lucide/alert-triangle
 ---
 
 # Anti-Patterns
-{: .fs-8 }
 
 10 ways to destroy your project.
-{: .fs-5 .fw-300 }
 
 ---
 

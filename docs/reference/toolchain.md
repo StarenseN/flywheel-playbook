@@ -1,15 +1,10 @@
 ---
-title: Toolchain
-layout: default
-parent: Reference
-nav_order: 4
+icon: lucide/wrench
 ---
 
 # The Toolchain
-{: .fs-8 }
 
 23 tools that make the flywheel turn.
-{: .fs-5 .fw-300 }
 
 ---
 

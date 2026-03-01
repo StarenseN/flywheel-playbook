@@ -1,15 +1,10 @@
 ---
-title: "Phase 2: Refine the Plan"
-layout: default
-parent: Playbook
-nav_order: 4
+icon: lucide/iteration-cw
 ---
 
 # Phase 2 -- Refine the Plan
-{: .fs-8 }
 
 Iterate through critique rounds until improvements become incremental. This is where 85% of the time goes.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -145,5 +140,5 @@ Every plan must pass this before converting to beads:
 - [ ] **Risk Register** -- minimum 7 risks with severity and mitigation
 - [ ] **Recovery Runbook** -- actual recovery procedures, not just failure identification
 
-**Stop condition:** You're seeing only minor wording tweaks and no meaningful architectural, testing, or operational improvements. The plan has converged.
-{: .important }
+!!! important
+    **Stop condition:** You're seeing only minor wording tweaks and no meaningful architectural, testing, or operational improvements. The plan has converged.

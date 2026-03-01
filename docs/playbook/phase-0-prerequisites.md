@@ -1,15 +1,10 @@
 ---
-title: "Phase 0: Prerequisites"
-layout: default
-parent: Playbook
-nav_order: 2
+icon: lucide/check-square
 ---
 
 # Phase 0 -- Prerequisites
-{: .fs-8 }
 
 Environment is ready for agent-driven development.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -48,8 +43,8 @@ Do NOT commit (the commit agent handles this).
 Do NOT stop between beads. Keep the loop going.
 ```
 
-Notice the self-review step. This is P02b baked into the workflow. The agent reviews its own code before closing the bead. Not a hook. Not a separate agent. The coder, with fresh eyes, on its own work.
-{: .note }
+!!! note
+    Notice the self-review step. This is P02b baked into the workflow. The agent reviews its own code before closing the bead. Not a hook. Not a separate agent. The coder, with fresh eyes, on its own work.
 
 ## About Beads
 
@@ -70,5 +65,5 @@ curl -fsSL "https://raw.githubusercontent.com/Dicklesworthstone/agentic_coding_f
 
 Idempotent; if interrupted, re-running resumes from last completed phase.
 
-**Stop condition:** All checklist items completed.
-{: .important }
+!!! important
+    **Stop condition:** All checklist items completed.

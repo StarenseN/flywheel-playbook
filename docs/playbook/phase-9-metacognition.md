@@ -1,15 +1,10 @@
 ---
-title: "Phase 9: Metacognition"
-layout: default
-parent: Playbook
-nav_order: 11
+icon: lucide/brain
 ---
 
 # Phase 9 -- Metacognition
-{: .fs-8 }
 
 Study the spec evolution to train intuition for the next project. The part nobody talks about.
-{: .fs-5 .fw-300 }
 
 ---
 
@@ -44,8 +39,8 @@ This document has no audience except future-you starting the next project. It an
 
 Over time these documents train your intuition. You learn which parts of a database spec will need 11 revisions before they're right (transaction slots). You learn which parts get it right in round 1 (documentation, always).
 
-In frankensqlite, the 10-bucket taxonomy was used on 232 commits to the planning docs across 19 days. In frankentui, Jeff applied the same framework to his own project -- metacognitive feedback loop made explicit.
-{: .note }
+!!! note
+    In frankensqlite, the 10-bucket taxonomy was used on 232 commits to the planning docs across 19 days. In frankentui, Jeff applied the same framework to his own project -- metacognitive feedback loop made explicit.
 
-**Stop condition:** Analysis document complete. Patterns identified for next project.
-{: .important }
+!!! important
+    **Stop condition:** Analysis document complete. Patterns identified for next project.

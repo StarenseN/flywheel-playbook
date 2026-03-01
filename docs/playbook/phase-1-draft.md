@@ -1,22 +1,17 @@
 ---
-title: "Phase 1: Draft the Plan"
-layout: default
-parent: Playbook
-nav_order: 3
+icon: lucide/file-text
 ---
 
 # Phase 1 -- Draft the Plan
-{: .fs-8 }
 
 Produce a single, detailed markdown plan that is agent-operable -- not just human-readable.
-{: .fs-5 .fw-300 }
 
 ---
 
 Use a web app with strong reasoning enabled (ChatGPT Pro with extended thinking, or Claude with extended thinking). The web interface is ideal because extended reasoning is cheap relative to code generation tokens.
 
-A human-readable plan says "implement authentication." An agent-operable plan says "implement JWT-based authentication using RS256, with refresh token rotation, 15-minute access token TTL, stored in httpOnly cookies, with a `/auth/refresh` endpoint that validates the refresh token and issues a new pair."
-{: .important }
+!!! important
+    A human-readable plan says "implement authentication." An agent-operable plan says "implement JWT-based authentication using RS256, with refresh token rotation, 15-minute access token TTL, stored in httpOnly cookies, with a `/auth/refresh` endpoint that validates the refresh token and issues a new pair."
 
 ## Plan Drafting Prompt
 
@@ -48,5 +43,5 @@ Assume this plan will be executed by multiple parallel agents.
 
 Save the result as your canonical plan file (e.g., `PLAN.md` in repo root). The first output is always bad. That's not a failure, that's a starting point.
 
-**Stop condition:** You have a comprehensive first draft.
-{: .important }
+!!! important
+    **Stop condition:** You have a comprehensive first draft.
