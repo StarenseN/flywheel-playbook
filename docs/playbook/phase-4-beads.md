@@ -8,6 +8,10 @@ Transform the stable plan into a granular execution graph with epics, tasks, sub
 
 ---
 
+> "It's a true game changer combined with beads and bv. Try it!"
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2006261780218265758))
+
 ## The Conversion Prompt (BD-01 Plan to Beads)
 
 ```

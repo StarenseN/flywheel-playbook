@@ -8,6 +8,10 @@ Repeatedly review implemented code until review passes produce no substantive di
 
 ---
 
+> "Fresh eyes is a massive unlock. This is the stuff that even the labs don't fully understand."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2022356686774899051))
+
 Most people drop the ball here. One review pass, done. I run numbered fix sessions. Part 1, Part 2, all the way to Part 23 or further.
 
 ## Self-Review After Each Bead (RV-01)

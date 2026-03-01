@@ -8,6 +8,10 @@ Inject theoretically optimal constructs that standard engineering would never pr
 
 ---
 
+> "The frontier models made this collaboratively with me coaxing and directing them. This is a new breed of software. This is an Alien Artifact."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2026614142598033732))
+
 A named, scheduled phase. Not optional. Not opportunistic.
 
 Take the locked plan to a model strong at formal reasoning and mathematics. Tell it to add alien artifacts -- BOCPD, VOI, conformal prediction, e-processes. Constructs too advanced for standard engineering practice but possibly exactly right for your problem.

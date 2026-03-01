@@ -8,6 +8,10 @@ icon: lucide/shield
 
 ---
 
+> "I was thinking about my approach to handling git commits when working with agent swarms on a project. It's like a busy high-end salon in NYC. Sure, you could insist that each hairstylist clean up the hair. But in practice it's much better to have a dedicated person who just sweeps."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2002040620744294906))
+
 1. **One canonical plan per project.** Not a plan plus a design doc. One document, one source of truth.
 
 2. **AGENTS.md is written by hand** (or heavily directed). Not generated and forgotten.

@@ -8,6 +8,10 @@ Deploy coordinated agents to execute beads systematically.
 
 ---
 
+> "The concept works even better when the swarms contain a mixture of frontier models and agent harnesses. Opus and GPT 5.2 are way smarter together than alone."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2019476380904210820))
+
 ## Swarm Marching Orders (EX-01 Execute Beads)
 
 ```

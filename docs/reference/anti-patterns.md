@@ -8,6 +8,10 @@ icon: lucide/alert-triangle
 
 ---
 
+> "I can feel the flywheel spinning faster and faster now as my level of interaction/prompting is increasingly directed at driving my own tools."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/1994526015587266875))
+
 ### 1. Skeleton-first development
 
 "Just get something working, then improve it." No. By the time you have something working, the architecture is already compromised and you'll spend 10x longer fixing it than you would have spent planning it right.

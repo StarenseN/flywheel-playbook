@@ -8,6 +8,10 @@ These are the ideas behind the workflow. Understand these first; the phases are 
 
 ---
 
+> "My approach really works. You don't have to be some crazy savant to apply it, either. Just read my posts about planning and use the tools and workflows, and you will also get these kinds of results."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2021641758690681021))
+
 ## 1. Planning is leverage
 
 High-quality planning compresses implementation time, reduces rework, and improves architecture and UX before code exists. Not "writing docs before coding." The plan IS the product. Code is just the plan's compiled form.

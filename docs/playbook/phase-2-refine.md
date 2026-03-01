@@ -8,6 +8,10 @@ Iterate through critique rounds until improvements become incremental. This is w
 
 ---
 
+> "When you think you're finished with your development plan for your agent, try this prompt with a few different frontier models. You might be amazed what they come up with."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2025645582782480827))
+
 ## The Praise Rounds (first 3 rounds)
 
 Push the model past its default posture. These look ridiculous. They work. The model is not a static function. It responds to the emotional register of the conversation.

@@ -8,6 +8,10 @@ Environment is ready for agent-driven development.
 
 ---
 
+> "Before doing anything else, read ALL of AGENTS dot md and register with agent mail and introduce yourself to the other agents. Then coordinate on the remaining tasks."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/1984344027576033619))
+
 Before you start planning, make sure the scaffolding is in place:
 
 - [ ] Your repo has an `AGENTS.md` explaining tool rules, model selection, safety constraints, and coordination rules
