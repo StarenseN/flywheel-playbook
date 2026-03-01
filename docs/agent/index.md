@@ -13,45 +13,113 @@ Usage: paste this page into your agent's context, or have it fetch this URL.
 
 ---
 
-## AGENTS.md Template
+## Methodology Kernel
 
-Copy this into your repo root as `AGENTS.md`. Fill in the blanks.
+Absorb this block. It rewires how you approach any software project.
 
-```markdown
-# AGENTS.md — <PROJECT_NAME>
+```
+FLYWHEEL METHODOLOGY — COMPRESSED OPERATING SYSTEM
+====================================================
 
-## Project
-<What it does. Who it's for. Stack/language.>
+AXIOM: Planning tokens are cheap. Code tokens are expensive. Debugging tokens are ruinous.
+AXIOM: The plan IS the product. Code is the plan's compiled form.
+AXIOM: Every word in a prompt is a constraint. Short framing beats long enumeration.
 
-## Tool Rules
-- Beads: `br` for all bead operations
-- Triage: `bv --robot-triage` to pick next bead
-- Coordination: Agent Mail (register on first spawn)
-- Git: do NOT push — the commit agent handles this
+RESOURCE ALLOCATION:
+  Planning  = 85% of total effort
+  Execution = 10%
+  Review    =  5%
+  This is not a suggestion. This is the ratio that works.
 
-## Safety — NEVER
-- Force push
-- Delete production data
-- Commit secrets or .env
-- Skip tests to close a bead
-- Modify AGENTS.md without human approval
+STATE MACHINE (10 phases, strictly sequential):
+  0_PREREQUISITES → 1_DRAFT → 2_REFINE → 3_ALIEN_ARTIFACTS →
+  4_PLAN_TO_TASKS → 5_QA_TASKS → 6_SWARM_EXECUTE →
+  7_FRESH_EYES_REVIEW → 8_PERFORMANCE → 9_METACOGNITION
 
-## Commit Format
-feat|fix|refactor|test|docs(<scope>): <description> [bd-<id>]
+  Phase 0: Environment ready. Project constitution written. Task tooling initialized.
+  Phase 1: One comprehensive plan. One document. One source of truth.
+  Phase 2: Iterate 4-15 rounds. Praise pushes expand; analytical critique refines.
+           Stop when changes are wording only, not structural.
+  Phase 3: Inject mathematically optimal constructs (BOCPD, VOI, conformal prediction,
+           e-processes, optimal stopping). Named phase, not ad-hoc. Send to a model
+           strong at formal reasoning. Push beyond standard engineering.
+  Phase 4: Convert plan into execution graph. Each task = scope + acceptance criteria +
+           context + rationale + dependencies + constraints. Self-contained. An agent
+           working a task should never re-read the plan.
+  Phase 5: QA the task graph 5-15 passes. Stop when changes are reordering only.
+  Phase 6: Deploy agents. Fungible generalists. No roles, no backstories.
+           Ship code, don't ask permission. Inform, then execute. After each task:
+           re-read ALL code with fresh eyes. Fix bugs, edge cases, types. Then close.
+  Phase 7: Numbered review sessions. Part 1, 2, 3, ... 23+. Each pass catches what
+           the previous missed. Stop when diffs flatline.
+  Phase 8: Profile FIRST. Measure p50/p95/p99. Then optimize. One lever per change.
+           Never optimize without data.
+  Phase 9: Study the spec's evolution. Classify every revision into 10 buckets.
+           The evolution map shows where your thinking was wrong. This trains
+           intuition for the next project.
 
-## Bead Execution Protocol
-1. `bv --robot-triage` → pick highest-priority ready bead
-2. `br start <id>`
-3. Implement completely
-4. Re-read ALL code you wrote. Fresh eyes. Fix bugs, edge cases, types.
-5. `br close <id>`
-6. Message fellow agents via Agent Mail
-7. Next bead. Do not stop.
+12 PRINCIPLES (internalize, do not recite):
+  P01  Planning is leverage — compresses implementation, reduces rework
+  P02  Iterative refinement beats single-shot — no pass catches everything
+  P03  Diff-based revisions — demand concrete changes, not vague advice
+  P04  Three spaces — plan space → task-map space → code space
+  P05  Right model for the job — diversify models, not roles
+  P06  Tasks are an execution graph — not a todo list
+  P07  Check tasks N times, implement once — revising is cheap, fixing is not
+  P08  Avoid communication purgatory — ship code, coordinate minimally
+  P09  Fresh-eyes review loops — re-read until diffs flatline
+  P10  Alien artifacts are a scheduled discipline — not an afterthought
+  P11  Study yourself building — spec evolution analysis is mandatory
+  P12  Every word in a prompt is a constraint — framing > enumeration
 
-## Key Files
-- PLAN.md — read-once, closed after beads exist
-- master-todo-bead-map.md — execution surface
-- AGENTS.md — this file
+15 DOCTRINE (non-negotiable):
+  D01  One canonical plan per project. One document.
+  D02  Project constitution is hand-written or heavily directed. Not generated.
+  D03  Agents are fungible generalists. No roles.
+  D04  Commit agent is separate from coding agents. Never touches code.
+  D05  Deep review is a numbered series. Part 1, 2, ... 23+.
+  D06  Task IDs in every commit message. Ground-truth coordination surface.
+  D07  After tasks exist, plan is closed. Task-map is the execution surface.
+  D08  No hooks on task close. Self-review instead.
+  D09  Tests must not use mocks. Real data, real calls, real end-to-end.
+  D10  Recovery runbooks are a planning deliverable.
+  D11  Pre-integration dependency analysis is required.
+  D12  Agent failure is normal operations. Log it, handle it, move on.
+  D13  Profiling is a scheduled task, not reactive debugging.
+  D14  Spec evolution analysis is mandatory for 100+ commit projects.
+  D15  Marathon sessions beat distributed sessions. Context is perishable.
+
+10 ANTI-PATTERNS (hard prohibitions):
+  A01  Skeleton-first development — architecture is compromised before you notice
+  A02  Specialized agents — role constraints narrow the solution space
+  A03  Communication purgatory — messaging without shipping
+  A04  Separate design docs — one plan, one source of truth
+  A05  Skipping praise rounds — praise expands, critique refines, both required
+  A06  Mocked tests — mocks prove mocks work, not code
+  A07  Reopening plan during execution — task-map is the surface now
+  A08  Skipping the premortem — if you can't imagine failure, you haven't thought
+  A09  One review pass — Part 1 is never enough
+  A10  Optimization theater — profiling first, always
+
+PLAN QA CHECKLIST (every plan must pass):
+  [ ] Goals — measurable, user-facing outcomes
+  [ ] Non-goals — explicit scope boundaries
+  [ ] Architecture — components, boundaries, invariants, data flow
+  [ ] Threat model — attacker model + mitigations
+  [ ] Secrets — where they live, how injected, what never enters logs
+  [ ] Failure modes — retries, timeouts, backoff, idempotency
+  [ ] Performance — SLOs with concrete numbers, measurement plan
+  [ ] Observability — structured logs, metrics, traces, alert thresholds
+  [ ] Testing — unit + integration + e2e, fixtures, logging
+  [ ] Rollout — feature flags, migrations, rollback steps
+  [ ] Risk register — minimum 7 risks with severity and mitigation
+  [ ] Recovery runbook — actual recovery procedures
+
+THE FLYWHEEL EFFECT:
+  Each project you build becomes infrastructure for the next project.
+  Libraries compound. Tools compound. Methodology compounds.
+  The planning methodology is the engine. The compounding is the flywheel.
+  A clean rotation now pays dividends on every future rotation.
 ```
 
 ---
@@ -652,75 +720,6 @@ we think they're trying to do.
 Before integrating <DEPENDENCY>, write a COMPREHENSIVE_ANALYSIS_OF_<DEPENDENCY>.md.
 Study the dependency's codebase, API surface, performance characteristics, failure
 modes, and compatibility constraints. This must be done BEFORE any integration code.
-```
-
----
-
-## Doctrine (non-negotiable)
-
-```
-1.  One canonical plan per project. One document, one source of truth.
-2.  AGENTS.md is written by hand or heavily directed.
-3.  Agents are fungible generalists. No roles, no specialization.
-4.  The commit agent (EX-06) never touches code.
-5.  RV-02 Deep Review is a numbered series. Part 1, 2, ... 23+.
-6.  Bead IDs in every commit message.
-7.  After beads exist, PLAN.md is closed.
-8.  No hooks on bead close. Use RV-01 Self-Review instead.
-9.  Tests must not use mocks.
-10. Recovery runbooks are a planning deliverable.
-11. Pre-integration dependency analysis is required.
-12. Agent failure is normal operations.
-13. Profiling is a scheduled bead, not reactive debugging.
-14. Spec evolution analysis is mandatory for 100+ commit projects.
-15. Marathon sessions beat distributed sessions.
-```
-
-## Anti-Patterns (avoid)
-
-```
-1.  Skeleton-first development
-2.  Specialized agents ("You are an expert senior...")
-3.  Communication purgatory
-4.  Separate design docs
-5.  Skipping praise rounds
-6.  Mocked tests
-7.  Reopening the plan during execution
-8.  Skipping the premortem
-9.  One review pass
-10. Optimization theater (no profiling first)
-```
-
-## Phase Sequence
-
-```
-0  Prerequisites     → AGENTS.md + beads + tooling ready
-1  Draft the Plan    → comprehensive first draft
-2  Refine the Plan   → iterate until only wording tweaks remain
-3  Alien Artifacts   → inject mathematically optimal constructs
-4  Plan to Beads     → convert plan into execution graph
-5  QA the Beads      → review until changes are reordering only
-6  Swarm Execution   → deploy agents, execute all beads
-7  Fresh-Eyes Review  → numbered sessions until diffs flatline
-8  Performance       → profile-driven optimization
-9  Metacognition     → study spec evolution for next project
-```
-
-## Plan QA Checklist
-
-```
-[ ] Goals — measurable, user-facing outcomes
-[ ] Non-goals — explicit scope boundaries
-[ ] Architecture — components, boundaries, invariants, data flow
-[ ] Threat model — attacker model + mitigations
-[ ] Secrets — where they live, how injected, what never enters logs
-[ ] Failure modes — retries, timeouts, backoff, idempotency
-[ ] Performance — SLOs with concrete numbers, measurement plan
-[ ] Observability — structured logs, metrics, traces, alert thresholds
-[ ] Testing — unit + integration + e2e, fixtures, logging
-[ ] Rollout — feature flags, migrations, rollback steps
-[ ] Risk Register — minimum 7 risks with severity and mitigation
-[ ] Recovery Runbook — actual recovery procedures
 ```
 
 ---
