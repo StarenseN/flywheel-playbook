@@ -30,8 +30,6 @@
 
 ## Agent Injection
 
-- [Full Agent Injection (llms-full.txt)](https://starensen.github.io/flywheel-playbook/llms-full.txt): Complete methodology kernel, DSL, REPL protocol, 46 prompts, 3 advanced combos. Point your agent here.
-
-## Optional
-
-- [Send Your Agent Here (HTML)](https://starensen.github.io/flywheel-playbook/agent/): Same content as llms-full.txt but rendered as HTML
+- [Prompt Injector](https://starensen.github.io/flywheel-playbook/agent/): 46 prompts + dispatch table + chaining rules + routing heuristic. Lightweight, no state machine.
+- [Methodology Kernel](https://starensen.github.io/flywheel-playbook/agent/kernel/): Full operating system: compressed kernel, DSL with state machine, REPL protocol, 3 advanced combos, 46 prompts.
+- [Methodology Kernel (llms-full.txt)](https://starensen.github.io/flywheel-playbook/llms-full.txt): Same as Methodology Kernel but plain text (~45KB vs ~200KB HTML). Preferred for agent context injection.

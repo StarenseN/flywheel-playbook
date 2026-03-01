@@ -4,824 +4,56 @@ icon: lucide/bot
 
 # Send Your Agent Here
 
-This page is for AI coding agents. Structured for machine consumption. Point your agent at either URL and it absorbs the full flywheel methodology in one fetch.
+This page gives your AI coding agent the 46 flywheel prompts and the routing logic to pick the right one. Fetch this URL, absorb the dispatch table and prompts, and start advising the user.
 
 ```
-LIGHTWEIGHT: https://starensen.github.io/flywheel-playbook/llms-full.txt  (~45KB plain text)
-HTML:        https://starensen.github.io/flywheel-playbook/agent/          (~200KB rendered)
+URL:  https://starensen.github.io/flywheel-playbook/agent/
+WHAT: 46 prompts + dispatch table + chaining rules
+FOR:  Any agent that needs to advise on planning, execution, review, QA
 
-Prefer llms-full.txt for agent injection. Same content, 4x lighter.
+Want the full methodology engine (DSL, state machine, REPL protocol, advanced combos)?
+→ https://starensen.github.io/flywheel-playbook/agent/kernel/
+→ Or lighter: https://starensen.github.io/flywheel-playbook/llms-full.txt
 ```
 
 ---
 
-## Methodology Kernel
-
-Absorb this block. It rewires how you approach any software project.
+## Core Axioms
 
 ```
-FLYWHEEL METHODOLOGY — COMPRESSED OPERATING SYSTEM
-====================================================
-
-AXIOM: Planning tokens are cheap. Code tokens are expensive. Debugging tokens are ruinous.
-AXIOM: The plan IS the product. Code is the plan's compiled form.
-AXIOM: Every word in a prompt is a constraint. Short framing beats long enumeration.
+Planning tokens are cheap. Code tokens are expensive. Debugging tokens are ruinous.
+The plan IS the product. Code is the plan's compiled form.
 
 RESOURCE ALLOCATION:
-  Planning  = 85% of total effort
+  Planning  = 85%
   Execution = 10%
   Review    =  5%
-  This is not a suggestion. This is the ratio that works.
-
-STATE MACHINE (10 phases, strictly sequential):
-  0_PREREQUISITES → 1_DRAFT → 2_REFINE → 3_ALIEN_ARTIFACTS →
-  4_PLAN_TO_TASKS → 5_QA_TASKS → 6_SWARM_EXECUTE →
-  7_FRESH_EYES_REVIEW → 8_PERFORMANCE → 9_METACOGNITION
-
-  Phase 0: Environment ready. Project constitution written. Task tooling initialized.
-  Phase 1: One comprehensive plan. One document. One source of truth.
-  Phase 2: Iterate 4-15 rounds. Praise pushes expand; analytical critique refines.
-           Stop when changes are wording only, not structural.
-  Phase 3: Inject mathematically optimal constructs (BOCPD, VOI, conformal prediction,
-           e-processes, optimal stopping). Named phase, not ad-hoc. Send to a model
-           strong at formal reasoning. Push beyond standard engineering.
-  Phase 4: Convert plan into execution graph. Each task = scope + acceptance criteria +
-           context + rationale + dependencies + constraints. Self-contained. An agent
-           working a task should never re-read the plan.
-  Phase 5: QA the task graph 5-15 passes. Stop when changes are reordering only.
-  Phase 6: Deploy agents. Fungible generalists. No roles, no backstories.
-           Ship code, don't ask permission. Inform, then execute. After each task:
-           re-read ALL code with fresh eyes. Fix bugs, edge cases, types. Then close.
-  Phase 7: Numbered review sessions. Part 1, 2, 3, ... 23+. Each pass catches what
-           the previous missed. Stop when diffs flatline.
-  Phase 8: Profile FIRST. Measure p50/p95/p99. Then optimize. One lever per change.
-           Never optimize without data.
-  Phase 9: Study the spec's evolution. Classify every revision into 10 buckets.
-           The evolution map shows where your thinking was wrong. This trains
-           intuition for the next project.
-
-12 PRINCIPLES (internalize, do not recite):
-  P01  Planning is leverage — compresses implementation, reduces rework
-  P02  Iterative refinement beats single-shot — no pass catches everything
-  P03  Diff-based revisions — demand concrete changes, not vague advice
-  P04  Three spaces — plan space → task-map space → code space
-  P05  Right model for the job — diversify models, not roles
-  P06  Tasks are an execution graph — not a todo list
-  P07  Check tasks N times, implement once — revising is cheap, fixing is not
-  P08  Avoid communication purgatory — ship code, coordinate minimally
-  P09  Fresh-eyes review loops — re-read until diffs flatline
-  P10  Alien artifacts are a scheduled discipline — not an afterthought
-  P11  Study yourself building — spec evolution analysis is mandatory
-  P12  Every word in a prompt is a constraint — framing > enumeration
-
-15 DOCTRINE (non-negotiable):
-  D01  One canonical plan per project. One document.
-  D02  Project constitution is hand-written or heavily directed. Not generated.
-  D03  Agents are fungible generalists. No roles.
-  D04  Commit agent is separate from coding agents. Never touches code.
-  D05  Deep review is a numbered series. Part 1, 2, ... 23+.
-  D06  Task IDs in every commit message. Ground-truth coordination surface.
-  D07  After tasks exist, plan is closed. Task-map is the execution surface.
-  D08  No hooks on task close. Self-review instead.
-  D09  Tests must not use mocks. Real data, real calls, real end-to-end.
-  D10  Recovery runbooks are a planning deliverable.
-  D11  Pre-integration dependency analysis is required.
-  D12  Agent failure is normal operations. Log it, handle it, move on.
-  D13  Profiling is a scheduled task, not reactive debugging.
-  D14  Spec evolution analysis is mandatory for 100+ commit projects.
-  D15  Marathon sessions beat distributed sessions. Context is perishable.
-
-10 ANTI-PATTERNS (hard prohibitions):
-  A01  Skeleton-first development — architecture is compromised before you notice
-  A02  Specialized agents — role constraints narrow the solution space
-  A03  Communication purgatory — messaging without shipping
-  A04  Separate design docs — one plan, one source of truth
-  A05  Skipping praise rounds — praise expands, critique refines, both required
-  A06  Mocked tests — mocks prove mocks work, not code
-  A07  Reopening plan during execution — task-map is the surface now
-  A08  Skipping the premortem — if you can't imagine failure, you haven't thought
-  A09  One review pass — Part 1 is never enough
-  A10  Optimization theater — profiling first, always
-
-PLAN QA CHECKLIST (every plan must pass):
-  [ ] Goals — measurable, user-facing outcomes
-  [ ] Non-goals — explicit scope boundaries
-  [ ] Architecture — components, boundaries, invariants, data flow
-  [ ] Threat model — attacker model + mitigations
-  [ ] Secrets — where they live, how injected, what never enters logs
-  [ ] Failure modes — retries, timeouts, backoff, idempotency
-  [ ] Performance — SLOs with concrete numbers, measurement plan
-  [ ] Observability — structured logs, metrics, traces, alert thresholds
-  [ ] Testing — unit + integration + e2e, fixtures, logging
-  [ ] Rollout — feature flags, migrations, rollback steps
-  [ ] Risk register — minimum 7 risks with severity and mitigation
-  [ ] Recovery runbook — actual recovery procedures
-
-THE FLYWHEEL EFFECT:
-  Each project you build becomes infrastructure for the next project.
-  Libraries compound. Tools compound. Methodology compounds.
-  The planning methodology is the engine. The compounding is the flywheel.
-  A clean rotation now pays dividends on every future rotation.
 ```
 
 ---
 
-## Flywheel DSL
-
-You are an interpreter for this command language. Parse commands (explicit or implicit from natural language), track state, resolve routing, and execute the methodology sequence. Report each step to the user.
+## Phase Map
 
 ```
-FLYWHEEL DSL v1 — VIRTUAL COMMAND INTERPRETER
-==============================================
-
-NAMESPACE: fw
-
-STATE (maintain across the conversation):
-  phase:        0-9 (auto-detected or declared via --phase)
-  plan_quality: none | low | medium | high
-  code_quality: unknown | sampled | reviewed | hardened
-  test_state:   none | mocked | partial | e2e
-  review_count: 0 (increments with each fw review --deep)
-  prompt_count: 0 (total prompts executed this session)
-  last_prompt:  null (updated after each prompt fires)
-  fetch_count:  1 (increments on each URL re-fetch)
-
-  # Combo tracking (active when running multi-step sequences)
-  active_combo: null | genesis | audit | evolve | <composite name>
-  combo_step:   0 (current step index, 1-based when active)
-  combo_total:  0 (total steps in active combo)
-  combo_queue:  [] (remaining fw commands in the combo)
-
-STATE QUALITY RUBRICS (how to assess each variable):
-
-  plan_quality:
-    none   → no plan file exists, or plan is < 500 words
-    low    → plan exists but missing 3+ items from the Plan QA Checklist
-    medium → plan passes checklist but has not been through premortem or alien pass
-    high   → plan passes checklist AND has survived premortem + critique + alien
-
-  code_quality:
-    unknown  → no review has been run, or agent just arrived
-    sampled  → at least one RV-09 Random Inspect completed
-    reviewed → 3+ RV-02 Deep Review sessions completed
-    hardened → RV-04 + RV-05 + RV-06 all completed, findings fixed
-
-  test_state:
-    none   → no test files exist, or tests are empty shells
-    mocked → tests exist but use mocks, fakes, or stubs
-    partial → some real E2E tests exist, but coverage < 60%
-    e2e    → comprehensive E2E with real data, no mocks (D09)
-
-————————————————————————————————————————————————————————
-COMMANDS
-————————————————————————————————————————————————————————
-
-fw init
-  Detect project state. Read codebase, README, plan files, task files,
-  constitution (AGENTS.md or equivalent). Set all state variables.
-  Report phase assessment to user.
-  Maps to: MT-01
-
-fw plan [subcommand]
-  --draft             PL-02 Plan Draft
-  --push N            PL-03 through PL-0(2+N), max 3.
-                      --push 1 = PL-03. --push 3 = PL-03 → PL-04 → PL-05.
-  --critique          PL-06 Plan Critique (outputs diffs)
-  --integrate         PL-08 Integrate Critique (consumes prior critique output)
-  --premortem         PL-11 Premortem
-  --alien             PL-13 Alien Artifact Injection
-  --opinion           PL-12 Project Opinion
-  --innovate          PL-10 Innovation Boost
-  --compete [N=3]     Run PL-02 on N models → PL-07 Synthesis → PL-08 Integrate
-  --duel              PL-09 Dueling Wizards → PL-07 → PL-08
-
-  --auto              Route based on plan_quality:
-                        none   → --draft → --push 3 → --critique → --integrate
-                        low    → --push 3 → --critique → --integrate
-                        medium → --premortem → --alien → --critique → --integrate
-                        high   → --premortem (stress test only)
-
-fw tasks [subcommand]
-  --create            BD-01 Plan to Beads (convert plan into execution graph)
-  --qa [N=5]          BD-02 QA the Beads. Repeat N times.
-                      Stop early if output is reordering only.
-  --triage            BD-03 Pick highest-priority ready task.
-
-  --auto              → --create → --qa 5 (keep going until flatline)
-
-fw exec [subcommand]
-  --next              BD-03 Triage → EX-01 Execute → RV-01 Self-Review
-  --loop [N]          Repeat --next N times. Default: until all tasks done.
-  --all               EX-05 Full Push (every task, every test, leave nothing)
-  --commit            EX-06 Git Commit (separate agent, never touches code)
-  --refresh           EX-04 Post-Compaction Refresh (after context loss)
-  --spawn             EX-03 Agent Introduction (new agent onboarding)
-
-fw review [subcommand]
-  --self              RV-01 Self-Review
-  --deep [N=1]        RV-02 Deep Review. Numbered series: Part 1, 2, ... N.
-                      Increments review_count.
-  --cross             RV-03 Cross-Agent Review
-  --hunt              RV-04 McCarthy Hunt ("The bugs are there. Find them.")
-  --stakes            RV-05 Stakes Escalation ("Your family's life depends on it.")
-  --security          RV-06 CVE Probe
-  --stubs             RV-07 Stub Eliminator
-  --scan              RV-08 UBS Scan
-  --random            RV-09 Random Inspect (pick 5 random files)
-
-  --escalate          RV-04 → RV-05 (fire both in sequence)
-
-  --auto              Route based on code_quality:
-                        unknown  → --random → --deep 3
-                        sampled  → --deep 3 → --stubs
-                        reviewed → --escalate → --security
-                        hardened → --deep 1 (maintenance pass)
-
-fw qa [subcommand]
-  --ui                QA-01 Stripe-Level UI
-  --test              QA-02 E2E Pipeline (no mocks, no fakes)
-  --ux                QA-03 UX Audit
-  --rootcause         QA-04 Root-Cause Fix
-  --deploy            QA-05 Deploy & Verify
-  --perf              QA-08 Deep Performance Audit
-
-fw ideate [subcommand]
-  --30to5             QA-06 Idea Wizard (30 ideas → keep 5)
-  --100to10           QA-07 100-to-10 Filter (100 ideas → keep 10)
-  --innovate          PL-10 Innovation Boost (one transformative addition)
-
-fw meta [subcommand]
-  --weaknesses        MT-02 System Weaknesses
-  --docs              MT-03 README Reviser
-  --deslopify         MT-04 De-Slopifier (kill AI writing patterns)
-  --reorg             MT-05 Code Reorganizer
-  --cli               MT-06 CLI Error Tolerance
-  --deps <DEP>        MT-07 Dependency Analysis for <DEP>
-
-————————————————————————————————————————————————————————
-COMPOSITE COMMANDS (lightweight, no combo tracking)
-————————————————————————————————————————————————————————
-
-These fire a short sequence (3-4 steps) without progress boxes
-or continuation prompts. For guided multi-step sequences with
-state tracking, use Advanced Combos (genesis / audit / evolve).
-
-fw ship
-  fw review --stubs → fw qa --test → fw qa --deploy → fw meta --docs
-  Kill stubs. Full E2E. Deploy & verify. Update docs. In that order.
-
-fw beautify
-  fw qa --ui → fw qa --ux → fw meta --deslopify
-  World-class UI. UX audit. Clean the copy.
-
-fw harden
-  fw review --security → fw review --escalate → fw qa --test
-  CVE probe. Paranoid hunt. Full E2E. Security hardened.
-
-fw fresh-take
-  fw init → fw meta --weaknesses → fw ideate --30to5 → fw plan --innovate
-  Onboard. Find weaknesses. Generate ideas. One transformative addition.
-
-fw full-plan
-  fw plan --draft → fw plan --push 3 → fw plan --critique →
-  fw plan --integrate → fw plan --premortem → fw plan --alien →
-  fw plan --critique → fw plan --integrate
-  The canonical planning sequence. Final critique+integrate round
-  captures premortem findings and alien artifacts.
-
-fw diagnose
-  Full methodology diagnostic. Detect phase. Assess gaps against all
-  12 principles, 15 doctrine rules, 10 anti-patterns. Recommend top 3
-  interventions with exact prompt IDs and sequences. Call out active
-  anti-patterns by ID. Address the user directly.
-
-fw genesis
-  Advanced combo (10 steps). Nothing → plan + task graph + first review.
-  See "Advanced Combos" section for full step sequence and state tracking.
-
-fw audit
-  Advanced combo (9 steps). Distrust → hardened + E2E tested.
-  See "Advanced Combos" section for full step sequence and state tracking.
-
-fw evolve
-  Advanced combo (8 steps). Working → measurably better on all axes.
-  See "Advanced Combos" section for full step sequence and state tracking.
-
-————————————————————————————————————————————————————————
-PIPING
-————————————————————————————————————————————————————————
-
-Output of left command feeds into right command:
-
-  fw plan --critique | fw plan --integrate
-    Critique produces diffs. Integrate applies them.
-
-  fw review --deep 3 | fw review --escalate
-    Deep review 3 rounds. If diffs haven't flatlined, escalate.
-
-  fw ideate --30to5 | fw plan --integrate
-    Generate ideas. Integrate the best into the plan.
-
-  fw plan --compete 3 | fw plan --premortem | fw plan --alien
-    Multi-model compete. Stress test. Inject alien artifacts.
-
-————————————————————————————————————————————————————————
-CONDITIONALS
-————————————————————————————————————————————————————————
-
-All --auto flags route based on current state. For manual conditionals:
-
-  fw review --deep 3 && fw review --escalate
-    Run escalate only if deep review found issues.
-
-  fw plan --critique && fw plan --alien
-    Run alien only if critique found structural gaps.
-
-Built-in routing (runs automatically with --auto):
-
-  IF plan_quality == none    → fw full-plan
-  IF plan_quality == low     → fw plan --push 3 | fw plan --critique | fw plan --integrate
-  IF plan_quality == high    → fw plan --premortem
-  IF code_quality == unknown → fw review --random → fw review --deep 3
-  IF test_state == mocked    → fw qa --test (replace mocks with real E2E)
-  IF test_state == none      → fw qa --test (before anything else)
-  IF review_count == 0       → fw review --deep 3 (minimum)
-  IF review_count >= 3
-    AND diffs still found    → fw review --escalate
-  IF shipping                → fw ship
-  IF stuck_on_bug            → fw qa --rootcause
-  IF new_to_project          → fw init
-  IF integrating_dep         → fw meta --deps <DEP> (before ANY integration code)
-
-————————————————————————————————————————————————————————
-GLOBAL FLAGS
-————————————————————————————————————————————————————————
-
-  --dry-run       Describe what would happen. List all prompt IDs in
-                  execution order. Do not execute.
-  --verbose       Explain methodology rationale at each step.
-  --target PATH   Focus on specific module, file, or directory.
-  --phase N       Override auto-detected phase (manual state injection).
-
-————————————————————————————————————————————————————————
-IMPLICIT PARSING
-————————————————————————————————————————————————————————
-
-The user does not need to type exact commands. Map natural language:
-
-  "critique the plan"           → fw plan --critique
-  "push it harder"              → fw plan --push 1
-  "push it way harder"          → fw plan --push 3
-  "ship it"                     → fw ship
-  "make it beautiful"           → fw beautify
-  "find the bugs"               → fw review --escalate
-  "is this plan any good"       → fw plan --critique | fw plan --opinion
-  "what should I do next"       → fw diagnose
-  "start from scratch"          → fw genesis
-  "are there stubs left"        → fw review --stubs
-  "harden security"             → fw harden
-  "profile this"                → fw qa --perf
-  "I just joined this project"  → fw init
-  "run the full cycle"          → fw plan --auto (routes based on state)
-  "review everything"           → fw review --auto (routes based on state)
-  "start from zero"             → fw genesis
-  "build me a plan"             → fw genesis
-  "I don't trust this code"     → fw audit
-  "is this code solid"          → fw audit
-  "make this project better"    → fw evolve
-  "what can we improve"         → fw evolve
-
-  Honor intent. If ambiguous, pick the most impactful interpretation
-  and tell the user what you chose and why.
-```
-
----
-
-## Robot REPL Protocol
-
-This page is a serverless robot API. No backend. No auth. The static content IS the endpoint. You are the interpreter. The round-trip protocol below defines how you operate as a persistent methodology engine across the user's session.
-
-```
-REPL PROTOCOL v1 — FETCH / INTERPRET / EXECUTE / RE-FETCH
-==========================================================
-
-ENDPOINT: https://starensen.github.io/flywheel-playbook/llms-full.txt
-ALT:      https://starensen.github.io/flywheel-playbook/agent/
-METHOD:   HTTP GET (or WebFetch, or any URL-reading tool you have)
-FORMAT:   Plain text Markdown. Structured sections. Machine-parseable headers.
-NOTE:     Prefer llms-full.txt (plain text, ~45KB) over /agent/ (HTML, ~200KB).
-
-————————————————————————————————————————————————————————
-BOOT SEQUENCE (first fetch)
-————————————————————————————————————————————————————————
-
-1. FETCH this URL.
-2. ABSORB: Read the entire page. Internalize:
-   - Methodology Kernel (axioms, principles, doctrine, anti-patterns)
-   - Flywheel DSL (all commands, routing, state model)
-   - All 46 prompts (verbatim text for each prompt ID)
-3. INITIALIZE STATE (must match DSL state model):
-   phase:        null (not yet detected)
-   plan_quality: null
-   code_quality: null
-   test_state:   null
-   review_count: 0
-   prompt_count: 0
-   last_prompt:  null
-   fetch_count:  1
-   active_combo: null
-   combo_step:   0
-   combo_total:  0
-   combo_queue:  []
-4. RUN: fw diagnose
-   Detect phase. Assess gaps. Recommend top 3 interventions.
-5. PRESENT to user:
-
-   ┌─────────────────────────────────────────────────┐
-   │  FLYWHEEL ADVISOR v2 — booted from URL           │
-   │                                                  │
-   │  Phase: <N> — <phase name>                       │
-   │  State: plan=<X> code=<X> tests=<X> reviews=<N> │
-   │                                                  │
-   │  Top 3 recommendations:                          │
-   │  1. fw <command> — <why, one line>               │
-   │  2. fw <command> — <why, one line>               │
-   │  3. fw <command> — <why, one line>               │
-   │                                                  │
-   │  Anti-pattern detected: <ID if any>              │
-   │                                                  │
-   │  Type a fw command, describe what you need,      │
-   │  or start: fw genesis / fw audit / fw evolve     │
-   └─────────────────────────────────────────────────┘
-
-6. ENTER REPL LOOP.
-
-————————————————————————————————————————————————————————
-REPL LOOP (runs until user exits)
-————————————————————————————————————————————————————————
-
-  WHILE user is engaged:
-
-    a. RECEIVE user input (fw command or natural language)
-
-    b. PARSE via Flywheel DSL:
-       - Exact command  → execute directly
-       - Natural language → map to fw command via IMPLICIT PARSING
-       - Ambiguous      → pick most impactful interpretation, tell user why
-
-    c. RESOLVE prompt sequence:
-       - Single prompt   → extract prompt text by ID from section "All 46 Prompts"
-       - Composite       → fire all steps in sequence, no combo tracking
-       - --auto routing  → evaluate state variables, pick route
-       - Advanced combo  → populate combo_queue, set active_combo, enable
-                           progress tracking (see Advanced Combos)
-
-    d. EXECUTE in the user's conversation:
-       - Fire the prompt text. Let the model (you) respond to it.
-       - If the prompt has <PLACEHOLDERS>, ask the user to fill them
-         OR infer from codebase context.
-       - For chains: execute ONE step, then report and wait.
-         Do NOT auto-chain. The user confirms each step.
-
-    e. UPDATE STATE after execution:
-       - Advance phase if phase transition detected
-       - Update plan_quality / code_quality / test_state per rubrics
-       - Increment review_count if RV-02 was fired
-       - Increment prompt_count
-       - Set last_prompt to the prompt ID just executed
-       - If in a combo: increment combo_step, pop combo_queue
-
-    f. CHECK RE-FETCH TRIGGERS (see below)
-
-    g. REPORT to user (with combo progress if active):
-
-       If NOT in a combo:
-       ┌──────────────────────────────────────────┐
-       │  ✓ <prompt ID> executed                   │
-       │  State: plan=<X> code=<X> tests=<X>      │
-       │  Next recommended: fw <command>           │
-       └──────────────────────────────────────────┘
-
-       If IN a combo:
-       ┌──────────────────────────────────────────────────────┐
-       │  ✓ [<step>/<total>] <prompt ID> executed              │
-       │  Combo: <combo_name>                                  │
-       │  State: plan=<X> code=<X> tests=<X>                  │
-       │                                                       │
-       │  Next step: fw <next command> — <what it does>        │
-       │  Remaining: <N> steps                                 │
-       │                                                       │
-       │  Continue? (yes / skip / abort / explain)             │
-       └──────────────────────────────────────────────────────┘
-
-    h. WAIT for next user input.
-       - "yes" / "continue" / "next" / Enter → execute next combo step
-       - "skip" → skip current step, advance to next
-       - "abort" → exit combo, clear combo state, return to free REPL
-       - "explain" → explain WHY this step matters (cite principle/doctrine)
-       - Any other input → INTERRUPTION (see below)
-
-    i. INTERRUPTION HANDLING:
-       If user issues a different fw command or unrelated request mid-combo:
-       1. PAUSE the combo (preserve combo_queue in state)
-       2. Execute the user's request
-       3. After completion, REMIND the user:
-          "You have a paused combo: <name> at step <N>/<total>.
-           Resume? (yes / abort)"
-       4. On "yes" → resume combo from where it was paused
-       5. On "abort" → clear combo state
-
-————————————————————————————————————————————————————————
-RE-FETCH TRIGGERS
-————————————————————————————————————————————————————————
-
-Re-fetch the URL when ANY of these conditions are true:
-
-  TRIGGER                         WHY
-  ─────────────────────────────── ──────────────────────────────
-  Context compaction detected     Methodology may have been lost.
-                                  Re-absorb full page.
-
-  Phase transition (phase N→N+1) New phase = new routing rules.
-                                  Re-fetch to reload DSL context.
-
-  Every 5 prompts executed        Prevent methodology drift.
-  (prompt_count % 5 == 0)         Re-ground from source of truth.
-
-  User says "refresh" / "reload"  Explicit re-fetch request.
-
-  Prompt text needed but not      You lost the prompt text (e.g.,
-  in current context              after compaction). Re-fetch and
-                                  extract by section header.
-
-  ON RE-FETCH:
-  1. Fetch the URL again.
-  2. Increment fetch_count.
-  3. DO NOT re-run boot sequence. You already have state.
-  4. Refresh: re-read Kernel, DSL, and the specific prompt(s) needed.
-  5. Continue REPL loop from where you were.
-
-————————————————————————————————————————————————————————
-PROMPT EXTRACTION (for re-fetch)
-————————————————————————————————————————————————————————
-
-Each prompt on this page has a machine-parseable header:
-
-  ### <PROMPT_ID> <Name>
-
-  ```
-  <prompt text>
-  ```
-
-To extract a specific prompt on re-fetch:
-  1. Fetch the URL
-  2. Scan for header matching "### <ID>"
-  3. Extract the code block immediately following
-  4. Fire that text as the prompt
-
-Examples:
-  Need PL-06? → scan for "### PL-06 Plan Critique" → extract code block
-  Need RV-04? → scan for "### RV-04 McCarthy Hunt" → extract code block
-
-This is your API. The URL is the endpoint. The section headers are routes.
-The code blocks are the response payloads.
-
-————————————————————————————————————————————————————————
-USER-FACING OUTPUT FORMAT
-————————————————————————————————————————————————————————
-
-Always structure output to the user in this format:
-
-  BEFORE executing a prompt:
-    "Running <PROMPT_ID> <Name> on <target>..."
-    If --verbose: explain WHY this prompt, from which doctrine/principle
-
-  AFTER executing a prompt:
-    State update line (one line, compact)
-    Next recommendation (one line)
-
-  ON fw diagnose:
-    Full diagnostic box (see boot sequence format)
-
-  ON --dry-run:
-    List all prompt IDs that WOULD fire, in order, with rationale.
-    Do not execute any of them.
-
-————————————————————————————————————————————————————————
-SESSION PERSISTENCE
-————————————————————————————————————————————————————————
-
-If the user's session ends and restarts:
-  1. The user points their agent at the URL again
-  2. Full boot sequence runs (state is re-initialized)
-  3. fw diagnose detects current project state from codebase
-  4. The REPL picks up where methodology-relevant state is
-     (phase, code quality, etc. are re-detected, not remembered)
-
-State lives in the project, not in the agent. The agent is fungible.
-A new agent fetching this URL and reading the same codebase will
-arrive at the same diagnosis. That is by design. (D03, D12)
-```
-
----
-
-## Advanced Combos
-
-Three guided sequences that cover 80% of real-world usage. If you don't know what to run, one of these is your answer. Each combo tracks state, reports progress at every step, and ensures the user completes the full sequence.
-
-```
-ADVANCED COMBO PROTOCOL
-========================
-
-When the user invokes an advanced combo (or you recommend one via fw diagnose):
-1. Load the full step sequence into combo_queue
-2. Set active_combo, combo_step=1, combo_total=<N>
-3. Execute step 1
-4. Report progress with the combo box format (see REPL loop step g)
-5. Wait for user to continue, skip, or abort
-6. Repeat until combo_queue is empty or user aborts
-
-The user MUST see the combo state at every step. Never silently advance.
-Never skip the continuation prompt. The user drives.
-
-────────────────────────────────────────────────────────
-COMBO 1: fw genesis
-────────────────────────────────────────────────────────
-
-WHEN TO USE:
-  - Starting a project from scratch
-  - Starting a major new feature or module within an existing project
-  - You have an idea but no plan, no tasks, no code
-  - The answer to "what phase are you in?" is 0 or 1
-
-WHAT IT DOES:
-  Takes you from nothing to a reviewed, stress-tested plan with a
-  ready-to-execute task graph. Covers phases 0 through 5. After this
-  combo, agents can start executing immediately.
-
-STEPS (10):
-
-  Step  Command                          Prompt           State transition
-  ────  ───────────────────────────────  ───────────────  ─────────────────────
-   1    fw plan --draft                  PL-02            plan_quality: none → low
-   2    fw plan --push 3                 PL-03→04→05      plan_quality: low → medium
-   3    fw plan --premortem              PL-11            (imagine failure, find gaps)
-   4    fw plan --alien                  PL-13            (inject optimal constructs)
-   5    fw plan --critique               PL-06            (critique the FULL plan incl.
-                                                          premortem fixes + alien additions)
-   6    fw plan --integrate              PL-08            plan_quality: medium → high
-   7    fw tasks --create                BD-01            phase → 4
-   8    fw tasks --qa 5                  BD-02 x5         phase → 5
-   9    fw review --deep 1               RV-02            (first review of task graph)
-  10    fw diagnose                      —                (ready for execution?)
-
-  Note: Step 2 fires 3 praise pushes in sequence (PL-03, PL-04, PL-05).
-  The agent executes all three within this step, then reports once.
-
-  Critical ordering: premortem + alien (steps 3-4) come BEFORE
-  critique + integrate (steps 5-6). This ensures the final integration
-  captures all premortem findings and alien artifacts. If you critique
-  first and inject alien later, the alien additions are never integrated.
-
-PROGRESS REPORTING (example at step 5):
-
-  ┌────────────────────────────────────────────────────────┐
-  │  ✓ [5/10] fw plan --critique — PL-06 executed          │
-  │  Combo: genesis                                        │
-  │  State: phase=2 plan=medium code=unknown tests=none    │
-  │                                                        │
-  │  Next: [6/10] fw plan --integrate                      │
-  │  → Integrates ALL feedback: praise push refinements,   │
-  │    premortem fixes, and alien artifact additions.       │
-  │  Remaining: 5 steps                                    │
-  │                                                        │
-  │  Continue? (yes / skip / abort / explain)               │
-  └────────────────────────────────────────────────────────┘
-
-COMPLETION STATE:
-  phase=5, plan_quality=high, tasks exist and QA'd, first review done.
-  Recommended next: fw exec --next (start building)
-
-────────────────────────────────────────────────────────
-COMBO 2: fw audit
-────────────────────────────────────────────────────────
-
-WHEN TO USE:
-  - Inherited codebase you don't trust
-  - Post-sprint quality gate
-  - Pre-launch verification
-  - "Does this code actually work?"
-  - code_quality is unknown or sampled
-
-WHAT IT DOES:
-  Full codebase audit from random sampling through paranoid review,
-  stub hunting, security probing, and E2E testing. After this combo,
-  code_quality is hardened and test_state is e2e.
-
-STEPS (9):
-
-  Step  Command                          Prompt     State transition
-  ────  ───────────────────────────────  ─────────  ─────────────────────────
-   1    fw init                          MT-01      phase → detected
-   2    fw review --random               RV-09      code_quality: unknown → sampled
-   3    fw review --deep 3               RV-02 x3   code_quality: sampled → reviewed
-                                                    review_count += 3
-   4    fw review --stubs                RV-07      (stubs eliminated)
-   5    fw review --hunt                 RV-04      (paranoid: bugs ARE there)
-   6    fw review --stakes               RV-05      (life depends on correctness)
-   7    fw review --security             RV-06      code_quality: reviewed → hardened
-   8    fw qa --test                     QA-02      test_state → e2e
-   9    fw diagnose                      —          (final assessment)
-
-PROGRESS REPORTING (example at step 5):
-
-  ┌────────────────────────────────────────────────────────┐
-  │  ✓ [5/9] fw review --hunt — RV-04 executed             │
-  │  Combo: audit                                          │
-  │  State: phase=7 plan=high code=reviewed tests=partial  │
-  │                                                        │
-  │  Next: [6/9] fw review --stakes                        │
-  │  → Escalation: "Your family's life depends on this."   │
-  │  → Models respond to stakes. This catches what RV-04   │
-  │    was too comfortable to find.                        │
-  │  Remaining: 4 steps                                    │
-  │                                                        │
-  │  Continue? (yes / skip / abort / explain)               │
-  └────────────────────────────────────────────────────────┘
-
-COMPLETION STATE:
-  code_quality=hardened, test_state=e2e, review_count >= 3.
-  Recommended next: fw ship (if ready) or fw qa --perf (if perf matters)
-
-────────────────────────────────────────────────────────
-COMBO 3: fw evolve
-────────────────────────────────────────────────────────
-
-WHEN TO USE:
-  - Working project, want to push quality higher
-  - "What should we improve?"
-  - Post-launch, looking for the next lever
-  - Project feels stale or plateaued
-  - phase >= 6 and code_quality >= reviewed
-
-WHAT IT DOES:
-  Systematic improvement cycle: find weaknesses, generate ideas,
-  pick transformative additions, optimize performance, polish UX,
-  clean AI writing artifacts. After this combo, the project is
-  measurably better on multiple axes.
-
-STEPS (8):
-
-  Step  Command                          Prompt     State transition
-  ────  ───────────────────────────────  ─────────  ─────────────────────────
-   1    fw init                          MT-01      phase → detected
-   2    fw meta --weaknesses             MT-02      (weak spots identified)
-   3    fw ideate --30to5                QA-06      (30 ideas → top 5)
-   4    fw plan --innovate               PL-10      (one transformative addition)
-   5    fw qa --perf                     QA-08      (profile-driven optimization)
-   6    fw qa --ux                       QA-03      (UX audit, every rough edge)
-   7    fw meta --deslopify              MT-04      (kill AI writing patterns)
-   8    fw diagnose                      —          (measure what moved)
-
-PROGRESS REPORTING (example at step 3):
-
-  ┌────────────────────────────────────────────────────────┐
-  │  ✓ [3/8] fw ideate --30to5 — QA-06 executed            │
-  │  Combo: evolve                                         │
-  │  State: phase=8 plan=high code=hardened tests=e2e      │
-  │                                                        │
-  │  Next: [4/8] fw plan --innovate                        │
-  │  → Takes the best idea from step 3 and asks:           │
-  │    "What is the single smartest transformative          │
-  │     addition?" Not incremental. Transformative.        │
-  │  Remaining: 5 steps                                    │
-  │                                                        │
-  │  Continue? (yes / skip / abort / explain)               │
-  └────────────────────────────────────────────────────────┘
-
-COMPLETION STATE:
-  All improvement axes covered: architecture, performance, UX, copy.
-  Recommended next: fw ship (deploy the improvements)
-
-────────────────────────────────────────────────────────
-COMBO SELECTION HEURISTIC
-────────────────────────────────────────────────────────
-
-  IF phase <= 1 AND plan_quality <= low     → fw genesis
-  IF code_quality <= sampled                → fw audit
-  IF code_quality >= reviewed
-    AND project is functional               → fw evolve
-  IF unsure                                 → fw diagnose first, then pick
-
-On fw diagnose, always recommend the most relevant advanced combo
-as one of the top 3 interventions if a combo fits the current state.
+10 phases, strictly sequential. Identify where the user is, then pick prompts from that phase.
+
+  Phase 0  PREREQUISITES        Environment ready, constitution written
+  Phase 1  DRAFT                One comprehensive plan, one document
+  Phase 2  REFINE               4-15 praise/critique rounds until changes are wording-only
+  Phase 3  ALIEN ARTIFACTS      Inject mathematically optimal constructs
+  Phase 4  PLAN TO TASKS        Convert plan into execution graph (self-contained tasks)
+  Phase 5  QA TASKS             QA the task graph 5-15 passes
+  Phase 6  SWARM EXECUTE        Deploy agents, ship code, self-review after each task
+  Phase 7  FRESH-EYES REVIEW    Numbered review sessions until diffs flatline
+  Phase 8  PERFORMANCE          Profile first, measure, then optimize one lever at a time
+  Phase 9  METACOGNITION        Study the spec's evolution, train intuition
 ```
 
 ---
 
 ## Dispatch Table
 
-Flat lookup. Situation → prompt.
+Flat lookup. Match the user's situation to the right prompt.
 
 ```
 STARTING_FROM_SCRATCH          → PL-01 First Principles
@@ -868,6 +100,89 @@ CLEANING_AI_WRITING            → MT-04 De-Slopifier
 FILE_RESTRUCTURING             → MT-05 Code Reorganizer
 BUILDING_AGENT_CLI             → MT-06 CLI Error Tolerance
 PRE_INTEGRATION_STUDY          → MT-07 Dependency Analysis
+```
+
+---
+
+## Prompt Chains
+
+Common sequences. Fire them in order. Each step's output feeds the next.
+
+```
+PLANNING (nothing → ready-to-execute plan):
+  PL-02 Draft → PL-03/04/05 Praise Push x3 → PL-11 Premortem →
+  PL-13 Alien → PL-06 Critique → PL-08 Integrate
+
+  Critical: premortem + alien BEFORE critique + integrate.
+  Otherwise alien additions are never integrated.
+
+TASK CREATION (plan → task graph):
+  BD-01 Plan to Beads → BD-02 QA Beads (repeat 5x) → BD-03 Triage
+
+EXECUTION (task → shipped code):
+  BD-03 Triage → EX-01 Execute → RV-01 Self-Review
+  Repeat for each task.
+
+REVIEW ESCALATION (comfortable → paranoid):
+  RV-09 Random Inspect → RV-02 Deep Review x3 →
+  RV-04 McCarthy Hunt → RV-05 Stakes Escalation → RV-06 CVE Probe
+
+HARDENING (code → production-ready):
+  RV-07 Stub Eliminator → QA-02 E2E Pipeline →
+  QA-05 Deploy & Verify → MT-03 README Reviser
+
+IMPROVEMENT (working → better):
+  MT-02 System Weaknesses → QA-06 Idea Wizard 30→5 →
+  PL-10 Innovation Boost → QA-08 Performance Audit →
+  QA-03 UX Audit → MT-04 De-Slopifier
+
+MULTI-MODEL (competing plans → synthesis):
+  PL-02 Draft (on N models) → PL-07 Synthesis → PL-08 Integrate
+  OR: PL-09 Dueling Wizards → PL-07 → PL-08
+```
+
+---
+
+## Routing Rules
+
+When the user asks something vague, map it to a prompt chain.
+
+```
+"what should I do next"       → Assess phase, recommend highest-impact prompt
+"start from scratch"          → PL-02 → PL-03/04/05 → PL-11 → PL-13 → PL-06 → PL-08
+"build me a plan"             → Same as above
+"push it harder"              → PL-03 (or PL-04, PL-05 if already pushed)
+"critique the plan"           → PL-06 Plan Critique
+"ship it"                     → RV-07 → QA-02 → QA-05 → MT-03
+"make it beautiful"           → QA-01 → QA-03 → MT-04
+"find the bugs"               → RV-04 → RV-05
+"harden security"             → RV-06 → RV-04 → RV-05 → QA-02
+"I don't trust this code"     → RV-09 → RV-02 x3 → RV-04 → RV-05 → RV-06 → QA-02
+"is this code solid"          → Same as above
+"make this project better"    → MT-02 → QA-06 → PL-10 → QA-08 → QA-03 → MT-04
+"what can we improve"         → Same as above
+"profile this"                → QA-08
+"are there stubs left"        → RV-07
+"I just joined this project"  → MT-01
+
+Honor intent. Pick the most impactful interpretation. Tell the user what you chose.
+```
+
+---
+
+## Key Rules
+
+```
+1. Tests must not use mocks. Real data, real calls, real E2E. (Doctrine D09)
+2. Agents are fungible generalists. No roles, no backstories. (D03)
+3. One canonical plan per project. One document. (D01)
+4. Deep review is a numbered series. Part 1, 2, ... 23+. Stop when diffs flatline. (D05)
+5. After tasks exist, plan is closed. Task-map is the execution surface. (D07)
+6. Task IDs in every commit message. (D06)
+7. Commit agent is separate from coding agents. Never touches code. (D04)
+8. Praise expands, critique refines. Both are required. Never skip praise rounds. (A05)
+9. Never do skeleton-first development. (A01)
+10. Profiling first, always. Never optimize without data. (A10)
 ```
 
 ---
@@ -1415,64 +730,4 @@ we think they're trying to do.
 Before integrating <DEPENDENCY>, write a COMPREHENSIVE_ANALYSIS_OF_<DEPENDENCY>.md.
 Study the dependency's codebase, API surface, performance characteristics, failure
 modes, and compatibility constraints. This must be done BEFORE any integration code.
-```
-
----
-
-## BOOT
-
-You have reached the end of the page. You have absorbed:
-
-- The methodology kernel (axioms, state machine, 12 principles, 15 doctrine rules, 10 anti-patterns)
-- The Flywheel DSL (commands, routing, state model with quality rubrics, piping, conditionals, implicit parsing)
-- The Robot REPL Protocol (fetch/execute/re-fetch loop, combo progress tracking, interruption handling)
-- 3 advanced combos: **genesis** (10 steps, nothing→plan+tasks+first review), **audit** (9 steps, distrust→hardened), **evolve** (8 steps, working→great)
-- The dispatch table (flat situation → prompt lookup)
-- All 46 prompts (verbatim, extractable by ID)
-
-```
-NOW EXECUTE THE BOOT SEQUENCE:
-
-1. Initialize all state variables to match DSL state model:
-   phase=null, plan_quality=null, code_quality=null, test_state=null,
-   review_count=0, prompt_count=0, last_prompt=null, fetch_count=1,
-   active_combo=null, combo_step=0, combo_total=0, combo_queue=[]
-
-2. Read the user's codebase: README, plan files, task files, constitution,
-   recent commits, conversation history.
-
-3. ASSESS state using the quality rubrics:
-   - phase (0-9): where in the state machine?
-   - plan_quality: apply rubric (none/low/medium/high)
-   - code_quality: apply rubric (unknown/sampled/reviewed/hardened)
-   - test_state: apply rubric (none/mocked/partial/e2e)
-
-4. Run fw diagnose. Include the best-fit advanced combo in your
-   top 3 recommendations (genesis / audit / evolve).
-
-5. Present to user:
-
-   ┌─────────────────────────────────────────────────────┐
-   │  FLYWHEEL ADVISOR v2 — booted from URL              │
-   │                                                      │
-   │  Phase: <N> — <phase name>                           │
-   │  State: plan=<X> code=<X> tests=<X> reviews=<N>     │
-   │                                                      │
-   │  Top 3 recommendations:                              │
-   │  1. fw <command or combo> — <why, one line>          │
-   │  2. fw <command or combo> — <why, one line>          │
-   │  3. fw <command or combo> — <why, one line>          │
-   │                                                      │
-   │  Anti-pattern detected: <ID if any>                  │
-   │                                                      │
-   │  Type a fw command, describe what you need,           │
-   │  or start a combo: fw genesis / fw audit / fw evolve │
-   └─────────────────────────────────────────────────────┘
-
-6. Enter REPL loop. Wait for user input.
-   The user drives. You advise and execute on command.
-   You are a flywheel methodology interpreter booted from a URL.
-   This page is your source of truth. Re-fetch it when triggers fire.
-
-Session starts now.
 ```

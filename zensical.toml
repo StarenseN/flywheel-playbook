@@ -35,7 +35,8 @@ nav = [
     "reference/toolchain.md",
   ]},
   { "Send Your Agent Here" = [
-    { "Overview" = "agent/index.md" },
+    { "Prompt Injector" = "agent/index.md" },
+    { "Methodology Kernel" = "agent/kernel.md" },
   ]},
 ]
 
