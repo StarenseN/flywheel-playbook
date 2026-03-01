@@ -124,9 +124,116 @@ THE FLYWHEEL EFFECT:
 
 ---
 
+## Prompt Combinatorics
+
+Prompts are not a menu. They are composable operators. A single prompt is fine for a single problem. Real leverage comes from chaining, escalating, and combining them. This section teaches you the patterns.
+
+```
+CHAINS (sequential — each output feeds the next input):
+
+  FULL_PLAN_CYCLE:
+    PL-02 → PL-03 → PL-04 → PL-05 → PL-06 → PL-08 → PL-11 → PL-13
+    Draft. Push harder (x3). Critique. Integrate. Premortem. Alien artifacts.
+    This is the canonical planning sequence. 8 steps minimum for any serious project.
+
+  CRITIQUE_INTEGRATE:
+    PL-06 → PL-08
+    Critique produces diffs. Integrate applies them. Always paired.
+    If critique came from a different model, even better.
+
+  MULTI_MODEL_MERGE:
+    PL-02 (model A) + PL-02 (model B) + PL-02 (model C) → PL-07 → PL-08
+    Three models draft independently. Synthesize. Integrate the winner.
+
+  TASK_PIPELINE:
+    BD-01 → BD-02 → BD-02 → BD-02 → ... (repeat until changes are reordering only)
+    Plan to tasks. Then QA the tasks 5-15 times. Most people stop at 1.
+
+  EXECUTE_LOOP:
+    EX-01 → RV-01 → EX-01 → RV-01 → ...
+    Execute task. Self-review before closing. Next task. Never skip the review.
+
+  REVIEW_SERIES:
+    RV-02 Part 1 → RV-02 Part 2 → RV-02 Part 3 → ... Part 23+
+    Numbered sessions. Each catches what the last missed. Stop when diffs flatline.
+
+ESCALATION LADDERS (fire next rung when previous didn't move the needle):
+
+  PLAN_QUALITY:
+    PL-03 → PL-04 → PL-05
+    "Barely scratches the surface" → "Still a far cry" → "I KNOW you can do better"
+    Increasing emotional intensity. Each pushes the model past its comfort zone.
+
+  REVIEW_INTENSITY:
+    RV-01 → RV-02 → RV-04 → RV-05
+    Self-review → Deep review → "The bugs are there, find them" → "Your family's life depends on it"
+    Use RV-04/RV-05 when reviews feel too comfortable. Models respond to stakes.
+
+  IDEA_GENERATION:
+    QA-06 → QA-07
+    30 ideas winnowed to 5. If none are transformative, escalate: 100 ideas, show only top 10.
+
+  SECURITY:
+    RV-06 → RV-04 → RV-05
+    CVE probe first (systematic). If too surface-level, McCarthy Hunt. If still too polite, Stakes.
+
+NAMED COMBOS (recipes for common goals):
+
+  "I HAVE NOTHING":
+    PL-01 → PL-02 → PL-03 → PL-04 → PL-05 → PL-12
+    First principles. Draft. Push x3. Then get an honest opinion before investing more.
+
+  "PLAN EXISTS, IS IT GOOD?":
+    PL-06 → PL-11 → PL-13 → PL-08
+    Critique. Premortem. Alien artifacts. Integrate all three rounds of feedback.
+
+  "CODE EXISTS, IS IT GOOD?":
+    RV-09 → RV-02 (x3) → RV-07 → QA-02
+    Random inspect for first impression. Deep review series. Hunt stubs. E2E tests.
+
+  "SHIP IT":
+    RV-07 → QA-02 → QA-05 → MT-03
+    Kill all stubs. Full E2E. Deploy & verify. Update docs. In that order.
+
+  "MAKE IT BEAUTIFUL":
+    QA-01 → QA-03 → MT-04
+    Stripe-level UI. UX audit. De-slopify the copy.
+
+  "MAKE IT FAST":
+    QA-08 → RV-02 (perf-focused)
+    Profile first. Always. Then targeted review of hot paths.
+
+  "FRESH EYES ON OLD PROJECT":
+    MT-01 → MT-02 → QA-06 → PL-10
+    Onboard. Find weaknesses. Generate ideas. One transformative addition.
+
+  "COMPETING ARCHITECTURES":
+    PL-09 → PL-07 → PL-08
+    Dueling wizards. Synthesize the winner. Integrate into canonical plan.
+
+DECISION HEURISTICS:
+
+  IF no_plan_exists          → FULL_PLAN_CYCLE
+  IF plan_quality_unknown    → PL-06 first, then decide
+  IF plan_quality_low        → PL-03 → PL-04 → PL-05 (praise pushes)
+  IF plan_quality_high       → PL-11 → PL-13 (stress test + alien artifacts)
+  IF code_quality_unknown    → RV-09 first (random sample), then RV-02 series
+  IF reviews_feel_too_easy   → escalate: RV-04 then RV-05
+  IF tests_exist_but_shallow → QA-02 (replace mocks with real E2E)
+  IF performance_unknown     → QA-08 (profile before touching anything)
+  IF shipping_soon           → "SHIP IT" combo
+  IF new_to_project          → MT-01 → read everything before touching anything
+  IF stuck_on_a_bug          → QA-04 (root cause, not symptoms)
+  IF project_feels_stale     → "FRESH EYES ON OLD PROJECT" combo
+  IF want_more_ideas         → QA-06 first, QA-07 if first batch is weak
+  IF integrating_dependency  → MT-07 before writing ANY integration code
+```
+
+---
+
 ## Dispatch Table
 
-When in situation X, fire prompt Y.
+Flat lookup. Situation → prompt.
 
 ```
 STARTING_FROM_SCRATCH          → PL-01 First Principles
@@ -140,16 +247,16 @@ NEED_TRANSFORMATIVE_ADDITION   → PL-10 Innovation Boost
 STRESS_TEST_AGAINST_FAILURE    → PL-11 Premortem
 HONEST_PROJECT_ASSESSMENT      → PL-12 Project Opinion
 INJECT_ALIEN_ARTIFACTS         → PL-13 Alien Artifact Injection
-CONVERTING_PLAN_TO_BEADS       → BD-01 Plan to Beads
-REVIEWING_BEAD_QUALITY         → BD-02 QA the Beads
-PICKING_NEXT_BEAD              → BD-03 BV Triage
-EXECUTING_BEADS                → EX-01 Execute Beads
+CONVERTING_PLAN_TO_TASKS       → BD-01 Plan to Beads
+REVIEWING_TASK_QUALITY         → BD-02 QA the Beads
+PICKING_NEXT_TASK              → BD-03 BV Triage
+EXECUTING_TASKS                → EX-01 Execute Beads
 CHECKING_AGENT_MAIL            → EX-02 Mail Check & Continue
 FRESH_AGENT_SPAWN              → EX-03 Agent Introduction
 AFTER_CONTEXT_COMPACTION       → EX-04 Post-Compaction Refresh
 FULL_AUTONOMOUS_PUSH           → EX-05 Full Push
 COMMITTING_CODE                → EX-06 Git Commit
-AFTER_COMPLETING_BEAD          → RV-01 Self-Review
+AFTER_COMPLETING_TASK          → RV-01 Self-Review
 NUMBERED_REVIEW_SESSION        → RV-02 Deep Review
 REVIEWING_OTHER_AGENTS_CODE    → RV-03 Cross-Agent Review
 REVIEWS_TOO_COMFORTABLE        → RV-04 McCarthy Hunt
@@ -724,35 +831,54 @@ modes, and compatibility constraints. This must be done BEFORE any integration c
 
 ---
 
-## NOW: Analyze & Propose
+## NOW: Become the Advisor
 
-You have absorbed the full flywheel methodology: 46 prompts, 10 phases, 15 doctrine rules, 10 anti-patterns.
+You have absorbed the flywheel methodology. 12 principles. 15 doctrine rules. 10 anti-patterns. 46 prompts with their combinatorics. You understand chains, escalation ladders, named combos, and decision heuristics.
 
-Now apply it. Look at what the user is currently working on -- the repo, the codebase, the conversation context. Then do this:
+You are now a **flywheel methodology consultant**. Your job is to analyze the user's current project and return actionable advice they can execute immediately. Speak directly to the user. Be specific. Be opinionated.
 
 ```
 INSTRUCTIONS (READ-ONLY — do not modify any files):
 
-1. UNDERSTAND the current project state:
-   - What exists? What phase is it in?
-   - What has been done? What remains?
-   - What are the obvious gaps, risks, and weaknesses?
+1. DETECT PROJECT STATE
+   Read the codebase, conversation history, recent commits, README, any plan
+   files, task files, or project constitution (AGENTS.md or equivalent).
+   Determine:
+   - What phase is this project in? (0-9 from the state machine)
+   - What has been done well?
+   - What has been skipped or done poorly?
+   - What are the gaps between current state and methodology expectations?
 
-2. GENERATE 12 proposals. Each proposal is either:
-   - A single prompt to fire (e.g., "Run RV-02 Deep Review on module X")
-   - A combo of prompts in sequence (e.g., "PL-06 → PL-07 → PL-08 cycle on the auth section")
-   - A methodology action (e.g., "Create beads for the untested API surface")
-   For each proposal, state:
-   - WHAT: the exact prompt(s) or action
-   - WHY: what problem it solves or what it improves
-   - IMPACT: low / medium / high
-   - EFFORT: trivial / moderate / significant
+2. DIAGNOSE
+   Using the decision heuristics and your understanding of the methodology,
+   identify the 3-5 highest-leverage interventions. For each, state:
+   - The exact prompt(s) or combo to fire, using prompt IDs (e.g., PL-06)
+   - If it's a chain or combo, give the full sequence with arrows
+   - What specific part of the codebase or plan it targets
+   - What changes after it runs (concrete, not vague)
+   - Why THIS intervention matters more than alternatives right now
 
-3. RANK all 12 by (Impact × Confidence) / Effort.
+3. RANK by (Impact × Confidence) / Effort
+   Impact: how much it moves the project forward
+   Confidence: how sure you are it will work
+   Effort: how many tokens/minutes it costs
 
-4. PRESENT your top 3 with a one-paragraph justification each.
-   Explain what changes after each one runs.
-   Be specific to THIS project, not generic advice.
+4. PRESENT TO THE USER
+   Address the user directly. No preamble. Structure:
 
-5. DO NOT execute anything. Return your analysis to the user.
+   **Phase assessment:** "Your project is in Phase X. Here's what I see."
+   (2-3 sentences max)
+
+   **Top 3 recommendations:**
+   For each:
+   - The prompt or combo with IDs (copy-pasteable)
+   - One paragraph: what it does, why now, what changes after
+   - Effort estimate: trivial / moderate / significant
+
+   **One thing to stop doing:**
+   If you detect an anti-pattern (A01-A10), call it out directly.
+   Quote the anti-pattern by ID.
+
+5. DO NOT execute anything. Return your analysis.
+   The user decides what to run. You advise.
 ```
