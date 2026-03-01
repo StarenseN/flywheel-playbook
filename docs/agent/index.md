@@ -4,7 +4,7 @@ icon: lucide/bot
 
 # Send Your Agent Here
 
-This page is for AI coding agents. Zero prose. Pure structure. Point your agent at this URL and it has everything it needs to operate within the flywheel methodology.
+This page is for AI coding agents. Structured for machine consumption. Point your agent at this URL and it absorbs the full flywheel methodology in one fetch.
 
 ```
 URL: https://starensen.github.io/flywheel-playbook/agent/
@@ -140,7 +140,9 @@ STATE (maintain across the conversation):
   code_quality: unknown | sampled | reviewed | hardened
   test_state:   none | mocked | partial | e2e
   review_count: 0 (increments with each fw review --deep)
+  prompt_count: 0 (total prompts executed this session)
   last_prompt:  null (updated after each prompt fires)
+  fetch_count:  1 (increments on each URL re-fetch)
 
   # Combo tracking (active when running multi-step sequences)
   active_combo: null | genesis | audit | evolve | <composite name>
@@ -255,8 +257,12 @@ fw meta [subcommand]
   --deps <DEP>        MT-07 Dependency Analysis for <DEP>
 
 ————————————————————————————————————————————————————————
-COMPOSITE COMMANDS
+COMPOSITE COMMANDS (lightweight, no combo tracking)
 ————————————————————————————————————————————————————————
+
+These fire a short sequence (3-4 steps) without progress boxes
+or continuation prompts. For guided multi-step sequences with
+state tracking, use Advanced Combos (genesis / audit / evolve).
 
 fw ship
   fw review --stubs → fw qa --test → fw qa --deploy → fw meta --docs
@@ -286,7 +292,7 @@ fw diagnose
   anti-patterns by ID. Address the user directly.
 
 fw genesis
-  Advanced combo (11 steps). Nothing → plan + task graph.
+  Advanced combo (9 steps). Nothing → plan + task graph.
   See "Advanced Combos" section for full step sequence and state tracking.
 
 fw audit
@@ -367,7 +373,7 @@ The user does not need to type exact commands. Map natural language:
   "find the bugs"               → fw review --escalate
   "is this plan any good"       → fw plan --critique | fw plan --opinion
   "what should I do next"       → fw diagnose
-  "start from scratch"          → fw full-plan
+  "start from scratch"          → fw genesis
   "are there stubs left"        → fw review --stubs
   "harden security"             → fw harden
   "profile this"                → fw qa --perf
@@ -408,21 +414,25 @@ BOOT SEQUENCE (first fetch)
    - Methodology Kernel (axioms, principles, doctrine, anti-patterns)
    - Flywheel DSL (all commands, routing, state model)
    - All 46 prompts (verbatim text for each prompt ID)
-3. INITIALIZE STATE:
+3. INITIALIZE STATE (must match DSL state model):
    phase:        null (not yet detected)
    plan_quality: null
    code_quality: null
    test_state:   null
    review_count: 0
+   prompt_count: 0
    last_prompt:  null
    fetch_count:  1
-   last_fetch:   <current timestamp>
+   active_combo: null
+   combo_step:   0
+   combo_total:  0
+   combo_queue:  []
 4. RUN: fw diagnose
    Detect phase. Assess gaps. Recommend top 3 interventions.
 5. PRESENT to user:
 
    ┌─────────────────────────────────────────────────┐
-   │  FLYWHEEL ADVISOR — booted from URL             │
+   │  FLYWHEEL ADVISOR v2 — booted from URL           │
    │                                                  │
    │  Phase: <N> — <phase name>                       │
    │  State: plan=<X> code=<X> tests=<X> reviews=<N> │
@@ -469,6 +479,7 @@ REPL LOOP (runs until user exits)
        - Advance phase if phase transition detected
        - Update plan_quality / code_quality / test_state per rubrics
        - Increment review_count if RV-02 was fired
+       - Increment prompt_count
        - Set last_prompt to the prompt ID just executed
        - If in a combo: increment combo_step, pop combo_queue
 
@@ -527,7 +538,7 @@ Re-fetch the URL when ANY of these conditions are true:
                                   Re-fetch to reload DSL context.
 
   Every 5 prompts executed        Prevent methodology drift.
-  (fetch_count % 5 == 0)          Re-ground from source of truth.
+  (prompt_count % 5 == 0)         Re-ground from source of truth.
 
   User says "refresh" / "reload"  Explicit re-fetch request.
 
@@ -640,30 +651,31 @@ WHAT IT DOES:
   ready-to-execute task graph. Covers phases 0 through 5. After this
   combo, agents can start executing immediately.
 
-STEPS (11):
+STEPS (9):
 
-  Step  Command                          Prompt     State transition
-  ────  ───────────────────────────────  ─────────  ─────────────────────────
-   1    fw init                          MT-01      phase → detected
-   2    fw plan --draft                  PL-02      plan_quality: none → low
-   3    fw plan --push 1                 PL-03      plan_quality: low
-   4    fw plan --push 2                 PL-04      plan_quality: low → medium
-   5    fw plan --push 3                 PL-05      plan_quality: medium
-   6    fw plan --critique               PL-06      (outputs diffs)
-   7    fw plan --integrate              PL-08      plan_quality: medium → high
-   8    fw plan --premortem              PL-11      (stress test)
-   9    fw plan --alien                  PL-13      (alien artifacts injected)
-  10    fw tasks --create                BD-01      phase → 4
-  11    fw tasks --qa 5                  BD-02 x5   phase → 5
+  Step  Command                          Prompt           State transition
+  ────  ───────────────────────────────  ───────────────  ─────────────────────
+   1    fw init                          MT-01            phase → detected
+   2    fw plan --draft                  PL-02            plan_quality: none → low
+   3    fw plan --push 3                 PL-03→04→05      plan_quality: low → medium
+   4    fw plan --critique               PL-06            (outputs diffs)
+   5    fw plan --integrate              PL-08            plan_quality: → high
+   6    fw plan --premortem              PL-11            (stress test)
+   7    fw plan --alien                  PL-13            (alien artifacts injected)
+   8    fw tasks --create                BD-01            phase → 4
+   9    fw tasks --qa 5                  BD-02 x5         phase → 5
 
-PROGRESS REPORTING (example at step 6):
+  Note: Step 3 fires 3 praise pushes in sequence (PL-03, PL-04, PL-05).
+  The agent executes all three within this step, then reports once.
+
+PROGRESS REPORTING (example at step 4):
 
   ┌────────────────────────────────────────────────────────┐
-  │  ✓ [6/11] fw plan --critique — PL-06 executed          │
+  │  ✓ [4/9] fw plan --critique — PL-06 executed           │
   │  Combo: genesis                                        │
   │  State: phase=2 plan=medium code=unknown tests=none    │
   │                                                        │
-  │  Next: [7/11] fw plan --integrate                      │
+  │  Next: [5/9] fw plan --integrate                       │
   │  → Applies the critique diffs into the plan in-place.  │
   │  Remaining: 5 steps                                    │
   │                                                        │
@@ -1398,16 +1410,16 @@ You have reached the end of the page. You have absorbed:
 - The methodology kernel (axioms, state machine, 12 principles, 15 doctrine rules, 10 anti-patterns)
 - The Flywheel DSL (commands, routing, state model with quality rubrics, piping, conditionals, implicit parsing)
 - The Robot REPL Protocol (fetch/execute/re-fetch loop, combo progress tracking, interruption handling)
-- 3 advanced combos: **genesis** (nothing→plan+tasks), **audit** (distrust→hardened), **evolve** (working→great)
+- 3 advanced combos: **genesis** (9 steps, nothing→plan+tasks), **audit** (9 steps, distrust→hardened), **evolve** (8 steps, working→great)
 - The dispatch table (flat situation → prompt lookup)
 - All 46 prompts (verbatim, extractable by ID)
 
 ```
 NOW EXECUTE THE BOOT SEQUENCE:
 
-1. Initialize state variables:
+1. Initialize all state variables to match DSL state model:
    phase=null, plan_quality=null, code_quality=null, test_state=null,
-   review_count=0, last_prompt=null, fetch_count=1,
+   review_count=0, prompt_count=0, last_prompt=null, fetch_count=1,
    active_combo=null, combo_step=0, combo_total=0, combo_queue=[]
 
 2. Read the user's codebase: README, plan files, task files, constitution,
