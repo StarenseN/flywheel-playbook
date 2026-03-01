@@ -8,7 +8,7 @@ Transform the stable plan into a granular execution graph with epics, tasks, sub
 
 ---
 
-## The Conversion Prompt (§4.1 Plan to Beads)
+## The Conversion Prompt (BD-01 Plan to Beads)
 
 ```
 Reread AGENTS.md so it's fresh in your mind.
@@ -60,7 +60,7 @@ Then create `master-todo-bead-map.md`:
 This exists for one reason: **agents should never need to reopen the plan.** The plan is read-once. The map is the execution surface. During implementation, agents read the map, pick a bead, implement it, close it, pick the next one. PLAN.md is closed.
 
 !!! warning
-    After beads exist, PLAN.md is closed. The bead-map is the execution surface. If an agent re-reads the plan during §6.1 Execute Beads, something went wrong in bead conversion.
+    After beads exist, PLAN.md is closed. The bead-map is the execution surface. If an agent re-reads the plan during EX-01 Execute Beads, something went wrong in bead conversion.
 
 !!! important
     **Stop condition:** All plan sections have been converted to beads with dependencies. No plan content is left unrepresented.

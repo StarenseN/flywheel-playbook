@@ -41,7 +41,7 @@ Match task complexity to model capability:
 | Long plan critiques | Extended reasoning via web app | Cheap relative to code tokens |
 | Formal reasoning / alien artifacts | o3 or equivalent | Mathematical depth |
 
-But: **do not specialize agents.** Diversify models; don't constrain roles. Every agent is a fungible generalist. The bead system handles coordination, not role descriptions. The single exception is the dedicated commit agent (§6.6 Git Commit), which never edits code.
+But: **do not specialize agents.** Diversify models; don't constrain roles. Every agent is a fungible generalist. The bead system handles coordination, not role descriptions. The single exception is the dedicated commit agent (EX-06 Git Commit), which never edits code.
 
 ## 6. Beads are an execution graph, not a todo list
 

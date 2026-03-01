@@ -34,7 +34,7 @@ The plan is the design doc. There is one canonical plan. Not a plan plus a desig
 
 ### 7. Reopening the plan during execution
 
-After beads exist, PLAN.md is closed. The bead-map is the execution surface. If an agent re-reads the plan during §6.1 Execute Beads, something went wrong in bead conversion.
+After beads exist, PLAN.md is closed. The bead-map is the execution surface. If an agent re-reads the plan during EX-01 Execute Beads, something went wrong in bead conversion.
 
 ### 8. Skipping the premortem
 

@@ -8,7 +8,7 @@ Run repeated review passes over the beads until revisions flatline. Check your b
 
 ---
 
-## Beads QA Prompt (§4.2 QA the Beads) -- Repeat N Times
+## Beads QA Prompt (BD-02 QA the Beads) -- Repeat N Times
 
 ```
 Reread AGENTS.md so it's still fresh in your mind.
