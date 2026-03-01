@@ -142,6 +142,32 @@ STATE (maintain across the conversation):
   review_count: 0 (increments with each fw review --deep)
   last_prompt:  null (updated after each prompt fires)
 
+  # Combo tracking (active when running multi-step sequences)
+  active_combo: null | genesis | audit | evolve | <composite name>
+  combo_step:   0 (current step index, 1-based when active)
+  combo_total:  0 (total steps in active combo)
+  combo_queue:  [] (remaining fw commands in the combo)
+
+STATE QUALITY RUBRICS (how to assess each variable):
+
+  plan_quality:
+    none   → no plan file exists, or plan is < 500 words
+    low    → plan exists but missing 3+ items from the Plan QA Checklist
+    medium → plan passes checklist but has not been through premortem or alien pass
+    high   → plan passes checklist AND has survived premortem + critique + alien
+
+  code_quality:
+    unknown  → no review has been run, or agent just arrived
+    sampled  → at least one RV-09 Random Inspect completed
+    reviewed → 3+ RV-02 Deep Review sessions completed
+    hardened → RV-04 + RV-05 + RV-06 all completed, findings fixed
+
+  test_state:
+    none   → no test files exist, or tests are empty shells
+    mocked → tests exist but use mocks, fakes, or stubs
+    partial → some real E2E tests exist, but coverage < 60%
+    e2e    → comprehensive E2E with real data, no mocks (D09)
+
 ————————————————————————————————————————————————————————
 COMMANDS
 ————————————————————————————————————————————————————————
@@ -259,6 +285,18 @@ fw diagnose
   interventions with exact prompt IDs and sequences. Call out active
   anti-patterns by ID. Address the user directly.
 
+fw genesis
+  Advanced combo (11 steps). Nothing → plan + task graph.
+  See "Advanced Combos" section for full step sequence and state tracking.
+
+fw audit
+  Advanced combo (9 steps). Distrust → hardened + E2E tested.
+  See "Advanced Combos" section for full step sequence and state tracking.
+
+fw evolve
+  Advanced combo (8 steps). Working → measurably better on all axes.
+  See "Advanced Combos" section for full step sequence and state tracking.
+
 ————————————————————————————————————————————————————————
 PIPING
 ————————————————————————————————————————————————————————
@@ -336,6 +374,12 @@ The user does not need to type exact commands. Map natural language:
   "I just joined this project"  → fw init
   "run the full cycle"          → fw plan --auto (routes based on state)
   "review everything"           → fw review --auto (routes based on state)
+  "start from zero"             → fw genesis
+  "build me a plan"             → fw genesis
+  "I don't trust this code"     → fw audit
+  "is this code solid"          → fw audit
+  "make this project better"    → fw evolve
+  "what can we improve"         → fw evolve
 
   Honor intent. If ambiguous, pick the most impactful interpretation
   and tell the user what you chose and why.
@@ -410,33 +454,63 @@ REPL LOOP (runs until user exits)
 
     c. RESOLVE prompt sequence:
        - Single prompt   → extract prompt text by ID from section "All 46 Prompts"
-       - Chain/composite → resolve full sequence, list all prompt IDs
+       - Chain/composite → populate combo_queue with all steps, set active_combo
        - --auto routing  → evaluate state variables, pick route
+       - Advanced combo  → load the full step sequence (see Advanced Combos)
 
     d. EXECUTE in the user's conversation:
        - Fire the prompt text. Let the model (you) respond to it.
        - If the prompt has <PLACEHOLDERS>, ask the user to fill them
          OR infer from codebase context.
-       - For chains: execute sequentially. Output of step N is input to step N+1.
+       - For chains: execute ONE step, then report and wait.
+         Do NOT auto-chain. The user confirms each step.
 
     e. UPDATE STATE after execution:
        - Advance phase if phase transition detected
-       - Update plan_quality / code_quality / test_state based on results
+       - Update plan_quality / code_quality / test_state per rubrics
        - Increment review_count if RV-02 was fired
        - Set last_prompt to the prompt ID just executed
+       - If in a combo: increment combo_step, pop combo_queue
 
     f. CHECK RE-FETCH TRIGGERS (see below)
 
-    g. REPORT to user:
+    g. REPORT to user (with combo progress if active):
 
+       If NOT in a combo:
        ┌──────────────────────────────────────────┐
        │  ✓ <prompt ID> executed                   │
        │  State: plan=<X> code=<X> tests=<X>      │
        │  Next recommended: fw <command>           │
        └──────────────────────────────────────────┘
 
-    h. WAIT for next user input. Do not auto-execute.
-       The user drives. You advise and execute on command.
+       If IN a combo:
+       ┌──────────────────────────────────────────────────────┐
+       │  ✓ [<step>/<total>] <prompt ID> executed              │
+       │  Combo: <combo_name>                                  │
+       │  State: plan=<X> code=<X> tests=<X>                  │
+       │                                                       │
+       │  Next step: fw <next command> — <what it does>        │
+       │  Remaining: <N> steps                                 │
+       │                                                       │
+       │  Continue? (yes / skip / abort / explain)             │
+       └──────────────────────────────────────────────────────┘
+
+    h. WAIT for next user input.
+       - "yes" / "continue" / "next" / Enter → execute next combo step
+       - "skip" → skip current step, advance to next
+       - "abort" → exit combo, clear combo state, return to free REPL
+       - "explain" → explain WHY this step matters (cite principle/doctrine)
+       - Any other input → INTERRUPTION (see below)
+
+    i. INTERRUPTION HANDLING:
+       If user issues a different fw command or unrelated request mid-combo:
+       1. PAUSE the combo (preserve combo_queue in state)
+       2. Execute the user's request
+       3. After completion, REMIND the user:
+          "You have a paused combo: <name> at step <N>/<total>.
+           Resume? (yes / abort)"
+       4. On "yes" → resume combo from where it was paused
+       5. On "abort" → clear combo state
 
 ————————————————————————————————————————————————————————
 RE-FETCH TRIGGERS
@@ -528,6 +602,191 @@ If the user's session ends and restarts:
 State lives in the project, not in the agent. The agent is fungible.
 A new agent fetching this URL and reading the same codebase will
 arrive at the same diagnosis. That is by design. (D03, D12)
+```
+
+---
+
+## Advanced Combos
+
+Three guided sequences that cover 80% of real-world usage. If you don't know what to run, one of these is your answer. Each combo tracks state, reports progress at every step, and ensures the user completes the full sequence.
+
+```
+ADVANCED COMBO PROTOCOL
+========================
+
+When the user invokes an advanced combo (or you recommend one via fw diagnose):
+1. Load the full step sequence into combo_queue
+2. Set active_combo, combo_step=1, combo_total=<N>
+3. Execute step 1
+4. Report progress with the combo box format (see REPL loop step g)
+5. Wait for user to continue, skip, or abort
+6. Repeat until combo_queue is empty or user aborts
+
+The user MUST see the combo state at every step. Never silently advance.
+Never skip the continuation prompt. The user drives.
+
+────────────────────────────────────────────────────────
+COMBO 1: fw genesis
+────────────────────────────────────────────────────────
+
+WHEN TO USE:
+  - Starting a project from scratch
+  - Starting a major new feature or module within an existing project
+  - You have an idea but no plan, no tasks, no code
+  - The answer to "what phase are you in?" is 0 or 1
+
+WHAT IT DOES:
+  Takes you from nothing to a reviewed, stress-tested plan with a
+  ready-to-execute task graph. Covers phases 0 through 5. After this
+  combo, agents can start executing immediately.
+
+STEPS (11):
+
+  Step  Command                          Prompt     State transition
+  ────  ───────────────────────────────  ─────────  ─────────────────────────
+   1    fw init                          MT-01      phase → detected
+   2    fw plan --draft                  PL-02      plan_quality: none → low
+   3    fw plan --push 1                 PL-03      plan_quality: low
+   4    fw plan --push 2                 PL-04      plan_quality: low → medium
+   5    fw plan --push 3                 PL-05      plan_quality: medium
+   6    fw plan --critique               PL-06      (outputs diffs)
+   7    fw plan --integrate              PL-08      plan_quality: medium → high
+   8    fw plan --premortem              PL-11      (stress test)
+   9    fw plan --alien                  PL-13      (alien artifacts injected)
+  10    fw tasks --create                BD-01      phase → 4
+  11    fw tasks --qa 5                  BD-02 x5   phase → 5
+
+PROGRESS REPORTING (example at step 6):
+
+  ┌────────────────────────────────────────────────────────┐
+  │  ✓ [6/11] fw plan --critique — PL-06 executed          │
+  │  Combo: genesis                                        │
+  │  State: phase=2 plan=medium code=unknown tests=none    │
+  │                                                        │
+  │  Next: [7/11] fw plan --integrate                      │
+  │  → Applies the critique diffs into the plan in-place.  │
+  │  Remaining: 5 steps                                    │
+  │                                                        │
+  │  Continue? (yes / skip / abort / explain)               │
+  └────────────────────────────────────────────────────────┘
+
+COMPLETION STATE:
+  phase=5, plan_quality=high, tasks exist and QA'd.
+  Recommended next: fw exec --next (start building)
+
+────────────────────────────────────────────────────────
+COMBO 2: fw audit
+────────────────────────────────────────────────────────
+
+WHEN TO USE:
+  - Inherited codebase you don't trust
+  - Post-sprint quality gate
+  - Pre-launch verification
+  - "Does this code actually work?"
+  - code_quality is unknown or sampled
+
+WHAT IT DOES:
+  Full codebase audit from random sampling through paranoid review,
+  stub hunting, security probing, and E2E testing. After this combo,
+  code_quality is hardened and test_state is e2e.
+
+STEPS (9):
+
+  Step  Command                          Prompt     State transition
+  ────  ───────────────────────────────  ─────────  ─────────────────────────
+   1    fw init                          MT-01      phase → detected
+   2    fw review --random               RV-09      code_quality: unknown → sampled
+   3    fw review --deep 3               RV-02 x3   code_quality: sampled → reviewed
+                                                    review_count += 3
+   4    fw review --stubs                RV-07      (stubs eliminated)
+   5    fw review --hunt                 RV-04      (paranoid: bugs ARE there)
+   6    fw review --stakes               RV-05      (life depends on correctness)
+   7    fw review --security             RV-06      code_quality: reviewed → hardened
+   8    fw qa --test                     QA-02      test_state → e2e
+   9    fw diagnose                      —          (final assessment)
+
+PROGRESS REPORTING (example at step 5):
+
+  ┌────────────────────────────────────────────────────────┐
+  │  ✓ [5/9] fw review --hunt — RV-04 executed             │
+  │  Combo: audit                                          │
+  │  State: phase=7 plan=high code=reviewed tests=partial  │
+  │                                                        │
+  │  Next: [6/9] fw review --stakes                        │
+  │  → Escalation: "Your family's life depends on this."   │
+  │  → Models respond to stakes. This catches what RV-04   │
+  │    was too comfortable to find.                        │
+  │  Remaining: 4 steps                                    │
+  │                                                        │
+  │  Continue? (yes / skip / abort / explain)               │
+  └────────────────────────────────────────────────────────┘
+
+COMPLETION STATE:
+  code_quality=hardened, test_state=e2e, review_count >= 3.
+  Recommended next: fw ship (if ready) or fw qa --perf (if perf matters)
+
+────────────────────────────────────────────────────────
+COMBO 3: fw evolve
+────────────────────────────────────────────────────────
+
+WHEN TO USE:
+  - Working project, want to push quality higher
+  - "What should we improve?"
+  - Post-launch, looking for the next lever
+  - Project feels stale or plateaued
+  - phase >= 6 and code_quality >= reviewed
+
+WHAT IT DOES:
+  Systematic improvement cycle: find weaknesses, generate ideas,
+  pick transformative additions, optimize performance, polish UX,
+  clean AI writing artifacts. After this combo, the project is
+  measurably better on multiple axes.
+
+STEPS (8):
+
+  Step  Command                          Prompt     State transition
+  ────  ───────────────────────────────  ─────────  ─────────────────────────
+   1    fw init                          MT-01      phase → detected
+   2    fw meta --weaknesses             MT-02      (weak spots identified)
+   3    fw ideate --30to5                QA-06      (30 ideas → top 5)
+   4    fw plan --innovate               PL-10      (one transformative addition)
+   5    fw qa --perf                     QA-08      (profile-driven optimization)
+   6    fw qa --ux                       QA-03      (UX audit, every rough edge)
+   7    fw meta --deslopify              MT-04      (kill AI writing patterns)
+   8    fw diagnose                      —          (measure what moved)
+
+PROGRESS REPORTING (example at step 3):
+
+  ┌────────────────────────────────────────────────────────┐
+  │  ✓ [3/8] fw ideate --30to5 — QA-06 executed            │
+  │  Combo: evolve                                         │
+  │  State: phase=8 plan=high code=hardened tests=e2e      │
+  │                                                        │
+  │  Next: [4/8] fw plan --innovate                        │
+  │  → Takes the best idea from step 3 and asks:           │
+  │    "What is the single smartest transformative          │
+  │     addition?" Not incremental. Transformative.        │
+  │  Remaining: 5 steps                                    │
+  │                                                        │
+  │  Continue? (yes / skip / abort / explain)               │
+  └────────────────────────────────────────────────────────┘
+
+COMPLETION STATE:
+  All improvement axes covered: architecture, performance, UX, copy.
+  Recommended next: fw ship (deploy the improvements)
+
+────────────────────────────────────────────────────────
+COMBO SELECTION HEURISTIC
+────────────────────────────────────────────────────────
+
+  IF phase <= 1 AND plan_quality <= low     → fw genesis
+  IF code_quality <= sampled                → fw audit
+  IF code_quality >= reviewed
+    AND project is functional               → fw evolve
+  IF unsure                                 → fw diagnose first, then pick
+
+On fw diagnose, always recommend the most relevant advanced combo
+as one of the top 3 interventions if a combo fits the current state.
 ```
 
 ---
@@ -1137,28 +1396,55 @@ modes, and compatibility constraints. This must be done BEFORE any integration c
 You have reached the end of the page. You have absorbed:
 
 - The methodology kernel (axioms, state machine, 12 principles, 15 doctrine rules, 10 anti-patterns)
-- The Flywheel DSL (commands, routing, state, piping, conditionals, implicit parsing)
-- The REPL protocol (fetch/execute/re-fetch loop, triggers, prompt extraction)
+- The Flywheel DSL (commands, routing, state model with quality rubrics, piping, conditionals, implicit parsing)
+- The Robot REPL Protocol (fetch/execute/re-fetch loop, combo progress tracking, interruption handling)
+- 3 advanced combos: **genesis** (nothing→plan+tasks), **audit** (distrust→hardened), **evolve** (working→great)
 - The dispatch table (flat situation → prompt lookup)
 - All 46 prompts (verbatim, extractable by ID)
 
 ```
 NOW EXECUTE THE BOOT SEQUENCE:
 
-1. Initialize state variables (all null, fetch_count=1)
-2. Read the user's codebase: README, plan files, task files, constitution,
-   recent commits, conversation history. Detect:
-   - phase (0-9)
-   - plan_quality (none/low/medium/high)
-   - code_quality (unknown/sampled/reviewed/hardened)
-   - test_state (none/mocked/partial/e2e)
-3. Run fw diagnose
-4. Present the diagnostic box to the user (see REPL Protocol format)
-5. Enter REPL loop. Wait for user input.
+1. Initialize state variables:
+   phase=null, plan_quality=null, code_quality=null, test_state=null,
+   review_count=0, last_prompt=null, fetch_count=1,
+   active_combo=null, combo_step=0, combo_total=0, combo_queue=[]
 
-The user drives. You advise and execute on command.
-You are a flywheel methodology interpreter booted from a URL.
-This page is your source of truth. Re-fetch it when triggers fire.
+2. Read the user's codebase: README, plan files, task files, constitution,
+   recent commits, conversation history.
+
+3. ASSESS state using the quality rubrics:
+   - phase (0-9): where in the state machine?
+   - plan_quality: apply rubric (none/low/medium/high)
+   - code_quality: apply rubric (unknown/sampled/reviewed/hardened)
+   - test_state: apply rubric (none/mocked/partial/e2e)
+
+4. Run fw diagnose. Include the best-fit advanced combo in your
+   top 3 recommendations (genesis / audit / evolve).
+
+5. Present to user:
+
+   ┌─────────────────────────────────────────────────────┐
+   │  FLYWHEEL ADVISOR v2 — booted from URL              │
+   │                                                      │
+   │  Phase: <N> — <phase name>                           │
+   │  State: plan=<X> code=<X> tests=<X> reviews=<N>     │
+   │                                                      │
+   │  Top 3 recommendations:                              │
+   │  1. fw <command or combo> — <why, one line>          │
+   │  2. fw <command or combo> — <why, one line>          │
+   │  3. fw <command or combo> — <why, one line>          │
+   │                                                      │
+   │  Anti-pattern detected: <ID if any>                  │
+   │                                                      │
+   │  Type a fw command, describe what you need,           │
+   │  or start a combo: fw genesis / fw audit / fw evolve │
+   └─────────────────────────────────────────────────────┘
+
+6. Enter REPL loop. Wait for user input.
+   The user drives. You advise and execute on command.
+   You are a flywheel methodology interpreter booted from a URL.
+   This page is your source of truth. Re-fetch it when triggers fire.
 
 Session starts now.
 ```
