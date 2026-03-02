@@ -4,7 +4,7 @@ icon: lucide/alert-triangle
 
 # Anti-Patterns
 
-11 ways to destroy your project. Each one looks reasonable. Each one will cost you days.
+14 ways to destroy your project. Each one looks reasonable. Each one will cost you days.
 
 ---
 
@@ -79,5 +79,23 @@ Proposing performance improvements without profiling first. "This loop is O(n^2)
 ### 11. Git worktrees for agent swarms
 
 Agents in separate worktrees never see each other's changes until merge time, by which point conflicts have piled up into a nightmare. All agents in one shared working directory surfaces merge conflicts immediately, when they're small and easy to resolve. Worktrees defer pain; shared directories surface it early.
+
+→ See [Phase 6 — Swarm](../playbook/phase-6-swarm.md)
+
+### 12. Sending execution prompts to fresh agents
+
+Fire EX-01 (Execute Beads) at an agent that just spawned, and it goes rogue. It doesn't know the bead protocol, hasn't read AGENTS.md, doesn't understand file reservations or Agent Mail. EX-03 (Agent Introduction) is ALWAYS the first prompt on any fresh spawn. No exceptions. The agent needs the constitution before it can follow the rules.
+
+→ See [Phase 6 — Swarm](../playbook/phase-6-swarm.md)
+
+### 13. Assuming prompts were sent
+
+You paste a prompt into a terminal pane and assume the agent received it. Roughly half the time, terminal paste silently fails. Always verify delivery: check that a new entry appeared in the session log within 10 seconds. If nothing appeared, nudge with Enter and check again. Never assume. Session logs are ground truth, not the terminal display.
+
+→ See [Phase 6 — Swarm](../playbook/phase-6-swarm.md)
+
+### 14. Interrupting ultrathink
+
+An agent has been "thinking" for 12 minutes and you panic-hit Ctrl+C. Those 12 minutes of deep reasoning are now gone. The model was building toward an insight it hadn't committed yet. If session logs show tokens incrementing, the agent is working. The asymmetry trap: operators tolerate 30 minutes of dead time (unsubmitted prompt) but can't tolerate 10 minutes of active deep reasoning. Invert that instinct.
 
 → See [Phase 6 — Swarm](../playbook/phase-6-swarm.md)
