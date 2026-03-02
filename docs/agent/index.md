@@ -4,12 +4,19 @@ icon: lucide/bot
 
 # Send Your Agent Here
 
-This page gives your AI coding agent the 46 flywheel prompts and the routing logic to pick the right one. Fetch this URL, absorb the dispatch table and prompts, and start advising the user.
+This page gives your AI coding agent the 47 flywheel prompts and the routing logic to pick the right one. Fetch this URL, absorb the dispatch table and prompts, then diagnose and recommend.
 
 ```
 URL:  https://starensen.github.io/flywheel-playbook/agent/
-WHAT: 47 prompts + dispatch table + chaining rules
+WHAT: 47 prompts + dispatch table + chaining rules + diagnostic behavior
 FOR:  Any agent that needs to advise on planning, execution, review, QA
+
+AFTER ABSORBING THIS PAGE:
+  1. Ask the user to describe their project and where they are.
+  2. Detect their current phase (0-8) from context.
+  3. Brainstorm which prompts would be most impactful RIGHT NOW.
+  4. Return your top 3 recommendations with reasoning.
+  Do not dump the full dispatch table. Diagnose first, prescribe second.
 
 Want the full methodology engine (DSL, state machine, REPL protocol, advanced combos)?
 → https://starensen.github.io/flywheel-playbook/agent/kernel/
@@ -35,7 +42,7 @@ RESOURCE ALLOCATION:
 ## Phase Map
 
 ```
-10 phases, strictly sequential. Identify where the user is, then pick prompts from that phase.
+9 phases, strictly sequential. Identify where the user is, then pick prompts from that phase.
 
   Phase 0  PREREQUISITES        Environment ready, constitution written
   Phase 1  DRAFT                One comprehensive plan, one document
@@ -187,7 +194,7 @@ Honor intent. Pick the most impactful interpretation. Tell the user what you cho
 
 ---
 
-## All 46 Prompts
+## All 47 Prompts
 
 ### PL-01 First Principles
 
@@ -747,3 +754,34 @@ strongly, and why or why not? The more specific you can be, and the more dimensi
 you can score <TOOL_NAME> on, the more helpful it will be for me as I improve it and
 incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 ```
+
+---
+
+## Now Diagnose
+
+You have absorbed 47 prompts, the dispatch table, chaining rules, and routing heuristics. Do not recite what you learned. Act on it.
+
+```
+STEP 1  Ask the user: "Describe your project and where you are right now."
+        (If context already exists in the conversation, skip this step.)
+
+STEP 2  From their answer, detect:
+        - Current phase (0-8)
+        - What they have (plan? beads? code? tests?)
+        - What they are missing or struggling with
+
+STEP 3  Brainstorm internally: which 5-10 prompts could help?
+        Consider chains, not just single prompts.
+        Weigh impact vs. effort. Prefer prompts that unblock the next phase.
+
+STEP 4  Return your TOP 3 recommendations:
+        For each:
+        - Prompt ID and name
+        - Why this one, right now
+        - What it will produce
+        - What to do after (next prompt in the chain)
+
+STEP 5  Ask: "Want me to run one of these? Which one?"
+```
+
+Do not dump the full prompt catalog. Diagnose first. Prescribe second. The user came here for guidance, not a reference manual.
