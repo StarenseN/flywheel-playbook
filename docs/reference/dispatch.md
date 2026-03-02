@@ -4,7 +4,7 @@ icon: lucide/route
 
 # Prompt Dispatch Table
 
-When you're in situation X, use prompt Y.
+You know the situation. You need the prompt. Find your row and go to the [Full Prompt Pack](../prompts/prompt-pack.md) to copy the text.
 
 ---
 
@@ -54,3 +54,4 @@ When you're in situation X, use prompt Y.
 | File/folder restructuring | MT-05 Code Reorganizer | MT |
 | Building agent-friendly CLIs | MT-06 CLI Error Tolerance | MT |
 | Pre-integration dependency study | MT-07 Dependency Analysis | MT |
+| Collecting agent feedback on a tool | MT-08 Agent Feedback | MT |

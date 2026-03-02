@@ -4,7 +4,7 @@ icon: lucide/book-marked
 
 # Quick Reference
 
-Look things up fast. Four reference documents, each with a different purpose.
+Lookup tables for when you already understand the methodology and need to find something fast. If you're learning the methodology, start with the [Playbook](../playbook/index.md) instead.
 
 | Reference | When to use it |
 |:----------|:---------------|
@@ -12,3 +12,5 @@ Look things up fast. Four reference documents, each with a different purpose.
 | [Doctrine](doctrine.md) | You need a non-negotiable rule to settle an argument |
 | [Anti-Patterns](anti-patterns.md) | You suspect you're doing something wrong |
 | [Toolchain](toolchain.md) | You need to know what tool does what |
+
+**Reading order when something breaks:** Anti-Patterns first (are you doing a known bad thing?), then Doctrine (what's the rule?), then Dispatch (what prompt fixes it?).
