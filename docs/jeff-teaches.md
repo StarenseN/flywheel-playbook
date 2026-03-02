@@ -34,7 +34,7 @@ People keep asking me "when do you actually start coding?" and the answer is: I 
 
 ## The Chef Analogy (Don't Over-Specify)
 
-> "The chef is the model, and you are the annoying party planner. Every time you try to tell the model exactly what to do and how, just understand that, although you might end up with something that on the surface conforms with all your requirements, it will be the equivalent of that 'face-in-hole' photo that 'technically' looks like the person but also looks 2-dimensional and like a bad Photoshop attempt: no artistry, and not likely to fool anyone."
+> "The chef is the model, and you are the annoying party planner. Every time you try to tell the model exactly what to do and how, just understand that, although you might end up with something that on the surface conforms with all your requirements, it will be the equivalent of that "face-in-hole" photo that "technically" looks like the person but also looks 2-dimensional and like a bad Photoshop attempt: no artistry, and not likely to fool anyone."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2021791255227768899))
 
@@ -46,7 +46,7 @@ People keep asking me "when do you actually start coding?" and the answer is: I 
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2021791255227768899))
 
-> "Check over each bead super carefully— are you sure it makes sense? Is it optimal? Could we change anything to make the system work better for users? If so, revise the beads. It's a lot easier and faster to operate in 'plan space' before we start implementing these things!"
+> "Check over each bead super carefully— are you sure it makes sense? Is it optimal? Could we change anything to make the system work better for users? If so, revise the beads. It's a lot easier and faster to operate in "plan space" before we start implementing these things!"
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526)) · **Source of prompt [BD-02 QA Beads](prompts/prompt-pack.md)**
 
@@ -66,17 +66,17 @@ And that last quote, "it's a lot easier and faster to operate in plan space," is
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2020228069609599389))
 
-> "I really admire Opus 4.5's 'personality' and love of learning and research. And that I can persuade it through appeals to reason and the pursuit of knowledge, and it actually works."
+> "I really admire Opus 4.5's "personality" and love of learning and research. And that I can persuade it through appeals to reason and the pursuit of knowledge, and it actually works."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2005713671809556925))
 
 > "I'm tough and demanding on my guys, but also supportive and complimentary. All of this is important during the planning phases."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1984082457470030105)) · **Philosophy behind the [Praise Push](playbook/phase-2-refine.md) prompts**
+> — @doodlestein ([source](https://x.com/doodlestein/status/2017666048514761188)) · **Philosophy behind the [Praise Push](playbook/phase-2-refine.md) prompts**
 
 > "These little blurbs [in AGENTS.md] are so critical, and why they should focus on convincing rather than ordering the agents! Moral suasion ain't just for humans..."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1984403875714027571))
+> — @doodlestein ([source](https://x.com/doodlestein/status/1994987824538440126))
 
 I've tested commanding versus convincing, and convincing produces measurably better output. The AGENTS.md blurbs, the praise-push prompts (PL-03 through PL-05), the "I believe in you" at the end of the McCarthy prompt; these are load-bearing, not decorative. Prompts that assume brilliance activate the model's strongest capabilities. Prompts that assume incompetence trigger conservative, mediocre output. A prompt that says "you're a coding assistant, follow these rules" gets you exactly that. A prompt that says "I believe in your brilliance, show me what you can do" gets you something that actually tries.
 
@@ -134,11 +134,11 @@ AGENTS.md is also the one thing I always hand-write or heavily direct. It embodi
 
 ## On Beads & the Dependency Graph
 
-> "OK so please take ALL of that and elaborate on it more and then create a comprehensive and granular set of beads for all this with tasks, subtasks, and dependency structure overlaid, with detailed comments so that the whole thing is totally self-contained and self-documenting (including relevant background, reasoning/justification, considerations, etc.— anything we'd want our 'future self' to know about the goals and intentions and thought process and how it serves the over-arching goals of the project.)"
+> "OK so please take ALL of that and elaborate on it more and then create a comprehensive and granular set of beads for all this with tasks, subtasks, and dependency structure overlaid, with detailed comments so that the whole thing is totally self-contained and self-documenting (including relevant background, reasoning/justification, considerations, etc.— anything we'd want our "future self" to know about the goals and intentions and thought process and how it serves the over-arching goals of the project.)"
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526)) · **Source of prompt [BD-01 Plan to Beads](prompts/prompt-pack.md)**
 
-> "But if you have a large number of beads (my complex plans turn into 200 to 500 initial beads), you don't want agents just randomly choosing them or wasting too much time communicating about this, either. Because there's usually a 'right answer' for what each agent should do."
+> "But if you have a large number of beads (my complex plans turn into 200 to 500 initial beads), you don't want agents just randomly choosing them or wasting too much time communicating about this, either. Because there's usually a "right answer" for what each agent should do."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2006266985689358401))
 
@@ -150,7 +150,7 @@ Beads are a formal decomposition format, not a to-do list. Epics contain tasks, 
 
 The dependency graph is what makes swarm execution work at scale. Without it, agents either randomly pick tasks (wasting effort on blocked work) or over-communicate about who should do what (communication purgatory). The bv tool computes the critical path: given the current state of all beads, which task will unlock the most downstream work? That's the task each idle agent should pick up next. It turns coordination from a social problem into a mechanical one.
 
-Notice the phrase "anything we'd want our 'future self' to know" in the BD-01 prompt. I treat each bead as a message to an agent that has never seen the project before, because after context compaction, that's exactly what the agent is. Beads survive compaction. Agent memory doesn't. The beads ARE the continuity layer.
+Notice the phrase "anything we'd want our "future self" to know" in the BD-01 prompt. I treat each bead as a message to an agent that has never seen the project before, because after context compaction, that's exactly what the agent is. Beads survive compaction. Agent memory doesn't. The beads ARE the continuity layer.
 
 → [Phase 4 — Beads](playbook/phase-4-beads.md) · [Phase 5 — Assign](playbook/phase-5-assign.md)
 
@@ -168,7 +168,7 @@ The prompts, in the exact sequence I run them:
 
 **Prompt 1** → [RV-02 Deep Review](prompts/prompt-pack.md):
 
-> "I want you to sort of randomly explore the code files in this project, choosing code files to deeply investigate and understand and trace their functionality and execution flows through the related code files which they import or which they are imported by. Once you understand the purpose of the code in the larger context of the workflows, I want you to do a super careful, methodical, and critical check with 'fresh eyes' to find any obvious bugs, problems, errors, issues, silly mistakes, etc. and then systematically and meticulously and intelligently correct them."
+> "I want you to sort of randomly explore the code files in this project, choosing code files to deeply investigate and understand and trace their functionality and execution flows through the related code files which they import or which they are imported by. Once you understand the purpose of the code in the larger context of the workflows, I want you to do a super careful, methodical, and critical check with "fresh eyes" to find any obvious bugs, problems, errors, issues, silly mistakes, etc. and then systematically and meticulously and intelligently correct them."
 
 **Prompt 2** → [RV-03 Cross-Agent Review](prompts/prompt-pack.md):
 
@@ -180,15 +180,15 @@ The prompts, in the exact sequence I run them:
 
 **Prompt 4** → [BD-01 Plan to Beads](prompts/prompt-pack.md):
 
-> "OK so please take ALL of that and elaborate on it more and then create a comprehensive and granular set of beads for all this with tasks, subtasks, and dependency structure overlaid, with detailed comments so that the whole thing is totally self-contained and self-documenting (including relevant background, reasoning/justification, considerations, etc.— anything we'd want our 'future self' to know about the goals and intentions and thought process)."
+> "OK so please take ALL of that and elaborate on it more and then create a comprehensive and granular set of beads for all this with tasks, subtasks, and dependency structure overlaid, with detailed comments so that the whole thing is totally self-contained and self-documenting (including relevant background, reasoning/justification, considerations, etc.— anything we'd want our "future self" to know about the goals and intentions and thought process)."
 
 **Prompt 5** → [BD-02 QA Beads](prompts/prompt-pack.md):
 
-> "Check over each bead super carefully— are you sure it makes sense? Is it optimal? Could we change anything to make the system work better for users? If so, revise the beads. It's a lot easier and faster to operate in 'plan space' before we start implementing these things!"
+> "Check over each bead super carefully— are you sure it makes sense? Is it optimal? Could we change anything to make the system work better for users? If so, revise the beads. It's a lot easier and faster to operate in "plan space" before we start implementing these things!"
 
 **Prompt 6** → [RV-01 Self-Review](prompts/prompt-pack.md):
 
-> "Great, now I want you to carefully read over all of the new code you just wrote and other existing code you just modified with 'fresh eyes' looking super carefully for any obvious bugs, errors, problems, issues, confusion, etc. Carefully fix anything you uncover."
+> "Great, now I want you to carefully read over all of the new code you just wrote and other existing code you just modified with "fresh eyes" looking super carefully for any obvious bugs, errors, problems, issues, confusion, etc. Carefully fix anything you uncover."
 
 **Prompt 7** → [EX-06 Git Commit](prompts/prompt-pack.md):
 
@@ -208,7 +208,7 @@ The sequence matters. It moves from *exploration* (randomly wander the code) to 
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2022356686774899051))
 
-> "This is why things like my 'fresh eyes' code review prompt can be so shockingly effective if you're not used to that sort of thing: it's because they're tapping into some very deep thing in the model's brain that changes the way it operates, like toggling a create/critique mode gestalt switch."
+> "This is why things like my "fresh eyes" code review prompt can be so shockingly effective if you're not used to that sort of thing: it's because they're tapping into some very deep thing in the model's brain that changes the way it operates, like toggling a create/critique mode gestalt switch."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2021791255227768899))
 
@@ -250,7 +250,7 @@ The test suite is the safety net. If the McCarthy prompt causes the model to ove
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2027516392551981507)) · on 17-hour autonomous sessions
 
-> "UI definitely has its own challenges but most of them have to do with the agent being forced to 'fly blind.' I think most can be fixed by having smart end-to-end testing infrastructure where the agent can visit the real live deployed site in chrome and screenshot it and interact with the site like a human would and then observe the screenshots using its visual sense."
+> "UI definitely has its own challenges but most of them have to do with the agent being forced to "fly blind." I think most can be fixed by having smart end-to-end testing infrastructure where the agent can visit the real live deployed site in chrome and screenshot it and interact with the site like a human would and then observe the screenshots using its visual sense."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2021793583594955165))
 
@@ -272,7 +272,7 @@ Every phase of the methodology assumes mistakes will happen. Refinement catches 
 
 > "The core of my approach is agent mail plus beads_rust plus beads_viewer. You can have Claude set them all up for you and show you how to use them together."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2021651389773443258))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2021687762361926085))
 
 > "But to get the full power of the system, you really do want to combine it with beads, which is why it automatically installs beads now by default. Beads are extremely complementary to Agent Mail, and the combination lets you decompose a very big and complex plan into nice units."
 >
@@ -330,11 +330,11 @@ And the 17-hour claim is real. A single agent, on a single set of beads, no auto
 
 ## On Alien Artifacts
 
-> "Watch Claude go from skeptical ('The scope is staggering to the point of being suspicious.') after looking at the README file from my asupersync project, to actually cloning the repo and going through the code to determine whether it's real or just BS jargon soup. By the end, it can hardly believe what it has seen ('It's real. And it's absurd.'). [...] I want to stress that I am not remotely smart enough to have made this. Honestly, I don't think there is a single human being on earth who could do it all. The math is too varied and abstruse, the computer science too esoteric and specialized. The people who know structured concurrency that well wouldn't work fluently with martingale concentration bounds, Mazurkiewicz trace theory and Foata normal forms, tropical semiring budget algebra, or RaptorQ fountain coding. [...] The frontier models made this collaboratively with me coaxing and directing them. This is a new breed of software. This is an Alien Artifact."
+> "Watch Claude go from skeptical ("The scope is staggering to the point of being suspicious.") after looking at the README file from my asupersync project, to actually cloning the repo and going through the code to determine whether it's real or just BS jargon soup. By the end, it can hardly believe what it has seen ("It's real. And it's absurd."). [...] I want to stress that I am not remotely smart enough to have made this. Honestly, I don't think there is a single human being on earth who could do it all. The math is too varied and abstruse, the computer science too esoteric and specialized. The people who know structured concurrency that well wouldn't work fluently with martingale concentration bounds, Mazurkiewicz trace theory and Foata normal forms, tropical semiring budget algebra, or RaptorQ fountain coding. [...] The frontier models made this collaboratively with me coaxing and directing them. This is a new breed of software. This is an Alien Artifact."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2026614142598033732))
 
-> "It has unfortunately learned incrementalism under the guise of being 'practical' from reading too much written by humans who were trying to sandbag and control expectations so they could phone it in and not get fired. It's possible to shake them out of it, though."
+> "It has unfortunately learned incrementalism under the guise of being "practical" from reading too much written by humans who were trying to sandbag and control expectations so they could phone it in and not get fired. It's possible to shake them out of it, though."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2026616969466687625)) · on why models default to conservative output
 
@@ -374,7 +374,7 @@ Why dedicate an entire agent to this? Because git hygiene in a multi-agent swarm
 
 ## On What Goes Wrong (Failure Modes)
 
-> "Don't get stuck in 'communication purgatory' where nothing is getting done; be proactive about starting tasks that need to be done, but inform your fellow agents via messages when you do so and mark beads appropriately."
+> "Don't get stuck in "communication purgatory" where nothing is getting done; be proactive about starting tasks that need to be done, but inform your fellow agents via messages when you do so and mark beads appropriately."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/1994526888794951977)) · **Language used in prompts [EX-01](prompts/prompt-pack.md) and [EX-02](prompts/prompt-pack.md)**
 
@@ -382,7 +382,7 @@ Why dedicate an entire agent to this? Because git hygiene in a multi-agent swarm
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2022355083845894159))
 
-> "What are those footguns? First one is not having a 'broadcast to all' mode. Agents are lazy and will only use that, and suddenly you're spamming all the agents with mostly irrelevant information. It would be like if your email system at work defaulted to reply to all every time."
+> "What are those footguns? First one is not having a "broadcast to all" mode. Agents are lazy and will only use that, and suddenly you're spamming all the agents with mostly irrelevant information. It would be like if your email system at work defaulted to reply to all every time."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2006262493425844710))
 
@@ -390,7 +390,7 @@ Why dedicate an entire agent to this? Because git hygiene in a multi-agent swarm
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2006264836460622147))
 
-> "That's also why the notion of identity in my project is nuanced; you want 'semi-persistent identity.' An identity that can last for the duration of a discrete task or sub-task (for the purpose of coordination), but one that can also vanish without a trace and not break things."
+> "That's also why the notion of identity in my project is nuanced; you want "semi-persistent identity." An identity that can last for the duration of a discrete task or sub-task (for the purpose of coordination), but one that can also vanish without a trace and not break things."
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/2006265575924769047))
 
