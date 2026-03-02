@@ -1,6 +1,6 @@
 [project]
 site_name = "The Flywheel Planning Playbook — Definitive Edition"
-site_description = "Complete guide to building software with AI agent swarms — 12 principles, 10 phases, 46 prompts. Based on Jeffrey Emanuel's agentic coding methodology."
+site_description = "Complete guide to building software with AI agent swarms — 12 principles, 10 phases, 47 prompts. Based on Jeffrey Emanuel's agentic coding methodology."
 site_author = "Based on @doodlestein's methodology"
 
 copyright = """

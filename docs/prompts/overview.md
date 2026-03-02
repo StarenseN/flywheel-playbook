@@ -4,7 +4,7 @@ icon: lucide/terminal
 
 # Prompt Index
 
-46 prompts. Find the right one, then go to the [Full Prompt Pack](prompt-pack.md) to copy it.
+47 prompts. Find the right one, then go to the [Full Prompt Pack](prompt-pack.md) to copy it.
 
 ---
 
@@ -72,7 +72,7 @@ icon: lucide/terminal
 | QA-07 | 100-to-10 Filter | Generate 100 ideas, present only 10 best. |
 | QA-08 | Deep Performance Audit | Profile-first optimization with 7-step methodology. |
 
-## MT — Meta (7)
+## MT — Meta (8)
 
 | ID | Name | One-liner |
 |:---|:-----|:----------|
@@ -83,3 +83,4 @@ icon: lucide/terminal
 | MT-05 | Code Reorganizer | Propose a reorganization plan before touching anything. |
 | MT-06 | CLI Error Tolerance | Make CLI forgiving: honor intent, helpful errors. |
 | MT-07 | Dependency Analysis | Write COMPREHENSIVE_ANALYSIS before integrating anything. |
+| MT-08 | Agent Feedback | Rate `<TOOL_NAME>` across dimensions. Scores, signal-to-noise, recommendations. |

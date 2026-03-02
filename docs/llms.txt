@@ -1,6 +1,6 @@
 # The Flywheel Planning Playbook
 
-> Complete guide to building software with AI agent swarms. 12 principles, 10 phases, 46 prompts. Based on Jeffrey Emanuel's agentic coding methodology.
+> Complete guide to building software with AI agent swarms. 12 principles, 10 phases, 47 prompts. Based on Jeffrey Emanuel's agentic coding methodology.
 
 ## Playbook
 
@@ -18,8 +18,8 @@
 
 ## Prompts
 
-- [Prompt Index](https://starensen.github.io/flywheel-playbook/prompts/overview/): 46 prompts organized by category (PL, BD, EX, RV, QA, MT)
-- [Full Prompt Pack](https://starensen.github.io/flywheel-playbook/prompts/prompt-pack/): All 46 prompts verbatim, copy-paste ready
+- [Prompt Index](https://starensen.github.io/flywheel-playbook/prompts/overview/): 47 prompts organized by category (PL, BD, EX, RV, QA, MT)
+- [Full Prompt Pack](https://starensen.github.io/flywheel-playbook/prompts/prompt-pack/): All 47 prompts verbatim, copy-paste ready
 
 ## Reference
 
@@ -30,6 +30,6 @@
 
 ## Agent Injection
 
-- [Prompt Injector](https://starensen.github.io/flywheel-playbook/agent/): 46 prompts + dispatch table + chaining rules + routing heuristic. Lightweight, no state machine.
-- [Methodology Kernel](https://starensen.github.io/flywheel-playbook/agent/kernel/): Full operating system: compressed kernel, DSL with state machine, REPL protocol, 3 advanced combos, 46 prompts.
+- [Prompt Injector](https://starensen.github.io/flywheel-playbook/agent/): 47 prompts + dispatch table + chaining rules + routing heuristic. Lightweight, no state machine.
+- [Methodology Kernel](https://starensen.github.io/flywheel-playbook/agent/kernel/): Full operating system: compressed kernel, DSL with state machine, REPL protocol, 3 advanced combos, 47 prompts.
 - [Methodology Kernel (llms-full.txt)](https://starensen.github.io/flywheel-playbook/llms-full.txt): Same as Methodology Kernel but plain text (~45KB vs ~200KB HTML). Preferred for agent context injection.

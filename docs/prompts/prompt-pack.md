@@ -4,7 +4,7 @@ icon: lucide/copy
 
 # Full Prompt Pack
 
-46 prompts on one page for copy-paste. Organized by category. Each ID is self-documenting: the prefix tells you the category, the number gives you order within it.
+47 prompts on one page for copy-paste. Organized by category. Each ID is self-documenting: the prefix tells you the category, the number gives you order within it.
 
 | Prefix | Category | Count |
 |:-------|:---------|:------|
@@ -589,4 +589,22 @@ we think they're trying to do.
 Before integrating <DEPENDENCY>, write a COMPREHENSIVE_ANALYSIS_OF_<DEPENDENCY>.md.
 Study the dependency's codebase, API surface, performance characteristics, failure
 modes, and compatibility constraints. This must be done BEFORE any integration code.
+```
+
+### MT-08 Agent Feedback
+
+*After an agent has used a tool or workflow for a session, collect structured feedback to improve it.*
+
+```
+Based on your experience with <TOOL_NAME> today in this project, how would you rate
+<TOOL_NAME> across multiple dimensions, from 0 (worst) to 100 (best)? Was it helpful
+to you? Did it flag a lot of useful things that you would have missed otherwise? Did
+the issues it flagged have a good signal-to-noise ratio? What did it do well, and what
+was it bad at? Did you run into any errors or problems while using it?
+
+What changes to <TOOL_NAME> would make it work even better for you and be more useful
+in your development workflow? Would you recommend it to fellow coding agents? How
+strongly, and why or why not? The more specific you can be, and the more dimensions
+you can score <TOOL_NAME> on, the more helpful it will be for me as I improve it and
+incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 ```

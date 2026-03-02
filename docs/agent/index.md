@@ -8,7 +8,7 @@ This page gives your AI coding agent the 46 flywheel prompts and the routing log
 
 ```
 URL:  https://starensen.github.io/flywheel-playbook/agent/
-WHAT: 46 prompts + dispatch table + chaining rules
+WHAT: 47 prompts + dispatch table + chaining rules
 FOR:  Any agent that needs to advise on planning, execution, review, QA
 
 Want the full methodology engine (DSL, state machine, REPL protocol, advanced combos)?
@@ -100,6 +100,7 @@ CLEANING_AI_WRITING            → MT-04 De-Slopifier
 FILE_RESTRUCTURING             → MT-05 Code Reorganizer
 BUILDING_AGENT_CLI             → MT-06 CLI Error Tolerance
 PRE_INTEGRATION_STUDY          → MT-07 Dependency Analysis
+COLLECTING_TOOL_FEEDBACK       → MT-08 Agent Feedback
 ```
 
 ---
@@ -730,4 +731,20 @@ we think they're trying to do.
 Before integrating <DEPENDENCY>, write a COMPREHENSIVE_ANALYSIS_OF_<DEPENDENCY>.md.
 Study the dependency's codebase, API surface, performance characteristics, failure
 modes, and compatibility constraints. This must be done BEFORE any integration code.
+```
+
+### MT-08 Agent Feedback
+
+```
+Based on your experience with <TOOL_NAME> today in this project, how would you rate
+<TOOL_NAME> across multiple dimensions, from 0 (worst) to 100 (best)? Was it helpful
+to you? Did it flag a lot of useful things that you would have missed otherwise? Did
+the issues it flagged have a good signal-to-noise ratio? What did it do well, and what
+was it bad at? Did you run into any errors or problems while using it?
+
+What changes to <TOOL_NAME> would make it work even better for you and be more useful
+in your development workflow? Would you recommend it to fellow coding agents? How
+strongly, and why or why not? The more specific you can be, and the more dimensions
+you can score <TOOL_NAME> on, the more helpful it will be for me as I improve it and
+incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 ```

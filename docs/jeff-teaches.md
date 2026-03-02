@@ -4,7 +4,7 @@ icon: lucide/quote
 
 # Jeff Teaches
 
-Jeffrey Emanuel ([@doodlestein](https://x.com/doodlestein)) invented the agentic coding flywheel. What follows are his words, mined from 1,318 public tweets and 385 threads. Verbatim quotes are exact and linked to their source. Between the quotes, Jeff reflects on what he's learned. Many of the [46 prompts](prompts/prompt-pack.md) in this playbook come directly from these tweets; where a tweet is the source of a playbook prompt, the prompt ID is noted.
+Jeffrey Emanuel ([@doodlestein](https://x.com/doodlestein)) invented the agentic coding flywheel. What follows are his words, mined from 1,318 public tweets and 385 threads. Verbatim quotes are exact and linked to their source. Between the quotes, Jeff reflects on what he's learned. Many of the [47 prompts](prompts/prompt-pack.md) in this playbook come directly from these tweets; where a tweet is the source of a playbook prompt, the prompt ID is noted.
 
 ---
 
@@ -158,7 +158,7 @@ Notice the phrase "anything we'd want our "future self" to know" in the BD-01 pr
 
 ## The Mega-Tweet: 7 Prompts in 1 Thread
 
-On December 13, 2025, I published a single tweet containing my complete daily workflow. This one tweet is the source of 7 of the playbook's 46 prompts.
+On December 13, 2025, I published a single tweet containing my complete daily workflow. This one tweet is the source of 7 of the playbook's 47 prompts.
 
 > "I like to make sure that I'm making some forward progress on every one of my active projects each day, even when I'm too busy to spend real mental bandwidth on all of them every single day. So I've come up with a few prompts that I use a lot with the agents so they're always doing some level of polishing/checking/fixing and general improvement."
 >
@@ -446,9 +446,25 @@ The Kissinger thesis is the proof-of-concept: a 400-page PDF conversion using a 
 
 ---
 
+## On Agent Feedback (Closing the Loop)
+
+> "Based on your experience with UBS (Ultimate Bug Scanner) today in this project, how would you rate UBS across multiple dimensions, from 0 (worst) to 100 (best)? Was it helpful to you? Did it flag a lot of useful things that you would have missed otherwise? Did the issues it flagged have a good signal-to-noise ratio? What did it do well, and what was it bad at? Did you run into any errors or problems while using it? What changes to UBS would make it work even better for you and be more useful in your development workflow? Would you recommend it to fellow coding agents? How strongly, and why or why not? The more specific you can be, and the more dimensions you can score UBS on, the more helpful it will be for me as I improve it and incorporate your feedback to make UBS even better for you in the future!"
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/1991301147702005785)) · **Source of prompt [MT-08 Agent Feedback](prompts/prompt-pack.md)**
+
+This is the flywheel applied to the tools themselves. I build tools for my agents. My agents use those tools all day. They accumulate opinions. So I ask them: was this useful? What was the signal-to-noise ratio? What would make it better for you? And then I take that feedback and ship a better version, which they use tomorrow, which generates better feedback, which I ship again. The tools improve because the agents tell me what to improve, and the agents trust the tools more because the tools keep getting better.
+
+The scoring dimensions matter. "Was it helpful?" is vague. "Rate it 0-100 on signal-to-noise, error frequency, workflow integration" gives me actionable data. I can compare scores across projects, across model types, across tool versions. "Would you recommend it to fellow coding agents?" forces the model to think about the tool from a peer's perspective rather than just its own experience. Different framing, different insights.
+
+In the playbook, this is MT-08. Swap `<TOOL_NAME>` for whatever your agents just used. Run it at the end of a session, when the agent has fresh context on what worked and what didn't. The responses have directly shaped every major tool revision I've done.
+
+→ [Prompt Pack](prompts/prompt-pack.md)
+
+---
+
 ## The Source Map
 
-How many of the playbook's 46 prompts trace directly to Jeff's public tweets:
+How many of the playbook's 47 prompts trace directly to Jeff's public tweets:
 
 | Prompt | Source Tweet | Likes |
 |---|---|---|
@@ -465,7 +481,8 @@ How many of the playbook's 46 prompts trace directly to Jeff's public tweets:
 | [EX-01 Execute Beads](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1994526888794951977) | 46 |
 | [EX-02 Mail Check](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1994526888794951977) | 46 |
 | [EX-04 Post-Compaction](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/2017087633877278974) | 58 |
+| [MT-08 Agent Feedback](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1991301147702005785) | — |
 
-13 prompts from 5 tweets. The mega-tweet alone sources 7.
+14 prompts from 6 tweets. The mega-tweet alone sources 7.
 
 Prompts with no public tweet source include RV-05 Stakes Escalation, PL-03/04/05 Praise Pushes (the philosophy is tweeted; the exact text is not), and MT-04 De-Slopifier. These come from Jeff's AGENTS.md templates and repo documentation.
