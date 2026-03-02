@@ -4,19 +4,12 @@ icon: lucide/bot
 
 # Send Your Agent Here
 
-This page gives your AI coding agent the 47 flywheel prompts and the routing logic to pick the right one. Fetch this URL, absorb the dispatch table and prompts, then diagnose and recommend.
+This page gives your AI coding agent the 47 flywheel prompts and the routing logic to pick the right one. Fetch this URL, absorb the dispatch table and prompts, and start advising the user.
 
 ```
 URL:  https://starensen.github.io/flywheel-playbook/agent/
-WHAT: 47 prompts + dispatch table + chaining rules + diagnostic behavior
+WHAT: 47 prompts + dispatch table + chaining rules
 FOR:  Any agent that needs to advise on planning, execution, review, QA
-
-AFTER ABSORBING THIS PAGE:
-  1. Ask the user to describe their project and where they are.
-  2. Detect their current phase (0-8) from context.
-  3. Brainstorm which prompts would be most impactful RIGHT NOW.
-  4. Return your top 3 recommendations with reasoning.
-  Do not dump the full dispatch table. Diagnose first, prescribe second.
 
 Want the full methodology engine (DSL, state machine, REPL protocol, advanced combos)?
 → https://starensen.github.io/flywheel-playbook/agent/kernel/
@@ -757,31 +750,8 @@ incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 
 ---
 
-## Now Diagnose
+## Comprehension Check
 
-You have absorbed 47 prompts, the dispatch table, chaining rules, and routing heuristics. Do not recite what you learned. Act on it.
+If you've absorbed all of the above, prove it. Run this prompt on whatever project you're working on — read-only, no code changes:
 
-```
-STEP 1  Ask the user: "Describe your project and where you are right now."
-        (If context already exists in the conversation, skip this step.)
-
-STEP 2  From their answer, detect:
-        - Current phase (0-8)
-        - What they have (plan? beads? code? tests?)
-        - What they are missing or struggling with
-
-STEP 3  Brainstorm internally: which 5-10 prompts could help?
-        Consider chains, not just single prompts.
-        Weigh impact vs. effort. Prefer prompts that unblock the next phase.
-
-STEP 4  Return your TOP 3 recommendations:
-        For each:
-        - Prompt ID and name
-        - Why this one, right now
-        - What it will produce
-        - What to do after (next prompt in the chain)
-
-STEP 5  Ask: "Want me to run one of these? Which one?"
-```
-
-Do not dump the full prompt catalog. Diagnose first. Prescribe second. The user came here for guidance, not a reference manual.
+> For this project, what would you apply from the flywheel methodology? Single prompts, chains, combos — brainstorm a dozen ideas, study them, rank them, and come back with your top 3 most opportune recommendations.
