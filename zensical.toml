@@ -34,13 +34,11 @@ nav = [
     "reference/anti-patterns.md",
     "reference/toolchain.md",
   ]},
-  { "Send Your Agent Here" = [
-    { "Overview" = "agent/index.md" },
-  ]},
-  { "Kernel" = [
-    { "Overview" = "agent/kernel.md" },
-  ]},
   { "Jeff Teaches" = "jeff-teaches.md" },
+  { "🤖 For Agents" = [
+    { "Prompt Injector" = "agent/index.md" },
+    { "Methodology Kernel" = "agent/kernel.md" },
+  ]},
 ]
 
 [project.theme]

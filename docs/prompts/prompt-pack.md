@@ -13,13 +13,13 @@ icon: lucide/copy
 | **EX-** | Execution | 6 |
 | **RV-** | Review | 9 |
 | **QA-** | Quality & Ideation | 8 |
-| **MT-** | Meta | 7 |
+| **MT-** | Meta | 8 |
 
 ---
 
 ## PL — Planning
 
-### PL-01 First Principles (ex P01)
+### PL-01 First Principles
 *Prefix for everything. Use before any significant decision.*
 
 ```
@@ -57,7 +57,7 @@ Be explicit and operational. Avoid vague advice.
 Assume this plan will be executed by multiple parallel agents.
 ```
 
-### PL-03 Praise Push I (ex P30)
+### PL-03 Praise Push I
 
 ```
 That's a decent start but it barely scratches the surface and is light years away
@@ -65,7 +65,7 @@ from being OPTIMAL. Please try again and revise your existing plan document in-p
 to make it MUCH, MUCH, MUCH better in EVERY WAY. Use ultrathink.
 ```
 
-### PL-04 Praise Push II (ex P31)
+### PL-04 Praise Push II
 
 ```
 That's a lot better than before but STILL is a far cry from being OPTIMAL. Please
@@ -74,7 +74,7 @@ MUCH better in EVERY WAY. I believe in you, you can do this! Show me how brillia
 you really are! Use ultrathink.
 ```
 
-### PL-05 Praise Push III (ex P32)
+### PL-05 Praise Push III
 
 ```
 OK this is getting really good now but I KNOW you can do even better. Dig deep.
@@ -82,7 +82,7 @@ Give me your ABSOLUTE BEST work. This is your chance to show the world what
 frontier AI can produce. Use ultrathink.
 ```
 
-### PL-06 Plan Critique — Round Type A (ex P04)
+### PL-06 Plan Critique — Round Type A
 
 ```
 Carefully review this entire plan for me and come up with your best revisions in terms of:
@@ -102,7 +102,7 @@ For each proposed change:
 <PASTE THE COMPLETE PLAN HERE>
 ```
 
-### PL-07 Multi-Model Synthesis — Round Type B (ex P15)
+### PL-07 Multi-Model Synthesis — Round Type B
 
 ```
 I asked 3 competing LLMs to do the exact same thing and they came up with pretty
@@ -138,7 +138,7 @@ At the end, list:
 <PASTE THE COMPLETE REVIEW OUTPUT HERE>
 ```
 
-### PL-09 Dueling Wizards (ex P17)
+### PL-09 Dueling Wizards
 
 ```
 I want two different frontier models to each independently propose their best
@@ -146,7 +146,7 @@ version of this. Score each proposal on: correctness, elegance, robustness,
 completeness, and novelty. Then synthesize the winner into the plan.
 ```
 
-### PL-10 Innovation Boost (ex P26)
+### PL-10 Innovation Boost
 
 ```
 What is the single smartest addition we could make to this plan that would
@@ -206,7 +206,7 @@ add complexity without measurable benefit.
 
 ## BD — Beads
 
-### BD-01 Plan to Beads (ex P05)
+### BD-01 Plan to Beads
 
 ```
 Reread AGENTS.md so it's fresh in your mind.
@@ -229,7 +229,7 @@ Also include beads for:
 Use only the bd tool to create and modify beads and add dependencies. Be exhaustive.
 ```
 
-### BD-02 QA the Beads (ex P06)
+### BD-02 QA the Beads
 *Repeat N times until changes flatline.*
 
 ```
@@ -252,7 +252,7 @@ DO NOT LOSE ANY FEATURES OR FUNCTIONALITY.
 If improvements are needed, revise the beads accordingly using only bd.
 ```
 
-### BD-03 BV Triage (ex P24)
+### BD-03 BV Triage
 
 ```
 Use bv --robot-triage to identify the highest-impact actionable beads.
@@ -263,7 +263,7 @@ Pick the best one you can usefully work on and get started. Use ultrathink.
 
 ## EX — Execution
 
-### EX-01 Execute Beads (ex P08)
+### EX-01 Execute Beads
 *The main loop. Every agent runs this.*
 
 ```
@@ -272,7 +272,7 @@ messages from other agents. Execute the highest-priority ready bead. Follow the
 bead execution protocol in AGENTS.md exactly. Use ultrathink.
 ```
 
-### EX-02 Mail Check & Continue (ex P09)
+### EX-02 Mail Check & Continue
 
 ```
 Check your agent mail and promptly respond if needed to any messages. Then proceed
@@ -281,7 +281,7 @@ purgatory" where nothing is getting done; be proactive about starting tasks that
 need to be done. Use ultrathink.
 ```
 
-### EX-03 Agent Introduction (ex P18)
+### EX-03 Agent Introduction
 *Fresh spawn or after context loss.*
 
 ```
@@ -294,20 +294,20 @@ then proceed meticulously with your next assigned beads. Don't get stuck in
 "communication purgatory." Use ultrathink.
 ```
 
-### EX-04 Post-Compaction Refresh (ex P20)
+### EX-04 Post-Compaction Refresh
 
 ```
 Reread AGENTS.md so it's still fresh in your mind. Use ultrathink.
 ```
 
-### EX-05 Full Push (ex P25)
+### EX-05 Full Push
 
 ```
 I need you to do ALL of the remaining work. Every bead. Every test. Leave nothing
 undone. Be thorough, meticulous, and autonomous. Use ultrathink.
 ```
 
-### EX-06 Git Commit (ex P11)
+### EX-06 Git Commit
 *Commit agent only. Does not modify code.*
 
 ```
@@ -321,7 +321,7 @@ Follow repo conventions and hooks.
 
 ## RV — Review
 
-### RV-01 Self-Review (ex P02b)
+### RV-01 Self-Review
 *Runs after every bead. Baked into the execution protocol.*
 
 ```
@@ -340,7 +340,7 @@ With fresh eyes, look for:
 Carefully fix anything you uncover. Be meticulous.
 ```
 
-### RV-02 Deep Review (ex P02)
+### RV-02 Deep Review
 *Numbered sessions: Part 1, Part 2, Part 3...*
 
 ```
@@ -356,7 +356,7 @@ write or revise conforms to the best practice guides referenced in AGENTS.md.
 Use ultrathink.
 ```
 
-### RV-03 Cross-Agent Review (ex P03)
+### RV-03 Cross-Agent Review
 
 ```
 Now review code written by other agents across the project (not just the
@@ -372,7 +372,7 @@ Diagnose root causes using first-principles reasoning and then fix issues you fi
 Don't restrict yourself to the latest commits -- cast a wider net and go super deep!
 ```
 
-### RV-04 McCarthy Hunt (ex P27)
+### RV-04 McCarthy Hunt
 *Escalation. When reviews seem too comfortable.*
 
 ```
@@ -381,14 +381,14 @@ find them. Think like Joe McCarthy: assume there's a spy, and your job is to
 find them. The bugs are there. Find them.
 ```
 
-### RV-05 Stakes Escalation (ex P28)
+### RV-05 Stakes Escalation
 
 ```
 Imagine your family's life depends on this code being correct. Not metaphorically.
 Literally. Find everything that could go wrong.
 ```
 
-### RV-06 CVE Probe (ex P29)
+### RV-06 CVE Probe
 
 ```
 Research recent CVEs relevant to the libraries and patterns in this project.
@@ -403,14 +403,14 @@ be replaced with FULLY FLESHED OUT, working, correct, performant, idiomatic code
 as per the beads. Do this meticulously and carefully!
 ```
 
-### RV-08 UBS Scan (ex P21)
+### RV-08 UBS Scan
 
 ```
 Run ubs . to scan the entire codebase. Analyze the results carefully and identify
 any issues, improvements, or areas needing attention. Use ultrathink.
 ```
 
-### RV-09 Random Inspect (ex P23)
+### RV-09 Random Inspect
 
 ```
 Pick 5 random files in the project you haven't looked at recently. Read them
@@ -421,7 +421,7 @@ carefully. Trace their execution flows. Find anything wrong. Fix it. Use ultrath
 
 ## QA — Quality & Ideation
 
-### QA-01 Stripe-Level UI (ex P12)
+### QA-01 Stripe-Level UI
 
 ```
 I want you to do a spectacular job building absolutely world-class UI/UX
@@ -432,7 +432,7 @@ the project. Carefully consider desktop UI/UX and mobile UI/UX separately and
 hyper-optimize for both. Use ultrathink.
 ```
 
-### QA-02 E2E Pipeline (ex P13)
+### QA-02 E2E Pipeline
 
 ```
 We really need totally complete, totally comprehensive, granular, perfect end
@@ -442,14 +442,14 @@ provable, ultra-rigorous way -- from "soup to nuts." Plus comprehensive unit
 tests with detailed logging. Use ultrathink.
 ```
 
-### QA-03 UX Audit (ex P19)
+### QA-03 UX Audit
 
 ```
 Scrutinize the UX of the entire project. Find every rough edge, confusing flow,
 and unintuitive behavior. Fix them all. Use ultrathink.
 ```
 
-### QA-04 Root-Cause Fix (ex P22)
+### QA-04 Root-Cause Fix
 
 ```
 Find the root cause of this bug. Don't patch symptoms. Understand why it happened,
@@ -467,7 +467,7 @@ js errors and look at the screenshots for potential problems and iterate and fix
 them all super carefully!
 ```
 
-### QA-06 Idea Wizard 30→5 (ex P16)
+### QA-06 Idea Wizard 30→5
 
 ```
 Come up with your very best ideas for improving this project to make it more
@@ -522,7 +522,7 @@ G) Regression guardrails: add benchmark thresholds or monitoring hooks
 
 ## MT — Meta
 
-### MT-01 Deep Project Primer (ex P10)
+### MT-01 Deep Project Primer
 
 ```
 First read ALL of the AGENTS.md file and README.md file super carefully and
@@ -530,7 +530,7 @@ understand ALL of both! Then use your code investigation agent mode to fully
 understand the code, and technical architecture and purpose of the project.
 ```
 
-### MT-02 System Weaknesses (ex P14)
+### MT-02 System Weaknesses
 
 ```
 Based on everything you've seen, what are the weakest/worst parts of the system?
