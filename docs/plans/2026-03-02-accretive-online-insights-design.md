@@ -6,6 +6,20 @@
 
 ---
 
+## Sources of Truth
+
+Three accepted source types, in order of preference:
+
+| Source | Attribution format | When to use |
+|--------|-------------------|-------------|
+| **Tweet** | `— @doodlestein ([source](https://x.com/doodlestein/status/XXX))` | Jeff's public thoughts, methodology statements |
+| **Website** | `— ACFS Wizard ([source](https://agent-flywheel.com/))` | Operational docs, learning hub content |
+| **GitHub** | `— ACFS ([source](https://github.com/Dicklesworthstone/REPO))` | READMEs, cookbooks, code docs |
+
+Tweets remain the primary source for Jeff Teaches (verbatim quotes). Website and GitHub sources are used for operational content (Phase 6 additions, principles) where the knowledge comes from docs rather than tweets.
+
+---
+
 ## Addition 1 — Phase 6: The Conductor's Eye
 
 **File:** `docs/playbook/phase-6-swarm.md`
@@ -13,7 +27,9 @@
 
 ### 1a. The Perception Loop (~15 lines)
 
-What to check every 30-60 seconds during active swarms. Condensed from the SWARM_STEERING_COOKBOOK 5-step loop into a tight table:
+**Source:** Swarm Steering Cookbook ([ACFS Wizard](https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup))
+
+What to check every 30-60 seconds during active swarms. Condensed from the 5-step loop into a tight table:
 
 | I see | It means | Do |
 |-------|----------|----|
@@ -26,13 +42,17 @@ Plus the cardinal rule: **check at least 2 sources before concluding anything** 
 
 ### 1b. Patience Calibration (~10 lines)
 
+**Source:** Swarm Steering Cookbook ([ACFS Wizard](https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup))
+
 The asymmetry trap: operators wait 30 min for an unsubmitted prompt (dead time) but panic-interrupt 10 min of active ultrathink (productive time).
 
 Rule: **If tokens are incrementing, the agent is WORKING. Do NOT interrupt.**
 
 ### 1c. Formation Scales (expand existing table ~8 lines)
 
-Replace the current 4-row table with Jeff's formation terminology from Feb 2026, backed by tweet 2019571245784973452.
+**Sources:** tweet `2019571245784973452` + ACFS Wizard docs
+
+Replace the current 4-row table with Jeff's formation terminology from Feb 2026.
 
 ---
 
@@ -46,6 +66,8 @@ New principle:
 > ## 12. Session hygiene is sacred
 >
 > Wizard context is orchestration only. Reviews happen in separate sessions. If you mix planning state with review output, the orchestrator's context gets polluted and the state machine breaks. One session, one purpose.
+
+**Source:** ACFS Wizard methodology docs ([source](https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup))
 
 **Count updates:** 11→12 principles across: principles.md title, zensical.toml, llms.txt, llms-full.txt, docs/index.md, jeff-teaches.md (3 refs), README.md, agent/index.md (if referenced)
 
@@ -108,4 +130,4 @@ New P12 line in llms-full.txt principles list:
 - No doctrine changes (stays at 14)
 - No anti-patterns changes (stays at 11)
 - No Phase 6 ntm commands (too tool-specific for the playbook's level of abstraction)
-- No unverified quotes
+- No unverified quotes (tweets verified in archive, docs verified in /online/)
