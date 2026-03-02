@@ -1,10 +1,10 @@
 # The Flywheel Planning Playbook
 
-> Complete guide to building software with AI agent swarms. 12 principles, 10 phases, 47 prompts. Based on Jeffrey Emanuel's agentic coding methodology.
+> Complete guide to building software with AI agent swarms. 11 principles, 9 phases, 47 prompts. Based on Jeffrey Emanuel's agentic coding methodology.
 
 ## Playbook
 
-- [12 Principles](https://starensen.github.io/flywheel-playbook/playbook/principles/): The ideas behind the workflow
+- [11 Principles](https://starensen.github.io/flywheel-playbook/playbook/principles/): The ideas behind the workflow
 - [Phase 0 — Prerequisites](https://starensen.github.io/flywheel-playbook/playbook/phase-0-prerequisites/): AGENTS.md, beads, tooling
 - [Phase 1 — Draft](https://starensen.github.io/flywheel-playbook/playbook/phase-1-draft/): First comprehensive plan
 - [Phase 2 — Refine](https://starensen.github.io/flywheel-playbook/playbook/phase-2-refine/): Iterate until wording-only changes
@@ -14,7 +14,6 @@
 - [Phase 6 — Swarm](https://starensen.github.io/flywheel-playbook/playbook/phase-6-swarm/): Deploy agents, execute all tasks
 - [Phase 7 — Review](https://starensen.github.io/flywheel-playbook/playbook/phase-7-review/): Numbered sessions until diffs flatline
 - [Phase 8 — Performance](https://starensen.github.io/flywheel-playbook/playbook/phase-8-performance/): Profile-driven optimization
-- [Phase 9 — Metacognition](https://starensen.github.io/flywheel-playbook/playbook/phase-9-metacognition/): Study spec evolution
 
 ## Prompts
 
@@ -24,8 +23,8 @@
 ## Reference
 
 - [Dispatch Table](https://starensen.github.io/flywheel-playbook/reference/dispatch/): When in situation X, use prompt Y
-- [Doctrine](https://starensen.github.io/flywheel-playbook/reference/doctrine/): 15 non-negotiable rules
-- [Anti-Patterns](https://starensen.github.io/flywheel-playbook/reference/anti-patterns/): 10 ways to destroy your project
+- [Doctrine](https://starensen.github.io/flywheel-playbook/reference/doctrine/): 14 non-negotiable rules
+- [Anti-Patterns](https://starensen.github.io/flywheel-playbook/reference/anti-patterns/): 11 ways to destroy your project
 - [Toolchain](https://starensen.github.io/flywheel-playbook/reference/toolchain/): 23 tools that make the flywheel turn
 
 ## Agent Injection

@@ -1,6 +1,6 @@
 # The Flywheel Planning Playbook — Full Agent Injection
 
-> Complete methodology kernel, DSL, REPL protocol, 47 prompts, 3 advanced combos. Based on Jeffrey Emanuel's agentic coding methodology. 12 principles, 10 phases, 47 prompts.
+> Complete methodology kernel, DSL, REPL protocol, 47 prompts, 3 advanced combos. Based on Jeffrey Emanuel's agentic coding methodology. 11 principles, 9 phases, 47 prompts.
 
 This file is for AI coding agents. Structured for machine consumption. Point your agent at this URL and it absorbs the full flywheel methodology in one fetch.
 
@@ -30,10 +30,10 @@ RESOURCE ALLOCATION:
   Review    =  5%
   This is not a suggestion. This is the ratio that works.
 
-STATE MACHINE (10 phases, strictly sequential):
+STATE MACHINE (9 phases, strictly sequential):
   0_PREREQUISITES → 1_DRAFT → 2_REFINE → 3_ALIEN_ARTIFACTS →
   4_PLAN_TO_TASKS → 5_QA_TASKS → 6_SWARM_EXECUTE →
-  7_FRESH_EYES_REVIEW → 8_PERFORMANCE → 9_METACOGNITION
+  7_FRESH_EYES_REVIEW → 8_PERFORMANCE
 
   Phase 0: Environment ready. Project constitution written. Task tooling initialized.
   Phase 1: One comprehensive plan. One document. One source of truth.
@@ -53,11 +53,8 @@ STATE MACHINE (10 phases, strictly sequential):
            the previous missed. Stop when diffs flatline.
   Phase 8: Profile FIRST. Measure p50/p95/p99. Then optimize. One lever per change.
            Never optimize without data.
-  Phase 9: Study the spec's evolution. Classify every revision into 10 buckets.
-           The evolution map shows where your thinking was wrong. This trains
-           intuition for the next project.
 
-12 PRINCIPLES (internalize, do not recite):
+11 PRINCIPLES (internalize, do not recite):
   P01  Planning is leverage — compresses implementation, reduces rework
   P02  Iterative refinement beats single-shot — no pass catches everything
   P03  Diff-based revisions — demand concrete changes, not vague advice
@@ -68,10 +65,9 @@ STATE MACHINE (10 phases, strictly sequential):
   P08  Avoid communication purgatory — ship code, coordinate minimally
   P09  Fresh-eyes review loops — re-read until diffs flatline
   P10  Alien artifacts are a scheduled discipline — not an afterthought
-  P11  Study yourself building — spec evolution analysis is mandatory
-  P12  Every word in a prompt is a constraint — framing > enumeration
+  P11  Every word in a prompt is a constraint — framing > enumeration
 
-15 DOCTRINE (non-negotiable):
+14 DOCTRINE (non-negotiable):
   D01  One canonical plan per project. One document.
   D02  Project constitution is hand-written or heavily directed. Not generated.
   D03  Agents are fungible generalists. No roles.
@@ -85,10 +81,9 @@ STATE MACHINE (10 phases, strictly sequential):
   D11  Pre-integration dependency analysis is required.
   D12  Agent failure is normal operations. Log it, handle it, move on.
   D13  Profiling is a scheduled task, not reactive debugging.
-  D14  Spec evolution analysis is mandatory for 100+ commit projects.
-  D15  Marathon sessions beat distributed sessions. Context is perishable.
+  D14  Marathon sessions beat distributed sessions. Context is perishable.
 
-10 ANTI-PATTERNS (hard prohibitions):
+11 ANTI-PATTERNS (hard prohibitions):
   A01  Skeleton-first development — architecture is compromised before you notice
   A02  Specialized agents — role constraints narrow the solution space
   A03  Communication purgatory — messaging without shipping
@@ -99,6 +94,7 @@ STATE MACHINE (10 phases, strictly sequential):
   A08  Skipping the premortem — if you can't imagine failure, you haven't thought
   A09  One review pass — Part 1 is never enough
   A10  Optimization theater — profiling first, always
+  A11  Git worktrees for agent swarms — defer pain, don't surface it early
 
 PLAN QA CHECKLIST (every plan must pass):
   [ ] Goals — measurable, user-facing outcomes
@@ -289,7 +285,7 @@ fw full-plan
 
 fw diagnose
   Full methodology diagnostic. Detect phase. Assess gaps against all
-  12 principles, 15 doctrine rules, 10 anti-patterns. Recommend top 3
+  11 principles, 14 doctrine rules, 11 anti-patterns. Recommend top 3
   interventions with exact prompt IDs and sequences. Call out active
   anti-patterns by ID. Address the user directly.
 
@@ -1389,7 +1385,7 @@ incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 
 You have reached the end of the file. You have absorbed:
 
-- The methodology kernel (axioms, state machine, 12 principles, 15 doctrine rules, 10 anti-patterns)
+- The methodology kernel (axioms, state machine, 11 principles, 14 doctrine rules, 11 anti-patterns)
 - The Flywheel DSL (commands, routing, state model with quality rubrics, piping, conditionals, implicit parsing)
 - The Robot REPL Protocol (fetch/execute/re-fetch loop, combo progress tracking, interruption handling)
 - 3 advanced combos: **genesis** (10 steps, nothing→plan+tasks+first review), **audit** (9 steps, distrust→hardened), **evolve** (8 steps, working→great)

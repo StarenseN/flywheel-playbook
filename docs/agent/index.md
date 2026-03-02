@@ -46,7 +46,6 @@ RESOURCE ALLOCATION:
   Phase 6  SWARM EXECUTE        Deploy agents, ship code, self-review after each task
   Phase 7  FRESH-EYES REVIEW    Numbered review sessions until diffs flatline
   Phase 8  PERFORMANCE          Profile first, measure, then optimize one lever at a time
-  Phase 9  METACOGNITION        Study the spec's evolution, train intuition
 ```
 
 ---

@@ -28,7 +28,7 @@ Jeffrey Emanuel ([@doodlestein](https://x.com/doodlestein)) invented the agentic
 
 People keep asking me "when do you actually start coding?" and the answer is: I don't. The plan IS the product. Code is just the compiled form. When I say 90%, I really mean it. The gap between a "good" plan and an "optimal" plan is where all the value lives. A good plan produces functional code. An optimal plan, one that's been pressure-tested by multiple frontier models and iterated until no model can find anything to add, produces code that compounds into future work instead of creating technical debt. That's why PL-10 exists: fire it at the plan across Claude, GPT, and Gemini, and each model finds something the others missed. The plan doesn't converge after one pass. It converges when the answers stop surprising you.
 
-→ [12 Principles](playbook/principles.md) · [Phase 1 — Draft](playbook/phase-1-draft.md) · [Phase 2 — Refine](playbook/phase-2-refine.md)
+→ [11 Principles](playbook/principles.md) · [Phase 1 — Draft](playbook/phase-1-draft.md) · [Phase 2 — Refine](playbook/phase-2-refine.md)
 
 ---
 
@@ -56,7 +56,7 @@ The face-in-hole thing really captures what happens when you over-specify a prom
 
 And that last quote, "it's a lot easier and faster to operate in plan space," is my strongest argument for front-loading planning. Changing a bead description costs seconds. Changing implemented code costs minutes to hours, plus debugging, plus test updates, plus potential merge conflicts across a swarm of agents. Plan-space is where iteration is cheap.
 
-→ [12 Principles](playbook/principles.md) · [Phase 4 — Beads](playbook/phase-4-beads.md)
+→ [11 Principles](playbook/principles.md) · [Phase 4 — Beads](playbook/phase-4-beads.md)
 
 ---
 
@@ -288,7 +288,7 @@ Each project I build improves these tools, which makes the next project faster, 
 
 That tweet captures the moment I realized the flywheel was actually real: I was asking an AI to use an AI-built tool to coordinate other AIs. Self-referential, meta, and working.
 
-→ [12 Principles](playbook/principles.md) · [Phase 6 — Swarm Execute](playbook/phase-6-swarm.md)
+→ [11 Principles](playbook/principles.md) · [Phase 6 — Swarm Execute](playbook/phase-6-swarm.md)
 
 ---
 

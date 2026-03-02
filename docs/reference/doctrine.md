@@ -4,7 +4,7 @@ icon: lucide/shield
 
 # Doctrine
 
-15 rules that are not negotiable. Each exists because violating it has destroyed real projects.
+14 rules that are not negotiable. Each exists because violating it has destroyed real projects.
 
 ---
 
@@ -42,6 +42,4 @@ icon: lucide/shield
 
 13. **Profiling is a scheduled bead,** not reactive debugging. Performance work happens proactively on a cadence, not as a fire drill after users report slowness.
 
-14. **The spec evolution analysis is mandatory** for any project over 100 commits. Track how the plan changed over time. Patterns in plan drift reveal systematic blind spots in your planning process.
-
-15. **Marathon sessions beat distributed sessions.** Context is perishable. A 17-hour continuous session with full context produces better work than five 3-hour sessions where the agent rebuilds understanding each time.
+14. **Marathon sessions beat distributed sessions.** Context is perishable. A 17-hour continuous session with full context produces better work than five 3-hour sessions where the agent rebuilds understanding each time.

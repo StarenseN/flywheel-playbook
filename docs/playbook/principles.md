@@ -2,7 +2,7 @@
 icon: lucide/lightbulb
 ---
 
-# The 12 Principles
+# The 11 Principles
 
 These are the ideas behind the workflow. Understand these first; the phases are just the implementation.
 
@@ -71,10 +71,6 @@ After agents implement, run repeated "reread what you wrote and fix obvious issu
 
 Before converting the plan to beads, deliberately inject mathematically advanced constructs -- BOCPD, VOI, conformal prediction, e-processes. A named phase, not an ad-hoc addition. Take the plan to a model strong at formal reasoning and tell it to add "alien artifacts" -- theoretically optimal constructs that a brilliant but alien mathematician might suggest. This pushes plans beyond standard engineering into genuinely novel territory.
 
-## 11. Study yourself building
-
-Every major project gets an `ANALYSIS_OF_SPEC_DOC_DIFFS.md`. Same format every time: 10-bucket classification of every commit to the spec. Track how the spec evolved -- logic fixes, architectural fixes, alien artifacts added, clarifications, noise. The evolution of the spec is a map of where your thinking was wrong. Over time, these documents train your intuition.
-
-## 12. Every word in a prompt is a constraint
+## 11. Every word in a prompt is a constraint
 
 Short prompts that force the model beyond its default posture beat long prompts that enumerate everything it should think about. Counterintuitive, but true. Models are not search engines with a personality -- they are collaborators. They respond to framing. They respond to stakes. They respond to praise. Use that.

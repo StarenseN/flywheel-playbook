@@ -4,7 +4,7 @@ icon: lucide/book-open
 
 # The Playbook
 
-Ten phases. Sequential. Do not skip phases or begin implementation before plan stabilization.
+Nine phases. Sequential. Do not skip phases or begin implementation before plan stabilization.
 
 Each phase has a **stop condition** -- an explicit signal that tells you when to advance.
 
@@ -19,4 +19,3 @@ Each phase has a **stop condition** -- an explicit signal that tells you when to
 | 6 | [Implement with Swarm](phase-6-swarm.md) | All beads implemented and marked complete |
 | 7 | [Fresh-Eyes Review](phase-7-review.md) | Review passes produce no substantive diffs |
 | 8 | [Performance](phase-8-performance.md) | All profiling beads complete |
-| 9 | [Metacognition](phase-9-metacognition.md) | Analysis document complete; patterns identified |

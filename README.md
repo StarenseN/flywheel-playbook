@@ -26,7 +26,7 @@ And there's a deeper flywheel most people miss: **each project you build becomes
 
 ---
 
-## The 12 Principles
+## The 11 Principles
 
 These are the ideas behind the workflow. Understand these first; the phases are just the implementation.
 
@@ -85,11 +85,7 @@ After agents implement, run repeated "reread what you wrote and fix obvious issu
 
 Before converting the plan to beads, deliberately inject mathematically advanced constructs — BOCPD, VOI, conformal prediction, e-processes. This is a named phase, not an ad-hoc addition. Take the plan to a model strong at formal reasoning and tell it to add "alien artifacts" — theoretically optimal constructs that a brilliant but alien mathematician might suggest. This is what pushes plans beyond standard engineering into something genuinely novel.
 
-### 11. Study yourself building
-
-Every major project gets an ANALYSIS_OF_SPEC_DOC_DIFFS.md. Same format every time: 10-bucket classification of every commit to the spec. Track how the spec evolved — logic fixes, architectural fixes, alien artifacts added, clarifications, noise. The evolution of the spec is a map of where your thinking was wrong. Over time these documents train your intuition.
-
-### 12. Every word in a prompt is a constraint
+### 11. Every word in a prompt is a constraint
 
 Short prompts that force the model beyond its default posture beat long prompts that enumerate everything it should think about. This is counterintuitive. Models are not search engines with a personality; they are collaborators. They respond to how you frame things. They respond to stakes. They respond to praise. Use that.
 
@@ -641,35 +637,6 @@ The methodology requirements prevent "optimization theater." Profile before prop
 
 ---
 
-### Phase 9 — Metacognition
-
-**Goal:** Study the spec evolution to train intuition for the next project.
-
-Every major project gets an `ANALYSIS_OF_SPEC_DOC_DIFFS.md`. Same format every time:
-
-**The 10-bucket taxonomy:**
-
-| Bucket | Category | What it tells you |
-|--------|----------|-------------------|
-| 1 | Logic / Math fixes | Where reasoning was wrong |
-| 2 | Legacy system handling | Where existing constraints were underestimated |
-| 3 | Sync / replication | Where distributed systems bit you |
-| 4 | Conceptual / Architecture | Where the abstraction was wrong |
-| 5 | Scrivening (formatting) | Noise — don't count this |
-| 6 | Added context / explanation | Where the plan was ambiguous |
-| 7 | Standard engineering | Normal refinement |
-| 8 | Alien artifact additions | Where AI pushed beyond your vision |
-| 9 | Clarification / disambiguation | Where the spec could be misread |
-| 10 | Other | Uncategorized |
-
-Classify every commit to the spec into these buckets. Then study: What did you get wrong fastest? What survived every review unchanged? What kept getting harder to specify?
-
-Over time these documents train your intuition. I know which parts of a database spec will need 11 revisions before they're right (transaction slots). I know which parts get it right in round 1 (documentation, always).
-
-**Stop condition:** Analysis document complete. Patterns identified for next project.
-
----
-
 ## The Complete Prompt Catalog
 
 41 prompts organized by when you use them. Verbatim. Copy-paste only. Do not paraphrase.
@@ -1110,7 +1077,6 @@ modes, and compatibility constraints. This must be done BEFORE any integration c
 | 6 — Implement | All beads implemented and marked complete |
 | 7 — Fresh-Eyes Review | Review passes produce no substantive diffs |
 | 8 — Performance | All profiling beads complete; no hotspot above threshold |
-| 9 — Metacognition | Analysis document complete; patterns identified |
 
 ---
 
@@ -1253,8 +1219,7 @@ Monthly cost: VPS ($40-56) + Claude Max ($200) + ChatGPT Pro ($200) = ~$440-656.
 11. **Pre-integration dependency analysis is required.** Write COMPREHENSIVE_ANALYSIS before integrating anything.
 12. **Agent failure is normal operations.** Log it, handle it gracefully, move on.
 13. **Profiling is a scheduled bead,** not reactive debugging.
-14. **The spec evolution analysis is mandatory** for any project over 100 commits.
-15. **Marathon sessions beat distributed sessions.** Context is perishable.
+14. **Marathon sessions beat distributed sessions.** Context is perishable.
 
 ---
 
