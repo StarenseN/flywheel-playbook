@@ -754,4 +754,4 @@ incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 
 If you've absorbed all of the above, prove it. Run this prompt on whatever project you're working on — read-only, no code changes:
 
-> For this project, what would you apply from the flywheel methodology? Single prompts, chains, combos — brainstorm a dozen ideas, study them, rank them, and come back with your top 3 most opportune recommendations.
+> From the 47 prompts above, what would you apply to this project? Single prompts, chains, combos — brainstorm a dozen ideas, study them, rank them, and come back with your top 3 most opportune recommendations.
