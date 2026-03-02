@@ -14,7 +14,7 @@ Deploy coordinated agents to execute beads systematically.
 
 > "The concept works even better when the swarms contain a mixture of frontier models and agent harnesses. Opus and GPT 5.2 are way smarter together than alone."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2019476380904210820)) · 229 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2019476380904210820))
 
 ## Swarm Marching Orders (EX-01 Execute Beads)
 
@@ -71,16 +71,80 @@ Follow repo conventions and hooks.
 
 It reads the diff, groups changes into logical commits, writes detailed messages with bead IDs, and commits. That is its entire job. Think of it like the cleaner at a hair salon -- it does not style hair, it just keeps the floor clean so the stylists can work.
 
-## Typical Formation
+## The Perception Loop
 
-| Agent type | Count | Role |
-|:-----------|:------|:-----|
-| Claude Code (Opus) | 5-6 | Primary implementation |
-| Codex | 2-3 | Parallel implementation |
-| Gemini | 1-2 | Review duties |
-| Commit agent | 1 | Git operations only |
+Source: [Swarm Steering Cookbook](https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup)
 
-Scale based on bead graph size and budget. All implementation agents are fungible generalists. Don't specialize.
+Every 30-60 seconds during active swarms, check state:
+
+| I see | It means | Do |
+|:------|:---------|:---|
+| Spinner + output flowing | Working normally | Wait 2-5 min |
+| Spinner + stale 15+ min | Ultrathink (deep reasoning) | Verify tokens moving. Do NOT interrupt. |
+| Permission prompt on screen | Needs you NOW | Approve immediately |
+| Shell prompt, no spinner, 5+ min | Finished or crashed | Assign next bead |
+| Context usage > 80% | Approaching compaction | Let it finish current bead, then EX-04 |
+
+Check at least two sources before concluding anything. Terminal output can be stale. Session logs are ground truth.
+
+## Patience Calibration
+
+The #1 operator mistake is an asymmetry trap: waiting 30 minutes for an unsubmitted prompt (dead time) but panic-interrupting 10 minutes of active ultrathink (productive time).
+
+**If tokens are incrementing, the agent is WORKING. Do NOT interrupt. Do NOT Ctrl+C. Wait. Check back in 5 minutes.**
+
+Flip the instinct: if session logs show no updates, check immediately. If session logs show activity, leave it alone.
+
+## Formation Scale
+
+> "OK, my upgrade to 64 cores was well-timed. I now have a disgusting number of next-gen Codex 4.6 and Codex 5.3 clankers running across 3 machines and 9 projects."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2019571245784973452))
+
+| Formation | Agents | When to use |
+|:----------|:-------|:------------|
+| A | 1 | Learning the workflow, debugging |
+| B | 2-3 | Small features, quick fixes |
+| C | 4-6 | Standard project (Jeff's typical) |
+| D | 7-10 | Heavy projects, tight deadlines |
+| E | 11-15 | Large-scale builds (frankensqlite) |
+| F+ | 15+ | Feb 2026: 8 Codex + 8 Claude per project across 3 machines |
+
+## Model-Role Matrix
+
+Source: [ACFS Wizard](https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup)
+
+Not all models are equal at all tasks. Learned the hard way:
+
+| Role | Best model(s) | Avoid | Why |
+|:-----|:-------------|:------|:----|
+| Coding (EX-01) | Codex, Claude | Gemini | Shell integration issues in sandbox |
+| Review (RV-02) | Gemini, Claude | -- | Gemini catches things Claude misses (orthogonal attention) |
+| Commit (EX-06) | Claude ONLY | Codex, Gemini | Git edge cases (interactive rebase, merge resolution) fail |
+| Alien artifacts | Gemini, o3 | -- | Formal reasoning strength |
+
+Deploy Gemini agents expecting shell failures. Assign them to review and static analysis. Claude and Codex handle execution.
+
+## Graceful Shutdown
+
+Don't kill working agents. Ever.
+
+1. Tell agents to finish: "Finish your current task, commit your work, then stop."
+2. Wait for idle (don't poll).
+3. Verify clean state: check for uncommitted changes.
+4. Then kill the session.
+
+Mid-kill consequence: truncated files, broken code, merge conflicts from a dead agent that can't explain what it was doing.
+
+## When Things Break
+
+Three failures every operator hits:
+
+**Agent hung** (session log stale 15+ min): Nudge with Enter. If still dead, Ctrl+C, restart the agent, fire EX-03 (fresh start).
+
+**Uncommitted files piling up** (10+ files, no commits in 20 min): Commit agent crashed. Manually commit once to clear the backlog. Respawn commit agent. Fire EX-06 immediately.
+
+**Merge conflict** (two agents edited the same file): Stop all agents ("finish and commit, then stop"). Resolve conflicts manually. Checkpoint. Resume all agents with EX-02 (mail check & continue).
 
 !!! important
     **Stop condition:** All beads are implemented and marked complete.
