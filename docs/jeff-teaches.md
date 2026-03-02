@@ -452,11 +452,11 @@ The Kissinger thesis is the proof-of-concept: a 400-page PDF conversion using a 
 >
 > — @doodlestein ([source](https://x.com/doodlestein/status/1991301147702005785)) · **Source of prompt [MT-08 Agent Feedback](prompts/prompt-pack.md)**
 
-This is the flywheel applied to the tools themselves. I build tools for my agents. My agents use those tools all day. They accumulate opinions. So I ask them: was this useful? What was the signal-to-noise ratio? What would make it better for you? And then I take that feedback and ship a better version, which they use tomorrow, which generates better feedback, which I ship again. The tools improve because the agents tell me what to improve, and the agents trust the tools more because the tools keep getting better.
+This is the flywheel applied to the tools themselves. I build tools for my agents. My agents use those tools all day. They accumulate opinions. So I ask them: was this useful? What was the signal-to-noise ratio? What would make it better for you? Then I take that feedback and ship a better version. The agents use the better version, generate sharper feedback, and the cycle repeats. My tools get better because my agents tell me exactly what to fix.
 
-The scoring dimensions matter. "Was it helpful?" is vague. "Rate it 0-100 on signal-to-noise, error frequency, workflow integration" gives me actionable data. I can compare scores across projects, across model types, across tool versions. "Would you recommend it to fellow coding agents?" forces the model to think about the tool from a peer's perspective rather than just its own experience. Different framing, different insights.
+The scoring dimensions matter. "Was it helpful?" is too vague to act on. "Rate it 0-100 on signal-to-noise, error frequency, workflow integration" gives me numbers I can compare between projects, model types, and tool versions. "Would you recommend it to fellow coding agents?" forces the model to evaluate from a peer's perspective rather than just its own experience, and that shift in framing surfaces different insights.
 
-In the playbook, this is MT-08. Swap `<TOOL_NAME>` for whatever your agents just used. Run it at the end of a session, when the agent has fresh context on what worked and what didn't. The responses have directly shaped every major tool revision I've done.
+Swap `<TOOL_NAME>` for whatever your agents just used. Run it at the end of a session, when the agent has fresh context on what worked and what didn't. The responses go straight into the next version of the tool.
 
 → [Prompt Pack](prompts/prompt-pack.md)
 
@@ -483,6 +483,6 @@ How many of the playbook's 47 prompts trace directly to Jeff's public tweets:
 | [EX-04 Post-Compaction](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/2017087633877278974) | 58 |
 | [MT-08 Agent Feedback](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1991301147702005785) | — |
 
-14 prompts from 6 tweets. The mega-tweet alone sources 7.
+14 prompts from 7 tweets. The mega-tweet alone sources 7.
 
 Prompts with no public tweet source include RV-05 Stakes Escalation, PL-03/04/05 Praise Pushes (the philosophy is tweeted; the exact text is not), and MT-04 De-Slopifier. These come from Jeff's AGENTS.md templates and repo documentation.
