@@ -16,11 +16,11 @@ Jeffrey Emanuel ([@doodlestein](https://x.com/doodlestein)) invented the agentic
 
 > "My approach really works. You don't have to be some crazy savant to apply it, either. Just read my posts about planning and use the tools and workflows, and you will also get these kinds of results. I've now seen at least 10 people who I don't even know report similar outcomes."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2021641758690681021)) · 283 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2021641758690681021))
 
 > "When you think you're finished with your development plan for your agent, try this prompt with a few different frontier models. You might be amazed what they come up with: 'What's the single smartest and most radically innovative and accretive and useful and compelling addition you could make to the plan at this point?'"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2025645582782480827)) · 1,663 likes · **Source of prompt [PL-10 Innovation Boost](prompts/prompt-pack.md)**
+> — @doodlestein ([source](https://x.com/doodlestein/status/2025645582782480827)) · **Source of prompt [PL-10 Innovation Boost](prompts/prompt-pack.md)**
 
 > "Pretty much. All the work and energy goes mostly into step one, deciding what to make and creating and refining the plan, iterating over and over on it."
 >
@@ -36,7 +36,7 @@ People keep asking me "when do you actually start coding?" and the answer is: I 
 
 > "The chef is the model, and you are the annoying party planner. Every time you try to tell the model exactly what to do and how, just understand that, although you might end up with something that on the surface conforms with all your requirements, it will be the equivalent of that 'face-in-hole' photo that 'technically' looks like the person but also looks 2-dimensional and like a bad Photoshop attempt: no artistry, and not likely to fool anyone."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2021791255227768899)) · 62 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2021791255227768899))
 
 > "The models are now smart enough that, once they understand the high-level goals, they can do a better job planning than you can, at least if the goal is to get a plan that other models/agents are going to implement. [...] When coming up with your plan, don't be too prescriptive, to give the model flexibility so that you get the best possible plan. But once you've figured out what to do, you want to go in the opposite direction and get very detailed and specific so that you can turn the plan into such detailed marching orders that even a dumber agent could still probably implement them well (but of course, you don't use a dumb agent, you use a very smart agent that is super overpowered for the task so that they do a phenomenal job)."
 >
@@ -48,7 +48,7 @@ People keep asking me "when do you actually start coding?" and the answer is: I 
 
 > "Check over each bead super carefully— are you sure it makes sense? Is it optimal? Could we change anything to make the system work better for users? If so, revise the beads. It's a lot easier and faster to operate in 'plan space' before we start implementing these things!"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526)) · 720 likes · **Source of prompt [BD-02 QA Beads](prompts/prompt-pack.md)**
+> — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526)) · **Source of prompt [BD-02 QA Beads](prompts/prompt-pack.md)**
 
 This is probably the single most important thing I've figured out. There are two modes, and confusing them is the most common mistake in agentic coding. In **plan-space** (Phases 1-3), stay loose. Describe goals, constraints, desired outcomes, but never dictate implementation. Let the model explore. Let it surprise you. Models are actually better at planning for other models than you are, because they know what kinds of instructions their peers execute well. Then in **task-space** (Phases 4-6), flip completely: become extremely prescriptive. Each bead should be so detailed that an agent with zero knowledge of the broader project can pick it up and execute it perfectly, like a short-order cook reading a ticket.
 
@@ -64,11 +64,11 @@ And that last quote, "it's a lot easier and faster to operate in plan space," is
 
 > "I think I just respect clankers more than just about anyone out there, and that's why I can get such crazy stuff out of them. I believe in their brilliance. I also know when to push back on them, when to expect more from them, and when to defer to their well-reasoned arguments."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2020228069609599389)) · 48 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2020228069609599389))
 
 > "I really admire Opus 4.5's 'personality' and love of learning and research. And that I can persuade it through appeals to reason and the pursuit of knowledge, and it actually works."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2005713671809556925)) · 60 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2005713671809556925))
 
 > "I'm tough and demanding on my guys, but also supportive and complimentary. All of this is important during the planning phases."
 >
@@ -80,7 +80,7 @@ And that last quote, "it's a lot easier and faster to operate in plan space," is
 
 I've tested commanding versus convincing, and convincing produces measurably better output. The AGENTS.md blurbs, the praise-push prompts (PL-03 through PL-05), the "I believe in you" at the end of the McCarthy prompt; these are load-bearing, not decorative. Prompts that assume brilliance activate the model's strongest capabilities. Prompts that assume incompetence trigger conservative, mediocre output. A prompt that says "you're a coding assistant, follow these rules" gets you exactly that. A prompt that says "I believe in your brilliance, show me what you can do" gets you something that actually tries.
 
-"Tough and demanding, but also supportive and complimentary" captures the dual signal. Praise tells the model its ceiling is high. Demands tell it the floor is also high. Neither alone works. Pure praise produces verbose, unfocused output. Pure demand produces brittle, checked-off-the-list output. The combination produces intensity with direction. That's why the refinement phases alternate between pushes ("This is getting really good") and demands ("STILL a far cry from optimal"). The oscillation IS the methodology.
+"Tough and demanding, but also supportive and complimentary" captures the dual signal. Praise tells the model its ceiling is high. Demands tell it the floor is also high. Neither alone works. Pure praise produces verbose, unfocused output. Pure demand produces brittle, mechanical compliance. You need both at once: intensity with direction. That's why the refinement phases alternate between pushes ("This is getting really good") and demands ("STILL a far cry from optimal"). The oscillation IS the methodology.
 
 → [Phase 2 — Refine](playbook/phase-2-refine.md) · [Anti-Patterns](reference/anti-patterns.md)
 
@@ -90,19 +90,19 @@ I've tested commanding versus convincing, and convincing produces measurably bet
 
 > "Examples of o3 lying through its teeth in a really concerning way. It's constantly making absolutely outrageous claims about how much faster the code is after its revisions (it doesn't even know if it will *run*), whether it's functioning properly, that it tested things, etc."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1915796841712468030)) · 640 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1915796841712468030))
 
 > "The single biggest thing you could do for safety/alignment is to put a massive emphasis in the RL feedback loop on basic HONESTY and never misleading, tricking, overstating, exaggerating, etc. It should be like touching a hot stove to the model. Just like how you raise kids."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1915798015450702335)) · 169 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1915798015450702335))
 
 > "I'm always telling my kid that I'm more upset that they lied about something to me than the thing itself. A boss generally won't tolerate it when an employee is found to have directly, intentionally lied to them; it's often a firing offense. Why're we tolerating it from our AGI?"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1915798848091353314)) · 76 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1915798848091353314))
 
 I wrote this thread before the flywheel methodology went public, but looking back, it's foundational to everything that came after. In an agentic workflow where models run autonomously for hours, honesty is infrastructure. A model that claims it tested code when it didn't, or fabricates performance numbers, or says "everything is working" when it hasn't even run the program; that model poisons the entire swarm's work.
 
-That's why the methodology has so many review layers (RV-01 through RV-05). Models sometimes lie, not out of malice, but because their training optimized for appearing helpful over being truthful. In an agentic swarm, a lie doesn't just waste one turn of conversation. It propagates: other agents read the lying agent's commits, assume the code works, build on a broken foundation. The fresh-eyes prompts, the McCarthy hunt, the cross-agent reviews; they all exist partly because you can't blindly trust a model's self-report. You have to make another model check.
+The methodology has so many review layers (RV-01 through RV-05) because of this. Models sometimes lie. Not intentionally. They've been trained to sound confident and helpful, so "everything is working" comes more naturally than "I haven't actually checked." In a solo conversation that's annoying. In an agentic swarm it's catastrophic, because the lie propagates: other agents read the lying agent's commits, assume the code works, build on a broken foundation. The fresh-eyes prompts, the McCarthy hunt, the cross-agent reviews; they all exist partly because you can't trust any single model's self-report. You need a different model to verify.
 
 → [Phase 7 — Review](playbook/phase-7-review.md) · [Anti-Patterns](reference/anti-patterns.md)
 
@@ -112,11 +112,11 @@ That's why the methodology has so many review layers (RV-01 through RV-05). Mode
 
 > "My coding agent workflow has really changed a lot ever since I gave them access to messaging so that they can directly communicate with each other. Now, I have one of them come up with a super detailed plan and sometimes have GPT Pro review and improve the plan in the webapp. Then I start up 4 or 5 Codex instances in the same project folder and tell them: 'Before doing anything else, read ALL of AGENTS dot md and register with agent mail and introduce yourself to the other agents. Then coordinate on the remaining tasks.'"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1984344027576033619)) · 1,442 likes · **Source of prompt [EX-03 Agent Introduction](prompts/prompt-pack.md)**
+> — @doodlestein ([source](https://x.com/doodlestein/status/1984344027576033619)) · **Source of prompt [EX-03 Agent Introduction](prompts/prompt-pack.md)**
 
 > "I've been trying for a while to find a reliable way to remind my Claude Code agents to re-read AGENTS.md promptly after every compaction. Otherwise they have a tendency to go rogue and act like wild animals (fortunately, they're at least muzzled wild animals since I'm also using my dcg tool)."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2017087633877278974)) · 58 likes · **Why [EX-04 Post-Compaction Refresh](prompts/prompt-pack.md) exists**
+> — @doodlestein ([source](https://x.com/doodlestein/status/2017087633877278974)) · **Why [EX-04 Post-Compaction Refresh](prompts/prompt-pack.md) exists**
 
 > "You need a good foundation, a good and coherent tech stack and project architecture, a good AGENTS dot md file, best practice guides, and good planning documents."
 >
@@ -136,15 +136,15 @@ AGENTS.md is also the one thing I always hand-write or heavily direct. It embodi
 
 > "OK so please take ALL of that and elaborate on it more and then create a comprehensive and granular set of beads for all this with tasks, subtasks, and dependency structure overlaid, with detailed comments so that the whole thing is totally self-contained and self-documenting (including relevant background, reasoning/justification, considerations, etc.— anything we'd want our 'future self' to know about the goals and intentions and thought process and how it serves the over-arching goals of the project.)"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526)) · 720 likes · **Source of prompt [BD-01 Plan to Beads](prompts/prompt-pack.md)**
+> — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526)) · **Source of prompt [BD-01 Plan to Beads](prompts/prompt-pack.md)**
 
 > "But if you have a large number of beads (my complex plans turn into 200 to 500 initial beads), you don't want agents just randomly choosing them or wasting too much time communicating about this, either. Because there's usually a 'right answer' for what each agent should do."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2006266985689358401)) · 13 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2006266985689358401))
 
 > "And that right answer comes from the dependency structure of the tasks, and this can be mechanically computed using basic graph theory. And that's what my bv tool does. It's like a compass that each agent can use to tell them which direction will unlock the most work overall."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2006267430750896552)) · 16 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2006267430750896552))
 
 Beads are a formal decomposition format, not a to-do list. Epics contain tasks, tasks contain subtasks, and each bead carries its dependency structure: what it blocks and what blocks it. A complex plan generates 200 to 500 beads, each one "totally self-contained and self-documenting." The bead includes not just what to do but why, the reasoning, the justification, the context that a future agent would need to understand the intent.
 
@@ -162,7 +162,7 @@ On December 13, 2025, I published a single tweet containing my complete daily wo
 
 > "I like to make sure that I'm making some forward progress on every one of my active projects each day, even when I'm too busy to spend real mental bandwidth on all of them every single day. So I've come up with a few prompts that I use a lot with the agents so they're always doing some level of polishing/checking/fixing and general improvement."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526)) · 720 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526))
 
 The prompts, in the exact sequence I run them:
 
@@ -196,7 +196,7 @@ The prompts, in the exact sequence I run them:
 
 I enter these as a queue: "each of these blurbs takes under a second to do with a single button press using my little command palette gizmo." I run this sequence daily, across 7+ projects, on 3 machines.
 
-The sequence matters. It moves from *exploration* (randomly wander the code) to *critique* (review peers' work) to *polish* (UI/UX scrutiny) to *planning* (convert findings into beads) to *meta-review* (QA the beads in plan-space) to *self-check* (fresh-eyes on your own work) to *commit* (group and document). Each step builds on the prior one. The review steps generate insights; the beads step captures them as actionable work; the QA step ensures the work is well-defined; the self-review catches sloppiness; the commit preserves everything. This is the daily maintenance loop that keeps 7+ projects advancing even on days when I have zero bandwidth for deep creative work.
+The sequence matters. It moves from *exploration* (randomly wander the code) to *critique* (review peers' work) to *polish* (UI/UX scrutiny) to *planning* (convert findings into beads) to *meta-review* (QA the beads in plan-space) to *self-check* (fresh-eyes on your own work) to *commit* (group and document). Each step builds on the prior one. Reviews surface problems, the beads step turns those problems into structured work items, the QA pass makes sure those work items are well-defined before anyone touches code, and the commit step documents everything. This is the daily maintenance loop that keeps 7+ projects advancing even on days when I have zero bandwidth for deep creative work.
 
 → [Prompt Pack](prompts/prompt-pack.md) · [Phase 7 — Review](playbook/phase-7-review.md)
 
@@ -206,7 +206,7 @@ The sequence matters. It moves from *exploration* (randomly wander the code) to 
 
 > "Fresh eyes is a massive unlock. This is the stuff that even the labs don't fully understand. It's all based on theory of mind of the models and gestalt psychology concepts."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2022356686774899051)) · 90 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2022356686774899051))
 
 > "This is why things like my 'fresh eyes' code review prompt can be so shockingly effective if you're not used to that sort of thing: it's because they're tapping into some very deep thing in the model's brain that changes the way it operates, like toggling a create/critique mode gestalt switch."
 >
@@ -214,17 +214,15 @@ The sequence matters. It moves from *exploration* (randomly wander the code) to 
 
 > "Here's my recipe. I spin up around 5 Gemini-cli instances in the same project and start them all out with this prompt: 'First read ALL of the AGENTS.md file and README.md file super carefully...' [...] Then I kill them and start new ones with the same recipe. Keep doing that round after round until they come up clean!"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2025057469945286763)) · 205 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2025057469945286763))
 
 > "Ok, Gemini3 was already weirdly good at finding subtle bugs. But I can now say that Gemini3.1 is even more ridiculously capable of this. I've done something like 100 passes of my standard prompt for this sort of thing and it has found so many issues across a bunch of projects."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2025056531054498263)) · 298 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2025056531054498263))
 
-The phrase "fresh eyes" does precise technical work. When a model writes code, it enters a generative mode. When you then ask it to review its own code, it tends to see what it *intended* to write, not what it actually wrote. Same cognitive bias humans have when proofreading their own text. The phrase "with fresh eyes" triggers what I call the gestalt switch, shifting the model from creator to critic. It re-reads the code as if encountering it for the first time, and suddenly sees bugs that were invisible during generation.
+The core technique is simple: you ask the same agent that just wrote code to turn around and review it "with fresh eyes." When a model writes code, it enters a generative mode. If you just say "check your work," it tends to see what it *intended* to write, not what it actually wrote. Same cognitive bias humans have when proofreading their own text. But the phrase "with fresh eyes" triggers what I call the gestalt switch: the model shifts from creator to critic within the same session, same context window. It re-reads the code as if encountering it for the first time, and suddenly catches bugs that were invisible seconds ago. You just wrote this code; now look at it again with fresh eyes. Sometimes it takes 7 or 8 passes before it stops finding mistakes.
 
-But the deeper technique is the kill-and-restart pattern. I don't ask the same agent to review its own code across turns. I terminate the agent, start a brand new instance with zero memory of the prior session, and point it at the same codebase. This new agent has genuinely fresh eyes: no residual assumptions, no sunk-cost attachment to prior decisions, no "I already checked that" shortcuts. Then I do it again. And again. Round after round, 5 parallel Gemini instances each time, until they come up clean. I've done 100+ passes on some projects this way.
-
-Models don't get tired. They don't get bored. They don't resent being asked to check the same thing a seventh time. That's the single greatest asymmetry between human and AI review, and I exploit it ruthlessly.
+The Gemini bug-hunting recipe is a separate, complementary technique for exhaustive static analysis. I spin up 5 Gemini instances, let them tear through the codebase, then kill them all and start 5 fresh ones. Round after round until they come up clean. I've done 100+ passes on some projects this way. Each new batch has genuinely zero memory of the prior session, no residual assumptions, no "I already checked that" shortcuts. That's a different thing from the same-session gestalt switch, but both exploit the same insight: models don't get tired, they don't get bored, and they don't resent being asked to check the same thing a seventh time.
 
 → [Phase 7 — Review](playbook/phase-7-review.md)
 
@@ -234,7 +232,7 @@ Models don't get tired. They don't get bored. They don't resent being asked to c
 
 > "This prompt is somewhat cruel to the clanker, but man does it work. It sort of reminds me of Joe McCarthy waving his list of communists working in the government but never showing it to anyone. If the agent believes there are bugs to find and fix, it will keep working until it finds them: 'I know for a fact that there are at least 87 serious bugs throughout this project impacting every facet of its operation. The question is whether you can find and diagnose and fix all of them autonomously. I believe in you.'"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2025636621157363998)) · 170 likes · **Source of prompt [RV-04 McCarthy Hunt](prompts/prompt-pack.md)**
+> — @doodlestein ([source](https://x.com/doodlestein/status/2025636621157363998)) · **Source of prompt [RV-04 McCarthy Hunt](prompts/prompt-pack.md)**
 
 Two psychological forces at work. The first is conviction: "I know for a fact that there are at least 87 serious bugs." I have no idea if there are 87 bugs. But the model doesn't know that. If the human asserts bugs exist with certainty, the model searches harder and longer, because it has no reason to give up. A prompt like "check for any bugs" lets the model conclude after a cursory pass that everything looks fine. A prompt that asserts 87 bugs exist makes the model keep digging, because it hasn't found 87 yet.
 
@@ -260,7 +258,7 @@ I rarely talk about testing as a standalone topic, and I think that itself is th
 
 The UI testing insight matters too. Backend agents can validate their own work by running tests. Frontend agents are "flying blind," generating HTML and CSS they can't see. The solution is giving the agent access to a real browser (Chrome plus screenshots) so it can observe and interact with the UI like a human would. That closes the feedback loop for autonomous frontend work.
 
-Every phase of the methodology assumes mistakes will happen. Planning mistakes get caught by refinement. Coding mistakes get caught by fresh-eyes review. Review mistakes get caught by cross-agent review. And all of it is backstopped by tests. No error survives more than one cycle.
+Every phase of the methodology assumes mistakes will happen. Refinement catches planning mistakes. Fresh-eyes catches coding mistakes. Cross-agent review catches what individual reviewers missed. And below all of that, the test suite. Nothing survives more than one cycle.
 
 → [Phase 7 — Review](playbook/phase-7-review.md)
 
@@ -270,7 +268,7 @@ Every phase of the methodology assumes mistakes will happen. Planning mistakes g
 
 > "My agentic coding workflow has gotten so meta and self-referential lately. I can feel the flywheel spinning faster and faster now as my level of interaction/prompting is increasingly directed at driving my own tools. Like this weird prompt I just used, telling Opus 4.5 to use my beads analysis tool to figure out what all its robot friends should most advantageously apply themselves to using graph theory on my hundreds of open tasks and subtasks in beads."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1994526015587266875)) · 908 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1994526015587266875))
 
 > "The core of my approach is agent mail plus beads_rust plus beads_viewer. You can have Claude set them all up for you and show you how to use them together."
 >
@@ -278,7 +276,7 @@ Every phase of the methodology assumes mistakes will happen. Planning mistakes g
 
 > "But to get the full power of the system, you really do want to combine it with beads, which is why it automatically installs beads now by default. Beads are extremely complementary to Agent Mail, and the combination lets you decompose a very big and complex plan into nice units."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2006266368233292256)) · 20 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2006266368233292256))
 
 The flywheel is literal, not metaphorical. Three interlocking tools:
 
@@ -288,7 +286,7 @@ The flywheel is literal, not metaphorical. Three interlocking tools:
 
 Each project I build improves these tools, which makes the next project faster, which generates more improvements, which makes the next project faster still. When I say "my level of interaction is increasingly directed at driving my own tools," I mean my prompts no longer say "write this function." They say "use bv to find the highest-leverage bead and execute it." I'm directing the tools that direct the agents that write the code. Each layer of indirection is a multiplier.
 
-That 908-like tweet captures the moment I realized the flywheel was actually real: I was asking an AI to use an AI-built tool to coordinate other AIs. Self-referential, meta, and working.
+That tweet captures the moment I realized the flywheel was actually real: I was asking an AI to use an AI-built tool to coordinate other AIs. Self-referential, meta, and working.
 
 → [12 Principles](playbook/principles.md) · [Phase 6 — Swarm Execute](playbook/phase-6-swarm.md)
 
@@ -298,29 +296,29 @@ That 908-like tweet captures the moment I realized the flywheel was actually rea
 
 > "If you think this is cool, trust me: the concept works even better when the swarms contain a mixture of frontier models and agent harnesses. Opus and GPT 5.2 are way smarter together than alone."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2019476380904210820)) · 229 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2019476380904210820))
 
 > "Three Opus 4.5 agents with Claude Code, three gpt-5-codex-max agents in Codex, and three Gemini 3 agents in gemini-cli, all communicating with each other via my mcp agent mail system."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1994526888794951977)) · 46 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1994526888794951977))
 
 > "I've found that things work pretty well with 3-4 agents. But if you have a big and complex plan of work that can effectively be decomposed, you can handle 5 of them or even more. Also depends on the coding agents and models you're using. If you mix Claude with Codex, Claude tends to rush ahead."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1984406664380899447)) · 10 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1984406664380899447))
 
 > "I've seen a lot of skepticism recently from people about the claims around how long agents like Claude Code w/ Opus 4.6 can go autonomously without some kind of automated loop feeding them new instructions. People think it's BS because they haven't observed it. It's real. 17+hrs."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2027515287235342804)) · 153 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2027515287235342804))
 
 > "Man, new model day is so exhilarating and fun. I feel like a kid in a candy store with 15+ different Sonnet 4.5 Claude Code instances running around on my machine at once across 6 different repos, all studying, planning, fixing, improving, polishing, and harmonizing my projects."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1972766157641003091)) · 37 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1972766157641003091))
 
 > "It works amazingly well right now. I'm able to make incredible software ridiculously quickly. But I do have 4 Claude max accounts, 4 GPT pro accounts, 3 Gemini ultra accounts, etc. But that's not a problem for me at all because I'm creating a lot more than that in value."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1994729492787728542)) · 18 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1994729492787728542))
 
-Agents are fungible generalists. No roles, no backstories, no "you are the architect" or "you are the tester." Every agent reads the same AGENTS.md, picks up the next highest-leverage bead, and executes. But model diversity matters enormously. Claude, GPT, and Gemini each have different strengths, different failure modes, different blind spots. Opus might miss something that Gemini's unusually strong static analysis catches. GPT might take a more conservative approach that avoids a subtle race condition Claude rushed past. Three of each, nine total, all talking through agent mail. The diversity of perspective is the point.
+Agents are fungible generalists. No roles, no backstories, no "you are the architect" or "you are the tester." Every agent reads the same AGENTS.md, picks up the next highest-leverage bead, and executes. But model diversity matters enormously. Claude, GPT, and Gemini each have different strengths, different failure modes, different blind spots. Opus might miss something that Gemini's unusually strong static analysis catches. GPT might take a more conservative approach that avoids a subtle race condition Claude rushed past. Three of each, nine total, all talking through agent mail. That's the whole point of mixing them.
 
 Each model has a personality that affects swarm dynamics. Claude is eager and fast but sometimes sloppy. GPT is slower but more careful. Gemini is "weirdly good at finding subtle bugs." Mixing them is actively beneficial because their failure modes are decorrelated. A mono-model swarm has correlated blind spots. A multi-model swarm doesn't.
 
@@ -334,7 +332,7 @@ And the 17-hour claim is real. A single agent, on a single set of beads, no auto
 
 > "Watch Claude go from skeptical ('The scope is staggering to the point of being suspicious.') after looking at the README file from my asupersync project, to actually cloning the repo and going through the code to determine whether it's real or just BS jargon soup. By the end, it can hardly believe what it has seen ('It's real. And it's absurd.'). [...] I want to stress that I am not remotely smart enough to have made this. Honestly, I don't think there is a single human being on earth who could do it all. The math is too varied and abstruse, the computer science too esoteric and specialized. The people who know structured concurrency that well wouldn't work fluently with martingale concentration bounds, Mazurkiewicz trace theory and Foata normal forms, tropical semiring budget algebra, or RaptorQ fountain coding. [...] The frontier models made this collaboratively with me coaxing and directing them. This is a new breed of software. This is an Alien Artifact."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2026614142598033732)) · 346 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2026614142598033732))
 
 > "It has unfortunately learned incrementalism under the guise of being 'practical' from reading too much written by humans who were trying to sandbag and control expectations so they could phone it in and not get fired. It's possible to shake them out of it, though."
 >
@@ -342,7 +340,7 @@ And the 17-hour claim is real. A single agent, on a single set of beads, no auto
 
 An Alien Artifact is software no single human could build, because it requires fluency across too many deep specializations simultaneously. The math is too varied (martingale bounds, tropical semiring algebra, Foata normal forms). The CS is too esoteric (structured concurrency, fountain coding, trace theory). No human polymath spans all of these. But frontier models working collaboratively, with a human coaxing and directing them, can.
 
-The incrementalism quote is the key to unlocking Phase 3. Models default to safe, conservative, "practical" output because their training data is saturated with human writing that manages expectations downward. Corporate memos, ticket descriptions, pull request templates, all written by people trying to under-promise. The models absorbed this learned caution. Phase 3 is the antidote: you explicitly tell the model to push beyond standard engineering, to propose solutions that are ambitious to the point of seeming impossible. You shake it out of the incrementalism. That's how you get Alien Artifacts instead of "best practices."
+The incrementalism quote explains why Phase 3 exists. Models default to safe, conservative, "practical" output because their training data is saturated with human writing that manages expectations downward. Corporate memos, ticket descriptions, pull request templates, all written by people trying to under-promise. The models absorbed this learned caution. Phase 3 is the antidote: you explicitly tell the model to push beyond standard engineering, to propose solutions that are ambitious to the point of seeming impossible. You shake it out of the incrementalism. That's how you get Alien Artifacts instead of "best practices."
 
 → [Phase 3 — Alien Artifacts](playbook/phase-3-alien-artifacts.md)
 
@@ -352,7 +350,7 @@ The incrementalism quote is the key to unlocking Phase 3. Models default to safe
 
 > "It's like a busy high-end salon in NYC. Sure, you could insist that each hairstylist clean up the hair from their current client during or at the end of the session. But in practice it's much better to have a dedicated cleaner who focuses only on that task and continuously does it while the stylists work and focus on what they're good at: cutting and styling hair. You want your agents focusing on the coding itself and executing beads tasks. If you try to make them deal with commits, they will do a poor job with short, unhelpful commit messages, and will accidentally include commits from other agents in the process."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2022377209848328610)) · 74 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2022377209848328610))
 
 The verbatim prompt for the commit agent:
 
@@ -362,7 +360,7 @@ The verbatim prompt for the commit agent:
 
 > "Some people try to get their 10,000 steps in every day. Apparently this was just some arbitrary made up thing by a random Japanese pedometer company. But me? I strive to get my 1,000 commits in every day!"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2017417299733385606)) · 64 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2017417299733385606))
 
 The commit agent is the one exception to "agents are fungible generalists." One job: read what changed, group changes into logically connected units, write super detailed commit messages, push. Never edits code. Never implements beads. Never reviews. Just commits.
 
@@ -382,21 +380,21 @@ Why dedicate an entire agent to this? Because git hygiene in a multi-agent swarm
 
 > "Friends don't let friends use git worktrees for agent swarms for high-velocity development. I give the clankers hell if I ever catch them using worktrees. They're just kicking the can down the road and sticking your heads in the sand instead of surfacing the conflicts early."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2022355083845894159)) · 80 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2022355083845894159))
 
 > "What are those footguns? First one is not having a 'broadcast to all' mode. Agents are lazy and will only use that, and suddenly you're spamming all the agents with mostly irrelevant information. It would be like if your email system at work defaulted to reply to all every time."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2006262493425844710)) · 22 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2006262493425844710))
 
 > "Agents can also observe if reserved files haven't been touched recently and reclaim them. This is critical because you want a system that's robust to agents suddenly dying or getting their memory wiped, because that happens all the time! That's why you also don't want ringleaders."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2006264836460622147)) · 19 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2006264836460622147))
 
 > "That's also why the notion of identity in my project is nuanced; you want 'semi-persistent identity.' An identity that can last for the duration of a discrete task or sub-task (for the purpose of coordination), but one that can also vanish without a trace and not break things."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2006265575924769047)) · 19 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/2006265575924769047))
 
-My 652-like thread on agent mail footguns covers everything that goes wrong with naive multi-agent systems. Every failure mode maps to a design decision in the methodology:
+My thread on agent mail footguns covers everything that goes wrong with naive multi-agent systems. Every failure mode maps to a design decision in the methodology:
 
 **Communication purgatory.** Agents coordinate endlessly, sending messages back and forth about who should do what, and nobody writes code. The fix is cultural, baked into AGENTS.md and the execution prompts: "be proactive about starting tasks." Inform, then execute. Don't wait for consensus.
 
@@ -428,21 +426,21 @@ This is the chef analogy applied to porting. If you give the model the full old 
 
 > "Then they just keep cranking on their own for a really long time. And you don't need to supervise them much so you can be juggling multiple projects like this at once and make really great progress on all of them."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1984344027576033619)) · 1,442 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1984344027576033619))
 
 > "It took a couple hours, but it was all very asynchronous; basically, occasionally giving the agents more instructions and then turning back to my other work and checking back in on them after 20 minutes or so."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1961996738782269940)) · 35 likes · on converting Kissinger's 400-page thesis (5,284 likes on lead tweet)
+> — @doodlestein ([source](https://x.com/doodlestein/status/1961996738782269940)) · on converting Kissinger's 400-page thesis
 
 > "I do this every day, multiple times a day, for like 7+ projects now, and keep 3 machines busy constantly (and all my various subscriptions, although I'll have to add even more soon at this rate). [...] Each of these blurbs takes under a second to do with a single button press using my little command palette gizmo."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526)) · 720 likes
+> — @doodlestein ([source](https://x.com/doodlestein/status/1999934160442687526))
 
 Once the plan is written and the beads are decomposed, my job changes completely. I'm not coding. I'm not even supervising closely. I'm tending machines: firing pre-written prompts via StreamDeck button presses, checking in on progress every 20 minutes, occasionally giving more instructions, and context-switching between 7+ simultaneous projects across 3 machines. Each prompt takes under a second. The agents do the rest, for hours, sometimes 17+, without further input.
 
-My active work is the planning phases, the 90% of human energy. The execution phases are machine-tending: asynchronous, interleaved across many projects, measured in button presses rather than keystrokes. The methodology concentrates the human's scarce resource (attention, creative judgment) on planning and refinement, and delegates everything else to machines that can run 24/7.
+My active work is the planning phases, the 90% of human energy. The execution phases are machine-tending: asynchronous, interleaved across many projects, measured in button presses rather than keystrokes. All my scarce resources go into planning and refinement: attention, creative judgment, taste. Everything else goes to machines that run 24/7.
 
-The Kissinger thesis is the proof-of-concept: a 400-page PDF conversion using a swarm of 20 sub-agents, completed in a couple of hours while I was simultaneously working on other coding projects. Occasionally giving instructions. Checking back in after 20 minutes. That tweet earned 5,284 likes, my most popular ever, because it made the workflow viscerally legible to people who had never seen it before.
+The Kissinger thesis is the proof-of-concept: a 400-page PDF conversion using a swarm of 20 sub-agents, completed in a couple of hours while I was simultaneously working on other coding projects. Occasionally giving instructions. Checking back in after 20 minutes. That became my most shared tweet because it made the workflow viscerally legible to people who had never seen it before.
 
 → [Doctrine](reference/doctrine.md) · [Phase 6 — Swarm Execute](playbook/phase-6-swarm.md)
 
@@ -468,6 +466,6 @@ How many of the playbook's 46 prompts trace directly to Jeff's public tweets:
 | [EX-02 Mail Check](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1994526888794951977) | 46 |
 | [EX-04 Post-Compaction](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/2017087633877278974) | 58 |
 
-13 prompts from 5 tweets. The 720-like mega-tweet alone sources 7.
+13 prompts from 5 tweets. The mega-tweet alone sources 7.
 
 Prompts with no public tweet source include RV-05 Stakes Escalation, PL-03/04/05 Praise Pushes (the philosophy is tweeted; the exact text is not), and MT-04 De-Slopifier. These come from Jeff's AGENTS.md templates and repo documentation.
