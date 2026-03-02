@@ -26,7 +26,7 @@ And there's a deeper flywheel most people miss: **each project you build becomes
 
 ---
 
-## The 11 Principles
+## The 12 Principles
 
 These are the ideas behind the workflow. Understand these first; the phases are just the implementation.
 
@@ -89,11 +89,15 @@ Before converting the plan to beads, deliberately inject mathematically advanced
 
 Short prompts that force the model beyond its default posture beat long prompts that enumerate everything it should think about. This is counterintuitive. Models are not search engines with a personality; they are collaborators. They respond to how you frame things. They respond to stakes. They respond to praise. Use that.
 
+### 12. Session hygiene is sacred
+
+Your orchestration session is for orchestration only. Reviews happen in separate side sessions. If you mix planning commands with review output, the orchestrator's context gets polluted and it loses track of where you are in the workflow. One session, one purpose. Spawn dedicated sessions for review, debugging, and exploration.
+
 ---
 
 ## The Phases
 
-Ten phases. Sequential. Do not skip phases or begin implementation before plan stabilization. Each phase has a stop condition — an explicit signal that tells you when to advance.
+Nine phases. Sequential. Do not skip phases or begin implementation before plan stabilization. Each phase has a stop condition — an explicit signal that tells you when to advance.
 
 ---
 
@@ -1101,6 +1105,14 @@ modes, and compatibility constraints. This must be done BEFORE any integration c
 9. **One review pass.** Part 1 is not enough. Part 2 catches what Part 1 missed. Part 5 catches what Part 4 missed. Part 23 still finds things. Keep going until the diffs flatline.
 
 10. **Optimization theater.** Proposing performance improvements without profiling first. The Deep Performance Audit methodology exists because most "optimizations" are guesses that don't move the needle.
+
+11. **Git worktrees for agent swarms.** Agents in separate worktrees never see each other's changes until merge time, by which point conflicts have piled up into a nightmare. All agents in one shared working directory surfaces merge conflicts immediately, when they're small and easy to resolve.
+
+12. **Sending execution prompts to fresh agents.** Fire EX-01 at an agent that just spawned, and it goes rogue. It doesn't know the bead protocol, hasn't read AGENTS.md, doesn't understand file reservations or Agent Mail. EX-03 (Agent Introduction) is always the first prompt. No exceptions.
+
+13. **Assuming prompts were sent.** You paste a prompt into a terminal pane and assume the agent received it. Roughly half the time, terminal paste silently fails. Always verify delivery: check that a new entry appeared in the session log within 10 seconds.
+
+14. **Interrupting ultrathink.** An agent has been "thinking" for 12 minutes and you panic-hit Ctrl+C. Those 12 minutes of deep reasoning are now gone. If session logs show tokens incrementing, the agent is working. Leave it alone.
 
 ---
 

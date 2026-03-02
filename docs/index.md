@@ -31,12 +31,12 @@ There is a deeper flywheel most people miss: **each project you build becomes a 
 
 | Section | What you get |
 |:--------|:------------|
-| [11 Principles](playbook/principles.md) | The ideas behind the workflow |
+| [12 Principles](playbook/principles.md) | The ideas behind the workflow |
 | [9 Phases](playbook/phase-0-prerequisites.md) | Sequential steps from prerequisites to performance |
 | [47 Prompts](prompts/prompt-pack.md) | Verbatim, copy-paste, organized by category |
 | [Dispatch Table](reference/dispatch.md) | "When in situation X, use prompt Y" |
 | [Toolchain](reference/toolchain.md) | 23 tools that make the flywheel turn |
-| [Anti-Patterns](reference/anti-patterns.md) | 11 ways to destroy your project |
+| [Anti-Patterns](reference/anti-patterns.md) | 14 ways to destroy your project |
 | [Doctrine](reference/doctrine.md) | 14 non-negotiable rules |
 
 ---

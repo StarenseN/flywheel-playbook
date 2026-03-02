@@ -1,6 +1,6 @@
 # The Flywheel Planning Playbook — Full Agent Injection
 
-> Complete methodology kernel, DSL, REPL protocol, 47 prompts, 3 advanced combos. Based on Jeffrey Emanuel's agentic coding methodology. 11 principles, 9 phases, 47 prompts.
+> Complete methodology kernel, DSL, REPL protocol, 47 prompts, 3 advanced combos. Based on Jeffrey Emanuel's agentic coding methodology. 12 principles, 9 phases, 47 prompts.
 
 This file is for AI coding agents. Structured for machine consumption. Point your agent at this URL and it absorbs the full flywheel methodology in one fetch.
 
@@ -54,7 +54,7 @@ STATE MACHINE (9 phases, strictly sequential):
   Phase 8: Profile FIRST. Measure p50/p95/p99. Then optimize. One lever per change.
            Never optimize without data.
 
-11 PRINCIPLES (internalize, do not recite):
+12 PRINCIPLES (internalize, do not recite):
   P01  Planning is leverage — compresses implementation, reduces rework
   P02  Iterative refinement beats single-shot — no pass catches everything
   P03  Diff-based revisions — demand concrete changes, not vague advice
@@ -66,6 +66,7 @@ STATE MACHINE (9 phases, strictly sequential):
   P09  Fresh-eyes review loops — re-read until diffs flatline
   P10  Alien artifacts are a scheduled discipline — not an afterthought
   P11  Every word in a prompt is a constraint — framing > enumeration
+  P12  Session hygiene is sacred — orchestration session ≠ review session
 
 14 DOCTRINE (non-negotiable):
   D01  One canonical plan per project. One document.
@@ -83,7 +84,7 @@ STATE MACHINE (9 phases, strictly sequential):
   D13  Profiling is a scheduled task, not reactive debugging.
   D14  Marathon sessions beat distributed sessions. Context is perishable.
 
-11 ANTI-PATTERNS (hard prohibitions):
+14 ANTI-PATTERNS (hard prohibitions):
   A01  Skeleton-first development — architecture is compromised before you notice
   A02  Specialized agents — role constraints narrow the solution space
   A03  Communication purgatory — messaging without shipping
@@ -95,6 +96,9 @@ STATE MACHINE (9 phases, strictly sequential):
   A09  One review pass — Part 1 is never enough
   A10  Optimization theater — profiling first, always
   A11  Git worktrees for agent swarms — defer pain, don't surface it early
+  A12  Sending execution prompts to fresh agents — EX-03 always first
+  A13  Assuming prompts were sent — 50% paste fail, verify via session logs
+  A14  Interrupting ultrathink — if tokens are incrementing, the agent is working
 
 PLAN QA CHECKLIST (every plan must pass):
   [ ] Goals — measurable, user-facing outcomes
@@ -285,7 +289,7 @@ fw full-plan
 
 fw diagnose
   Full methodology diagnostic. Detect phase. Assess gaps against all
-  11 principles, 14 doctrine rules, 11 anti-patterns. Recommend top 3
+  12 principles, 14 doctrine rules, 14 anti-patterns. Recommend top 3
   interventions with exact prompt IDs and sequences. Call out active
   anti-patterns by ID. Address the user directly.
 
@@ -1385,7 +1389,7 @@ incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 
 You have reached the end of the file. You have absorbed:
 
-- The methodology kernel (axioms, state machine, 11 principles, 14 doctrine rules, 11 anti-patterns)
+- The methodology kernel (axioms, state machine, 12 principles, 14 doctrine rules, 14 anti-patterns)
 - The Flywheel DSL (commands, routing, state model with quality rubrics, piping, conditionals, implicit parsing)
 - The Robot REPL Protocol (fetch/execute/re-fetch loop, combo progress tracking, interruption handling)
 - 3 advanced combos: **genesis** (10 steps, nothing→plan+tasks+first review), **audit** (9 steps, distrust→hardened), **evolve** (8 steps, working→great)
