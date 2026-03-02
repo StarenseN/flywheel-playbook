@@ -8,9 +8,13 @@ Transform the stable plan into a granular execution graph with epics, tasks, sub
 
 ---
 
+> "And then I turn those plans into extremely detailed beads (epics, tasks, subtasks, etc) so that the agents that are actually implementing the stuff don't need to understand the big picture and can focus instead on their narrow task, much like a short-order cook in a diner can focus on the ticket in front of them."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2021791255227768899))
+
 > "It's a true game changer combined with beads and bv. Try it!"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2006261780218265758))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2006261780218265758)) · 652 likes
 
 ## The Conversion Prompt (BD-01 Plan to Beads)
 

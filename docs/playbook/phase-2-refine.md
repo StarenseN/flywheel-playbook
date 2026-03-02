@@ -8,9 +8,13 @@ Iterate through critique rounds until improvements become incremental. This is w
 
 ---
 
-> "When you think you're finished with your development plan for your agent, try this prompt with a few different frontier models. You might be amazed what they come up with."
+> "When you think you're finished with your development plan for your agent, try this prompt with a few different frontier models. You might be amazed what they come up with: 'What's the single smartest and most radically innovative and accretive and useful and compelling addition you could make to the plan at this point?'"
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2025645582782480827))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2025645582782480827)) · 1,663 likes · Source of prompt PL-10
+
+> "I'm tough and demanding on my guys, but also supportive and complimentary. All of this is important during the planning phases."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/1984082457470030105))
 
 ## The Praise Rounds (first 3 rounds)
 

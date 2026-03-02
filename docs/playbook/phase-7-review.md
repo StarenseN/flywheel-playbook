@@ -8,9 +8,13 @@ Repeatedly review implemented code until review passes produce no substantive di
 
 ---
 
-> "Fresh eyes is a massive unlock. This is the stuff that even the labs don't fully understand."
+> "Fresh eyes is a massive unlock. This is the stuff that even the labs don't fully understand. It's all based on theory of mind of the models and gestalt psychology concepts."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2022356686774899051))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2022356686774899051)) · 90 likes
+
+> "Keep doing that round after round until they come up clean!"
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2025057469945286763)) · 205 likes
 
 Most people drop the ball here. One review pass, done. I run numbered fix sessions. Part 1, Part 2, all the way to Part 23 or further.
 

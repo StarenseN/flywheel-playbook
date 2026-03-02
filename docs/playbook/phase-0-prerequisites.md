@@ -10,7 +10,11 @@ Environment is ready for agent-driven development.
 
 > "Before doing anything else, read ALL of AGENTS dot md and register with agent mail and introduce yourself to the other agents. Then coordinate on the remaining tasks."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1984344027576033619))
+> — @doodlestein ([source](https://x.com/doodlestein/status/1984344027576033619)) · 1,442 likes · Source of prompt EX-03
+
+> "These little blurbs [in AGENTS.md] are so critical, and why they should focus on convincing rather than ordering the agents! Moral suasion ain't just for humans..."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/1984403875714027571))
 
 Before you start planning, make sure the scaffolding is in place:
 

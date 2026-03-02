@@ -8,9 +8,13 @@ Deploy coordinated agents to execute beads systematically.
 
 ---
 
+> "Three Opus 4.5 agents with Claude Code, three gpt-5-codex-max agents in Codex, and three Gemini 3 agents in gemini-cli, all communicating with each other via my mcp agent mail system."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/1994526888794951977))
+
 > "The concept works even better when the swarms contain a mixture of frontier models and agent harnesses. Opus and GPT 5.2 are way smarter together than alone."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2019476380904210820))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2019476380904210820)) · 229 likes
 
 ## Swarm Marching Orders (EX-01 Execute Beads)
 

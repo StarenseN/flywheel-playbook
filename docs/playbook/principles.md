@@ -8,9 +8,13 @@ These are the ideas behind the workflow. Understand these first; the phases are 
 
 ---
 
-> "My approach really works. You don't have to be some crazy savant to apply it, either. Just read my posts about planning and use the tools and workflows, and you will also get these kinds of results."
+> "My approach really works. You don't have to be some crazy savant to apply it, either. Just read my posts about planning and use the tools and workflows, and you will also get these kinds of results. I've now seen at least 10 people who I don't even know report similar outcomes."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2021641758690681021))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2021641758690681021)) · 283 likes
+
+> "I spend 90% of my human time and energy (which is the only thing that matters) on planning. Once the beads are done it's just machine tending."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/2021695143187767360))
 
 ## 1. Planning is leverage
 

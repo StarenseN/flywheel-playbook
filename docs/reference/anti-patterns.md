@@ -8,9 +8,13 @@ icon: lucide/alert-triangle
 
 ---
 
-> "I can feel the flywheel spinning faster and faster now as my level of interaction/prompting is increasingly directed at driving my own tools."
+> "Friends don't let friends use git worktrees for agent swarms for high-velocity development. I give the clankers hell if I ever catch them using worktrees."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/1994526015587266875))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2022355083845894159)) · 80 likes
+
+> "Don't get stuck in 'communication purgatory' where nothing is getting done."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/1994526888794951977))
 
 ### 1. Skeleton-first development
 

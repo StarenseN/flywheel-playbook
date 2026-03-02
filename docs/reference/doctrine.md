@@ -8,9 +8,13 @@ icon: lucide/shield
 
 ---
 
-> "I was thinking about my approach to handling git commits when working with agent swarms on a project. It's like a busy high-end salon in NYC. Sure, you could insist that each hairstylist clean up the hair. But in practice it's much better to have a dedicated person who just sweeps."
+> "It's like a busy high-end salon in NYC. Sure, you could insist that each hairstylist clean up the hair. But in practice it's much better to have a dedicated cleaner who focuses only on that task. You want your agents focusing on the coding itself. If you try to make them deal with commits, they will do a poor job."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2002040620744294906))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2022377209848328610)) · 74 likes
+
+> "Then they just keep cranking on their own for a really long time. And you don't need to supervise them much so you can be juggling multiple projects like this at once."
+>
+> — @doodlestein ([source](https://x.com/doodlestein/status/1984344027576033619)) · 1,442 likes
 
 1. **One canonical plan per project.** Not a plan plus a design doc. One document, one source of truth.
 

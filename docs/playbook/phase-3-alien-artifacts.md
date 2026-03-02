@@ -8,9 +8,9 @@ Inject theoretically optimal constructs that standard engineering would never pr
 
 ---
 
-> "The frontier models made this collaboratively with me coaxing and directing them. This is a new breed of software. This is an Alien Artifact."
+> "I want to stress that I am not remotely smart enough to have made this. Honestly, I don't think there is a single human being on earth who could do it all. The math is too varied and abstruse, the computer science too esoteric. [...] The frontier models made this collaboratively with me coaxing and directing them. This is a new breed of software. This is an Alien Artifact."
 >
-> — @doodlestein ([source](https://x.com/doodlestein/status/2026614142598033732))
+> — @doodlestein ([source](https://x.com/doodlestein/status/2026614142598033732)) · 346 likes
 
 A named, scheduled phase. Not optional. Not opportunistic.
 
