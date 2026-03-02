@@ -2,7 +2,7 @@
 icon: lucide/lightbulb
 ---
 
-# The 11 Principles
+# The 12 Principles
 
 These are the ideas behind the workflow. Understand these first; the phases are just the implementation.
 
@@ -74,3 +74,9 @@ Before converting the plan to beads, deliberately inject mathematically advanced
 ## 11. Every word in a prompt is a constraint
 
 Short prompts that force the model beyond its default posture beat long prompts that enumerate everything it should think about. Counterintuitive, but true. Models are not search engines with a personality -- they are collaborators. They respond to framing. They respond to stakes. They respond to praise. Use that.
+
+## 12. Session hygiene is sacred
+
+Your orchestration session is for orchestration only. Reviews happen in separate side sessions. If you mix planning commands with review output, the orchestrator's context gets polluted and it loses track of where you are in the workflow. One session, one purpose. Spawn dedicated sessions for review, debugging, and exploration.
+
+Source: [ACFS Wizard](https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup)
