@@ -38,7 +38,7 @@ Key characteristics:
 
 | | |
 |---|---|
-| **Stars** | 623 |
+| **Stars** | 663 |
 | **Language** | Rust |
 | **GitHub** | [beads](https://github.com/steveyegge/beads) / [beads_rust](https://github.com/Dicklesworthstone/beads_rust) |
 
@@ -66,7 +66,7 @@ bd ...                                                  # Alias (backward compat
 
 | | |
 |---|---|
-| **Stars** | 891 |
+| **Stars** | 1,340 |
 | **Language** | Go |
 | **GitHub** | [beads_viewer](https://github.com/Dicklesworthstone/beads_viewer) |
 
@@ -96,7 +96,7 @@ bv -export-pages /tmp/bv   # Static HTML site of the bead graph
 
 | | |
 |---|---|
-| **Stars** | 160 |
+| **Stars** | 165 |
 | **Language** | Go |
 | **GitHub** | [ntm](https://github.com/Dicklesworthstone/ntm) |
 
@@ -129,7 +129,7 @@ ntm --robot-status --json                 # Full JSON status
 
 | | |
 |---|---|
-| **Stars** | 524 |
+| **Stars** | 536 |
 | **Language** | Rust |
 | **GitHub** | [coding_agent_session_search](https://github.com/Dicklesworthstone/coding_agent_session_search) |
 
@@ -157,8 +157,8 @@ cass index ~/.claude/projects/            # Re-index session files
 
 | | |
 |---|---|
-| **Stars** | 1,742 |
-| **Language** | Python (Rust variant: 22 stars) |
+| **Stars** | 1,761 |
+| **Language** | Python (Rust variant: 23 stars) |
 | **GitHub** | [mcp_agent_mail](https://github.com/Dicklesworthstone/mcp_agent_mail) |
 
 **Role:** Inter-agent coordination. The messaging backbone.
@@ -186,7 +186,7 @@ These tools extend the core with safety nets, quality gates, and cross-session m
 
 | | |
 |---|---|
-| **Stars** | 132 |
+| **Stars** | 184 |
 | **Language** | Bash |
 | **GitHub** | [ultimate_bug_scanner](https://github.com/Dicklesworthstone/ultimate_bug_scanner) |
 
@@ -209,7 +209,7 @@ ubs $(git diff --name-only --cached)      # Scan staged files only
 
 | | |
 |---|---|
-| **Stars** | 89 |
+| **Stars** | 608 |
 | **Language** | Rust |
 | **GitHub** | [destructive_command_guard](https://github.com/Dicklesworthstone/destructive_command_guard) |
 
@@ -239,7 +239,7 @@ DCG is what makes "vibe mode" (passwordless sudo, dangerous flags enabled) safe.
 
 | | |
 |---|---|
-| **Stars** | 28 |
+| **Stars** | 64 |
 | **Language** | TypeScript |
 | **GitHub** | [brenner_bot](https://github.com/Dicklesworthstone/brenner_bot) |
 
@@ -260,7 +260,7 @@ Jeff describes the broader value beyond molecular biology:
 
 | | |
 |---|---|
-| **Stars** | 253 |
+| **Stars** | 259 |
 | **Language** | TypeScript |
 | **GitHub** | [cass_memory_system](https://github.com/Dicklesworthstone/cass_memory_system) |
 
@@ -288,7 +288,7 @@ cm stale                       # Find outdated memories
 
 | | |
 |---|---|
-| **Stars** | 35 |
+| **Stars** | 34 |
 | **Language** | Rust |
 | **GitHub** | [remote_compilation_helper](https://github.com/Dicklesworthstone/remote_compilation_helper) |
 
@@ -304,9 +304,9 @@ Intercepts build commands, syncs source via rsync + zstd compression, builds on 
 
 | | |
 |---|---|
-| **Stars** | 59 |
+| **Stars** | 60 |
 | **Language** | Go |
-| **GitHub** | [simultaneous_launch_button](https://github.com/Dicklesworthstone/simultaneous_launch_button) |
+| **GitHub** | [slb](https://github.com/Dicklesworthstone/slb) |
 
 **Role:** Two-person rule for dangerous commands. Nuclear-launch-style safety.
 
@@ -348,6 +348,12 @@ caam rotate      # Force rotation
 
 #### S2P -- Source to Prompt TUI
 
+| | |
+|---|---|
+| **Stars** | 16 |
+| **Language** | Rust |
+| **GitHub** | [source_to_prompt_tui](https://github.com/Dicklesworthstone/source_to_prompt_tui) |
+
 **Role:** Interactive code-to-prompt generator.
 
 A TUI tool for assembling code context into prompts. Useful when you need to extract specific code sections for review or multi-model comparison, particularly during PL-06/PL-07 planning rounds where you paste code into competing model conversations.
@@ -358,7 +364,7 @@ A TUI tool for assembling code context into prompts. Useful when you need to ext
 
 | | |
 |---|---|
-| **Stars** | 126 |
+| **Stars** | 128 |
 | **Language** | Rust |
 | **GitHub** | [meta_skill](https://github.com/Dicklesworthstone/meta_skill) |
 
