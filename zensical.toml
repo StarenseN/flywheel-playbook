@@ -33,6 +33,7 @@ nav = [
     "reference/anti-patterns.md",
     "reference/toolchain.md",
   ]},
+  { "Zero to Hero" = "zero-to-hero.md" },
   { "Jeff Teaches" = "jeff-teaches.md" },
   { "🤖 For Agents" = [
     { "Prompt Injector" = "agent/index.md" },
