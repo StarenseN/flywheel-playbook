@@ -108,18 +108,17 @@ Some practitioners successfully use jujutsu (jj) instead of git for agent isolat
 
 ---
 
-### 2.4.7 The Stabilization Protocol
+### 2.4.7 The Bead Stabilization Loop
 
-The ACFS Wizard uses a formal 6-step bead stabilization process:
+Bead QA (BD-02) is not a single pass — it is a convergence loop:
 
-1. **VPS-01:** Plan to beads via `br` (single Opus agent, `br create` only)
-2. **VPS-02:** Graph correctness pass (are dependencies right?)
-3. **VPS-03:** Task granularity pass (are beads properly scoped?)
-4. **VPS-04:** Refinement loop -- 5-15 rounds, alternating Claude and Gemini per round
-5. **VPS-05:** Reset session if flatlined, then more VPS-04 rounds
-6. **VPS-06:** Graph health analysis (Track B only, score >= 7 required)
+1. **Convert:** A single agent converts the plan to beads via `br create`, producing the initial bead graph with epics, tasks, subtasks, and dependencies.
+2. **Graph correctness pass:** A different agent reviews the dependency structure. Are dependencies correct? Are there circular dependencies? Missing parent-child links?
+3. **Granularity pass:** Are beads properly scoped (30-90 min each)? Split oversized beads, merge trivial ones.
+4. **Refinement loop:** Run BD-02 (QA Beads) repeatedly, alternating between Claude and Gemini per round. Each model catches different structural issues.
+5. **Convergence check:** When 2 consecutive rounds produce no meaningful changes (only reordering or renaming), the bead graph is stable.
 
-**Stable = 2 consecutive rounds producing no meaningful changes.** Not a fixed count -- keep going until the bead graph converges.
+The Playbook specifies 5-15 QA rounds as typical. Some projects converge after 5; complex projects (300+ beads) may need 15.
 
 ```bash
 # Alternate review agents per round
