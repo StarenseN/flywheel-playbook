@@ -4,7 +4,7 @@ icon: lucide/wrench
 
 ## 3.1 Tool Reference
 
-The flywheel is built from approximately 20 interconnected tools. No single tool is transformative on its own; the compounding effect comes from how they reinforce each other. NTM spawns agents that use Agent Mail to coordinate. BV tells agents what to work on. CASS and CM give agents memory across sessions. DCG and SLB prevent disasters, which is what allows "vibe mode" (dangerous flags enabled) to be safe.
+The flywheel is built from over 20 interconnected tools. No single tool is transformative on its own; the compounding effect comes from how they reinforce each other. NTM spawns agents that use Agent Mail to coordinate. BV tells agents what to work on. CASS and CM give agents memory across sessions. DCG and SLB prevent disasters, which is what allows "vibe mode" (dangerous flags enabled) to be safe.
 
 > *"The magic isn't in any single tool. It's in how they work together. Using three tools is 10x better than using one."*
 > -- Jeffrey Emanuel
@@ -40,7 +40,7 @@ Key characteristics:
 |---|---|
 | **Stars** | 623 |
 | **Language** | Rust |
-| **GitHub** | [beads_rust](https://github.com/Dicklesworthstone/beads_rust) |
+| **GitHub** | [beads](https://github.com/steveyegge/beads) / [beads_rust](https://github.com/Dicklesworthstone/beads_rust) |
 
 **Role:** Local-first issue tracker. The execution graph for all agent work.
 
@@ -153,10 +153,6 @@ cass index ~/.claude/projects/            # Re-index session files
 
 ---
 
-### 3.1.2 Tier 2 -- Safety, Quality, and Coordination
-
-These tools extend the core with safety nets, quality gates, and cross-session memory.
-
 #### MCP Agent Mail
 
 | | |
@@ -181,6 +177,10 @@ Agents register identities, send/receive messages, and declare file reservations
 **Forensic signal:** "check agent mail" in commits. Cross-agent coordination messages. AGENTS.md with "Agent Mail" coordination section. `mcp_agent_mail_rust` sync commits confirm parallel agents.
 
 ---
+
+### 3.1.2 Tier 2 -- Safety, Quality, and Coordination
+
+These tools extend the core with safety nets, quality gates, and cross-session memory.
 
 #### UBS -- Ultimate Bug Scanner
 

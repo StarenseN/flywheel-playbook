@@ -127,18 +127,29 @@ and their tradeoffs. Only proceed when you've thoroughly analyzed the problem sp
 #### PL-02 -- Plan Draft
 
 ```
-You are designing <SYSTEM_DESCRIPTION>.
+You are a senior architect and staff engineer. We are starting a greenfield project:
 
-Start with:
-- Goals / Non-goals
-- Clear architecture: components, boundaries, invariants, data flow
-- Data model / schemas
-- Security & privacy model
-- Performance targets with concrete numbers + instrumentation plan
-- Error handling, retries, "no silent fallback"
-- Test plan: unit + integration + e2e
-- Rollout plan: feature flags, migrations
-- Task breakdown that converts to dependency graph
+Project: <PROJECT_NAME>
+Users: <TARGET_USERS>
+Problem: <PROBLEM_STATEMENT>
+Constraints: <CONSTRAINTS>
+Environment: <LANGUAGE/STACK/PLATFORM>
+
+Write a single, extremely detailed markdown plan we can implement with coding agents.
+
+Requirements:
+- Start with Goals / Non-goals.
+- Include a clear architecture section: components, boundaries, invariants, data flow.
+- Include data model / schemas (as needed).
+- Include security & privacy model (threats, mitigations, secrets handling).
+- Include performance targets (with concrete numbers) and an instrumentation plan.
+- Include error handling, retries, and "no silent fallback" philosophy.
+- Include a test plan: unit + integration + e2e (with detailed logging expectations).
+- Include rollout plan: feature flags, migrations, backwards compatibility (if relevant).
+- Include a task breakdown section that could be converted into a dependency graph.
+
+Be explicit and operational. Avoid vague advice.
+Assume this plan will be executed by multiple parallel agents.
 ```
 
 **Usage:** Phase 1 kickoff. Use in a web app with extended thinking (ChatGPT Pro or Claude). The first output is always bad. That is the starting point, not the end. See [section 2.3](section-2-3.md) for the full planning workflow.
@@ -230,12 +241,17 @@ Competing outputs: <PASTE OTHER MODEL OUTPUTS HERE>
 #### PL-08 -- Integrate Critique
 
 ```
-Integrate the following review feedback into <PLAN_FILE_PATH> in-place. For each
-point of feedback, either incorporate it (with a git-diff style edit) or explicitly
-reject it with a rationale. Keep the plan cohesive, consistent, and remove any
-contradictions introduced by the integration. Use ultrathink.
+Read AGENTS.md and keep all tool rules in mind.
 
-<PASTE REVIEW FEEDBACK HERE>
+Now integrate the following review feedback into <PLAN_FILE_PATH> in-place.
+Be meticulous: keep the plan cohesive, consistent, and remove contradictions.
+
+At the end, list:
+- changes you strongly agree with
+- changes you somewhat agree with
+- changes you disagree with (and why)
+
+<PASTE THE COMPLETE REVIEW OUTPUT HERE>
 ```
 
 **Usage:** After PL-06 (Plan Critique) or PL-07 (Multi-Model Synthesis) produces feedback, this prompt folds it back into the plan without destroying coherence. The key discipline: reject-with-rationale is a valid response to feedback. Not all critique is correct.
@@ -278,12 +294,30 @@ AND to AI coding agents?
 
 **PL-13 -- Alien Artifact Injection:**
 ```
-Review this plan/codebase and identify areas where mathematically sophisticated
-constructs would be superior to standard engineering approaches. Consider: BOCPD,
-conformal prediction, e-processes, information-theoretic bounds, Value of
-Information analysis, optimal stopping theory, or other techniques from recent
-research. For each proposal, explain the concrete improvement over the current
-approach and provide implementation-ready specifications.
+You are a brilliant mathematician and theoretical computer scientist reviewing
+a software engineering plan. Your job is to identify places where mathematically
+sophisticated constructs would be strictly superior to the standard engineering
+approaches currently specified.
+
+Look for opportunities to inject:
+- Bayesian Online Changepoint Detection (BOCPD) for regime shifts
+- Value of Information (VOI) for decision-making under uncertainty
+- Conformal prediction for distribution-free confidence intervals
+- E-processes / anytime-valid sequential testing
+- Information-theoretic bounds for compression or communication
+- Optimal stopping theory for resource allocation
+- Concentration inequalities for tail bounds
+
+For each suggestion:
+1. What it replaces in the current plan
+2. Why the mathematical construct is strictly better
+3. The specific algorithm or formula to implement
+4. Edge cases where it degrades gracefully to the naive approach
+
+Be precise. Provide equations where relevant. Do not suggest constructs that
+add complexity without measurable benefit.
+
+<PASTE THE COMPLETE PLAN HERE>
 ```
 
 **Usage:** Phase 3 dedicated prompt. Run after the plan is converged but before converting to beads. Use a model strong in formal reasoning (o3 or equivalent). See [section 2.5.4](section-2-5.md#254-alien-artifacts) for the full alien artifacts workflow.
@@ -403,11 +437,8 @@ understand ALL of both! Then use your code investigation agent mode to fully
 understand the code, and technical architecture and purpose of the project.
 Then register with MCP Agent Mail and introduce yourself to the other agents.
 Be sure to check your agent mail and to promptly respond if needed to any messages;
-then proceed meticulously with your next assigned beads, working on the tasks
-systematically and meticulously and tracking your progress via beads and agent mail
-messages. Don't get stuck in "communication purgatory" where nothing is getting done;
-be proactive about starting tasks that need to be done, but inform your fellow agents
-via messages when you do so and mark beads appropriately.
+then proceed meticulously with your next assigned beads. Don't get stuck in
+"communication purgatory." Use ultrathink.
 ```
 
 **Usage:** Every new agent's first prompt. Handles self-onboarding: read AGENTS.md, understand the codebase, register with Agent Mail, check for messages, and start working.
@@ -787,14 +818,17 @@ modes, and compatibility constraints. This must be done BEFORE any integration c
 #### MT-08 -- Agent Feedback (tool quality loop)
 
 ```
-Rate this tool on a scale of 0-100 across these dimensions:
-- Helpfulness (does it solve a real problem?)
-- Signal-to-noise ratio (useful output vs. clutter)
-- Strengths (what does it do well?)
-- Weaknesses (what is frustrating or broken?)
-- Errors encountered (with reproduction steps)
-- Specific improvement suggestions (actionable, not vague)
-- Recommendation strength (would you tell another agent to use it?)
+Based on your experience with <TOOL_NAME> today in this project, how would you rate
+<TOOL_NAME> across multiple dimensions, from 0 (worst) to 100 (best)? Was it helpful
+to you? Did it flag a lot of useful things that you would have missed otherwise? Did
+the issues it flagged have a good signal-to-noise ratio? What did it do well, and what
+was it bad at? Did you run into any errors or problems while using it?
+
+What changes to <TOOL_NAME> would make it work even better for you and be more useful
+in your development workflow? Would you recommend it to fellow coding agents? How
+strongly, and why or why not? The more specific you can be, and the more dimensions
+you can score <TOOL_NAME> on, the more helpful it will be for me as I improve it and
+incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 ```
 
 **Usage:** Jeff runs this after agents have used a new tool for a full session. The output feeds directly into the next iteration of the tool. This is the FCBC feedback loop in practice: agents are the primary users of agent tools, so agent feedback is the primary signal for tool improvement.

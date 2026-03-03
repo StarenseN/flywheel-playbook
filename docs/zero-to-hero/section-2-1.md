@@ -26,7 +26,7 @@ Priority order for a new practitioner:
 3. **Gemini CLI:** often available on free tier. Useful as a third voice in plan reviews.
 4. **VPS** ($20-50/month): use if you don't have a local machine with enough resources.
 
-Total comfortable starter cost: **$400-650/month.**
+Total comfortable starter cost: **$440-456/month.**
 
 API-based usage (without subscriptions) runs roughly $10 per 30 minutes of active Claude Code use. A Max subscription subsidizes heavy usage heavily; the breakeven is roughly an hour of daily use.
 
@@ -40,10 +40,10 @@ As you scale to more parallel agents, you may need additional Max accounts. The 
 ### 2.1.3 Installing ACFS
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Dicklesworthstone/acfs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Dicklesworthstone/agentic_coding_flywheel_setup/main/install.sh | bash -s -- --yes --mode vibe
 ```
 
-The installer runs 9 phases in sequence: user setup, filesystem, shell configuration, CLI tools, language runtimes, agent CLIs, cloud/database services, the Dicklesworthstone stack, and finalization. Total time is roughly 12 minutes on a standard VPS.
+The installer runs 9 phases in sequence: user setup, filesystem, shell configuration, CLI tools, language runtimes, agent CLIs, cloud/database services, the Dicklesworthstone stack, and finalization. Total time is roughly ~30 minutes on a standard VPS.
 
 What it installs (highlights):
 - **Agent CLIs:** Claude Code (`cc`), Codex (`cod`), Gemini CLI (`gmi`)

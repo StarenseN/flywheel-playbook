@@ -10,12 +10,13 @@ The most counterintuitive aspect of the methodology is the time allocation. The 
 
 The effort split in practice:
 
-| Activity | Time share |
-|----------|-----------|
-| Planning (human-intensive) | ~60-70% |
-| Bead decomposition | ~10-15% |
-| Agent execution | ~10-15% |
-| Integration and review | ~5-10% |
+| Activity | Time Allocation |
+|----------|----------------|
+| Planning (spec writing, refinement, bead conversion, bead QA) | ~85% |
+| Agent execution (implementation) | ~10% |
+| Integration and review | ~5% |
+
+The planning bucket includes everything before agents start coding: spec drafting, refinement rounds, alien artifact injection, bead conversion, and bead QA.
 
 "Human time" and "wall clock time" are different. During the execution phase, agents work largely autonomously. The human monitors, steers when needed, and reviews output. A 12-hour project might involve 8 hours of active human planning, 30 minutes of bead decomposition, and then 3-4 hours of agents running while the human checks in periodically.
 
@@ -48,7 +49,7 @@ For reference, API-based usage of Claude Code (without a Max subscription) runs 
 > *"The GPT Pro sub for $200 is an incredible value proposition compared to the cost of the API."*
 > — Jeffrey Emanuel
 
-At full scale, Jeff's spend trajectory went from ~$3,000/month to ~$10,000/month to ~$12,000/month across 52 total accounts (22 Claude Max, 22 GPT Pro, 7 Gemini Ultra, plus miscellaneous). The `ccusage` tool tracks real token cost per project for anyone who wants to measure rather than guess.
+At peak scaling experiments, Jeff reported using up to 52 AI accounts across providers, with costs reaching ~$10,000-12,000/month. His typical working configuration (documented in [section 3.4](../zero-to-hero/section-3-4.md)) uses fewer accounts at ~$4,300/month. The `CAUT (ccusage)` tool tracks real token cost per project for anyone who wants to measure rather than guess.
 
 The cost scales with the number of parallel agents. A solo practitioner running 1-2 agents can operate comfortably at the $200-400/month level. Someone running 8-12 agents on multiple projects will need multiple subscriptions and more compute.
 

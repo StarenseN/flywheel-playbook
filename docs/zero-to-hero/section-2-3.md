@@ -90,11 +90,14 @@ Before converting the plan to beads, verify it against this checklist:
 - [ ] **Non-goals** are explicit (scope boundaries prevent creep)
 - [ ] **Architecture** defines components, boundaries, invariants, and data flow
 - [ ] **Threat model** includes a realistic attacker model with mitigations
+- [ ] **Secrets** — where stored, how injected, never in logs
 - [ ] **Failure modes** define retries, timeouts, backoff, and idempotency rules
 - [ ] **Performance** includes explicit SLOs with concrete numbers
+- [ ] **Observability** — structured logs, metrics, traces, alerts
 - [ ] **Testing** covers unit, integration, and end-to-end, with fixture strategies
 - [ ] **Rollout** includes feature flags, migration steps, and rollback procedures
 - [ ] **Risk register** lists minimum 7 risks with severity and mitigation
+- [ ] **Recovery Runbook** — actual recovery procedures for each failure mode
 
 Then run a premortem:
 

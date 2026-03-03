@@ -70,7 +70,7 @@ Source: ACFS methodology documentation (ACFS_WIZARD.md).
 | VPS (Contabo, 64GB RAM) | $40-56 |
 | Dedicated bare metal x2 (32-core AMD, 256GB RAM each) | $680 |
 | **Total (full scale)** | **~$4,300+/month** |
-| **Total (starter, 1 of each)** | **~$440-650/month** |
+| **Total (starter, 1 of each)** | **~$440-456/month** |
 
 The starter cost for a solo practitioner: VPS ($40-56) + Claude Max ($200) + ChatGPT Pro ($200) = ~$440-456/month.
 

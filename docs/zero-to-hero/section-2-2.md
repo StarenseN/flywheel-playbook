@@ -44,12 +44,13 @@ A typical bead execution protocol section:
 ```
 For every bead you implement:
 1. Pick the highest-priority ready bead via `bv --robot-triage`
-2. Implement it completely
-3. Before closing: reread ALL code you just wrote with fresh eyes.
+2. Mark it `in_progress`: `br start <id>`
+3. Implement it completely
+4. Before closing: reread ALL code you just wrote with fresh eyes.
    Look for bugs, errors, edge cases. Fix everything you find.
-4. Only then: `br close <id>`
-5. Communicate status to fellow agents via Agent Mail
-6. Pick next bead. Repeat.
+5. Only then: `br close <id>`
+6. Communicate status to fellow agents via Agent Mail
+7. Pick next bead. Repeat.
 ```
 
 After every context compaction, agents must re-read AGENTS.md. This is critical enough that Jeff built a dedicated tool to automate the reminder.
