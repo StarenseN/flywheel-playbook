@@ -2,7 +2,7 @@
 icon: lucide/file-text
 ---
 
-## 2.3 Phase 0: Writing the Plan
+## 2.3 Writing the Plan (Phases 1-3)
 
 ### 2.3.1 Start With a Short Prompt
 
@@ -71,7 +71,7 @@ Then feed each model's output to the others. Ask them to evaluate honestly: what
 > *"When I have Codex & Claude go back and forth over a plan I ask them for two documents: its revised plan AND narrative doc arguing its position."*
 > — Jeffrey Emanuel
 
-The competition prompt (P15 in the master prompt set):
+The competition prompt (PL-07 in the master prompt set):
 
 > *"I asked 3 competing LLMs to do the exact same thing and they came up with pretty different plans which you can read below. I want you to REALLY carefully analyze their plans with an open mind and be intellectually honest about what they did that's better than your plan."*
 

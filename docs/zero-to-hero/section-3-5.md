@@ -40,15 +40,15 @@ ntm --robot-send=SESSION --msg="which bd && which br && which bv"
 
 Root cause: the plan is ambiguous or contains contradictions. Two different agents read the same ambiguous sentence and reach opposite conclusions.
 
-Fix: Return to Phase 2 (plan refinement). Run P04 (Plan Critique) specifically looking for ambiguous requirements. Run the Multi-Model Synthesis (P15) to surface divergent interpretations.
+Fix: Return to Phase 2 (plan refinement). Run PL-06 (Plan Critique) specifically looking for ambiguous requirements. Run the Multi-Model Synthesis (PL-07) to surface divergent interpretations.
 
 **Symptom: Beads keep getting added during execution.**
 
 Root cause: the plan missed significant work. Some bead additions during execution are normal (discovered integration issues, edge cases). If more than 20% of final beads were added post-Phase 5 (QA the Beads), the plan was incomplete.
 
-Fix: For the current project, accept the additions. For the next project, run more praise rounds (P30-P32) and ensure the premortem pass was done before converting to beads.
+Fix: For the current project, accept the additions. For the next project, run more praise rounds (PL-03 through PL-05) and ensure the premortem pass was done before converting to beads.
 
-**Symptom: Plan quality score (SA-10) below 10/16.**
+**Symptom: Plan quality score below 10/16.**
 
 This is a hard gate. Do not proceed to beads with a score below 10. The quality score rubric covers 16 dimensions of plan quality; a low score means the plan has structural deficiencies that agents will inherit and amplify. Fix the plan first.
 
@@ -66,7 +66,7 @@ Root cause: the beads are too small. Micro-beads create coordination overhead (c
 
 Fix: Merge adjacent trivial beads. The sweet spot is 30-120 minutes of agent execution time per bead.
 
-**Symptom: QA rounds (P06) keep finding missing beads on every pass.**
+**Symptom: QA rounds (BD-02) keep finding missing beads on every pass.**
 
 This is normal for the first 3-5 QA rounds. Run 5-15 passes (the Playbook specifies "however many it takes"). The stop condition is when changes become reordering and renaming, not finding missing work. If you are still finding missing work after 10 passes, the plan itself is incomplete.
 
@@ -88,7 +88,7 @@ Fix:
 
 Root cause: circular dependencies in the bead graph, or agents waiting for Agent Mail responses that never come ("communication purgatory").
 
-Fix: Run `bv --robot-triage` to check for circular dependencies. Send P09 (Agent Mail Check & Continue) to stuck agents with the explicit instruction: "Don't get stuck in 'communication purgatory' where nothing is getting done; be proactive about starting tasks that need to be done."
+Fix: Run `bv --robot-triage` to check for circular dependencies. Send EX-02 (Agent Mail Check & Continue) to stuck agents with the explicit instruction: "Don't get stuck in 'communication purgatory' where nothing is getting done; be proactive about starting tasks that need to be done."
 
 ### 3.5.5 Rogue Agents
 
@@ -103,8 +103,8 @@ Root causes:
 - **The session has been running too long without a refresh.** Quality degrades over extended sessions.
 
 Fix protocol:
-1. If the agent is salvageable: send P20 (Post-Compaction Refresh): "Reread AGENTS.md so it's still fresh in your mind. Use ultrathink."
-2. If the agent has already done damage: kill the session, `git checkout` the affected files, start a fresh agent with P18.
+1. If the agent is salvageable: send EX-04 (Post-Compaction Refresh): "Reread AGENTS.md so it's still fresh in your mind. Use ultrathink."
+2. If the agent has already done damage: kill the session, `git checkout` the affected files, start a fresh agent with EX-03.
 3. Preventively: install the post-compaction hook that auto-triggers AGENTS.md re-read after every compaction event.
 
 > *"You need to have a whole section in AGENTS dot md telling it to never do stuff like that."*
@@ -151,8 +151,8 @@ Root cause: context window is saturated or compacted. The model has lost access 
 > -- Jeffrey Emanuel
 
 Fix protocol:
-1. **After compaction:** Send P20 immediately. This is non-negotiable: "Reread AGENTS.md so it's still fresh in your mind. Use ultrathink."
-2. **If quality continues to degrade:** Kill the session. Start a fresh agent with P18. Fresh context is cheap; debugging a confused agent is expensive.
+1. **After compaction:** Send EX-04 immediately. This is non-negotiable: "Reread AGENTS.md so it's still fresh in your mind. Use ultrathink."
+2. **If quality continues to degrade:** Kill the session. Start a fresh agent with EX-03. Fresh context is cheap; debugging a confused agent is expensive.
 3. **For very long beads:** Break them up. If a bead exceeds one context window's worth of work, it is too large.
 
 **Prevention:** The post-compaction hook (when working) automatically sends the AGENTS.md re-read instruction. Until the hook is reliable, manual monitoring for the compaction indicator (`C:>0` in the session status) is required.
@@ -164,9 +164,9 @@ Fix protocol:
 Root cause: agents implemented beads against different snapshots of the codebase. Agent A's changes assume Agent B's old code; Agent B's changes assume Agent A's old code.
 
 Fix protocol:
-1. Run the commit agent (P11) more frequently during high-parallelism phases.
+1. Run the commit agent (EX-06) more frequently during high-parallelism phases.
 2. After every commit round, all coding agents should pull the latest state.
-3. Run cross-agent review (P03) specifically looking for integration seams.
+3. Run cross-agent review (RV-03) specifically looking for integration seams.
 4. Add integration test beads that explicitly test the interactions between components built by different agents.
 
 > *"I already have thousands of unit tests and end to end tests to surface problems quickly."*

@@ -2,7 +2,7 @@
 icon: lucide/play
 ---
 
-## 2.5 Phase 2: Execution
+## 2.5 Execution (Phases 6-8)
 
 ### 2.5.1 Your First Bead
 
@@ -20,7 +20,7 @@ Start with a leaf node in the DAG (a bead with no unsatisfied dependencies). Wat
 
 After initial implementation, review happens in **numbered fix sessions**. Each session gets a sequential ID: Part 1, Part 2, Part 3. A long project might reach Part 23.
 
-The deep review prompt (P02) does not prescribe what to look for. Instead, it asks the agent to explore the codebase with fresh eyes:
+The deep review prompt (RV-02) does not prescribe what to look for. Instead, it asks the agent to explore the codebase with fresh eyes:
 
 > *"Randomly explore the code files... deeply investigate and understand and trace their functionality... do a super careful, methodical, and critical check with 'fresh eyes' to find any obvious bugs, problems, errors, issues, silly mistakes."*
 
@@ -59,8 +59,8 @@ Jeff frames the underlying prompt mechanics in terms of cognitive science: "It's
 
 For escalating review intensity, two prompts serve specific roles:
 
-- **P27 (McCarthy):** *"I know for a fact that there are serious issues with this code. Find them."* This changes the model's prior from "optimistic reviewer" to "paranoid auditor."
-- **P28 (Stakes):** *"Imagine your family's life depends on this code being correct. Find everything that could go wrong."* For security-critical or mission-critical code paths.
+- **RV-04 (McCarthy):** *"I know for a fact that there are serious issues with this code. Find them."* This changes the model's prior from "optimistic reviewer" to "paranoid auditor."
+- **RV-05 (Stakes):** *"Imagine your family's life depends on this code being correct. Find everything that could go wrong."* For security-critical or mission-critical code paths.
 
 ---
 

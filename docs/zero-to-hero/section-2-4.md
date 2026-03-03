@@ -2,7 +2,7 @@
 icon: lucide/git-branch
 ---
 
-## 2.4 Phase 1: Converting the Plan to Beads
+## 2.4 Converting to Beads (Phases 4-5)
 
 ### 2.4.1 What a Bead Is
 
@@ -27,7 +27,7 @@ The right size for a bead is 30-90 minutes of agent work, producing one meaningf
 
 **Right size:** "Implement JWT token validation middleware with expiry checking and refresh logic."
 
-Complex plans decompose into 200 to 500 initial beads. The bead conversion prompt (P05) requests "epics + tasks + subtasks with appropriate level of granularity." A QA pass specifically checks granularity: are beads too large or too small?
+Complex plans decompose into 200 to 500 initial beads. The bead conversion prompt (BD-01) requests "epics + tasks + subtasks with appropriate level of granularity." A QA pass specifically checks granularity: are beads too large or too small?
 
 > *"Starts out with just one agent [for bead creation]. Then I add more when it turns into 'make sure we didn't leave something important out' and polishing the beads."*
 > — Jeffrey Emanuel

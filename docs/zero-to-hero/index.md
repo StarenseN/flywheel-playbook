@@ -28,7 +28,7 @@ This guide has three levels. Start wherever matches your experience:
 | [1.2 What the Flywheel Is](section-1-2.md) | The three-space model: Plan, Bead-Map, Code |
 | [1.3 What Makes This Different](section-1-3.md) | Comparisons with Cursor, Devin, raw CLI |
 | [1.4 The Economics](section-1-4.md) | Time, money, case study, when not to use it |
-| [1.5 Core Principles](section-1-5.md) | Six operational rules behind the methodology |
+| [1.5 Core Principles](section-1-5.md) | Six core operational rules (of [12 total](../playbook/principles.md)) |
 
 ## Level 2: Operational
 
@@ -36,7 +36,7 @@ This guide has three levels. Start wherever matches your experience:
 |---------|-------|
 | [2.1 Setting Up Your Environment](section-2-1.md) | Hardware, software, installation, verification |
 | [2.2 Project Anatomy](section-2-2.md) | AGENTS.md, CLAUDE.md, file structure |
-| [2.3 Writing the Plan](section-2-3.md) | From first prompt to locked spec (Phases 0-3) |
+| [2.3 Writing the Plan](section-2-3.md) | From first prompt to locked spec (Phases 1-3) |
 | [2.4 Converting to Beads](section-2-4.md) | Granularity, dependencies, BV, worktrees |
 | [2.5 Execution](section-2-5.md) | Fix sessions, praise rounds, alien artifacts |
 | [2.6 Multi-Agent Scaling](section-2-6.md) | Agent roles, Agent Mail, NTM, coordination |
@@ -59,6 +59,6 @@ This guide has three levels. Start wherever matches your experience:
 
     - [The Playbook](../playbook/index.md) -- Phase-by-phase walkthrough (condensed)
     - [Full Prompt Pack](../prompts/prompt-pack.md) -- All 47 prompts in copy-paste format
-    - [Doctrine](../reference/doctrine.md) -- The 12 operating principles
+    - [Doctrine](../reference/doctrine.md) -- The 14 non-negotiable rules
     - [Anti-Patterns Quick Ref](../reference/anti-patterns.md) -- Condensed anti-pattern list
     - [Jeff Teaches](../jeff-teaches.md) -- Jeff's methodology in his own words

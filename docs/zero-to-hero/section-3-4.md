@@ -45,15 +45,15 @@ Jeff's observed model allocation as of late February 2026, per his own statement
 > *"I thought codex was a thorough, judicious, genius engineer, and claude was competent but a little behind. After bringing gemini into the fold, codex looks lazy and claude seems totally inept."*
 > -- Jeffrey Emanuel
 
-**Behavioral differences:** Claude self-corrects iteratively (fix, test, fix, test in rapid cycles). Codex front-loads its thinking (long pause, then dumps a large coherent change). During multi-model competition (P15), Jeff asks each model for two documents: a revised plan AND an argumentative narrative against the other's approach. This "two-document debate protocol" surfaces disagreements that a simple review would miss.
+**Behavioral differences:** Claude self-corrects iteratively (fix, test, fix, test in rapid cycles). Codex front-loads its thinking (long pause, then dumps a large coherent change). During multi-model competition (PL-07), Jeff asks each model for two documents: a revised plan AND an argumentative narrative against the other's approach. This "two-document debate protocol" surfaces disagreements that a simple review would miss.
 
 **Model-role matrix (operational rules):**
 
 | Task | Recommended Models | Avoid |
 |------|-------------------|-------|
-| Coding (P08) | Codex, Claude | Gemini (shell restriction issues) |
-| Review (P02) | Gemini, Claude | -- |
-| Commit (P11) | Claude ONLY | Codex, Gemini (git issues) |
+| Coding (EX-01) | Codex, Claude | Gemini (shell restriction issues) |
+| Review (RV-02) | Gemini, Claude | -- |
+| Commit (EX-06) | Claude ONLY | Codex, Gemini (git issues) |
 | QA / Reality Check | Codex, Gemini | -- |
 
 Source: ACFS methodology documentation (ACFS_WIZARD.md).

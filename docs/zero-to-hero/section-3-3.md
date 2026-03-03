@@ -84,7 +84,7 @@ Do NOT stop between beads. Keep the loop going.
 - Claude Code (Opus): primary implementation
 - Codex: parallel implementation, deterministic work
 - Gemini CLI: review duties, shell-restricted tasks
-- Commit agent: 1x CC with P11 only. Never edits code.
+- Commit agent: 1x CC with EX-06 only. Never edits code.
 ```
 
 #### Optional Sections
@@ -206,9 +206,9 @@ NTM session layouts define the agent formation for a project. The key command is
 | Claude Code (Opus) | 5-6 | Primary implementation |
 | Codex | 2-3 | Parallel implementation |
 | Gemini | 1-2 | Review duties |
-| Commit agent | 1 | Git operations only (P11) |
+| Commit agent | 1 | Git operations only (EX-06) |
 
-**Important:** All implementation agents are fungible generalists. Do not specialize. The single exception is the commit agent, which runs P11 only and never modifies code.
+**Important:** All implementation agents are fungible generalists. Do not specialize. The single exception is the commit agent, which runs EX-06 only and never modifies code.
 
 **Scaling rule:** Scale based on bead graph size and budget. A project with 200 beads does not need 15 agents. A project with 2,000 beads might.
 
@@ -232,7 +232,7 @@ Co-authored-by: RedSnow <agent@ntm>
 Bead IDs in commit messages are the ground-truth coordination surface (Doctrine #6). Agents read git messages to know what is done. Agent Mail is for higher-level coordination.
 
 **The commit agent pattern:**
-- One dedicated agent runs P11 continuously
+- One dedicated agent runs EX-06 continuously
 - It reads the diff, groups changes into logical commits by bead/feature slice
 - It writes detailed messages with bead IDs
 - It never modifies code

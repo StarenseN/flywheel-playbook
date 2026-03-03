@@ -13,7 +13,7 @@ icon: lucide/shield-alert
 > *"Yeah, resist the temptation early on. Bloated prompts just confuse the model more than they guide it."*
 > -- @glennsc (ACFS community)
 
-**What to do instead:** Jeff's operational prompts (P01-P32) are deliberately short. P08 (the main execution loop) is two sentences. P20 (post-compaction refresh) is one sentence. The detail lives in AGENTS.md and the bead descriptions, not in the runtime prompt. The prompt sets intent and posture; the project infrastructure provides context.
+**What to do instead:** Jeff's operational prompts (PL-01 through MT-08) are deliberately short. EX-01 (the main execution loop) is two sentences. EX-04 (post-compaction refresh) is one sentence. The detail lives in AGENTS.md and the bead descriptions, not in the runtime prompt. The prompt sets intent and posture; the project infrastructure provides context.
 
 > *"All done with 5 word prompts."*
 > -- Jeffrey Emanuel (demonstrating with a screenshot)
@@ -36,7 +36,7 @@ From the FLYWHEEL_PLAYBOOK_DEFINITIVE.md:
 
 **The economics:** A 6-hour planning session prevents 60 hours of agent chaos. A bad plan wastes multi-agent hours across parallel workers. The 85/10/5 split (planning/implementation/review) is not aspirational; it is the empirically observed ratio from projects that complete successfully.
 
-**What to do instead:** Follow the phases in order. Start with a first-principles prompt (P01). Run praise rounds (P30-P32). Get multi-model feedback (P15). Score the plan (SA-10, minimum 10/16). Run the premortem. Only then convert to beads.
+**What to do instead:** Follow the phases in order. Start with a first-principles prompt (PL-01). Run praise rounds (PL-03 through PL-05). Get multi-model feedback (PL-07). Score the plan (minimum 10/16 on the quality rubric). Run the premortem. Only then convert to beads.
 
 ### 3.6.3 Over-Beading
 
@@ -44,24 +44,24 @@ From the FLYWHEEL_PLAYBOOK_DEFINITIVE.md:
 
 **Why it fails:** The coordination overhead per bead (claim it, execute it, self-review, report via Agent Mail, close it, pick next) is roughly constant regardless of bead size. When beads are trivially small, this overhead dominates. An agent spends more time in protocol than in implementation.
 
-The bead QA process (P06) has a specific check for this: "is it optimally scoped?" If QA keeps finding beads that are too small, merge adjacent beads.
+The bead QA process (BD-02) has a specific check for this: "is it optimally scoped?" If QA keeps finding beads that are too small, merge adjacent beads.
 
-**The right granularity:** 30-120 minutes of agent execution time per bead. This gives enough substance for meaningful self-review (P02b) while keeping beads small enough to complete in a single context window.
+**The right granularity:** 30-120 minutes of agent execution time per bead. This gives enough substance for meaningful self-review (RV-01) while keeping beads small enough to complete in a single context window.
 
 ### 3.6.4 Under-Reviewing
 
-**Anti-pattern:** Running one review pass (P02 Part 1) and calling it done.
+**Anti-pattern:** Running one review pass (RV-02 Part 1) and calling it done.
 
 **Why it fails:** From the Playbook:
 
 > *"One review pass: Part 1 is not enough. Part 2 catches what Part 1 missed. Part 5 catches what Part 4 missed. Part 23 still finds things. Keep going until the diffs flatline."*
 > -- Playbook anti-pattern #9
 
-Each review pass operates from a fresh vantage point. P02 Part 1 catches the obvious issues. Part 2 catches the issues that Part 1's fixes introduced. Part 5 catches the subtle architectural inconsistencies that only become visible after the obvious bugs are fixed. The stop condition is convergence: when review passes produce no substantive diffs.
+Each review pass operates from a fresh vantage point. RV-02 Part 1 catches the obvious issues. Part 2 catches the issues that Part 1's fixes introduced. Part 5 catches the subtle architectural inconsistencies that only become visible after the obvious bugs are fixed. The stop condition is convergence: when review passes produce no substantive diffs.
 
 Jeff runs escalation prompts when reviews plateau:
-- **P27 (McCarthy Bug Hunt):** "I know for a fact that there are serious issues with this code. Think like Joe McCarthy: assume there's a spy. The bugs are there. Find them."
-- **P28 (Stakes Escalation):** "Imagine your family's life depends on this code being correct. Not metaphorically. Literally."
+- **RV-04 (McCarthy Bug Hunt):** "I know for a fact that there are serious issues with this code. Think like Joe McCarthy: assume there's a spy. The bugs are there. Find them."
+- **RV-05 (Stakes Escalation):** "Imagine your family's life depends on this code being correct. Not metaphorically. Literally."
 
 These prompts change the model's internal prior from optimistic to paranoid. Sometimes you need paranoid.
 
@@ -76,8 +76,8 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 **The multi-model advantage surfaces in three specific places:**
 
-1. **Planning (Phase 2):** P15 (Multi-Model Synthesis) has models review each other's competing plans. The synthesis produces a plan stronger than any single model's output.
-2. **Review (Phase 7):** P03 (Cross-Agent Review) instructs: "Run this with a different model than the one that wrote the code for true 'fresh eyes.'"
+1. **Planning (Phase 2):** PL-07 (Multi-Model Synthesis) has models review each other's competing plans. The synthesis produces a plan stronger than any single model's output.
+2. **Review (Phase 7):** RV-03 (Cross-Agent Review) instructs: "Run this with a different model than the one that wrote the code for true 'fresh eyes.'"
 3. **Execution (Phase 6):** Formation D+ mixes 3 model families. Different models catch different bugs, produce different edge-case handling, and surface different architectural concerns.
 
 **The rule:** For any project above Formation B (3+ agents), use at least 2 model families. For serious projects (Formation D+), use all 3.
@@ -93,7 +93,7 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 - Agent adds caching, retry logic, and circuit breakers to a function called once at startup.
 - Agent refactors working code for "elegance" during an implementation phase.
 
-**The countermeasure:** The bead system is the countermeasure. Each bead has acceptance criteria. When the criteria are met, the bead is closed. The agent moves on. There is no "make it prettier" bead (unless you explicitly create one). The self-review prompt (P02b) looks for bugs, not beauty.
+**The countermeasure:** The bead system is the countermeasure. Each bead has acceptance criteria. When the criteria are met, the bead is closed. The agent moves on. There is no "make it prettier" bead (unless you explicitly create one). The self-review prompt (RV-01) looks for bugs, not beauty.
 
 **Optimization is a scheduled phase (Phase 8), not a continuous activity.** Profiling beads (`bd-proj.flamegraph`, `bd-proj.heaptrack`) are assigned like any other work. The Playbook rule: "Profile before proposing. Prove correctness before shipping. One lever per diff."
 
@@ -106,7 +106,7 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 **Why it happens:** The model's context includes the fix intent but not the full implementation of the adjacent function. It "simplifies" the surrounding code to focus on the fix, silently destroying working logic. This is Jeff's most hated failure mode.
 
-**How to catch it:** The stub eliminator prompt (in [section 3.2.4](section-3-2.md#324-review-prompts-p02-p02b-p03-p12-p13-p14-p19-p21-p23-p27-p29)) specifically targets this. Run it after every fix session, not just at project end. Code review (P03) by a different model also catches it, because the reviewing model has no memory of the "simplification" that seemed reasonable to the fixing model.
+**How to catch it:** The stub eliminator prompt (RV-07, in [section 3.2.5](section-3-2.md#325-review-prompts-rv-01-through-rv-09)) specifically targets this. Run it after every fix session, not just at project end. Code review (RV-03) by a different model also catches it, because the reviewing model has no memory of the "simplification" that seemed reasonable to the fixing model.
 
 ### 3.6.8 Abstraction Sprawl
 
@@ -117,7 +117,7 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 **Why it happens:** Models are trained on codebases with extensive test infrastructure. Given freedom, they reproduce what they've seen: mock factories, test helpers, assertion utilities, base classes. The result passes all checks ("100% test coverage!") while testing nothing of substance.
 
-**The countermeasure:** P13 (E2E Pipeline Validator) explicitly demands "without ANY mocks or fake data, fake API calls." The no-mocks rule is not about testing philosophy; it is about preventing agents from building a parallel universe where everything passes and nothing works.
+**The countermeasure:** QA-02 (E2E Pipeline Validator) explicitly demands "without ANY mocks or fake data, fake API calls." The no-mocks rule is not about testing philosophy; it is about preventing agents from building a parallel universe where everything passes and nothing works.
 
 ### 3.6.9 The 800 LOC Review Threshold
 
@@ -138,7 +138,7 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 **Why ignoring them fails:** Alien artifacts represent the model's ability to exceed your own engineering knowledge. Phase 3 (Alien Artifacts) exists specifically to harvest these contributions before the plan is frozen into beads. If you skip this phase, you get only what you could have thought of yourself, which defeats half the point of using frontier AI.
 
-**The spec evolution analysis (Phase 9) explicitly tracks alien artifacts in bucket #8:** "Alien artifact additions -- where AI pushed beyond your vision." Over multiple projects, studying which alien artifacts survived to production trains your intuition for recognizing valuable model contributions.
+**The spec evolution analysis (a post-project retrospective) explicitly tracks alien artifacts in bucket #8:** "Alien artifact additions -- where AI pushed beyond your vision." Over multiple projects, studying which alien artifacts survived to production trains your intuition for recognizing valuable model contributions.
 
 **What to do instead:** After the plan is drafted and refined but before converting to beads, run an alien artifact pass. Ask the model: what would make this dramatically better? What haven't we thought of? What would a domain expert add? Then evaluate each proposal on merit and integrate the good ones.
 
@@ -151,7 +151,7 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 > *"It has unfortunately learned incrementalism under the guise of being 'practical' from reading too much written by humans who were trying to sandbag and control expectations so they could phone it in and not get fired. It's possible to shake them out of it, though."*
 > — Jeffrey Emanuel
 
-**How to shake them out of it:** The praise rounds (P30-P32) exist precisely for this. P30 explicitly says the first output "barely scratches the surface and is light years away from being OPTIMAL." The Innovation Boost (P26) asks for transformative, not incremental improvements. Without these prompts, the model's default incrementalism becomes your project's ceiling.
+**How to shake them out of it:** The praise rounds (PL-03 through PL-05) exist precisely for this. PL-03 explicitly says the first output "barely scratches the surface and is light years away from being OPTIMAL." The Innovation Boost (PL-10) asks for transformative, not incremental improvements. Without these prompts, the model's default incrementalism becomes your project's ceiling.
 
 ### 3.6.12 War Story: The Python-to-Rust Agent Mail Rewrite
 

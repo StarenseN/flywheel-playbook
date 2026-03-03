@@ -28,7 +28,7 @@ This observation is accurate for setups without coordination infrastructure. Wit
 
 Implementation agents are **fungible generalists**. Do not assign "the auth agent" or "the database agent." Each agent picks the next available bead, regardless of domain. Specialization creates bottlenecks; generalization allows any agent to take any ready bead.
 
-The one exception: the **commit agent**. This is a single Claude Code instance running only the commit prompt (P11). It monitors the working directory, groups changes into logical commits, writes detailed messages with bead IDs, and pushes. It never modifies code.
+The one exception: the **commit agent**. This is a single Claude Code instance running only the commit prompt (EX-06). It monitors the working directory, groups changes into logical commits, writes detailed messages with bead IDs, and pushes. It never modifies code.
 
 A typical formation for a serious project:
 
@@ -108,9 +108,9 @@ The coordination flow for a running multi-agent session:
 6. **Next:** Agent picks the next highest-priority ready bead via `bv --robot-triage`.
 
 The human steers reactively, not proactively:
-- Sees stall → sends P09 (Agent Mail Check & Continue)
-- Sees bug → sends P02 (Deep Review)
-- Sees drift → sends P20 (Post-Compaction Refresh)
+- Sees stall → sends EX-02 (Agent Mail Check & Continue)
+- Sees bug → sends RV-02 (Deep Review)
+- Sees drift → sends EX-04 (Post-Compaction Refresh)
 
 All steering prompts are verbatim from the master prompt set. The human does not improvise instructions; they select the appropriate prompt and fire it.
 
@@ -129,7 +129,7 @@ The trust model is: wide autonomy with mutual oversight.
 After a batch of beads is completed, integration happens:
 
 1. The commit agent groups all changes into logical commits with bead IDs.
-2. A fresh agent runs a cross-agent review (P03): examine code written by other agents, looking for inconsistencies, bugs, and integration issues.
+2. A fresh agent runs a cross-agent review (RV-03): examine code written by other agents, looking for inconsistencies, bugs, and integration issues.
 3. The full test suite runs. Failures are filed as new beads.
 4. Fix beads are executed in the normal way.
 

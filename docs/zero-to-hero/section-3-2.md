@@ -4,7 +4,18 @@ icon: lucide/message-square
 
 ## 3.2 Prompt Reference
 
-The ACFS prompt library contains 47 named prompts. They are designed to be used verbatim -- copy-paste, not paraphrase. Jeff maps them to physical Stream Deck buttons for instant dispatch to agents via NTM.
+The ACFS prompt library contains 47 named prompts organized into 6 categories. They are designed to be used verbatim -- copy-paste, not paraphrase. Jeff maps them to physical Stream Deck buttons for instant dispatch to agents via NTM.
+
+| Prefix | Category | Count |
+|--------|----------|-------|
+| **PL-** | Planning | 13 |
+| **BD-** | Beads | 3 |
+| **EX-** | Execution | 6 |
+| **RV-** | Review | 9 |
+| **QA-** | Quality & Ideation | 8 |
+| **MT-** | Meta | 8 |
+
+Each prompt is self-documenting: prefix = category, number = order within category.
 
 > *"Basically they attend to every word, so every word is critically important. You want prompts to be short so that they don't overly constrain the models but they need to force the model to work hard to go beyond their default posture."*
 > -- Jeffrey Emanuel
@@ -16,82 +27,90 @@ The ACFS prompt library contains 47 named prompts. They are designed to be used 
 
 ### 3.2.1 The Dispatch Table
 
-When you are in situation X, use prompt Y. This is the quick-lookup version.
+When you are in situation X, use prompt Y. This is the quick-lookup version. For the full copy-paste prompt text, see the [Full Prompt Pack](../prompts/prompt-pack.md).
 
 **Planning Phase:**
 
 | Situation | Prompt | ID |
 |-----------|--------|----|
-| Starting from scratch | First Principles | P01 |
-| First draft exists, push quality higher | Praise Round 1 / 2 / 3 | P30 / P31 / P32 |
-| Plan needs analytical critique | Plan Critique (Type A) | P04 |
-| Multiple models produced competing plans | Multi-Model Synthesis (Type B) | P15 |
-| Two models should compete on a problem | Dueling Wizards | P17 |
-| Need a single transformative addition | Plan Innovation Boost | P26 |
-| Need honest project assessment | Project Opinion Elicitor | -- |
-| Integrating critique feedback | Integrate Critique | -- |
-| Stress-test plan against failure | Premortem Planner | -- |
+| Starting from scratch | First Principles | PL-01 |
+| First draft of plan needed | Plan Draft | PL-02 |
+| First draft exists, push quality higher | Praise Push I / II / III | PL-03 / PL-04 / PL-05 |
+| Plan needs analytical critique | Plan Critique | PL-06 |
+| Multiple models produced competing plans | Multi-Model Synthesis | PL-07 |
+| Integrating critique feedback | Integrate Critique | PL-08 |
+| Two models should compete on a problem | Dueling Wizards | PL-09 |
+| Need a single transformative addition | Innovation Boost | PL-10 |
+| Stress-test plan against failure | Premortem | PL-11 |
+| Need honest project assessment | Project Opinion | PL-12 |
+| Injecting alien artifacts | Alien Artifact Injection | PL-13 |
 
 **Bead Phase:**
 
 | Situation | Prompt | ID |
 |-----------|--------|----|
-| Converting plan to beads | Plan to Beads | P05 |
-| Reviewing bead quality (repeat N times) | QA the Beads | P06 |
-| Picking next bead to work on | Use BV | P24 |
+| Converting plan to beads | Plan to Beads | BD-01 |
+| Reviewing bead quality (repeat N times) | QA the Beads | BD-02 |
+| Picking next bead to work on | BV Triage | BD-03 |
 
 **Execution Phase:**
 
 | Situation | Prompt | ID |
 |-----------|--------|----|
-| Spawning a fresh agent | Agent Introduction | P18 |
-| Ongoing bead execution | Execute Beads (main loop) | P08 |
-| Agent mail check + continue | Anti-deadlock | P09 |
-| After context compaction | Post-Compaction Refresh | P20 |
-| Full autonomous push | Do All Of It | P25 |
-| Committing code (commit agent only) | Git Commit | P11 |
-| Onboarding to unfamiliar project | Deep Project Primer | P10 |
+| Ongoing bead execution | Execute Beads (main loop) | EX-01 |
+| Agent mail check + continue | Mail Check & Continue | EX-02 |
+| Spawning a fresh agent | Agent Introduction | EX-03 |
+| After context compaction | Post-Compaction Refresh | EX-04 |
+| Full autonomous push | Full Push | EX-05 |
+| Committing code (commit agent only) | Git Commit | EX-06 |
 
 **Review Phase:**
 
 | Situation | Prompt | ID |
 |-----------|--------|----|
-| After completing a bead | Post-Implementation Self-Review | P02b |
-| Numbered review session (Part 1, 2, ... 23+) | Deep Review / Fresh Eyes Bug Hunt | P02 |
-| Reviewing other agents' code | Cross-Agent Review | P03 |
-| Reviews seem too comfortable | McCarthy Bug Hunt (escalation) | P27 |
-| Need the model to care more | Stakes Escalation | P28 |
-| Security-focused review | CVE-Inspired Security Testing | P29 |
-| Hunting stubs and placeholders | Stub Eliminator | -- |
-| Full codebase scan | UBS Scan | P21 |
-| Root-cause bug fixing | Fix Bug | P22 |
-| Random codebase exploration | Random Inspect | P23 |
-| UI/UX polish | Stripe-Level UI | P12 |
-| Comprehensive testing | E2E Pipeline Validator | P13 |
-| UX audit | Audit UX | P19 |
-| Post-deploy verification | Deployment Verifier | -- |
+| After completing a bead | Self-Review | RV-01 |
+| Numbered review session (Part 1, 2, ... 23+) | Deep Review | RV-02 |
+| Reviewing other agents' code | Cross-Agent Review | RV-03 |
+| Reviews seem too comfortable | McCarthy Hunt (escalation) | RV-04 |
+| Need the model to care more | Stakes Escalation | RV-05 |
+| Security-focused review | CVE Probe | RV-06 |
+| Hunting stubs and placeholders | Stub Eliminator | RV-07 |
+| Full codebase scan | UBS Scan | RV-08 |
+| Random codebase exploration | Random Inspect | RV-09 |
 
-**Ideation and Meta:**
+**Quality & Ideation:**
 
 | Situation | Prompt | ID |
 |-----------|--------|----|
-| Generating improvement ideas | Idea Wizard (30 -> 5) | P16 |
-| Need exceptional ideas only | 100-to-10 Filter | -- |
-| Finding system weaknesses | System Weaknesses Analyzer | P14 |
-| Performance optimization | Deep Performance Audit | -- |
-| Building agent-friendly CLIs | CLI Error Tolerance | -- |
-| File/folder restructuring | Code Reorganizer | -- |
-| Updating documentation | README Reviser | -- |
-| Cleaning AI-generated text | De-Slopifier | -- |
-| Pre-integration dependency study | Dependency Analysis | -- |
+| UI/UX polish | Stripe-Level UI | QA-01 |
+| Comprehensive testing | E2E Pipeline | QA-02 |
+| UX audit | UX Audit | QA-03 |
+| Root-cause bug fixing | Root-Cause Fix | QA-04 |
+| Post-deploy verification | Deploy & Verify | QA-05 |
+| Generating improvement ideas | Idea Wizard 30->5 | QA-06 |
+| Need exceptional ideas only | 100-to-10 Filter | QA-07 |
+| Performance optimization | Deep Performance Audit | QA-08 |
+
+**Meta:**
+
+| Situation | Prompt | ID |
+|-----------|--------|----|
+| Onboarding to unfamiliar project | Deep Project Primer | MT-01 |
+| Finding system weaknesses | System Weaknesses | MT-02 |
+| Updating documentation | README Reviser | MT-03 |
+| Cleaning AI-generated text | De-Slopifier | MT-04 |
+| File/folder restructuring | Code Reorganizer | MT-05 |
+| Building agent-friendly CLIs | CLI Error Tolerance | MT-06 |
+| Pre-integration dependency study | Dependency Analysis | MT-07 |
+| Collecting agent feedback on a tool | Agent Feedback | MT-08 |
 
 ---
 
-### 3.2.2 Planning Prompts (P01, P04, P05, P15, P30-P32)
+### 3.2.2 Planning Prompts (PL-01 through PL-13)
 
-These prompts drive Phases 1-5: plan creation, refinement, alien artifacts, bead conversion, and bead QA.
+These prompts drive Phases 1-3: plan creation, refinement, and alien artifacts.
 
-#### P01 -- First Principles (prefix for everything)
+#### PL-01 -- First Principles (prefix for everything)
 
 ```
 Before acting, pause and think through this from first principles. What assumptions
@@ -105,16 +124,37 @@ and their tradeoffs. Only proceed when you've thoroughly analyzed the problem sp
 
 ---
 
-#### P30 / P31 / P32 -- Praise Rounds (push past default quality)
+#### PL-02 -- Plan Draft
 
-**P30 (Round 1):**
+```
+You are designing <SYSTEM_DESCRIPTION>.
+
+Start with:
+- Goals / Non-goals
+- Clear architecture: components, boundaries, invariants, data flow
+- Data model / schemas
+- Security & privacy model
+- Performance targets with concrete numbers + instrumentation plan
+- Error handling, retries, "no silent fallback"
+- Test plan: unit + integration + e2e
+- Rollout plan: feature flags, migrations
+- Task breakdown that converts to dependency graph
+```
+
+**Usage:** Phase 1 kickoff. Use in a web app with extended thinking (ChatGPT Pro or Claude). The first output is always bad. That is the starting point, not the end. See [section 2.3](section-2-3.md) for the full planning workflow.
+
+---
+
+#### PL-03 / PL-04 / PL-05 -- Praise Pushes (push past default quality)
+
+**PL-03 (Push I):**
 ```
 That's a decent start but it barely scratches the surface and is light years away
 from being OPTIMAL. Please try again and revise your existing plan document in-place
 to make it MUCH, MUCH, MUCH better in EVERY WAY. Use ultrathink.
 ```
 
-**P31 (Round 2):**
+**PL-04 (Push II):**
 ```
 That's a lot better than before but STILL is a far cry from being OPTIMAL. Please
 try again and revise your existing plan document in-place to make it MUCH, MUCH,
@@ -122,20 +162,20 @@ MUCH better in EVERY WAY. I believe in you, you can do this! Show me how brillia
 you really are! Use ultrathink.
 ```
 
-**P32 (Round 3):**
+**PL-05 (Push III):**
 ```
 OK this is getting really good now but I KNOW you can do even better. Dig deep.
 Give me your ABSOLUTE BEST work. This is your chance to show the world what
 frontier AI can produce. Use ultrathink.
 ```
 
-**Why they work:** The model is not a static function. It responds to the emotional register of the conversation. Analytical critique refines; praise rounds expand. Skipping them is Anti-Pattern #5 -- "I'll just go straight to analytical critique" narrows the solution space before it has been explored.
+**Why they work:** The model is not a static function. It responds to the emotional register of the conversation. Analytical critique refines; praise pushes expand. Skipping them is [Anti-Pattern #5](../reference/anti-patterns.md) -- "I'll just go straight to analytical critique" narrows the solution space before it has been explored.
 
-**Forensic evidence:** P30-P32 sequence confirmed in frankensqlite (C1-C3), rust_scriptbots (H01-H02), frankenterm (F01). Always precedes analytical critique. Always runs in the same Claude conversation.
+**Forensic evidence:** PL-03 through PL-05 sequence confirmed in frankensqlite (C1-C3), rust_scriptbots (H01-H02), frankenterm (F01). Always precedes analytical critique. Always runs in the same Claude conversation.
 
 ---
 
-#### P04 -- Plan Critique (Round Type A, single-model)
+#### PL-06 -- Plan Critique (single-model)
 
 ```
 Carefully review this entire plan for me and come up with your best revisions in terms of:
@@ -155,13 +195,13 @@ For each proposed change:
 <PASTE THE COMPLETE PLAN HERE>
 ```
 
-**Usage:** After praise rounds. Run with a strong reasoning model (ChatGPT Pro with extended thinking, or Claude with extended thinking). The diff-based format forces concrete, integratable changes instead of vague advice. Can be automated with APR (`apr refine plan.md --rounds 10`).
+**Usage:** After praise pushes. Run with a strong reasoning model (ChatGPT Pro with extended thinking, or Claude with extended thinking). The diff-based format forces concrete, integratable changes instead of vague advice. Can be automated with APR (`apr refine plan.md --rounds 10`).
 
 **Forensic frequency:** 5 confirmed uses across all 4 repos. Universal planning pattern.
 
 ---
 
-#### P15 -- Multi-Model Synthesis (Round Type B)
+#### PL-07 -- Multi-Model Synthesis
 
 ```
 I asked 3 competing LLMs to do the exact same thing and they came up with pretty
@@ -187,7 +227,74 @@ Competing outputs: <PASTE OTHER MODEL OUTPUTS HERE>
 
 ---
 
-#### P05 -- Plan to Beads
+#### PL-08 -- Integrate Critique
+
+```
+Integrate the following review feedback into <PLAN_FILE_PATH> in-place. For each
+point of feedback, either incorporate it (with a git-diff style edit) or explicitly
+reject it with a rationale. Keep the plan cohesive, consistent, and remove any
+contradictions introduced by the integration. Use ultrathink.
+
+<PASTE REVIEW FEEDBACK HERE>
+```
+
+**Usage:** After PL-06 (Plan Critique) or PL-07 (Multi-Model Synthesis) produces feedback, this prompt folds it back into the plan without destroying coherence. The key discipline: reject-with-rationale is a valid response to feedback. Not all critique is correct.
+
+---
+
+#### Additional Planning Prompts
+
+**PL-09 -- Dueling Wizards** (two-model competitive scoring):
+```
+I want two different frontier models to each independently propose their best
+version of this. Score each proposal on: correctness, elegance, robustness,
+completeness, and novelty. Then synthesize the winner into the plan.
+```
+
+**PL-10 -- Innovation Boost:**
+```
+What is the single smartest addition we could make to this plan that would
+dramatically improve the project? Not incremental. Transformative.
+Use ultrathink.
+```
+
+**PL-11 -- Premortem** (pre-beads risk check):
+```
+Before we proceed, I want you to do a "premortem" on this plan. Imagine we're
+6 months in the future and this approach has completely failed. What went wrong?
+What assumptions did we make that turned out to be false? What edge cases did we
+miss? What integration issues did we overlook? What would users hate about it?
+Now, with that pessimistic scenario fresh in your mind, revise the plan to address
+the most likely failure modes.
+```
+
+**PL-12 -- Project Opinion** (honest assessment):
+```
+Now tell me what you actually THINK of the project -- is it even a good idea?
+Is it useful? Is it well designed and architected? Pragmatic? What could we do
+to make it more useful and compelling and intuitive/user-friendly to both humans
+AND to AI coding agents?
+```
+
+**PL-13 -- Alien Artifact Injection:**
+```
+Review this plan/codebase and identify areas where mathematically sophisticated
+constructs would be superior to standard engineering approaches. Consider: BOCPD,
+conformal prediction, e-processes, information-theoretic bounds, Value of
+Information analysis, optimal stopping theory, or other techniques from recent
+research. For each proposal, explain the concrete improvement over the current
+approach and provide implementation-ready specifications.
+```
+
+**Usage:** Phase 3 dedicated prompt. Run after the plan is converged but before converting to beads. Use a model strong in formal reasoning (o3 or equivalent). See [section 2.5.4](section-2-5.md#254-alien-artifacts) for the full alien artifacts workflow.
+
+---
+
+### 3.2.3 Bead Prompts (BD-01 through BD-03)
+
+These prompts drive Phases 4-5: converting the locked plan into an execution graph and QA-ing it.
+
+#### BD-01 -- Plan to Beads
 
 ```
 Reread AGENTS.md so it's fresh in your mind.
@@ -210,11 +317,11 @@ Also include beads for:
 Use only the bd tool to create and modify beads and add dependencies. Be exhaustive.
 ```
 
-**Usage:** Phase 4. Converts the locked plan into the execution graph. After this runs, PLAN.md is closed. The bead-map is the execution surface. Reopening the plan during execution is Anti-Pattern #7.
+**Usage:** Phase 4. Converts the locked plan into the execution graph. After this runs, PLAN.md is closed. The bead-map is the execution surface. Reopening the plan during execution is [Anti-Pattern #7](../reference/anti-patterns.md).
 
 ---
 
-#### P06 -- QA the Beads (repeat N times)
+#### BD-02 -- QA the Beads (repeat N times)
 
 ```
 Reread AGENTS.md so it's still fresh in your mind.
@@ -248,59 +355,22 @@ If improvements are needed, revise the beads accordingly using only bd.
 
 ---
 
-#### Additional Planning Prompts
+#### BD-03 -- BV Triage (bead prioritization)
 
-**P17 -- Dueling Wizards** (two-model competitive scoring):
 ```
-I want two different frontier models to each independently propose their best
-version of this. Score each proposal on: correctness, elegance, robustness,
-completeness, and novelty. Then synthesize the winner into the plan.
+Use bv --robot-triage to identify the highest-impact actionable beads.
+Pick the best one you can usefully work on and get started. Use ultrathink.
 ```
 
-**P26 -- Plan Innovation Boost:**
-```
-What is the single smartest addition we could make to this plan that would
-dramatically improve the project? Not incremental. Transformative.
-Use ultrathink.
-```
-
-**Integrate Critique** (fold feedback back into plan):
-```
-Integrate the following review feedback into <PLAN_FILE_PATH> in-place. For each
-point of feedback, either incorporate it (with a git-diff style edit) or explicitly
-reject it with a rationale. Keep the plan cohesive, consistent, and remove any
-contradictions introduced by the integration. Use ultrathink.
-
-<PASTE REVIEW FEEDBACK HERE>
-```
-
-**Usage:** After P04 (Plan Critique) or P15 (Multi-Model Synthesis) produces feedback, this prompt folds it back into the plan without destroying coherence. The key discipline: reject-with-rationale is a valid response to feedback. Not all critique is correct.
-
-**Premortem Planner** (pre-beads risk check):
-```
-Before we proceed, I want you to do a "premortem" on this plan. Imagine we're
-6 months in the future and this approach has completely failed. What went wrong?
-What assumptions did we make that turned out to be false? What edge cases did we
-miss? What integration issues did we overlook? What would users hate about it?
-Now, with that pessimistic scenario fresh in your mind, revise the plan to address
-the most likely failure modes.
-```
-
-**Project Opinion Elicitor** (honest assessment):
-```
-Now tell me what you actually THINK of the project -- is it even a good idea?
-Is it useful? Is it well designed and architected? Pragmatic? What could we do
-to make it more useful and compelling and intuitive/user-friendly to both humans
-AND to AI coding agents?
-```
+**Usage:** Directs the agent to use graph-theory prioritization instead of picking beads by intuition.
 
 ---
 
-### 3.2.3 Execution Prompts (P08, P09, P11, P18, P20, P25)
+### 3.2.4 Execution Prompts (EX-01 through EX-06)
 
 These prompts drive Phase 6: deploying coordinated agents to execute beads.
 
-#### P08 -- Execute Beads (main loop)
+#### EX-01 -- Execute Beads (main loop)
 
 ```
 Reread AGENTS.md so it's still fresh in your mind. Now check Agent Mail for any
@@ -312,7 +382,7 @@ bead execution protocol in AGENTS.md exactly. Use ultrathink.
 
 ---
 
-#### P09 -- Agent Mail Check & Continue (anti-deadlock)
+#### EX-02 -- Mail Check & Continue (anti-deadlock)
 
 ```
 Check your agent mail and promptly respond if needed to any messages. Then proceed
@@ -325,7 +395,7 @@ need to be done. Use ultrathink.
 
 ---
 
-#### P18 -- Agent Introduction (fresh spawn)
+#### EX-03 -- Agent Introduction (fresh spawn)
 
 ```
 First read ALL of the AGENTS.md file and README.md file super carefully and
@@ -344,7 +414,7 @@ via messages when you do so and mark beads appropriately.
 
 ---
 
-#### P20 -- Post-Compaction Refresh
+#### EX-04 -- Post-Compaction Refresh
 
 ```
 Reread AGENTS.md so it's still fresh in your mind. Use ultrathink.
@@ -354,23 +424,7 @@ Reread AGENTS.md so it's still fresh in your mind. Use ultrathink.
 
 ---
 
-#### P11 -- Git Commit (commit agent only)
-
-```
-Based on your knowledge of the project, commit all changed files now in a series
-of logically connected groupings with detailed commit messages for each,
-and then push. Don't edit the code at all. Don't commit ephemeral files or secrets.
-Follow repo conventions and hooks.
-```
-
-**Usage:** The commit agent is a dedicated Claude Code instance that runs P11 continuously. It does not modify code. It reads the diff, groups changes into logical commits, writes detailed messages with bead IDs, and pushes. Doctrine #4: The commit agent is separate from coding agents.
-
-> *"Look at my exact prompt. I explicitly tell the committer not to modify the code. That's why. It's a purely logistical thing."*
-> -- Jeffrey Emanuel
-
----
-
-#### P25 -- Do All Of It (full autonomous push)
+#### EX-05 -- Full Push (full autonomous push)
 
 ```
 I need you to do ALL of the remaining work. Every bead. Every test. Leave nothing
@@ -380,59 +434,31 @@ undone. Be thorough, meticulous, and autonomous. Use ultrathink.
 **Usage:** When the bead count is low enough for one agent to finish. Confirmed in 5 uses across 4 repos. Jeff uses this for final pushes and overnight autonomous runs. In Codex (which supports message queuing), Jeff chains this as a multi-step pipeline entered up front: scrutinize the codebase, generate beads, QA beads in plan space, execute beads, fresh-eyes review, commit. Codex processes these one at a time. Claude Code does not support this workflow because follow-up messages interrupt the running agent.
 
 > *"These are all entered up front and go into a queue of messages which Codex processes one at a time. Then you can come back 3+ hours later to see the incredible amount of work done autonomously for you."*
-> — Jeffrey Emanuel
+> -- Jeffrey Emanuel
 
 ---
 
-#### P10 -- Deep Project Primer (read-only onboarding)
+#### EX-06 -- Git Commit (commit agent only)
 
 ```
-First read ALL of the AGENTS.md file and README.md file super carefully and
-understand ALL of both! Then use your code investigation agent mode to fully
-understand the code, and technical architecture and purpose of the project.
+Based on your knowledge of the project, commit all changed files now in a series
+of logically connected groupings with detailed commit messages for each,
+and then push. Don't edit the code at all. Don't commit ephemeral files or secrets.
+Follow repo conventions and hooks.
 ```
 
-**Usage:** Read-only onboarding. Unlike P18, this does not include Agent Mail registration or bead execution. Used when you want the agent to understand the codebase before giving it a specific task.
+**Usage:** The commit agent is a dedicated Claude Code instance that runs EX-06 continuously. It does not modify code. It reads the diff, groups changes into logical commits, writes detailed messages with bead IDs, and pushes. [Doctrine #4](../reference/doctrine.md): The commit agent is separate from coding agents.
+
+> *"Look at my exact prompt. I explicitly tell the committer not to modify the code. That's why. It's a purely logistical thing."*
+> -- Jeffrey Emanuel
 
 ---
 
-#### P24 -- Use BV (bead prioritization)
-
-```
-Use bv --robot-triage to identify the highest-impact actionable beads.
-Pick the best one you can usefully work on and get started. Use ultrathink.
-```
-
-**Usage:** Directs the agent to use graph-theory prioritization instead of picking beads by intuition.
-
----
-
-### 3.2.4 Review Prompts (P02, P02b, P03, P12, P13, P14, P19, P21-P23, P27-P29)
+### 3.2.5 Review Prompts (RV-01 through RV-09)
 
 These prompts drive Phase 7: fresh-eyes review until diffs flatline.
 
-#### P02 -- Deep Review / Fresh Eyes Bug Hunt
-
-```
-I want you to sort of randomly explore the code files in this project, choosing
-code files to deeply investigate and understand and trace their functionality and
-execution flows through the related code files which they import or which they are
-imported by. Once you understand the purpose of the code in the larger context of
-the workflows, I want you to do a super careful, methodical, and critical check
-with "fresh eyes" to find any obvious bugs, problems, errors, issues, silly
-mistakes, etc. and then systematically and meticulously and intelligently correct
-them. Be sure to comply with ALL rules in AGENTS.md and ensure that any code you
-write or revise conforms to the best practice guides referenced in AGENTS.md.
-Use ultrathink.
-```
-
-**Usage:** This is a numbered series, not a single event (Doctrine #5). Run as Part 1, Part 2, Part 3... Part 23 if needed. Each session gets a sequential ID. The prompt deliberately does NOT tell the model what to look for -- it asks the model to explore, understand, and apply judgment. Every prescriptive bug checklist is a tunnel that narrows the model's attention. P02 keeps it wide.
-
-**Forensic frequency:** 9 confirmed uses across 4 repos. frankensqlite alone had 4 consecutive P02 commands (C11-C14). frankentui documents "Part 23" in FIXES_SUMMARY.md.
-
----
-
-#### P02b -- Post-Implementation Self-Review
+#### RV-01 -- Self-Review (post-implementation)
 
 ```
 Great. Now carefully read over all of the new code you just wrote and any
@@ -454,7 +480,28 @@ Carefully fix anything you uncover. Be meticulous.
 
 ---
 
-#### P03 -- Cross-Agent Review
+#### RV-02 -- Deep Review / Fresh Eyes Bug Hunt
+
+```
+I want you to sort of randomly explore the code files in this project, choosing
+code files to deeply investigate and understand and trace their functionality and
+execution flows through the related code files which they import or which they are
+imported by. Once you understand the purpose of the code in the larger context of
+the workflows, I want you to do a super careful, methodical, and critical check
+with "fresh eyes" to find any obvious bugs, problems, errors, issues, silly
+mistakes, etc. and then systematically and meticulously and intelligently correct
+them. Be sure to comply with ALL rules in AGENTS.md and ensure that any code you
+write or revise conforms to the best practice guides referenced in AGENTS.md.
+Use ultrathink.
+```
+
+**Usage:** This is a numbered series, not a single event ([Doctrine #5](../reference/doctrine.md)). Run as Part 1, Part 2, Part 3... Part 23 if needed. Each session gets a sequential ID. The prompt deliberately does NOT tell the model what to look for -- it asks the model to explore, understand, and apply judgment. Every prescriptive bug checklist is a tunnel that narrows the model's attention. RV-02 keeps it wide.
+
+**Forensic frequency:** 9 confirmed uses across 4 repos. frankensqlite alone had 4 consecutive RV-02 commands (C11-C14). frankentui documents "Part 23" in FIXES_SUMMARY.md.
+
+---
+
+#### RV-03 -- Cross-Agent Review
 
 ```
 Now review code written by other agents across the project (not just the
@@ -476,24 +523,24 @@ Don't restrict yourself to the latest commits -- cast a wider net and go super d
 
 #### Escalation Prompts (when reviews plateau)
 
-**P27 -- McCarthy Bug Hunt:**
+**RV-04 -- McCarthy Hunt:**
 ```
 I know for a fact that there are serious issues with this code. I need you to
 find them. Think like Joe McCarthy: assume there's a spy, and your job is to
 find them. The bugs are there. Find them.
 ```
 
-**P28 -- Stakes Escalation:**
+**RV-05 -- Stakes Escalation:**
 ```
 Imagine your family's life depends on this code being correct. Not metaphorically.
 Literally. Find everything that could go wrong.
 ```
 
-These change the model's internal prior. By default, models are optimistic reviewers. P27 and P28 make them paranoid. Confirmed in frankensqlite (C12-C13).
+These change the model's internal prior. By default, models are optimistic reviewers. RV-04 and RV-05 make them paranoid. Confirmed in frankensqlite (C12-C13).
 
 ---
 
-#### P29 -- CVE-Inspired Security Testing
+#### RV-06 -- CVE Probe
 
 ```
 Research recent CVEs relevant to the libraries and patterns in this project.
@@ -502,9 +549,39 @@ Create sandboxed tests that probe for similar vulnerabilities. Use ultrathink.
 
 ---
 
-#### Quality and Testing Prompts
+#### RV-07 -- Stub Eliminator
 
-**P12 -- Stripe-Level UI:**
+```
+I need you to look for stubs, placeholders, mocks, of ANY KIND. These ALL must
+be replaced with FULLY FLESHED OUT, working, correct, performant, idiomatic code
+as per the beads. Do this meticulously and carefully!
+```
+
+---
+
+#### RV-08 -- UBS Scan
+
+```
+Run ubs . to scan the entire codebase. Analyze the results carefully and identify
+any issues, improvements, or areas needing attention. Use ultrathink.
+```
+
+---
+
+#### RV-09 -- Random Inspect
+
+```
+Pick 5 random files in the project you haven't looked at recently. Read them
+carefully. Trace their execution flows. Find anything wrong. Fix it.
+Use ultrathink.
+```
+
+---
+
+### 3.2.6 Quality & Ideation Prompts (QA-01 through QA-08)
+
+#### QA-01 -- Stripe-Level UI
+
 ```
 I want you to do a spectacular job building absolutely world-class UI/UX
 components, with an intense focus on making the most visually appealing,
@@ -514,7 +591,10 @@ the project. Carefully consider desktop UI/UX and mobile UI/UX separately and
 hyper-optimize for both. Use ultrathink.
 ```
 
-**P13 -- E2E Pipeline Validator:**
+---
+
+#### QA-02 -- E2E Pipeline
+
 ```
 We really need totally complete, totally comprehensive, granular, perfect end
 to end testing coverage without ANY mocks or fake data, fake api calls, etc.,
@@ -523,50 +603,40 @@ provable, ultra-rigorous way -- from "soup to nuts." Plus comprehensive unit
 tests with detailed logging. Use ultrathink.
 ```
 
-**P14 -- System Weaknesses Analyzer:**
-```
-Based on everything you've seen, what are the weakest/worst parts of the system?
-What is most needing of fresh ideas and innovative/creative/clever improvements?
-```
+---
 
-**P19 -- Audit UX:**
+#### QA-03 -- UX Audit
+
 ```
 Scrutinize the UX of the entire project. Find every rough edge, confusing flow,
 and unintuitive behavior. Fix them all. Use ultrathink.
 ```
 
-**P21 -- UBS Scan:**
-```
-Run ubs . to scan the entire codebase. Analyze the results carefully and identify
-any issues, improvements, or areas needing attention. Use ultrathink.
-```
+---
 
-**P22 -- Fix Bug** (root-cause only):
+#### QA-04 -- Root-Cause Fix (root-cause only)
+
 ```
 Find the root cause of this bug. Don't patch symptoms. Understand why it happened,
 fix the underlying issue, and verify the fix doesn't break anything else.
 Use ultrathink.
 ```
 
-**P23 -- Random Inspect:**
-```
-Pick 5 random files in the project you haven't looked at recently. Read them
-carefully. Trace their execution flows. Find anything wrong. Fix it.
-Use ultrathink.
-```
+---
 
-**Stub Eliminator:**
+#### QA-05 -- Deploy & Verify
+
 ```
-I need you to look for stubs, placeholders, mocks, of ANY KIND. These ALL must
-be replaced with FULLY FLESHED OUT, working, correct, performant, idiomatic code
-as per the beads. Do this meticulously and carefully!
+Deploy to <PLATFORM> and verify that the deployment worked properly without any
+errors (iterate and fix if there were errors). Then visit the live site with
+playwright as both desktop and mobile browser and take screenshots and check for
+js errors and look at the screenshots for potential problems and iterate and fix
+them all super carefully!
 ```
 
 ---
 
-### 3.2.5 Recovery and Ideation Prompts (P16-P17, 100-to-10)
-
-#### P16 -- Idea Wizard (30 -> 5)
+#### QA-06 -- Idea Wizard (30 -> 5)
 
 ```
 Come up with your very best ideas for improving this project to make it more
@@ -581,7 +651,7 @@ best to worst. Use ultrathink.
 
 ---
 
-#### 100-to-10 Filter (when quality matters most)
+#### QA-07 -- 100-to-10 Filter (when quality matters most)
 
 ```
 I want you to come up with your top 10 most brilliant ideas for adding extremely
@@ -596,7 +666,7 @@ brilliant, clever, and radically innovative and powerful ideas.
 
 ---
 
-#### Deep Performance Audit (Phase 8)
+#### QA-08 -- Deep Performance Audit (Phase 8)
 
 ```
 First read ALL of AGENTS.md and README.md super carefully.
@@ -627,9 +697,31 @@ G) Regression guardrails: add benchmark thresholds or monitoring hooks
 
 ---
 
-### 3.2.6 Documentation and Tooling Prompts
+### 3.2.7 Meta Prompts (MT-01 through MT-08)
 
-**README Reviser** (present-tense docs):
+#### MT-01 -- Deep Project Primer (read-only onboarding)
+
+```
+First read ALL of the AGENTS.md file and README.md file super carefully and
+understand ALL of both! Then use your code investigation agent mode to fully
+understand the code, and technical architecture and purpose of the project.
+```
+
+**Usage:** Read-only onboarding. Unlike EX-03, this does not include Agent Mail registration or bead execution. Used when you want the agent to understand the codebase before giving it a specific task.
+
+---
+
+#### MT-02 -- System Weaknesses
+
+```
+Based on everything you've seen, what are the weakest/worst parts of the system?
+What is most needing of fresh ideas and innovative/creative/clever improvements?
+```
+
+---
+
+#### MT-03 -- README Reviser (present-tense docs)
+
 ```
 Update the README and other documentation to reflect all of the recent changes
 to the project. Frame all updates as if they were always present (i.e., don't
@@ -637,7 +729,10 @@ say "we added X" or "X is now Y" -- just describe the current state). Make sure
 to add any new commands, options, or features that have been added.
 ```
 
-**De-Slopifier** (remove AI writing tells):
+---
+
+#### MT-04 -- De-Slopifier (remove AI writing tells)
+
 ```
 Read through the complete text carefully and look for any telltale signs of
 "AI slop" style writing; one big tell is the use of em dash. Replace with a
@@ -647,7 +742,10 @@ like the kind of thing an LLM would write disproportionately more commonly than
 a human. You MUST manually read each line and revise it -- no regex, no scripts.
 ```
 
-**Code Reorganizer** (file restructuring):
+---
+
+#### MT-05 -- Code Reorganizer (file restructuring)
+
 ```
 Before making any changes, explore and read ALL of the many files in <DIR> and
 understand what they do, how they fit together, which files import which others,
@@ -658,7 +756,10 @@ rationale and justification for the proposed structure, and tracking of all impo
 changes needed so we don't break anything.
 ```
 
-**CLI Error Tolerance** (FCBC -- For Clankers, By Clankers):
+---
+
+#### MT-06 -- CLI Error Tolerance (FCBC -- For Clankers, By Clankers)
+
 ```
 One thing that's critical for the robot mode flags in the CLI is that we want to
 make it easy for the agents to use the tool. First, make the CLI interface as
@@ -671,7 +772,20 @@ helpful error message with a couple relevant correct examples about how to do wh
 we think they're trying to do.
 ```
 
-**Agent Feedback** (tool quality loop):
+---
+
+#### MT-07 -- Dependency Analysis (pre-integration due diligence)
+
+```
+Before integrating <DEPENDENCY>, write a COMPREHENSIVE_ANALYSIS_OF_<DEPENDENCY>.md.
+Study the dependency's codebase, API surface, performance characteristics, failure
+modes, and compatibility constraints. This must be done BEFORE any integration code.
+```
+
+---
+
+#### MT-08 -- Agent Feedback (tool quality loop)
+
 ```
 Rate this tool on a scale of 0-100 across these dimensions:
 - Helpfulness (does it solve a real problem?)
@@ -685,36 +799,38 @@ Rate this tool on a scale of 0-100 across these dimensions:
 
 **Usage:** Jeff runs this after agents have used a new tool for a full session. The output feeds directly into the next iteration of the tool. This is the FCBC feedback loop in practice: agents are the primary users of agent tools, so agent feedback is the primary signal for tool improvement.
 
-**Dependency Analysis** (pre-integration due diligence):
-```
-Before integrating <DEPENDENCY>, write a COMPREHENSIVE_ANALYSIS_OF_<DEPENDENCY>.md.
-Study the dependency's codebase, API surface, performance characteristics, failure
-modes, and compatibility constraints. This must be done BEFORE any integration code.
-```
+---
 
-**Deployment Verifier** (post-deploy check):
-```
-Deploy to <PLATFORM> and verify that the deployment worked properly without any
-errors (iterate and fix if there were errors). Then visit the live site with
-playwright as both desktop and mobile browser and take screenshots and check for
-js errors and look at the screenshots for potential problems and iterate and fix
-them all super carefully!
-```
+### 3.2.8 Prompt Chains
+
+Pre-composed sequences for common workflows. Each chain is a series of prompts fired in order.
+
+**PLANNING chain** (Phase 1-3):
+PL-02 -> PL-03 -> PL-04 -> PL-05 -> PL-11 -> PL-13 -> PL-06 -> PL-08
+
+**TASK CREATION chain** (Phase 4-5):
+BD-01 -> BD-02 (x5) -> BD-03
+
+**REVIEW ESCALATION chain** (Phase 7):
+RV-09 -> RV-02 (x3) -> RV-04 -> RV-05 -> RV-06
+
+**HARDENING chain** (pre-release):
+RV-07 -> QA-02 -> QA-05 -> MT-03
 
 ---
 
-### 3.2.7 Adapting Prompts
+### 3.2.9 Adapting Prompts
 
 The prompts are designed to be used verbatim. However, there are three valid adaptation patterns:
 
 **1. Filling in placeholders.** Prompts containing `<PLAN_FILE_PATH>`, `<DEPENDENCY>`, `<PROJECT_NAME>`, etc. require substitution. This is not adaptation; it is parameterization.
 
-**2. Chaining prompts.** Jeff chains P01 as a prefix before other prompts when the decision is high-stakes. P01 + P08 = "think from first principles, then execute the highest-priority bead." P01 + P04 = "think from first principles, then critique this plan."
+**2. Chaining prompts.** Jeff chains PL-01 as a prefix before other prompts when the decision is high-stakes. PL-01 + EX-01 = "think from first principles, then execute the highest-priority bead." PL-01 + PL-06 = "think from first principles, then critique this plan."
 
-**3. The emotional register.** The praise rounds (P30-P32) work because they shift the model's internal prior. You can adjust the intensity but should preserve the core mechanic: each round acknowledges improvement while insisting on more.
+**3. The emotional register.** The praise pushes (PL-03 through PL-05) work because they shift the model's internal prior. You can adjust the intensity but should preserve the core mechanic: each round acknowledges improvement while insisting on more.
 
 **What not to do:**
-- Do not add role-play preambles ("You are an expert senior backend engineer"). Frontier models understand intent. Role-playing constraints narrow the solution space (Anti-Pattern #2 from the Doctrine).
+- Do not add role-play preambles ("You are an expert senior backend engineer"). Frontier models understand intent. Role-playing constraints narrow the solution space ([Anti-Pattern #2](../reference/anti-patterns.md) from the Doctrine).
 - Do not enumerate everything the model should think about. Short prompts that force the model beyond its default posture beat long prompts that catalog concerns.
 - Do not paraphrase. The prompts are calibrated. "Carefully fix anything you uncover" is not the same as "fix bugs." The word "carefully" changes the model's behavior.
 
@@ -722,6 +838,6 @@ The prompts are designed to be used verbatim. However, there are three valid ada
 
 !!! tip "Related pages on this site"
 
-    - [Full Prompt Pack](../prompts/prompt-pack.md)
-    - [Prompt Overview](../prompts/overview.md)
-
+    - [Full Prompt Pack](../prompts/prompt-pack.md) -- All 47 prompts in copy-paste format
+    - [Prompt Index](../prompts/overview.md) -- Quick-lookup table
+    - [Dispatch Table](../reference/dispatch.md) -- Situation-to-prompt mapping

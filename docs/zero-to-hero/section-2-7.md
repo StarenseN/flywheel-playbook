@@ -13,7 +13,7 @@ A typical session start sequence:
 3. Review yesterday's Agent Mail messages and git log.
 4. `ntm --robot-spawn=<project>` to spin up agents.
 5. All agents: read AGENTS.md, register with Agent Mail, start executing.
-6. One dedicated commit agent running P11 only.
+6. One dedicated commit agent running EX-06 only.
 
 The first message to every agent, every time:
 
@@ -49,9 +49,9 @@ The response protocol:
 
 | Symptom | Action |
 |---------|--------|
-| Agent ignores AGENTS.md conventions | Send P10 (re-read AGENTS.md) |
+| Agent ignores AGENTS.md conventions | Send MT-01 (re-read AGENTS.md) |
 | Agent repeats the same failed approach | Kill session, start fresh |
-| Agent is less effective after compaction | Send P20 (Post-Compaction Refresh) |
+| Agent is less effective after compaction | Send EX-04 (Post-Compaction Refresh) |
 | Agent has been running 4+ hours on one bead | Kill session, narrow the bead scope, start fresh |
 
 Fresh sessions are cheap. Debugging a context-polluted session is expensive. When in doubt, start over.
@@ -71,8 +71,8 @@ Fresh sessions are cheap. Debugging a context-polluted session is expensive. Whe
 ### 2.7.4 End of Day
 
 End of session runs:
-1. P11 (final commit round): commit all outstanding changes.
-2. P02 (final review): one last fresh-eyes pass.
+1. EX-06 (final commit round): commit all outstanding changes.
+2. RV-02 (final review): one last fresh-eyes pass.
 
 The bead system, Agent Mail history, and git log serve as persistent state. A fresh agent tomorrow can reconstruct context from these three sources. Elaborate handoff documents are unnecessary; the infrastructure is the handoff.
 

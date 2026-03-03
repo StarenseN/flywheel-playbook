@@ -21,7 +21,7 @@ These are the tools that define the flywheel. Every ACFS project uses all of the
 
 **Role:** Primary AI coding agent. The workhorse of the flywheel.
 
-Claude Code is the CLI interface to Claude models. It runs inside tmux panes managed by NTM, reads AGENTS.md for project context, communicates with other agents via Agent Mail, and executes beads as directed by BV. In Jeff's typical formation, 5-6 Claude Code instances (running Opus) handle primary implementation work, plus one dedicated commit agent running P11 only.
+Claude Code is the CLI interface to Claude models. It runs inside tmux panes managed by NTM, reads AGENTS.md for project context, communicates with other agents via Agent Mail, and executes beads as directed by BV. In Jeff's typical formation, 5-6 Claude Code instances (running Opus) handle primary implementation work, plus one dedicated commit agent running EX-06 only.
 
 Key characteristics:
 - Runs in tmux (managed by NTM), persistent across SSH disconnects
@@ -56,7 +56,7 @@ br dep add <id> --blocks <other-id>                     # Add dependency
 bd ...                                                  # Alias (backward compat)
 ```
 
-**Scale:** Jeff has hit 693 beads/day at peak velocity. A typical project has 500-2000 beads created during P05 (Plan to Beads).
+**Scale:** Jeff has hit 693 beads/day at peak velocity. A typical project has 500-2000 beads created during BD-01 (Plan to Beads).
 
 **Forensic signal:** `beads.db` or `beads.jsonl` in repo root. Bead IDs in commit messages (`[bead-NNN]` or `bd-xxxxx`). High-impact beads completed before low-impact ones (PageRank ordering from BV).
 
@@ -83,7 +83,7 @@ bv --robot-next            # Single highest-priority ready bead
 bv -export-pages /tmp/bv   # Static HTML site of the bead graph
 ```
 
-**How agents use it:** P08 (Execute Beads) and P24 (Use BV) both direct agents to call `bv --robot-triage` to pick their next work item. This is how coordination happens without a human assigning tasks.
+**How agents use it:** EX-01 (Execute Beads) and BD-03 (Use BV) both direct agents to call `bv --robot-triage` to pick their next work item. This is how coordination happens without a human assigning tasks.
 
 > *"They follow the plan as embodied in the beads task structure, and they use my bv tool to pick the best bead to work on next."*
 > -- Jeffrey Emanuel
@@ -116,7 +116,7 @@ ntm --robot-status --json                 # Full JSON status
 
 **Naming convention:** NTM auto-generates color+noun names for agents: RedSnow, BrownLake, PurpleBear, PinkMountain, GreenRiver, BluePeak. These names appear in Agent Mail messages and sometimes in commit attribution.
 
-**The human steering pattern:** Jeff monitors agents via NTM status and Agent Mail. When he sees a stall, he sends P09 (Anti-deadlock). When he sees a bug, P02 (Deep Review). When context compaction fires, P20 (Refresh). All prompts are sent verbatim via Stream Deck buttons.
+**The human steering pattern:** Jeff monitors agents via NTM status and Agent Mail. When he sees a stall, he sends EX-02 (Anti-deadlock). When he sees a bug, RV-02 (Deep Review). When context compaction fires, EX-04 (Refresh). All prompts are sent verbatim via Stream Deck buttons.
 
 > *"I don't even need to look at the button labels anymore."*
 > -- Jeffrey Emanuel, on his Stream Deck + NTM workflow
@@ -170,13 +170,13 @@ These tools extend the core with safety nets, quality gates, and cross-session m
 Agents register identities, send/receive messages, and declare file reservations to prevent edit conflicts. HTTP FastMCP server with Web UI and static export. Agents use it through MCP tools in Claude Code, Codex, or Gemini CLI.
 
 **Key operations (via MCP tools, not CLI):**
-- Register agent identity on spawn (P18)
+- Register agent identity on spawn (EX-03)
 - Send messages to specific agents by name
 - Declare file reservations (prevents two agents editing the same file)
 - Check inbox for blockers, discoveries, and coordination messages
 - Agent Mail SQLite is a monitoring surface for the human operator
 
-**The anti-deadlock pattern:** P09 exists specifically because agents can fall into "communication purgatory" -- messaging each other without shipping code. P09 forces them back to work: "Don't get stuck in communication purgatory where nothing is getting done; be proactive about starting tasks."
+**The anti-deadlock pattern:** EX-02 exists specifically because agents can fall into "communication purgatory" -- messaging each other without shipping code. EX-02 forces them back to work: "Don't get stuck in communication purgatory where nothing is getting done; be proactive about starting tasks."
 
 **Forensic signal:** "check agent mail" in commits. Cross-agent coordination messages. AGENTS.md with "Agent Mail" coordination section. `mcp_agent_mail_rust` sync commits confirm parallel agents.
 
@@ -192,7 +192,7 @@ Agents register identities, send/receive messages, and declare file reservations
 
 **Role:** AST-grep patterns, 1000+ detection rules, 8 languages, 18 categories. The quality gate.
 
-UBS is the standard scan that runs as part of P21 (UBS Scan prompt). Sub-5s scans. Auto-wires into Claude Code, Codex, Gemini, and Cursor.
+UBS is the standard scan that runs as part of RV-08 (UBS Scan prompt). Sub-5s scans. Auto-wires into Claude Code, Codex, Gemini, and Cursor.
 
 **Key commands:**
 ```
@@ -201,7 +201,7 @@ ubs file.ts file.py                       # Scan specific files (<1s)
 ubs $(git diff --name-only --cached)      # Scan staged files only
 ```
 
-**Forensic signal:** "ubs scan" in commit notes. Defensive patterns added post-scan. Maps to P21 (UBS Scan prompt).
+**Forensic signal:** "ubs scan" in commit notes. Defensive patterns added post-scan. Maps to RV-08 (UBS Scan prompt).
 
 ---
 
@@ -350,7 +350,7 @@ caam rotate      # Force rotation
 
 **Role:** Interactive code-to-prompt generator.
 
-A TUI tool for assembling code context into prompts. Useful when you need to extract specific code sections for review or multi-model comparison, particularly during P04/P15 planning rounds where you paste code into competing model conversations.
+A TUI tool for assembling code context into prompts. Useful when you need to extract specific code sections for review or multi-model comparison, particularly during PL-06/PL-07 planning rounds where you paste code into competing model conversations.
 
 ---
 
@@ -393,7 +393,7 @@ Monitors what Claude/Codex/Gemini is connecting to. Useful for auditing agent be
 
 | Tool | Role |
 |------|------|
-| **APR** (Automated Plan Reviser Pro) | Automates multi-round P04 spec review using extended reasoning. `apr refine plan.md --rounds 10` |
+| **APR** (Automated Plan Reviser Pro) | Automates multi-round PL-06 spec review using extended reasoning. `apr refine plan.md --rounds 10` |
 | **JFP** (JeffreysPrompts CLI) | Browse and install battle-tested prompts. `jfp list / jfp search / jfp install`. This IS the MASTER_PROMPTS.md -- the CLI version. |
 | **RU** (Repo Updater) | Sync 100+ GitHub repos in one command. `ru sync` |
 | **SRPS** (System Resource Protection) | ananicy-cpp + curated rules. Auto-deprioritize background processes. Essential at 10+ agent scale. |
