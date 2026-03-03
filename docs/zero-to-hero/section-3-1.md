@@ -356,7 +356,16 @@ caam rotate      # Force rotation
 
 **Role:** Interactive code-to-prompt generator.
 
-A TUI tool for assembling code context into prompts. Useful when you need to extract specific code sections for review or multi-model comparison, particularly during PL-06/PL-07 planning rounds where you paste code into competing model conversations.
+A TUI tool for assembling code context into prompts. Navigate your codebase visually, select specific files and functions, and export them as structured prompt context.
+
+**Key commands:**
+```
+s2p .                     # Launch TUI in current directory
+s2p --out /tmp/ctx.md     # Export selected context to file
+s2p --include "*.rs"      # Filter to Rust files only
+```
+
+**When you need it:** During PL-06/PL-07 planning rounds where you paste code into competing model web conversations. Also useful for extracting specific modules for cross-agent review (RV-03) when the agent needs focused context rather than the full codebase.
 
 ---
 
@@ -370,14 +379,17 @@ A TUI tool for assembling code context into prompts. Useful when you need to ext
 
 **Role:** Skill management with MCP integration.
 
-Dual persistence (SQLite + Git), hybrid search (BM25 + semantic + RRF), UCB bandit optimization for skill selection. Manages the growing library of agent skills and prompts.
+Dual persistence (SQLite + Git), hybrid search (BM25 + semantic + RRF), UCB bandit optimization for skill selection. Manages the growing library of agent skills and prompts -- think of it as a package manager for reusable prompt templates and agent behaviors.
 
 **Key commands:**
 ```
-ms search "query"    # Find relevant skills
-ms install <id>      # Install a skill
-ms list              # List available skills
+ms search "query"    # Find relevant skills (hybrid BM25 + semantic)
+ms install <id>      # Install a skill into current project
+ms list              # List available skills with usage stats
+ms suggest           # UCB bandit recommendation for current context
 ```
+
+**How it fits:** The prompt pack ([section 3.2](section-3-2.md)) covers the 47 core prompts. Meta Skill manages the expanding library beyond these: project-specific skills, community-contributed patterns, and custom review templates. When your team develops a specialized review checklist for a recurring codebase pattern, Meta Skill stores, searches, and recommends it.
 
 ---
 
@@ -391,7 +403,16 @@ ms list              # List available skills
 
 **Role:** Network observer. Tracks outbound connections from AI CLI processes.
 
-Monitors what Claude/Codex/Gemini is connecting to. Useful for auditing agent behavior and understanding which external services agents contact during execution.
+Monitors what Claude/Codex/Gemini is connecting to during execution. Captures DNS lookups and TCP connections per process.
+
+**Key commands:**
+```
+rano watch --pid $(pgrep claude)    # Monitor a specific agent process
+rano scan                           # Scan all running AI CLI processes
+rano report --since "1 hour ago"    # Summary of recent outbound connections
+```
+
+**When you need it:** Auditing agent behavior in security-sensitive environments, diagnosing unexpected network activity (e.g., an agent making external API calls it should not), or verifying that sandbox restrictions are working. Pairs with DCG for comprehensive agent guardrails.
 
 ---
 

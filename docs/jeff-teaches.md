@@ -416,6 +416,12 @@ My thread on agent mail footguns covers everything that goes wrong with naive mu
 
 Most of the methodology assumes greenfield work: plan from scratch, decompose into beads, build. But my projects are often ports or rewrites (Python to Rust, especially). The brownfield strategy is a compression trick: extract the interfaces, the behaviors, and the contracts from the existing code, discarding all implementation details. Feed that compressed specification to the model. Now it has a complete picture of what the system does and how its parts interact, without being anchored to the old implementation.
 
+The Agent Mail Rust rewrite is the canonical example. The Python version worked at 15-20 agents but collapsed at 80. Instead of transliterating the Python line-by-line, Jeff extracted a behavioral specification -- the interfaces, the message routing contracts, the concurrency guarantees -- and fed that to the planning phase. The result was a Rust implementation that stacked 10 self-built libraries and scaled to thousands of agents, designed from scratch for the target language's idioms rather than mimicking Python patterns.
+
+> "I waited to do this because I first had to port the fastmcp and sqlmodel Python libraries to Rust, which are fairly complex. And I also wanted to finish my asupersync library and FrankenTUI so I could use those for everything."
+>
+> — @doodlestein
+
 This is the chef analogy applied to porting. If you give the model the full old codebase, it will "port" each function line-by-line, producing a transliteration. If you give it a specification of behaviors, it designs a new implementation from scratch that satisfies the same contracts but uses the target language's idioms and patterns. Better code, not just translated code.
 
 → [Phase 0 — Prerequisites](playbook/phase-0-prerequisites.md) · [Phase 1 — Draft](playbook/phase-1-draft.md)
@@ -525,8 +531,8 @@ How many of the playbook's 47 prompts trace directly to Jeff's public tweets:
 | [EX-01 Execute Beads](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1994526888794951977) | 46 |
 | [EX-02 Mail Check](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1994526888794951977) | 46 |
 | [EX-04 Post-Compaction](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/2017087633877278974) | 58 |
-| [MT-08 Agent Feedback](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1991301147702005785) | — |
+| [MT-08 Agent Feedback](prompts/prompt-pack.md) | [source](https://x.com/doodlestein/status/1991301147702005785) | 41 |
 
-14 prompts from 7 tweets. The mega-tweet alone sources 7.
+14 prompts from 7 tweets. The mega-tweet (status/1999934160442687526) alone sources 7 -- it was a multi-part thread containing the verbatim text for RV-01, RV-02, RV-03, QA-01, BD-01, BD-02, and EX-06.
 
 Prompts with no public tweet source include RV-05 Stakes Escalation, PL-03/04/05 Praise Pushes (the philosophy is tweeted; the exact text is not), and MT-04 De-Slopifier. These come from Jeff's AGENTS.md templates and repo documentation.

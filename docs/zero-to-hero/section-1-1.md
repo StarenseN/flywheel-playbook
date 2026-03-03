@@ -99,5 +99,7 @@ Neither of these insights is complicated. The methodology's value is in making t
 
 !!! tip "Related pages on this site"
 
-    - [12 Principles](../playbook/principles.md)
+    - [1.2 What the Flywheel Is](section-1-2.md) -- How the methodology addresses these problems
+    - [1.4 The Economics](section-1-4.md) -- The economic case for planning over debugging
+    - [12 Principles](../playbook/principles.md) -- The full set of operational rules
 

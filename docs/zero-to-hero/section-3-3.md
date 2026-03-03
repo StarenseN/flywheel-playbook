@@ -290,7 +290,19 @@ Jeff maps all 32+ prompts to physical Stream Deck buttons for instant dispatch. 
 > *"And yeah, basically manually, but it's quick because each prompt is a button on my stream deck."*
 > -- Jeffrey Emanuel
 
-The Stream Deck is not required. The prompts work identically when typed or pasted. The Stream Deck eliminates the friction of finding the right prompt and ensures it is sent verbatim without modification. For practitioners who do not have a Stream Deck, a text expander or clipboard manager achieves the same effect.
+The Stream Deck is not required. The prompts work identically when typed or pasted. The Stream Deck eliminates the friction of finding the right prompt and ensures it is sent verbatim without modification.
+
+**For practitioners without a Stream Deck**, here are equivalent setups:
+
+**Shell aliases** (add to `~/.zshrc`):
+```bash
+alias ex01='ntm --robot-send=$NTM_SESSION --msg="Reread AGENTS.md so it'\''s still fresh in your mind. Now check Agent Mail for any messages from other agents. Execute the highest-priority ready bead. Follow the bead execution protocol in AGENTS.md exactly. Use ultrathink."'
+alias ex03='ntm --robot-send=$NTM_SESSION --msg="First read ALL of the AGENTS.md file and README.md file super carefully and understand ALL of both! Then use your code investigation agent mode to fully understand the code, and technical architecture and purpose of the project. Then register with MCP Agent Mail and introduce yourself to the other agents."'
+alias ex04='ntm --robot-send=$NTM_SESSION --msg="Reread AGENTS.md so it'\''s still fresh in your mind. Use ultrathink."'
+alias ex06='ntm --robot-send=$NTM_SESSION --msg="Based on your knowledge of the project, commit all changed files now in a series of logically connected groupings with detailed commit messages for each, and then push."'
+```
+
+**Text expander** (e.g., Espanso, TextExpander): Map triggers like `;ex01`, `;rv02`, `;mt04` to the full prompt text from the [Prompt Pack](../prompts/prompt-pack.md). The key is sub-second dispatch -- any method that eliminates prompt lookup time works.
 
 ---
 

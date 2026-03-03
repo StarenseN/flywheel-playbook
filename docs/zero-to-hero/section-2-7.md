@@ -55,7 +55,7 @@ During active swarms, run this diagnostic cycle every 30-60 seconds:
 
 **Monitor with these commands:**
 ```bash
-tail -5 ~/.claude/projects/<path>/*.jsonl | jq -r '{type, ts: .timestamp}'   # JSONL (real-time)
+tail -5 ~/.claude/projects/-data-projects-myproject/*.jsonl | jq -r '{type, ts: .timestamp}'   # JSONL (real-time; path = project dir with slashes→dashes)
 ntm --robot-terse                                                             # Process state (~1s)
 git log --oneline --since="1 hour ago" | wc -l                                # Ground truth
 ```
@@ -82,7 +82,7 @@ Prompts silently fail to send roughly 50% of the time via tmux paste. **Always v
 ntm --robot-send=SESSION --msg='<prompt>'
 
 # MANDATORY: verify it arrived (wait 10s, check JSONL)
-sleep 10 && tail -3 ~/.claude/projects/<path>/*.jsonl | jq -r '{type, ts: .timestamp}'
+sleep 10 && tail -3 ~/.claude/projects/-data-projects-myproject/*.jsonl | jq -r '{type, ts: .timestamp}'
 
 # If missing — nudge with Enter:
 tmux send-keys -t SESSION Enter
@@ -113,7 +113,9 @@ Fresh sessions are cheap. Debugging a context-polluted session is expensive. Whe
 
 **On token conservation:** A common instinct is to pipe build output through wrapper scripts that truncate it, saving context tokens. Jeff rejects this: "Nah, I'd rather burn the tokens. The scripts never work right." His approach is to let full output stream into context and scale via multiple subscriptions rather than compressing context. Rich context produces better decisions than saved tokens.
 
-**Experimental workaround:** A PreCompact hook can write a marker file, and a UserPromptSubmit hook can detect that marker and automatically re-inject critical context (AGENTS.md re-read, current bead state) after compaction. This is not yet reliable across all models but is the direction of travel for automated context recovery. A related anti-pattern: "ringleader agents" (a coordinator agent that manages other agents). Ringleader agents fail because when the coordinator's context compacts, the entire swarm loses coherence. Flat coordination via Agent Mail and bead priorities is more resilient.
+**Experimental workaround (Claude Code only):** A PreCompact hook writes a marker file, and a UserPromptSubmit hook detects that marker and re-injects critical context (AGENTS.md re-read, current bead state) after compaction. This works in Claude Code but is not yet supported by Codex or Gemini CLI. Until cross-model support is reliable, manual EX-04 dispatch after every observed compaction event is the only guaranteed approach.
+
+A related anti-pattern: "ringleader agents" (a coordinator agent that manages other agents). Ringleader agents fail because when the coordinator's context compacts, the entire swarm loses coherence. Flat coordination via Agent Mail and bead priorities is more resilient.
 
 ---
 

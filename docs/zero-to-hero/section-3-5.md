@@ -182,7 +182,7 @@ Each agent CLI has specific operational limitations:
 - **Codex CLI:** Requires a git repository. Always `git init` before launching. The `--quiet` flag does not exist for the `exec` subcommand.
 - **Gemini CLI:** Needs full-width tmux panes (narrow panes break the TUI). A trust dialog appears on first use per directory -- press "1" then re-send the prompt. Sandbox mode cannot read host `/tmp`.
 
-Assign models to roles that play to their strengths: Claude and Codex for coding, Gemini for review and static analysis. See the [Model-Role Matrix](section-3-4.md#312-model-role-matrix) for details.
+Assign models to roles that play to their strengths: Claude and Codex for coding, Gemini for review and static analysis. See the [Model-Role Matrix](section-3-4.md#342-model-mix-ratios) for details.
 
 ### 3.5.10 The `acfs doctor` Command
 
@@ -196,6 +196,17 @@ Assign models to roles that play to their strengths: Claude and Codex for coding
 | Bead state | No orphaned `in_progress` beads (from crashed agents) |
 | Disk space | Sufficient space for builds and agent temp files |
 | SSH connectivity | Remote compilation hosts reachable (if configured) |
+
+**When checks fail:**
+
+| Check | Fix |
+|-------|-----|
+| Tool availability | Re-run `acfs update` or install the missing tool manually |
+| Agent Mail status | `systemctl start mcp-agent-mail` or launch manually |
+| Git health | `git stash` or resolve merges before proceeding |
+| Bead state | `br list --status in_progress` to find orphans, then `br update <id> --status=open` to reset |
+| Disk space | Run `sbh clean` (Storage Ballast Helper) or manually clear build artifacts |
+| SSH connectivity | Check `~/.ssh/config` and verify remote hosts are up with `ssh -T <host>` |
 
 If `acfs doctor` reports issues, fix them before spawning agents. Starting a swarm with broken infrastructure compounds the problem.
 

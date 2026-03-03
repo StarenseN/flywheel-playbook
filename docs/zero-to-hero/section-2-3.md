@@ -163,7 +163,7 @@ No 03_PLAN_v1.md         → draft the plan
 No plan_quality_review.md → run SA-10 scoring
 ```
 
-The wizard is available at the [ACFS Wizard repo](https://github.com/StarenseN/ACFS_Wizard_Openclaw). Use `/start` to begin, `/dashboard` for multi-model feedback.
+The wizard is available at the [ACFS Wizard repo](https://github.com/StarenseN/ACFS_Wizard_Openclaw) (a community-built tool that automates the planning methodology; it is not part of Jeff's core toolchain but implements the same quality gates). Use `/start` to begin, `/dashboard` for multi-model feedback.
 
 ---
 

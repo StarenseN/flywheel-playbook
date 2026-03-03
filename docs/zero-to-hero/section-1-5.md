@@ -148,6 +148,8 @@ Jeff's tools, libraries, and project structures are designed for AI consumption,
 - File structures follow conventions agents predict (not creative human organization)
 - Libraries expose clean interfaces because agents navigate by convention, not intuition
 
+**Concrete example:** Every ACFS tool has `--robot-*` flags that emit structured JSON. A human sees `bv` output as a color-coded TUI dashboard; an agent sees `bv --robot-triage` output as parseable JSON: `{"ready": ["BEAD-042", "BEAD-043"], "blocked": ["BEAD-044"], "in_progress": ["BEAD-041"]}`. Similarly, `ntm --robot-status` returns machine-readable session state instead of a visual tmux layout. The `--robot-send` flag on `ntm` handles prompt delivery, headless mode, and ready-state detection — none of which a human operator needs, but all of which agents rely on.
+
 This is a design principle, not a joke. When your tools are optimized for agent ergonomics, every agent in the swarm works faster.
 
 ---
@@ -159,7 +161,13 @@ This is a design principle, not a joke. When your tools are optimized for agent 
 
 Jeff makes a specific, testable claim: you can develop a predictive model of how language models respond to different inputs, analogous to the theory of mind humans develop for each other. This model is the foundation of everything else in the methodology — from understanding why praise rounds work (they shift the model's internal prior away from conservatism) to why the McCarthy prompt finds bugs (it reframes the task from "check" to "hunt").
 
-This is not mysticism. It is pattern recognition accumulated over thousands of hours of agent interaction.
+**Concrete predictions this theory of mind produces:**
+
+- Tell a model "check for bugs" → it will be optimistic and report "looks good." Tell it "I know there are 87 serious bugs" → it becomes paranoid and finds real issues. The same codebase, the same model, different priors. (This is why RV-04 exists.)
+- Ask a model to "improve this code" → it rewrites aggressively, breaking working logic. Ask it "what's excellent about this code?" first → it anchors on strengths and proposes surgical improvements. (This is why praise rounds precede review rounds.)
+- Give a model a prescriptive checklist ("check for SQL injection, XSS, CSRF") → it checks those three things and stops. Give it an open-ended instruction ("find everything wrong") → it explores broadly and finds categories you did not list. (This is why RV-02 is deliberately unstructured.)
+
+This is not mysticism. It is pattern recognition accumulated over thousands of hours of agent interaction, and every practitioner develops it after running enough sessions.
 
 ---
 

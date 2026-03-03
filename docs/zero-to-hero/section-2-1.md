@@ -109,11 +109,13 @@ Jeff also maps his 32 master prompts to a physical Stream Deck. Each prompt fire
 
 After installation, run `onboard` for an interactive 33-lesson tutorial (254 minutes total) covering everything from Linux basics through full agentic workflows. The learning hub is also available at [agent-flywheel.com/learn](https://agent-flywheel.com/learn).
 
+Lessons are grouped into three tiers: **Foundations** (Lessons 1-9: Linux, shell, git, and toolchain basics for practitioners new to CLI-based development), **Core Methodology** (Lessons 10-20: the flywheel loop, prompting, planning, beads, and case studies), and **Advanced** (Lessons 21-33: multi-machine scaling, custom tool building, and production operations).
+
 Key lessons for practitioners:
-- **Lesson 10** — The Flywheel Loop (how all 29 tools connect)
-- **Lesson 18** — The Art of Agent Direction (Jeff's core prompting methodology)
-- **Lesson 19** — Case Study: cass-memory (build a complex project in one day)
-- **Lesson 20** — Case Study: SLB (from tweet to working tool in one evening)
+- **Lesson 10** — The Flywheel Loop: how all 29 tools connect into a single workflow
+- **Lesson 18** — The Art of Agent Direction: Jeff's core prompting methodology (complements [section 1.5](section-1-5.md))
+- **Lesson 19** — Case Study: cass-memory: build a complex project in one day (complements [section 2.5.8](section-2-5.md))
+- **Lesson 20** — Case Study: SLB: from tweet to working tool in one evening (complements [section 2.5.8](section-2-5.md))
 
 ---
 

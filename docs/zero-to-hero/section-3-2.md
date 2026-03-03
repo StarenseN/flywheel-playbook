@@ -578,6 +578,8 @@ Research recent CVEs relevant to the libraries and patterns in this project.
 Create sandboxed tests that probe for similar vulnerabilities. Use ultrathink.
 ```
 
+**Usage:** Run after dependency updates or when using libraries with known CVE history. Best with Gemini or o3 (strong at formal reasoning about vulnerability patterns). Frequency: once per project, plus after any major dependency upgrade. The sandboxed tests become part of the permanent test suite, catching future regressions.
+
 ---
 
 #### RV-07 -- Stub Eliminator
@@ -588,6 +590,8 @@ be replaced with FULLY FLESHED OUT, working, correct, performant, idiomatic code
 as per the beads. Do this meticulously and carefully!
 ```
 
+**Usage:** Run after every fix session and before closing any project phase. This targets the [Placeholder Regression anti-pattern](section-3-6.md#367-placeholder-regression) -- agents that "simplify" working code into stubs while fixing nearby bugs. Best run with a fresh agent that has no memory of the original implementation. Frequency: every 2-3 fix rounds, and always before final review.
+
 ---
 
 #### RV-08 -- UBS Scan
@@ -596,6 +600,8 @@ as per the beads. Do this meticulously and carefully!
 Run ubs . to scan the entire codebase. Analyze the results carefully and identify
 any issues, improvements, or areas needing attention. Use ultrathink.
 ```
+
+**Usage:** Automated codebase health scan using the [UBS tool](section-3-1.md). Run periodically during execution (every 20-30 beads) and always before entering Phase 7 (review). The agent runs the `ubs` CLI, then analyzes the structured output for patterns that warrant manual review. Best with Claude or Codex (needs shell access to run the tool).
 
 ---
 
@@ -606,6 +612,8 @@ Pick 5 random files in the project you haven't looked at recently. Read them
 carefully. Trace their execution flows. Find anything wrong. Fix it.
 Use ultrathink.
 ```
+
+**Usage:** The "spot check" prompt. Catches issues in files that no other review specifically targets -- utility modules, configuration files, helper functions that every bead assumes work correctly. Run with fresh agents (the "recently" constraint ensures they explore unfamiliar territory). Frequency: once per review cycle. Particularly effective with Gemini, which brings an orthogonal perspective to files Claude or Codex wrote.
 
 ---
 
@@ -643,6 +651,8 @@ Scrutinize the UX of the entire project. Find every rough edge, confusing flow,
 and unintuitive behavior. Fix them all. Use ultrathink.
 ```
 
+**Usage:** Run after the primary implementation is complete and QA-01 (Stripe-Level UI) has been applied. QA-01 builds the UI; QA-03 stress-tests it from a user's perspective. Best with a fresh agent that did not build the UI (avoids authorial bias). Check both desktop and mobile flows. Pairs naturally with QA-05 (Deploy & Verify) for end-to-end validation.
+
 ---
 
 #### QA-04 -- Root-Cause Fix (root-cause only)
@@ -652,6 +662,8 @@ Find the root cause of this bug. Don't patch symptoms. Understand why it happene
 fix the underlying issue, and verify the fix doesn't break anything else.
 Use ultrathink.
 ```
+
+**Usage:** For specific, identified bugs -- not for general review (use RV-02 for that). The key difference from a standard fix prompt is the explicit instruction to trace causation, not just symptoms. Send this when an agent's previous fix attempt patched the symptom but the bug recurred. Best with Opus or Codex, which tend to follow the causal chain more reliably than models that jump to the nearest plausible fix.
 
 ---
 
@@ -664,6 +676,8 @@ playwright as both desktop and mobile browser and take screenshots and check for
 js errors and look at the screenshots for potential problems and iterate and fix
 them all super carefully!
 ```
+
+**Usage:** Replace `<PLATFORM>` with your deployment target (e.g., `Vercel`, `Railway`, `fly.io`, `AWS`). Requires Playwright installed in the agent's environment. The prompt covers the full deploy-verify-fix loop: deploy, visit as desktop browser, visit as mobile browser, screenshot both, check for JS console errors, and iterate. Run after QA-02 (E2E tests pass) and before marking the project complete. Best with Claude Code (needs full shell access for deployment commands and Playwright).
 
 ---
 
@@ -749,6 +763,8 @@ Based on everything you've seen, what are the weakest/worst parts of the system?
 What is most needing of fresh ideas and innovative/creative/clever improvements?
 ```
 
+**Usage:** Strategic assessment prompt. Run with a fresh agent that has just completed MT-01 (Deep Project Primer) -- it has full context but no authorial investment. The open-ended framing avoids leading the model toward specific areas. Useful mid-project (after 50% of beads complete) to identify structural issues before they compound, and at project end to generate improvement backlog for the next iteration.
+
 ---
 
 #### MT-03 -- README Reviser (present-tense docs)
@@ -759,6 +775,8 @@ to the project. Frame all updates as if they were always present (i.e., don't
 say "we added X" or "X is now Y" -- just describe the current state). Make sure
 to add any new commands, options, or features that have been added.
 ```
+
+**Usage:** Run after every major implementation milestone (every 15-20 beads, or at epic boundaries). The "present tense" instruction is critical: it prevents the documentation from accumulating changelog-style entries that confuse future agents and users. The agent should read the existing README, compare it to the current codebase, and rewrite outdated sections as if the new state was always the design.
 
 ---
 
@@ -773,6 +791,8 @@ like the kind of thing an LLM would write disproportionately more commonly than
 a human. You MUST manually read each line and revise it -- no regex, no scripts.
 ```
 
+**Usage:** Run on any user-facing text (README, docs, UI copy) before release. The "no regex, no scripts" instruction forces the model to read each sentence individually rather than pattern-matching. Common AI tells to watch for: em dashes used as dramatic pauses, "It's worth noting that," "Here's the thing," "Let's dive in," "In conclusion," and the "Not X, but Y" rhetorical structure. Run with Claude (strong prose quality) or Gemini (catches different patterns than Claude).
+
 ---
 
 #### MT-05 -- Code Reorganizer (file restructuring)
@@ -786,6 +806,8 @@ This plan should include your detailed reorganization plan, the super-detailed
 rationale and justification for the proposed structure, and tracking of all import
 changes needed so we don't break anything.
 ```
+
+**Usage:** Replace `<DIR>` with the directory to reorganize (e.g., `src/`, `lib/`). This is a two-phase prompt: first the agent explores and proposes (producing the plan document), then the human reviews and approves before the agent executes. Never let this run in a single shot -- the proposal step is a mandatory gate. Run when file count in a directory exceeds ~30 or when multiple agents report difficulty navigating the project structure.
 
 ---
 

@@ -151,7 +151,7 @@ The full performance audit prompt (QA-08) directs agents through a 7-step method
 
 ---
 
-### 2.5.X Two Projects, Start to Finish
+### 2.5.8 Two Projects, Start to Finish
 
 The methodology works at every scale. Here are two real projects that demonstrate the full pipeline.
 
@@ -163,14 +163,14 @@ On December 13, 2025, a Twitter conversation about AI agents accidentally deleti
 |:------|:-------------|:-----|
 | Spark | Tweet discussion about AI safety | 3:55 PM |
 | Plan draft | First plan written with Claude Code | ~4:30 PM |
-| Multi-model review | 4 frontier models (Opus, Gemini, GPT, Claude) | Evening |
-| Bead conversion | 14 epics, 62 tasks, 76 total beads | Evening |
-| Swarm execution | 3-5 agents, Formation B | Overnight |
+| Multi-model review | 4 frontier models (Opus, Gemini, GPT, Claude) | ~5-7 PM (2h) |
+| Bead conversion | 14 epics, 62 tasks, 76 total beads | ~7-8 PM (1h) |
+| Swarm execution | 3-5 agents, Formation B | 8 PM → 6 AM (overnight) |
 | **Result** | 268 commits, ~70% complete by morning | One evening |
 
 SLB is the ideal "your first real project" — small enough for Formation B (2-3 agents), large enough to exercise the full pipeline.
 
-#### The cass-memory Project (5 Hours, 693 Beads)
+#### The cass-memory Project (8 Hours: 3h Planning + 5h Execution, 693 Beads)
 
 A complex three-layer memory system (Episodic → Working → Procedural) built from scratch in a single day using the full flywheel.
 

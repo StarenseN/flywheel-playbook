@@ -155,28 +155,46 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 ### 3.6.12 Git Worktrees for Agent Swarms
 
-Using git worktrees to give each agent an isolated copy of the repo is tempting but counterproductive. Conflicts that would surface immediately in a shared repo get deferred until merge time — when context is lost and the agents that created the conflicts cannot explain them.
+**Anti-pattern:** Giving each agent its own git worktree (isolated working directory) so they never interfere with each other.
 
-**Why shared-repo works:** Agent Mail file reservations prevent simultaneous edits. Merge conflicts surface in real time, when both agents still have context. The commit agent groups changes logically, not by branch.
+**Why it fails:** Worktrees defer conflicts to merge time. When Agent A edits `auth.rs` in worktree-A and Agent B edits it in worktree-B, neither sees the other's changes until someone merges. By then, both agents have moved on, lost context, and cannot explain their changes. The merge conflict becomes a puzzle with no witnesses.
 
 > *"All agents in same repo — surfaces conflicts early."*
+> -- ACFS methodology (FLYWHEEL.md)
+
+**What to do instead:** All agents share one working directory. Agent Mail file reservations prevent simultaneous edits to the same file. When conflicts do occur, both agents still have context and can resolve them immediately. The commit agent groups changes by bead, not by branch.
+
+**Exception:** If using `jujutsu` (jj) instead of git, its first-class conflict representation makes worktree-like isolation viable because conflicts are data, not errors. This is mentioned in [section 2.4.6](section-2-4.md) but is not the default ACFS workflow.
 
 ### 3.6.13 Sending Execution Prompts to Fresh Agents
 
-A fresh agent (newly spawned or post-compaction) has no project context. Sending EX-01 (Execute Beads) before EX-03 (Agent Introduction) produces agents that hallucinate project structure, invent conventions, and write code that does not fit.
+**Anti-pattern:** Sending EX-01 (Execute Beads) to an agent that has not yet run EX-03 (Agent Introduction).
 
-**Always:** EX-03 first. Wait for the agent to read AGENTS.md, register with Agent Mail, and understand the project. Then EX-01.
+**Why it fails:** A fresh agent — whether newly spawned or recovered from context compaction — has no project context. It does not know the project's conventions, file structure, naming patterns, or architectural decisions. Without EX-03, the agent hallucates project structure, invents naming conventions that contradict AGENTS.md, and writes code that does not integrate with the existing codebase.
+
+**Symptoms:** The agent creates files in wrong directories, uses camelCase in a snake_case project, implements features that already exist under different names, or produces code that passes its own tests but fails integration.
+
+**What to do instead:** Always EX-03 first. Wait for the agent to read AGENTS.md, register with Agent Mail, and demonstrate understanding (check its first Agent Mail message). Only then send EX-01. After context compaction, send EX-04 (which re-reads AGENTS.md) before resuming execution.
 
 ### 3.6.14 Assuming Prompts Were Sent
 
-Terminal paste silently fails roughly 50% of the time. An agent sitting idle after you "sent" a prompt may have never received it.
+**Anti-pattern:** Pasting a prompt into a tmux pane and assuming the agent received it without verification.
+
+**Why it fails:** Terminal paste silently fails roughly 50% of the time. Tmux pane focus, clipboard race conditions, and terminal buffering all conspire against reliable delivery. An agent sitting idle after you "sent" a prompt may have never received it. You wait 20 minutes for output. The agent waits forever for input. Both sides lose.
 
 **Always verify after sending:**
 ```bash
-sleep 10 && tail -3 ~/.claude/projects/<path>/*.jsonl | jq -r '{type, ts: .timestamp}'
+# Use ntm for reliable delivery:
+ntm --robot-send=SESSION --msg='<prompt>'
+
+# MANDATORY: verify arrival (wait 10s, check JSONL):
+sleep 10 && tail -3 ~/.claude/projects/-data-projects-myproject/*.jsonl | jq -r '{type, ts: .timestamp}'
+
+# If JSONL shows no new activity, nudge with Enter:
+tmux send-keys -t SESSION Enter
 ```
 
-If the JSONL shows no new activity, nudge with Enter or resend. This is the #1 operational failure mode that catches every new practitioner.
+This is the #1 operational failure mode that catches every new practitioner. See [section 2.7.5](section-2-7.md#275-prompt-delivery-verification) for the full verification protocol.
 
 ### 3.6.15 War Story: The Python-to-Rust Agent Mail Rewrite
 

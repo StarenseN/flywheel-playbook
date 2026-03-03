@@ -57,8 +57,8 @@ This guide has three levels. Start wherever matches your experience:
 
 !!! tip "Also on this site"
 
-    - [The Playbook](../playbook/index.md) -- Phase-by-phase walkthrough (condensed)
-    - [Full Prompt Pack](../prompts/prompt-pack.md) -- All 47 prompts in copy-paste format
-    - [Doctrine](../reference/doctrine.md) -- The 14 non-negotiable rules
-    - [Anti-Patterns Quick Ref](../reference/anti-patterns.md) -- Condensed anti-pattern list
-    - [Jeff Teaches](../jeff-teaches.md) -- Jeff's methodology in his own words
+    - [The Playbook](../playbook/index.md) -- Condensed phase-by-phase reference for daily use (read after completing this guide)
+    - [Full Prompt Pack](../prompts/prompt-pack.md) -- All 47 prompts in copy-paste format (for Stream Deck / text expander setup)
+    - [Doctrine](../reference/doctrine.md) -- The 14 non-negotiable rules (quick-reference card for AGENTS.md)
+    - [Anti-Patterns Quick Ref](../reference/anti-patterns.md) -- One-line anti-pattern summaries (print and post near your monitor)
+    - [Jeff Teaches](../jeff-teaches.md) -- The methodology explained in Jeff's own words and tweets

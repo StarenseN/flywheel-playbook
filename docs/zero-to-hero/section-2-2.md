@@ -102,3 +102,9 @@ When `PLAN_CODEX.md` appears alongside the primary plan in a repository, it sign
 
 ---
 
+!!! tip "Related pages on this site"
+
+    - [3.3 Configuration Reference](section-3-3.md) -- Full AGENTS.md template and MCP settings
+    - [2.3 Writing the Plan](section-2-3.md) -- Next step: producing the plan these files will contain
+    - [Phase 0: Prerequisites](../playbook/phase-0-prerequisites.md) -- The prerequisite checklist before starting
+
