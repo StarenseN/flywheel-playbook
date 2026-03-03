@@ -19,3 +19,7 @@ Each phase has a **stop condition** -- an explicit signal that tells you when to
 | 6 | [Implement with Swarm](phase-6-swarm.md) | All beads implemented and marked complete |
 | 7 | [Fresh-Eyes Review](phase-7-review.md) | Review passes produce no substantive diffs |
 | 8 | [Performance](phase-8-performance.md) | All profiling beads complete |
+
+!!! tip "Want the full picture?"
+
+    The [Zero to Hero Guide](../zero-to-hero/index.md) covers everything on this site in one unified document: strategy, operations, and tactical reference.

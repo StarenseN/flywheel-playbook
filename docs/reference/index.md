@@ -14,3 +14,7 @@ Lookup tables for when you already understand the methodology and need to find s
 | [Toolchain](toolchain.md) | You need to know what tool does what |
 
 **Reading order when something breaks:** Anti-Patterns first (are you doing a known bad thing?), then Doctrine (what's the rule?), then Dispatch (what prompt fixes it?).
+
+!!! tip "Deep reference"
+
+    The [Zero to Hero Guide](../zero-to-hero/index.md) has expanded versions of every reference table here, with Jeff's verbatim quotes and forensic evidence from his repos.

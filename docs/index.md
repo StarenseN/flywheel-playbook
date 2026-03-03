@@ -7,7 +7,8 @@ icon: lucide/home
 Definitive guide to building software with AI agent swarms.
 
 [Get Started](playbook/principles.md) |
-[Prompt Catalog](prompts/prompt-pack.md)
+[Prompt Catalog](prompts/prompt-pack.md) |
+[Zero to Hero](zero-to-hero/index.md)
 
 ---
 
@@ -38,6 +39,7 @@ There is a deeper flywheel most people miss: **each project you build becomes a 
 | [Toolchain](reference/toolchain.md) | 23 tools that make the flywheel turn |
 | [Anti-Patterns](reference/anti-patterns.md) | 14 ways to destroy your project |
 | [Doctrine](reference/doctrine.md) | 14 non-negotiable rules |
+| **[Zero to Hero](zero-to-hero/index.md)** | **The complete guide: strategy, operations, and reference in one place** |
 
 ---
 

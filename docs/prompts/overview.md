@@ -4,7 +4,7 @@ icon: lucide/terminal
 
 # Prompt Index
 
-47 prompts. Find the right one, then go to the [Full Prompt Pack](prompt-pack.md) to copy it.
+47 prompts. Find the right one, then go to the [Full Prompt Pack](prompt-pack.md) to copy it. For usage context and forensic evidence, see [3.2 Prompt Reference](../zero-to-hero/section-3-2.md).
 
 ---
 
