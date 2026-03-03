@@ -421,9 +421,6 @@ Not everyone needs the full toolchain. Here is a decision matrix based on projec
 
 ---
 
-
----
-
 !!! tip "Related pages on this site"
 
     - [Tool Quick Reference](../reference/toolchain.md)

@@ -97,9 +97,3 @@ You do not need to run marathon sessions. Structured sprints (spin up agents, ru
 
 ---
 
-# LEVEL 3: TACTICAL -- "The Reference"
-
-Everything in Levels 1 and 2 explains why the methodology exists and how to execute it. Level 3 is the lookup table. When you need to know what a tool does, how a prompt works, or how to configure a project file, this is where you come.
-
----
-

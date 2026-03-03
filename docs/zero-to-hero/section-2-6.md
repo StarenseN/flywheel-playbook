@@ -92,7 +92,7 @@ NTM enables a single human to monitor and steer many agents simultaneously. When
 
 ### 2.6.5 Worktrees vs. Shared State
 
-See section 2.4.6 for the full discussion. In brief: the methodology recommends shared-state by default, with advisory file reservations and bead-level decomposition preventing collisions. Worktrees are an alternative that some practitioners use successfully, particularly with jujutsu (jj) instead of git.
+See [section 2.4.6](section-2-4.md#246-shared-state-vs-worktrees) for the full discussion. In brief: the methodology recommends shared-state by default, with advisory file reservations and bead-level decomposition preventing collisions. Worktrees are an alternative that some practitioners use successfully, particularly with jujutsu (jj) instead of git.
 
 ---
 
@@ -139,9 +139,6 @@ Integration issues are expected, not failures. When 6 agents implement 20 beads 
 > — Jeffrey Emanuel
 
 The safety net that makes all of this viable is test coverage. Projects with 10,000+ unit and end-to-end tests can tolerate aggressive parallelism because regressions surface immediately.
-
----
-
 
 ---
 

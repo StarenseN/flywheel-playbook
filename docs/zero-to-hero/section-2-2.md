@@ -84,7 +84,7 @@ The plan is a *read-once* artifact in the execution workflow. Once beads are cre
 
 ### 2.2.5 Directory Conventions
 
-When multi-model competition runs during planning (see section 2.3.4), the competing specs appear as parallel files:
+When multi-model competition runs during planning (see [section 2.3.4](section-2-3.md#234-multi-model-competition)), the competing specs appear as parallel files:
 
 ```
 docs/plans/

@@ -51,14 +51,14 @@ This guide has three levels. Start wherever matches your experience:
 | [3.3 Configuration Reference](section-3-3.md) | AGENTS.md template, CLAUDE.md, MCP, NTM layouts |
 | [3.4 Scaling Patterns](section-3-4.md) | Formation taxonomy, model mix, cost, hardware |
 | [3.5 Troubleshooting](section-3-5.md) | 9 failure modes with fix protocols |
-| [3.6 Anti-Patterns](section-3-6.md) | 12 anti-patterns + war story |
+| [3.6 Anti-Patterns](section-3-6.md) | 11 anti-patterns + war story |
 
 ---
 
 !!! tip "Also on this site"
 
-    - [The Playbook](playbook/index.md) -- Phase-by-phase walkthrough (condensed)
-    - [Full Prompt Pack](prompts/prompt-pack.md) -- All 47 prompts in copy-paste format
-    - [Doctrine](reference/doctrine.md) -- The 12 operating principles
-    - [Anti-Patterns Quick Ref](reference/anti-patterns.md) -- Condensed anti-pattern list
-    - [Jeff Teaches](jeff-teaches.md) -- Jeff's methodology in his own words
+    - [The Playbook](../playbook/index.md) -- Phase-by-phase walkthrough (condensed)
+    - [Full Prompt Pack](../prompts/prompt-pack.md) -- All 47 prompts in copy-paste format
+    - [Doctrine](../reference/doctrine.md) -- The 12 operating principles
+    - [Anti-Patterns Quick Ref](../reference/anti-patterns.md) -- Condensed anti-pattern list
+    - [Jeff Teaches](../jeff-teaches.md) -- Jeff's methodology in his own words

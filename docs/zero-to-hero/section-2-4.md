@@ -108,9 +108,6 @@ Some practitioners successfully use jujutsu (jj) instead of git for agent isolat
 
 ---
 
-
----
-
 !!! tip "Related pages on this site"
 
     - [Phase 4: Beads](../playbook/phase-4-beads.md)

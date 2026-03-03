@@ -97,9 +97,6 @@ Neither of these insights is complicated. The methodology's value is in making t
 
 ---
 
-
----
-
 !!! tip "Related pages on this site"
 
     - [12 Principles](../playbook/principles.md)

@@ -123,13 +123,6 @@ The practical implication: do not micromanage agent execution. If the planning w
 
 ---
 
-
-
-# LEVEL 2: OPERATIONAL — "How To Do It"
-
-
----
-
 !!! tip "Related pages on this site"
 
     - [Doctrine Reference](../reference/doctrine.md)

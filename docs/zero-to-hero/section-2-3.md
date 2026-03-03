@@ -130,9 +130,6 @@ After each project, an `ANALYSIS_OF_SPEC_DOC_DIFFS.md` is generated: a systemati
 
 ---
 
-
----
-
 !!! tip "Related pages on this site"
 
     - [Phase 1: Draft](../playbook/phase-1-draft.md)

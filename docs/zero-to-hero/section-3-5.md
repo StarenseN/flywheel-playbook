@@ -191,9 +191,6 @@ If `acfs doctor` reports issues, fix them before spawning agents. Starting a swa
 
 ---
 
-
----
-
 !!! tip "Related pages on this site"
 
     - [Anti-Patterns Quick Reference](../reference/anti-patterns.md)

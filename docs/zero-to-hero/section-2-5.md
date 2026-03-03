@@ -49,7 +49,7 @@ The numbered sessions create a paper trail. If Part 14 introduced a regression, 
 
 ### 2.5.3 Praise Rounds in Execution
 
-The praise round technique from planning (section 2.3.3) extends to execution. When reviewing code, ask the model what is *good* about it before asking what is wrong:
+The praise round technique from planning ([section 2.3.3](section-2-3.md#233-iterating-diff-based-revisions-not-rewrites)) extends to execution. When reviewing code, ask the model what is *good* about it before asking what is wrong:
 
 > *"Review this code. First, tell me what's excellent about it."*
 
@@ -122,9 +122,6 @@ Commit rules:
 - Group commits by bead or feature slice, not by time.
 - Include bead IDs in commit messages: `feat(auth): implement JWT validation [BEAD-042]`
 - The commit agent does not edit code, only commits. Jeff's `dcg` tool enforces this by preventing agents from running `git checkout`.
-
----
-
 
 ---
 

@@ -4,7 +4,7 @@ icon: lucide/message-square
 
 ## 3.2 Prompt Reference
 
-The ACFS prompt library contains 41 named prompts. They are designed to be used verbatim -- copy-paste, not paraphrase. Jeff maps them to physical Stream Deck buttons for instant dispatch to agents via NTM.
+The ACFS prompt library contains 47 named prompts. They are designed to be used verbatim -- copy-paste, not paraphrase. Jeff maps them to physical Stream Deck buttons for instant dispatch to agents via NTM.
 
 > *"Basically they attend to every word, so every word is critically important. You want prompts to be short so that they don't overly constrain the models but they need to force the model to work hard to go beyond their default posture."*
 > -- Jeffrey Emanuel
@@ -717,9 +717,6 @@ The prompts are designed to be used verbatim. However, there are three valid ada
 - Do not add role-play preambles ("You are an expert senior backend engineer"). Frontier models understand intent. Role-playing constraints narrow the solution space (Anti-Pattern #2 from the Doctrine).
 - Do not enumerate everything the model should think about. Short prompts that force the model beyond its default posture beat long prompts that catalog concerns.
 - Do not paraphrase. The prompts are calibrated. "Carefully fix anything you uncover" is not the same as "fix bugs." The word "carefully" changes the model's behavior.
-
----
-
 
 ---
 

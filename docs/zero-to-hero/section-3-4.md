@@ -17,7 +17,7 @@ The number of agents you run is not a dial you turn to "fast." It is a formation
 | **E** | 11--15 | Major systems (frankensqlite scale) | 6 CC + 4 Codex + 2 Gemini + 1 commit + 1-2 review |
 | **F+** | 15+ | Full-scale swarms (frankenglibc) | 8+ CC + 8+ Codex + Gemini, across 3 machines |
 
-Source: `/data/projects/Doodlestein/acfs_doc/FLYWHEEL.md` lines 287-294.
+Source: ACFS methodology documentation (FLYWHEEL.md).
 
 The commit agent is always a singleton. Review agents scale with the coder count: 1 reviewer per 4-5 coders. The "reality checker" role (an agent that validates against real data rather than tests) is optional, needed only for data-intensive projects.
 
@@ -56,7 +56,7 @@ Jeff's observed model allocation as of late February 2026, per his own statement
 | Commit (P11) | Claude ONLY | Codex, Gemini (git issues) |
 | QA / Reality Check | Codex, Gemini | -- |
 
-Source: `/data/projects/Doodlestein/acfs_doc/ACFS_WIZARD.md` lines 202-207.
+Source: ACFS methodology documentation (ACFS_WIZARD.md).
 
 ### 3.4.3 Cost Modeling
 
@@ -72,7 +72,7 @@ Source: `/data/projects/Doodlestein/acfs_doc/ACFS_WIZARD.md` lines 202-207.
 | **Total (full scale)** | **~$4,300+/month** |
 | **Total (starter, 1 of each)** | **~$440-650/month** |
 
-The starter cost for a solo practitioner: VPS ($40-56) + Claude Max ($200) + ChatGPT Pro ($200) = ~$440-656/month.
+The starter cost for a solo practitioner: VPS ($40-56) + Claude Max ($200) + ChatGPT Pro ($200) = ~$440-456/month.
 
 > *"Before claude code max i was spending ~$100 a day on sonnet"*
 > -- Jeffrey Emanuel
@@ -124,9 +124,6 @@ The starter cost for a solo practitioner: VPS ($40-56) + Claude Max ($200) + Cha
 
 > *"It's so incredibly useful to have a dedicated agent with knowledge of and ssh access to all your machines, that is highly skilled in the art of maintaining machines that are used for big agent swarms. Basically, clearing out junk temp files and killing stuck tests and runaways."*
 > -- Jeffrey Emanuel
-
----
-
 
 ---
 

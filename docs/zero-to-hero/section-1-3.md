@@ -86,9 +86,6 @@ The following section covers the economics of this approach: what it costs in ti
 
 ---
 
-
----
-
 !!! tip "Related pages on this site"
 
     - [Toolchain Reference](../reference/toolchain.md)

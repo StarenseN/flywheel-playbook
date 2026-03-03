@@ -8,7 +8,7 @@ icon: lucide/shield-alert
 
 **Anti-pattern:** Writing enormous, multi-page prompts that attempt to specify every constraint, exception, and edge case in a single instruction.
 
-**Why it fails:** Frontier models attend to every word (see section 1.5.2). A two-page prompt does not provide twice the guidance; it provides twice the constraints, many of which conflict or force the model into narrow solution paths that preclude better alternatives.
+**Why it fails:** Frontier models attend to every word (see [section 1.5.2](section-1-5.md#152-every-word-in-a-prompt-is-a-constraint)). A two-page prompt does not provide twice the guidance; it provides twice the constraints, many of which conflict or force the model into narrow solution paths that preclude better alternatives.
 
 > *"Yeah, resist the temptation early on. Bloated prompts just confuse the model more than they guide it."*
 > -- @glennsc (ACFS community)
@@ -106,7 +106,7 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 **Why it happens:** The model's context includes the fix intent but not the full implementation of the adjacent function. It "simplifies" the surrounding code to focus on the fix, silently destroying working logic. This is Jeff's most hated failure mode.
 
-**How to catch it:** The stub eliminator prompt (in section 3.2.4) specifically targets this. Run it after every fix session, not just at project end. Code review (P03) by a different model also catches it, because the reviewing model has no memory of the "simplification" that seemed reasonable to the fixing model.
+**How to catch it:** The stub eliminator prompt (in [section 3.2.4](section-3-2.md#324-review-prompts-p02-p02b-p03-p12-p13-p14-p19-p21-p23-p27-p29)) specifically targets this. Run it after every fix session, not just at project end. Code review (P03) by a different model also catches it, because the reviewing model has no memory of the "simplification" that seemed reasonable to the fixing model.
 
 ### 3.6.8 Abstraction Sprawl
 
@@ -131,7 +131,7 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 **Anti-pattern:** Treating unexpected model contributions as bugs or noise instead of evaluating them on merit.
 
-**What alien artifacts are:** When a frontier model produces something beyond what was specified in the plan -- a novel algorithm, an unexpected optimization, an architectural pattern you didn't envision -- Jeff calls these "alien artifacts" (see section 2.5.4). They are one of the methodology's most valuable outputs.
+**What alien artifacts are:** When a frontier model produces something beyond what was specified in the plan -- a novel algorithm, an unexpected optimization, an architectural pattern you didn't envision -- Jeff calls these "alien artifacts" (see [section 2.5.4](section-2-5.md#254-alien-artifacts)). They are one of the methodology's most valuable outputs.
 
 > *"The 'alien artifact' stuff has specific meaning in my case; I have these 'skills' that explain what these things mean."*
 > -- Jeffrey Emanuel
