@@ -95,3 +95,7 @@ This is a fair observation, and it points to an important caveat: the flywheel's
 
 ---
 
+!!! tip "Related pages on this site"
+
+    - [The Playbook](../playbook/index.md)
+

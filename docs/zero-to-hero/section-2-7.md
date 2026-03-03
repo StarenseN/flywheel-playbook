@@ -97,3 +97,7 @@ You do not need to run marathon sessions. Structured sprints (spin up agents, ru
 
 ---
 
+!!! tip "Related pages on this site"
+
+    - [Troubleshooting](section-3-5.md)
+

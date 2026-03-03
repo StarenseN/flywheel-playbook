@@ -105,3 +105,8 @@ Jeff also maps his 32 master prompts to a physical Stream Deck. Each prompt fire
 
 ---
 
+!!! tip "Related pages on this site"
+
+    - [Tool Reference](section-3-1.md)
+    - [Configuration Reference](section-3-3.md)
+

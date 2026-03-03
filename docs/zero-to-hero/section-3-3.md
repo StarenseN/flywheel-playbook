@@ -263,3 +263,7 @@ The Stream Deck is not required. The prompts work identically when typed or past
 
 ---
 
+!!! tip "Related pages on this site"
+
+    - [Anatomy of an ACFS Project](section-2-2.md)
+

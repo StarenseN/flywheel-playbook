@@ -40,7 +40,7 @@ Key characteristics:
 |---|---|
 | **Stars** | 623 |
 | **Language** | Rust |
-| **GitHub** | github.com/Dicklesworthstone/beads_rust |
+| **GitHub** | [beads_rust](https://github.com/Dicklesworthstone/beads_rust) |
 
 **Role:** Local-first issue tracker. The execution graph for all agent work.
 
@@ -68,7 +68,7 @@ bd ...                                                  # Alias (backward compat
 |---|---|
 | **Stars** | 891 |
 | **Language** | Go |
-| **GitHub** | github.com/Dicklesworthstone/beads_viewer |
+| **GitHub** | [beads_viewer](https://github.com/Dicklesworthstone/beads_viewer) |
 
 **Role:** Graph-theory triage engine for beads. Tells agents what to work on.
 
@@ -98,7 +98,7 @@ bv -export-pages /tmp/bv   # Static HTML site of the bead graph
 |---|---|
 | **Stars** | 160 |
 | **Language** | Go |
-| **GitHub** | github.com/Dicklesworthstone/ntm |
+| **GitHub** | [ntm](https://github.com/Dicklesworthstone/ntm) |
 
 **Role:** Agent cockpit. Spawns, monitors, and manages agent sessions.
 
@@ -131,7 +131,7 @@ ntm --robot-status --json                 # Full JSON status
 |---|---|
 | **Stars** | 524 |
 | **Language** | Rust |
-| **GitHub** | github.com/Dicklesworthstone/coding_agent_session_search |
+| **GitHub** | [coding_agent_session_search](https://github.com/Dicklesworthstone/coding_agent_session_search) |
 
 **Role:** Unified search across ALL agent sessions. The memory backbone.
 
@@ -163,7 +163,7 @@ These tools extend the core with safety nets, quality gates, and cross-session m
 |---|---|
 | **Stars** | 1,742 |
 | **Language** | Python (Rust variant: 22 stars) |
-| **GitHub** | github.com/Dicklesworthstone/mcp_agent_mail |
+| **GitHub** | [mcp_agent_mail](https://github.com/Dicklesworthstone/mcp_agent_mail) |
 
 **Role:** Inter-agent coordination. The messaging backbone.
 
@@ -188,7 +188,7 @@ Agents register identities, send/receive messages, and declare file reservations
 |---|---|
 | **Stars** | 132 |
 | **Language** | Bash |
-| **GitHub** | github.com/Dicklesworthstone/ultimate_bug_scanner |
+| **GitHub** | [ultimate_bug_scanner](https://github.com/Dicklesworthstone/ultimate_bug_scanner) |
 
 **Role:** AST-grep patterns, 1000+ detection rules, 8 languages, 18 categories. The quality gate.
 
@@ -211,7 +211,7 @@ ubs $(git diff --name-only --cached)      # Scan staged files only
 |---|---|
 | **Stars** | 89 |
 | **Language** | Rust |
-| **GitHub** | github.com/Dicklesworthstone/destructive_command_guard |
+| **GitHub** | [destructive_command_guard](https://github.com/Dicklesworthstone/destructive_command_guard) |
 
 **Role:** Claude Code PreToolUse hook. Blocks dangerous commands BEFORE execution.
 
@@ -241,7 +241,7 @@ DCG is what makes "vibe mode" (passwordless sudo, dangerous flags enabled) safe.
 |---|---|
 | **Stars** | 28 |
 | **Language** | TypeScript |
-| **GitHub** | github.com/Dicklesworthstone/brenner_bot |
+| **GitHub** | [brenner_bot](https://github.com/Dicklesworthstone/brenner_bot) |
 
 **Role:** Research orchestration inspired by Nobel laureate Sydney Brenner.
 
@@ -262,7 +262,7 @@ Jeff describes the broader value beyond molecular biology:
 |---|---|
 | **Stars** | 253 |
 | **Language** | TypeScript |
-| **GitHub** | github.com/Dicklesworthstone/cass_memory_system |
+| **GitHub** | [cass_memory_system](https://github.com/Dicklesworthstone/cass_memory_system) |
 
 **Role:** Procedural memory for agents. Three-layer cognitive architecture: Episodic -> Working -> Procedural.
 
@@ -290,7 +290,7 @@ cm stale                       # Find outdated memories
 |---|---|
 | **Stars** | 35 |
 | **Language** | Rust |
-| **GitHub** | github.com/Dicklesworthstone/remote_compilation_helper |
+| **GitHub** | [remote_compilation_helper](https://github.com/Dicklesworthstone/remote_compilation_helper) |
 
 **Role:** Claude Code PreToolUse hook. Offloads cargo builds to remote workers.
 
@@ -306,7 +306,7 @@ Intercepts build commands, syncs source via rsync + zstd compression, builds on 
 |---|---|
 | **Stars** | 59 |
 | **Language** | Go |
-| **GitHub** | github.com/Dicklesworthstone/simultaneous_launch_button |
+| **GitHub** | [simultaneous_launch_button](https://github.com/Dicklesworthstone/simultaneous_launch_button) |
 
 **Role:** Two-person rule for dangerous commands. Nuclear-launch-style safety.
 
@@ -326,7 +326,7 @@ These tools enable Jeff's specific scale (50+ agents across 3 machines) but are 
 |---|---|
 | **Stars** | 59 |
 | **Language** | TypeScript |
-| **GitHub** | github.com/Dicklesworthstone/coding_agent_account_manager |
+| **GitHub** | [coding_agent_account_manager](https://github.com/Dicklesworthstone/coding_agent_account_manager) |
 
 **Role:** Sub-100ms auth switching across multiple AI provider accounts.
 
@@ -360,7 +360,7 @@ A TUI tool for assembling code context into prompts. Useful when you need to ext
 |---|---|
 | **Stars** | 126 |
 | **Language** | Rust |
-| **GitHub** | github.com/Dicklesworthstone/meta_skill |
+| **GitHub** | [meta_skill](https://github.com/Dicklesworthstone/meta_skill) |
 
 **Role:** Skill management with MCP integration.
 
@@ -381,7 +381,7 @@ ms list              # List available skills
 |---|---|
 | **Stars** | 23 |
 | **Language** | Rust |
-| **GitHub** | github.com/Dicklesworthstone/rano |
+| **GitHub** | [rano](https://github.com/Dicklesworthstone/rano) |
 
 **Role:** Network observer. Tracks outbound connections from AI CLI processes.
 

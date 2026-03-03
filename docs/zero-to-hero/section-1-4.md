@@ -93,3 +93,7 @@ The crossover point is roughly in the 2,000-5,000 LOC range with multiple compon
 
 ---
 
+!!! tip "Related pages on this site"
+
+    - [Doctrine](../reference/doctrine.md)
+
