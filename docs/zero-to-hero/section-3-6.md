@@ -170,7 +170,7 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 **Anti-pattern:** Sending EX-01 (Execute Beads) to an agent that has not yet run EX-03 (Agent Introduction).
 
-**Why it fails:** A fresh agent — whether newly spawned or recovered from context compaction — has no project context. It does not know the project's conventions, file structure, naming patterns, or architectural decisions. Without EX-03, the agent hallucates project structure, invents naming conventions that contradict AGENTS.md, and writes code that does not integrate with the existing codebase.
+**Why it fails:** A fresh agent (whether newly spawned or recovered from context compaction) has no project context. It does not know the project's conventions, file structure, naming patterns, or architectural decisions. Without EX-03, the agent hallucinates project structure, invents naming conventions that contradict AGENTS.md, and writes code that does not integrate with the existing codebase.
 
 **Symptoms:** The agent creates files in wrong directories, uses camelCase in a snake_case project, implements features that already exist under different names, or produces code that passes its own tests but fails integration.
 

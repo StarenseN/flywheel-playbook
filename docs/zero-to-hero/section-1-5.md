@@ -130,9 +130,9 @@ This principle explains WHY praise rounds, short prompts, and multi-model compet
 > *"It has unfortunately learned incrementalism under the guise of being 'practical' from reading too much written by humans who were trying to sandbag and control expectations so they could phone it in and not get fired."*
 > — Jeffrey Emanuel
 
-Models default to conservative, incremental output because their training data is dominated by humans who undersell and underdeliver. Left to their own devices, models will suggest "reasonable" improvements instead of transformative ones. Every ACFS technique — the praise rounds that push past default quality, the short prompts that avoid triggering accommodation, the multi-model competition that breaks individual blind spots — exists to counteract this trained incrementalism.
+Models default to conservative, incremental output because their training data is dominated by humans who undersell and underdeliver. Left to their own devices, models will suggest "reasonable" improvements instead of transformative ones. The praise rounds push past default quality. The short prompts avoid triggering accommodation. The multi-model competition breaks individual blind spots. Every ACFS technique exists to counteract this trained incrementalism.
 
-The implication: if your AI output feels mediocre, the problem is not the model's capability. The problem is that you have not pushed past its default conservative prior.
+If your AI output feels mediocre, the model is probably capable of more. You have not pushed past its default conservative prior.
 
 ---
 
@@ -148,7 +148,7 @@ Jeff's tools, libraries, and project structures are designed for AI consumption,
 - File structures follow conventions agents predict (not creative human organization)
 - Libraries expose clean interfaces because agents navigate by convention, not intuition
 
-**Concrete example:** Every ACFS tool has `--robot-*` flags that emit structured JSON. A human sees `bv` output as a color-coded TUI dashboard; an agent sees `bv --robot-triage` output as parseable JSON: `{"ready": ["BEAD-042", "BEAD-043"], "blocked": ["BEAD-044"], "in_progress": ["BEAD-041"]}`. Similarly, `ntm --robot-status` returns machine-readable session state instead of a visual tmux layout. The `--robot-send` flag on `ntm` handles prompt delivery, headless mode, and ready-state detection — none of which a human operator needs, but all of which agents rely on.
+**Concrete example:** Every ACFS tool has `--robot-*` flags that emit structured JSON. A human sees `bv` output as a color-coded TUI dashboard; an agent sees `bv --robot-triage` output as parseable JSON: `{"ready": ["BEAD-042", "BEAD-043"], "blocked": ["BEAD-044"], "in_progress": ["BEAD-041"]}`. Similarly, `ntm --robot-status` returns machine-readable session state instead of a visual tmux layout. The `--robot-send` flag on `ntm` handles prompt delivery, headless mode, and ready-state detection — things a human operator would never use, but that agents depend on constantly.
 
 This is a design principle, not a joke. When your tools are optimized for agent ergonomics, every agent in the swarm works faster.
 
@@ -159,7 +159,7 @@ This is a design principle, not a joke. When your tools are optimized for agent 
 > *"Good prompting might seem like a hand wavy thing, but there's a lot that goes into making a prompt that performs well in many situations. I've been doing this stuff so much for so long that I've basically internalized the theory of mind of these models and the gestalt psychology."*
 > — @doodlestein
 
-Jeff makes a specific, testable claim: you can develop a predictive model of how language models respond to different inputs, analogous to the theory of mind humans develop for each other. This model is the foundation of everything else in the methodology — from understanding why praise rounds work (they shift the model's internal prior away from conservatism) to why the McCarthy prompt finds bugs (it reframes the task from "check" to "hunt").
+Jeff makes a specific, testable claim: you can develop a predictive model of how language models respond to different inputs, analogous to the theory of mind humans develop for each other. This predictive model underlies the entire methodology. It explains why praise rounds work (they shift the model's internal prior away from conservatism), why the McCarthy prompt finds bugs (it reframes the task from "check" to "hunt"), and why short prompts outperform long ones (they leave room for the model to reason rather than comply).
 
 **Concrete predictions this theory of mind produces:**
 
@@ -167,7 +167,7 @@ Jeff makes a specific, testable claim: you can develop a predictive model of how
 - Ask a model to "improve this code" → it rewrites aggressively, breaking working logic. Ask it "what's excellent about this code?" first → it anchors on strengths and proposes surgical improvements. (This is why praise rounds precede review rounds.)
 - Give a model a prescriptive checklist ("check for SQL injection, XSS, CSRF") → it checks those three things and stops. Give it an open-ended instruction ("find everything wrong") → it explores broadly and finds categories you did not list. (This is why RV-02 is deliberately unstructured.)
 
-This is not mysticism. It is pattern recognition accumulated over thousands of hours of agent interaction, and every practitioner develops it after running enough sessions.
+Call it pattern recognition, not mysticism. It accumulates over thousands of hours of agent interaction, and every practitioner starts developing it after their first few serious projects.
 
 ---
 

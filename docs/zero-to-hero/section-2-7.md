@@ -152,7 +152,7 @@ Never mix review prompts into a coding session. Never mix orchestration commands
 Never kill working agents. The protocol:
 
 1. Tell agents to finish: `ntm --robot-send=SESSION --msg='Finish your current task, commit your work, then stop.'`
-2. Wait for idle (do not poll — check after 2-3 minutes)
+2. Wait for idle (do not poll; check after 2-3 minutes)
 3. Verify clean state: `cd PROJECT && git diff --stat && br stats`
 4. Only then: `tmux kill-session -t SESSION`
 

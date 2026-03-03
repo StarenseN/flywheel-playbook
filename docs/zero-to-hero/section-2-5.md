@@ -67,7 +67,7 @@ For escalating review intensity, two prompts serve specific roles:
 ### 2.5.4 Alien Artifacts
 
 !!! warning "Phase Ordering Note"
-    In the site's [9-phase playbook](../playbook/index.md), alien artifacts are **Phase 3** — injected into the plan *before* bead conversion. They are covered here alongside execution for narrative flow, but in practice you should run the alien artifact pass during planning, before converting to beads.
+    In the site's [9-phase playbook](../playbook/index.md), alien artifacts are **Phase 3**, injected into the plan *before* bead conversion. They are covered here alongside execution for narrative flow, but in practice you should run the alien artifact pass during planning, before converting to beads.
 
 Alien artifacts are a named, scheduled phase of the methodology. Every project includes a deliberate injection of theoretical constructs that standard engineering would not produce.
 
@@ -157,7 +157,7 @@ The methodology works at every scale. Here are two real projects that demonstrat
 
 #### The SLB Project (One Evening, 76 Beads)
 
-On December 13, 2025, a Twitter conversation about AI agents accidentally deleting Kubernetes nodes inspired a safety mechanism: the Simultaneous Launch Button. "Two-person rule for AI agents" — dangerous commands require peer approval before execution.
+On December 13, 2025, a Twitter conversation about AI agents accidentally deleting Kubernetes nodes inspired a safety mechanism: the Simultaneous Launch Button. The concept: dangerous commands require peer approval before execution.
 
 | Phase | What Happened | Time |
 |:------|:-------------|:-----|
@@ -168,7 +168,7 @@ On December 13, 2025, a Twitter conversation about AI agents accidentally deleti
 | Swarm execution | 3-5 agents, Formation B | 8 PM → 6 AM (overnight) |
 | **Result** | 268 commits, ~70% complete by morning | One evening |
 
-SLB is the ideal "your first real project" — small enough for Formation B (2-3 agents), large enough to exercise the full pipeline.
+SLB is the ideal "your first real project": small enough for Formation B (2-3 agents), large enough to exercise the full pipeline.
 
 #### The cass-memory Project (8 Hours: 3h Planning + 5h Execution, 693 Beads)
 

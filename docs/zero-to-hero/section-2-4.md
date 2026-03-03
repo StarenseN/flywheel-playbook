@@ -110,7 +110,7 @@ Some practitioners successfully use jujutsu (jj) instead of git for agent isolat
 
 ### 2.4.7 The Bead Stabilization Loop
 
-Bead QA (BD-02) is not a single pass — it is a convergence loop:
+Bead QA (BD-02) is a convergence loop, not a single pass:
 
 1. **Convert:** A single agent converts the plan to beads via `br create`, producing the initial bead graph with epics, tasks, subtasks, and dependencies.
 2. **Graph correctness pass:** A different agent reviews the dependency structure. Are dependencies correct? Are there circular dependencies? Missing parent-child links?

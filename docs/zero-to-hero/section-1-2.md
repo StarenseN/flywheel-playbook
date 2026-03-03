@@ -94,7 +94,7 @@ The compounding goes deeper than tool integration. Each *project* built with the
 > *"My agentic coding workflow has gotten so meta and self-referential lately. I can feel the flywheel spinning faster and faster now as my level of interaction/prompting is increasingly directed at driving my own tools. Like this weird prompt I just used, telling Opus 4.5 to use my beads analysis tool to figure out what all its robot friends should most advantageously apply themselves to using graph theory on my hundreds of open tasks and subtasks in beads."*
 > — Jeffrey Emanuel
 
-The system is becoming what Jeff calls "a distributed cognitive system with NTM/beads/agent mail as the signaling layer" — not just tools stacking, but the entire swarm beginning to act as a coordinated intelligence that the human steers rather than directs.
+The system is becoming what Jeff calls "a distributed cognitive system with NTM/beads/agent mail as the signaling layer." The tools stack, yes, but the effect goes further: the swarm begins to act as a coordinated intelligence that the human steers rather than directs.
 
 This compounding is why output velocity increases over time rather than plateauing. A practitioner six months into the methodology has accumulated libraries, prompts, and institutional memory (via CASS/CM) that a newcomer lacks. The gap is real, but it closes with each project you ship.
 

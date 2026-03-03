@@ -146,8 +146,8 @@ The scoring dimensions include: goals/non-goals specificity, architecture clarit
 1. Run PL-06 (Plan Critique) with a different model than the one that wrote the plan.
 2. Score the plan against the rubric. If below 10/16, return to Phase 2 (refine).
 3. Run a premortem: "What are the top 5 ways this project could fail?"
-4. Run 4 specialist passes — each with a different AI: implementation feasibility, operations readiness, security audit, dependencies check.
-5. The plan is ready for bead conversion when the only remaining changes are wording tweaks — no architectural or operational improvements.
+4. Run 4 specialist passes, each with a different AI: implementation feasibility, operations readiness, security audit, dependencies check.
+5. The plan is ready for bead conversion when the only remaining changes are wording tweaks, not architectural or operational improvements.
 
 This quality gate prevents the most expensive failure mode: discovering that the plan was ambiguous or incomplete *after* 10 agents have implemented 50 beads against it.
 
