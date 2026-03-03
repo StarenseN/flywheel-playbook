@@ -28,7 +28,7 @@ This guide has three levels. Start wherever matches your experience:
 | [1.2 What the Flywheel Is](section-1-2.md) | The three-space model: Plan, Bead-Map, Code |
 | [1.3 What Makes This Different](section-1-3.md) | Comparisons with Cursor, Devin, raw CLI |
 | [1.4 The Economics](section-1-4.md) | Time, money, case study, when not to use it |
-| [1.5 Core Principles](section-1-5.md) | Six core operational rules (of [12 total](../playbook/principles.md)) |
+| [1.5 Core Principles](section-1-5.md) | Nine core principles (of [15 total](../playbook/principles.md)) |
 
 ## Level 2: Operational
 
@@ -46,12 +46,12 @@ This guide has three levels. Start wherever matches your experience:
 
 | Section | Topic |
 |---------|-------|
-| [3.1 Tool Reference](section-3-1.md) | 20+ tools organized by tier |
+| [3.1 Tool Reference](section-3-1.md) | 29 tools organized by tier |
 | [3.2 Prompt Reference](section-3-2.md) | 47 prompts with usage notes and forensic evidence |
 | [3.3 Configuration Reference](section-3-3.md) | AGENTS.md template, CLAUDE.md, MCP, NTM layouts |
 | [3.4 Scaling Patterns](section-3-4.md) | Formation taxonomy, model mix, cost, hardware |
 | [3.5 Troubleshooting](section-3-5.md) | 9 failure modes with fix protocols |
-| [3.6 Anti-Patterns](section-3-6.md) | 11 anti-patterns + war story |
+| [3.6 Anti-Patterns](section-3-6.md) | 14 anti-patterns + war story |
 
 ---
 

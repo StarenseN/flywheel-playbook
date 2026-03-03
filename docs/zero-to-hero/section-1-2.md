@@ -81,10 +81,20 @@ The toolchain is designed so that each tool's output feeds the next tool's input
 
 No single tool is revolutionary on its own. The value is in how they interlock. Using three of these tools together is meaningfully more productive than using any one of them alone.
 
+**The Five Synergy Loops:**
+
+1. **Session → Memory:** CASS indexes all agent sessions → CM extracts procedural rules → fresh agents inherit prior discoveries
+2. **Task → Priority:** Beads tracks the work graph → BV computes PageRank → agents always work on the highest-leverage task
+3. **Coordination:** Agent Mail handles file reservations and cross-agent messaging → no two agents edit the same file
+4. **Safety:** DCG blocks dangerous commands + SLB requires peer approval + CAAM rotates accounts → "vibe mode" is safe
+5. **Quality:** UBS flags bug patterns → Beads creates blocking fix tasks → agents fix before merging
+
 The compounding goes deeper than tool integration. Each *project* built with the flywheel becomes a library available for the next project. The February 2026 Rust Agent Mail port stacked 10 self-built libraries on top of each other: FrankenTUI, FrankenSQLite, FrankenSearch, asupersync, fastmcp_rust, sqlmodel_rust, beads_rust, and three others. Each of those libraries was itself built using the flywheel methodology, using earlier libraries as dependencies.
 
-> *"My agentic coding workflow has gotten so meta and self-referential lately. I can feel the flywheel spinning faster and faster now as my level of interaction/prompting is increasingly directed at driving my own tools."*
+> *"My agentic coding workflow has gotten so meta and self-referential lately. I can feel the flywheel spinning faster and faster now as my level of interaction/prompting is increasingly directed at driving my own tools. Like this weird prompt I just used, telling Opus 4.5 to use my beads analysis tool to figure out what all its robot friends should most advantageously apply themselves to using graph theory on my hundreds of open tasks and subtasks in beads."*
 > — Jeffrey Emanuel
+
+The system is becoming what Jeff calls "a distributed cognitive system with NTM/beads/agent mail as the signaling layer" — not just tools stacking, but the entire swarm beginning to act as a coordinated intelligence that the human steers rather than directs.
 
 This compounding is why output velocity increases over time rather than plateauing. A practitioner six months into the methodology has accumulated libraries, prompts, and institutional memory (via CASS/CM) that a newcomer lacks. The gap is real, but it closes with each project you ship.
 
@@ -93,9 +103,13 @@ This compounding is why output velocity increases over time rather than plateaui
 
 This is a fair observation, and it points to an important caveat: the flywheel's acceleration depends on the quality of your coordination infrastructure. Scaling agents without scaling your planning discipline just scales noise. The toolchain is necessary but not sufficient; the methodology is what makes it work.
 
+!!! warning "Velocity is cumulative"
+    Jeff's output speed comes from 20+ self-built libraries, 47 battle-tested prompts, procedural memory from hundreds of sessions, and infrastructure that scales to 50+ agents. Do not expect Jeff-level velocity on project one. The flywheel takes time to spin up. Each project makes the next one faster.
+
 ---
 
 !!! tip "Related pages on this site"
 
     - [The Playbook](../playbook/index.md)
+    - [Jeff Teaches](../jeff-teaches.md) — Jeff's methodology in his own words
 

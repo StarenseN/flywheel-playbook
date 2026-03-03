@@ -56,7 +56,7 @@ This is a hard gate. Do not proceed to beads with a score below 10. The quality 
 
 **Symptom: Agents take 4+ hours on a single bead without completing it.**
 
-Root cause: the bead is too large. A single bead should represent 1-4 hours of agent work. If an agent cannot complete a bead in one context window's worth of work, the bead needs to be split.
+Root cause: the bead is too large. A single bead should represent 30-90 minutes of agent work. If an agent cannot complete a bead in one context window's worth of work, the bead needs to be split.
 
 Fix: Kill the agent. Split the bead into 2-3 smaller beads with explicit dependencies. Restart.
 
@@ -64,7 +64,7 @@ Fix: Kill the agent. Split the bead into 2-3 smaller beads with explicit depende
 
 Root cause: the beads are too small. Micro-beads create coordination overhead (claim, execute, self-review, report, close, next) that exceeds the implementation time.
 
-Fix: Merge adjacent trivial beads. The sweet spot is 30-120 minutes of agent execution time per bead.
+Fix: Merge adjacent trivial beads. The sweet spot is 30-90 minutes of agent execution time per bead.
 
 **Symptom: QA rounds (BD-02) keep finding missing beads on every pass.**
 
@@ -174,7 +174,17 @@ Fix protocol:
 
 The safety net is test coverage. Projects with comprehensive test suites catch integration failures at build time, not in production. Projects without them discover failures via user reports. The methodology demands no mocks, real data, real API calls, real end-to-end coverage precisely because mocked tests cannot detect integration failures.
 
-### 3.5.9 The `acfs doctor` Command
+### 3.5.9 Known CLI Agent Constraints
+
+Each agent CLI has specific operational limitations:
+
+- **Claude Code:** Must be spawned via `ntm`, not manual `tmux send-keys "claude"`. NTM handles headless mode, permissions, and ready-state detection.
+- **Codex CLI:** Requires a git repository. Always `git init` before launching. The `--quiet` flag does not exist for the `exec` subcommand.
+- **Gemini CLI:** Needs full-width tmux panes (narrow panes break the TUI). A trust dialog appears on first use per directory -- press "1" then re-send the prompt. Sandbox mode cannot read host `/tmp`.
+
+Assign models to roles that play to their strengths: Claude and Codex for coding, Gemini for review and static analysis. See the [Model-Role Matrix](section-3-4.md#312-model-role-matrix) for details.
+
+### 3.5.10 The `acfs doctor` Command
 
 `acfs doctor` is the first command of every session. It runs a preflight checklist:
 

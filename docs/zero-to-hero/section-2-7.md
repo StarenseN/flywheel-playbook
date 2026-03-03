@@ -41,7 +41,56 @@ The human is not needed for every cycle. During the execution phase, the human's
 
 ---
 
-### 2.7.3 Context Management
+### 2.7.3 The Perception Loop
+
+During active swarms, run this diagnostic cycle every 30-60 seconds:
+
+| You See | It Means | Do |
+|:--------|:---------|:---|
+| Spinner + JSONL flowing | Working normally | Wait 2-5 min |
+| Spinner + JSONL stale 15+ min | Deep reasoning (ultrathink) | Verify tokens moving. **Do NOT interrupt.** |
+| Permission prompt on screen | Needs you NOW | Approve immediately |
+| Shell prompt, no spinner, 5+ min | Finished or crashed | Assign next bead or restart |
+| Context usage > 80% | Approaching compaction | Let it finish current bead, then EX-04 |
+
+**Monitor with these commands:**
+```bash
+tail -5 ~/.claude/projects/<path>/*.jsonl | jq -r '{type, ts: .timestamp}'   # JSONL (real-time)
+ntm --robot-terse                                                             # Process state (~1s)
+git log --oneline --since="1 hour ago" | wc -l                                # Ground truth
+```
+
+---
+
+### 2.7.4 Patience Calibration
+
+The #1 operator mistake is the **asymmetry trap**: waiting 30 minutes for an unsubmitted prompt (dead time) while panic-interrupting 10 minutes of active ultrathink (productive time).
+
+**Flip your instinct:**
+- If JSONL shows no updates → check immediately
+- If JSONL shows activity → leave it alone, check back in 5 minutes
+- **10+ minutes of ultrathink on a 3000+ line plan is NORMAL. Do NOT interrupt.**
+
+---
+
+### 2.7.5 Prompt Delivery Verification
+
+Prompts silently fail to send roughly 50% of the time via tmux paste. **Always verify after sending:**
+
+```bash
+# Send the prompt
+ntm --robot-send=SESSION --msg='<prompt>'
+
+# MANDATORY: verify it arrived (wait 10s, check JSONL)
+sleep 10 && tail -3 ~/.claude/projects/<path>/*.jsonl | jq -r '{type, ts: .timestamp}'
+
+# If missing — nudge with Enter:
+tmux send-keys -t SESSION Enter
+```
+
+---
+
+### 2.7.6 Context Management
 
 Context degradation is the primary failure mode of long sessions. After context compaction, the model loses details from earlier in the conversation. The symptoms: repeating failed approaches, ignoring project conventions, or drifting from the current bead's scope.
 
@@ -68,7 +117,7 @@ Fresh sessions are cheap. Debugging a context-polluted session is expensive. Whe
 
 ---
 
-### 2.7.4 End of Day
+### 2.7.7 End of Day
 
 End of session runs:
 1. EX-06 (final commit round): commit all outstanding changes.
@@ -81,7 +130,35 @@ The bead system, Agent Mail history, and git log serve as persistent state. A fr
 
 ---
 
-### 2.7.5 Marathon Sessions vs. Structured Sprints
+### 2.7.8 Session Hygiene
+
+**The wizard session is for orchestration only.** Reviews happen in separate tmux sessions. Context pollution from review output kills the orchestration state.
+
+```bash
+# Good: separate sessions for each role
+ntm --robot-spawn=PROJECT-code --spawn-cc=3     # Coders
+ntm --robot-spawn=PROJECT-review --spawn-cc=1   # Reviewer (separate)
+ntm --robot-spawn=PROJECT-commit --spawn-cc=1   # Committer (separate)
+```
+
+Never mix review prompts into a coding session. Never mix orchestration commands into an implementation session.
+
+---
+
+### 2.7.9 Graceful Shutdown
+
+Never kill working agents. The protocol:
+
+1. Tell agents to finish: `ntm --robot-send=SESSION --msg='Finish your current task, commit your work, then stop.'`
+2. Wait for idle (do not poll — check after 2-3 minutes)
+3. Verify clean state: `cd PROJECT && git diff --stat && br stats`
+4. Only then: `tmux kill-session -t SESSION`
+
+**Mid-kill consequence:** Truncated files, broken code, merge conflicts from a dead agent that cannot explain what it was doing.
+
+---
+
+### 2.7.10 Marathon Sessions vs. Structured Sprints
 
 Agents running on well-structured projects with comprehensive test suites can operate autonomously for 8-17+ hours. This is documented and verified.
 

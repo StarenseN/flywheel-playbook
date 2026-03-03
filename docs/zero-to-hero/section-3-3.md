@@ -21,6 +21,23 @@ AGENTS.md is the single most important file in an ACFS project. It is not docume
 > *"ALWAYS read the project's AGENTS.md file before starting a task. This is always essential, but especially when testing, since it will often outline testing guidance."*
 > -- Jeffrey Emanuel (added to his own ~/.codex/AGENTS after an agent ignored testing instructions)
 
+#### The Top-Level Rules
+
+Every AGENTS.md begins with non-negotiable rules that override everything else:
+
+**Rule 0 -- The Fundamental Override:** The human operator is always in charge. If instructed to stop, the agent stops. No exceptions, no negotiation.
+
+**Rule 1 -- No File Deletion:** Agents are NEVER allowed to delete files without express permission. This is a top-level rule with no exceptions.
+
+**Additional Critical Rules:**
+
+- **No file proliferation** -- never create variations like `mainV2.rs` or `install_v2.sh`
+- **No script-based code changes** -- never run scripts that process/modify code files (no codemods, no sed on source)
+- **Multi-agent environment** -- when you see changes from other agents, DO NOT PANIC, DO NOT STASH, DO NOT REVERT. Treat those changes identically to changes you made yourself.
+- **Git branch: `main` only** -- never create or switch to `master` or feature branches unless explicitly instructed
+
+These rules exist because agents have a tendency to do catastrophic things when unsupervised: deleting files to "clean up," creating file variants instead of editing in place, running bulk sed operations that corrupt source, and panicking when they see unfamiliar changes from other agents. Rule 0 and Rule 1 are the first lines of defense.
+
 #### Mandatory Sections
 
 **1. Project Identity**
@@ -95,6 +112,16 @@ Do NOT stop between beads. Keep the loop going.
 - **Risk Register:** Top risks with severity and mitigation status.
 - **Architecture Decision Records (ADRs):** Key decisions locked as reference. frankentui uses beads for ADRs (bd-10i.10.1 through bd-10i.10.6).
 - **CM Context Blocks:** Pre-loaded procedural memory for agents.
+
+#### The Five Layers of AGENTS.md
+
+1. **Core Rules** (~70 lines) -- absolute rules, irreversible action safeguards, Rule 0 and Rule 1
+2. **Toolchain Block** -- bash discipline, language-specific rules, linting commands
+3. **Project-Specific** -- architecture, file structure, patterns, API conventions
+4. **Shared Tooling** -- beads, Agent Mail, UBS, CASS, BV usage instructions
+5. **Standard Tail** -- code editing discipline, console output conventions, quality gates
+
+When starting a new project, copy AGENTS.md from your best previous project and ask Claude to adapt it to the new stack. The document evolves with each project.
 
 #### Anti-Patterns
 
@@ -210,6 +237,9 @@ NTM session layouts define the agent formation for a project. The key command is
 | Commit agent | 1 | Git operations only (EX-06) |
 
 **Important:** All implementation agents are fungible generalists. Do not specialize. The single exception is the commit agent, which runs EX-06 only and never modifies code.
+
+!!! note "ACFS changes the tmux prefix"
+    ACFS changes the tmux prefix from the default `Ctrl-b` to `Ctrl-a`. If you are used to the default prefix, be aware of this change.
 
 **Scaling rule:** Scale based on bead graph size and budget. A project with 200 beads does not need 15 agents. A project with 2,000 beads might.
 

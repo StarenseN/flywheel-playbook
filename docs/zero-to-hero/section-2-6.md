@@ -4,6 +4,11 @@ icon: lucide/users
 
 ## 2.6 Scaling to Multi-Agent
 
+> *"When the swarm is working correctly, I am not a programmer. I am a conductor. I read the JSONL logs to understand what the agents are thinking. I watch the bead tracker. I steer with prompts when something goes sideways. I review commits."*
+> — Jeffrey Emanuel
+
+The shift from programmer to conductor is the conceptual leap of multi-agent scaling. You are not writing code. You are steering agents who write code.
+
 ### 2.6.1 Why and When to Scale
 
 A single agent working through a bead queue produces roughly 5-10 beads per day. For a 50-bead project, that is a week of serial execution. For a 300-bead project, it is over a month.
@@ -145,4 +150,5 @@ The safety net that makes all of this viable is test coverage. Projects with 10,
 !!! tip "Related pages on this site"
 
     - [Swarm Operations](../playbook/phase-6-swarm.md)
+    - [Jeff Teaches](../jeff-teaches.md) — Jeff's methodology in his own words
 

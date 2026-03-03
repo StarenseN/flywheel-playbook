@@ -55,6 +55,7 @@ Jeff's observed model allocation as of late February 2026, per his own statement
 | Review (RV-02) | Gemini, Claude | -- |
 | Commit (EX-06) | Claude ONLY | Codex, Gemini (git issues) |
 | QA / Reality Check | Codex, Gemini | -- |
+| Alien artifacts (PL-13) | Gemini, o3 | — | Formal reasoning strength |
 
 Source: ACFS methodology documentation (ACFS_WIZARD.md).
 

@@ -43,7 +43,7 @@ As you scale to more parallel agents, you may need additional Max accounts. The 
 curl -fsSL https://raw.githubusercontent.com/Dicklesworthstone/agentic_coding_flywheel_setup/main/install.sh | bash -s -- --yes --mode vibe
 ```
 
-The installer runs 9 phases in sequence: user setup, filesystem, shell configuration, CLI tools, language runtimes, agent CLIs, cloud/database services, the Dicklesworthstone stack, and finalization. Total time is roughly ~30 minutes on a standard VPS.
+The installer runs 10 phases in sequence: user setup, filesystem, shell configuration, CLI tools, language runtimes, agent CLIs, cloud/database services, the Dicklesworthstone stack, and finalization. Total time is roughly ~30 minutes on a standard VPS.
 
 What it installs (highlights):
 - **Agent CLIs:** Claude Code (`cc`), Codex (`cod`), Gemini CLI (`gmi`)
@@ -102,6 +102,18 @@ Jeff also maps his 32 master prompts to a physical Stream Deck. Each prompt fire
 
 > *"Each of these blurbs takes under a second to do with a single button press using my little command palette gizmo."*
 > — Jeffrey Emanuel
+
+---
+
+### 2.1.6 The Learning Hub and Onboard Tutorial
+
+After installation, run `onboard` for an interactive 33-lesson tutorial (254 minutes total) covering everything from Linux basics through full agentic workflows. The learning hub is also available at [agent-flywheel.com/learn](https://agent-flywheel.com/learn).
+
+Key lessons for practitioners:
+- **Lesson 10** — The Flywheel Loop (how all 29 tools connect)
+- **Lesson 18** — The Art of Agent Direction (Jeff's core prompting methodology)
+- **Lesson 19** — Case Study: cass-memory (build a complex project in one day)
+- **Lesson 20** — Case Study: SLB (from tweet to working tool in one evening)
 
 ---
 

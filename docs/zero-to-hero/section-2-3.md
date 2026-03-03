@@ -133,9 +133,45 @@ After each project, an `ANALYSIS_OF_SPEC_DOC_DIFFS.md` is generated: a systemati
 
 ---
 
+### 2.3.7 The ACFS Wizard (Automated Planning)
+
+Jeff has automated the planning methodology into a tool called the ACFS Wizard. It enforces quality gates, alternates models, and tracks state via file existence.
+
+**Track Selection:**
+- **Track A** (50-100 beads): Linear flow, single plan author. Use for small-medium projects.
+- **Track B** (300+ beads): Competing proposals from 4 AIs, then synthesized. Use for large projects.
+
+**Quality Gates (non-negotiable):**
+
+| Gate | After | Pass Criteria |
+|:-----|:------|:-------------|
+| G1 | Project Meta | Size justified, constraints specific, 1+ real risk |
+| G2 | Problem Brief | Problem < 5 sentences, MVP 3-5 items, 3+ out-of-scope |
+| G3 | Plan v1 | All 13+ sections substantive, no TBD/placeholders |
+| G4 | Plan v2 | 5+ substantive changes from v1, SA-10 score >= 10/16 |
+| G4.5 | Plan v3 | No BLOCKING/CRITICAL issues from solidification |
+| G5 | Verification | "Flat" state reached, each pass used different AI |
+
+**The SA-10 Quality Rubric:** Plans are scored 0-16. Thresholds: 14-16 = proceed, 10-13 = proceed with notes, 6-9 = fix first, 0-5 = major revision.
+
+**Solidification Passes:** After the main review, 4 specialist passes run in parallel (each by a different AI): Implementation feasibility, Operations readiness, Security audit, Dependencies check.
+
+**State Detection:** The wizard uses file existence as state. No database:
+```
+No 00_PROJECT_META.md    → create project meta
+No 03_PLAN_v1.md         → draft the plan
+No plan_quality_review.md → run SA-10 scoring
+```
+
+The wizard is available at the [ACFS Wizard repo](https://github.com/StarenseN/ACFS_Wizard_Openclaw). Use `/start` to begin, `/dashboard` for multi-model feedback.
+
+---
+
 !!! tip "Related pages on this site"
 
     - [Phase 1: Draft](../playbook/phase-1-draft.md)
     - [Phase 2: Refine](../playbook/phase-2-refine.md)
     - [Phase 3: Alien Artifacts](../playbook/phase-3-alien-artifacts.md)
+    - [Jeff Teaches](../jeff-teaches.md) — Jeff's methodology in his own words
+    - [Prompt Dispatch Table](../reference/dispatch.md)
 

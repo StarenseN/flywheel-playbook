@@ -4,7 +4,7 @@ icon: lucide/compass
 
 ## 1.5 Core Principles
 
-The methodology rests on six core principles introduced here. (The site's [Principles](../playbook/principles.md) page covers all 12 in detail.) These are not aspirational guidelines; they are operational rules that practitioners apply on every project.
+The methodology rests on nine core principles introduced here. (The site's [Principles](../playbook/principles.md) page covers all 15 in detail.) These are not aspirational guidelines; they are operational rules that practitioners apply on every project.
 
 ### 1.5.1 Figure Out What to Build, Then Build It
 
@@ -120,6 +120,46 @@ The practical implication: do not micromanage agent execution. If the planning w
 
 > *"This smells like an anti-pattern or a resistance to let go and stop micromanaging. I do it too but it doesn't feel quite right. I think it will start to go away as we build more trust in the internal thought and correction loop."*
 > — ACFS community member
+
+---
+
+### 1.5.7 Overcome Learned Incrementalism
+
+This principle explains WHY praise rounds, short prompts, and multi-model competition all work.
+
+> *"It has unfortunately learned incrementalism under the guise of being 'practical' from reading too much written by humans who were trying to sandbag and control expectations so they could phone it in and not get fired."*
+> — Jeffrey Emanuel
+
+Models default to conservative, incremental output because their training data is dominated by humans who undersell and underdeliver. Left to their own devices, models will suggest "reasonable" improvements instead of transformative ones. Every ACFS technique — the praise rounds that push past default quality, the short prompts that avoid triggering accommodation, the multi-model competition that breaks individual blind spots — exists to counteract this trained incrementalism.
+
+The implication: if your AI output feels mediocre, the problem is not the model's capability. The problem is that you have not pushed past its default conservative prior.
+
+---
+
+### 1.5.8 Design for Agent Ergonomics (FCBC)
+
+> *"No human is ever going to be working on my projects! It's more important to me that the clankers can find their way around effectively."*
+> — @doodlestein
+
+Jeff's tools, libraries, and project structures are designed for AI consumption, not human consumption. This "For Clankers, By Clankers" (FCBC) philosophy means:
+
+- CLI tools emit JSON for agent parsing (`--robot-*` flags on every tool)
+- AGENTS.md is written for models to read, not humans to admire
+- File structures follow conventions agents predict (not creative human organization)
+- Libraries expose clean interfaces because agents navigate by convention, not intuition
+
+This is a design principle, not a joke. When your tools are optimized for agent ergonomics, every agent in the swarm works faster.
+
+---
+
+### 1.5.9 Develop a Theory of Mind for Models
+
+> *"Good prompting might seem like a hand wavy thing, but there's a lot that goes into making a prompt that performs well in many situations. I've been doing this stuff so much for so long that I've basically internalized the theory of mind of these models and the gestalt psychology."*
+> — @doodlestein
+
+Jeff makes a specific, testable claim: you can develop a predictive model of how language models respond to different inputs, analogous to the theory of mind humans develop for each other. This model is the foundation of everything else in the methodology — from understanding why praise rounds work (they shift the model's internal prior away from conservatism) to why the McCarthy prompt finds bugs (it reframes the task from "check" to "hunt").
+
+This is not mysticism. It is pattern recognition accumulated over thousands of hours of agent interaction.
 
 ---
 

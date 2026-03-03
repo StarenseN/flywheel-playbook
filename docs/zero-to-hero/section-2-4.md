@@ -108,6 +108,31 @@ Some practitioners successfully use jujutsu (jj) instead of git for agent isolat
 
 ---
 
+### 2.4.7 The Stabilization Protocol
+
+The ACFS Wizard uses a formal 6-step bead stabilization process:
+
+1. **VPS-01:** Plan to beads via `br` (single Opus agent, `br create` only)
+2. **VPS-02:** Graph correctness pass (are dependencies right?)
+3. **VPS-03:** Task granularity pass (are beads properly scoped?)
+4. **VPS-04:** Refinement loop -- 5-15 rounds, alternating Claude and Gemini per round
+5. **VPS-05:** Reset session if flatlined, then more VPS-04 rounds
+6. **VPS-06:** Graph health analysis (Track B only, score >= 7 required)
+
+**Stable = 2 consecutive rounds producing no meaningful changes.** Not a fixed count -- keep going until the bead graph converges.
+
+```bash
+# Alternate review agents per round
+ntm --robot-spawn=review-cc --spawn-cc=1     # Claude reviews odd rounds
+ntm --robot-spawn=review-gmi --spawn-gmi=1   # Gemini reviews even rounds
+
+# Verify stability
+bv --robot-triage | jq '.quick_ref'
+br stats
+```
+
+---
+
 !!! tip "Related pages on this site"
 
     - [Phase 4: Beads](../playbook/phase-4-beads.md)

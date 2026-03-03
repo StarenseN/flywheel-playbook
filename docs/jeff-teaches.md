@@ -152,7 +152,7 @@ The dependency graph is what makes swarm execution work at scale. Without it, ag
 
 Notice the phrase "anything we'd want our "future self" to know" in the BD-01 prompt. I treat each bead as a message to an agent that has never seen the project before, because after context compaction, that's exactly what the agent is. Beads survive compaction. Agent memory doesn't. The beads ARE the continuity layer.
 
-→ [Phase 4 — Beads](playbook/phase-4-beads.md) · [Phase 5 — Assign](playbook/phase-5-assign.md)
+→ [Phase 4 — Beads](playbook/phase-4-beads.md) · [Phase 5 — QA the Beads](playbook/phase-5-qa.md)
 
 ---
 

@@ -4,7 +4,7 @@ icon: lucide/wrench
 
 ## 3.1 Tool Reference
 
-The flywheel is built from over 20 interconnected tools. No single tool is transformative on its own; the compounding effect comes from how they reinforce each other. NTM spawns agents that use Agent Mail to coordinate. BV tells agents what to work on. CASS and CM give agents memory across sessions. DCG and SLB prevent disasters, which is what allows "vibe mode" (dangerous flags enabled) to be safe.
+The flywheel is built from 29 interconnected tools (16 core plus 13 supporting). No single tool is transformative on its own; the compounding effect comes from how they reinforce each other. NTM spawns agents that use Agent Mail to coordinate. BV tells agents what to work on. CASS and CM give agents memory across sessions. DCG and SLB prevent disasters, which is what allows "vibe mode" (dangerous flags enabled) to be safe.
 
 > *"The magic isn't in any single tool. It's in how they work together. Using three tools is 10x better than using one."*
 > -- Jeffrey Emanuel
@@ -40,7 +40,7 @@ Key characteristics:
 |---|---|
 | **Stars** | 663 |
 | **Language** | Rust |
-| **GitHub** | [beads](https://github.com/steveyegge/beads) / [beads_rust](https://github.com/Dicklesworthstone/beads_rust) |
+| **GitHub** | [beads_rust](https://github.com/Dicklesworthstone/beads_rust) |
 
 **Role:** Local-first issue tracker. The execution graph for all agent work.
 
@@ -351,7 +351,7 @@ caam rotate      # Force rotation
 | | |
 |---|---|
 | **Stars** | 16 |
-| **Language** | Rust |
+| **Language** | TypeScript |
 | **GitHub** | [source_to_prompt_tui](https://github.com/Dicklesworthstone/source_to_prompt_tui) |
 
 **Role:** Interactive code-to-prompt generator.

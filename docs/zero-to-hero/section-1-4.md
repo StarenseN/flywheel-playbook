@@ -71,7 +71,17 @@ This result is only possible when the plan is comprehensive enough to capture al
 
 ---
 
-### 1.4.4 When Not to Use This
+### 1.4.4 Why Planning Tokens Are Cheap
+
+The economic argument for the 85/10/5 split:
+
+> Six refinement passes at ~2K tokens each = 12K tokens. One failed implementation pass that has to be thrown away = 50K+ tokens, plus the debugging time.
+
+Planning tokens are cheap because plans fit in context. A 5,600-line markdown plan is ~150K tokens -- one context window. The same project as code is 11,000+ lines across dozens of files, impossible for any single model to hold simultaneously. By doing the hard thinking in "plan space" where everything fits in context, you avoid the exponentially more expensive rework in "code space" where it does not.
+
+---
+
+### 1.4.5 When Not to Use This
 
 The Flywheel methodology has real overhead. The planning phase, bead decomposition, agent coordination infrastructure, and multi-model review cycles take time and effort. That overhead is justified for certain projects and wasteful for others.
 

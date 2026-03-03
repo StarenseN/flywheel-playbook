@@ -53,6 +53,8 @@ For every bead you implement:
 7. Pick next bead. Repeat.
 ```
 
+> **Note:** `br start <id>` is a convenience alias equivalent to `br update <id> --status=in_progress` (the canonical form). Both do the same thing; use whichever you prefer.
+
 After every context compaction, agents must re-read AGENTS.md. This is critical enough that Jeff built a dedicated tool to automate the reminder.
 
 > *"You just have to tell it at the beginning and after every compaction to reread AGENTS dot md."*

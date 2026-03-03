@@ -46,7 +46,7 @@ From the FLYWHEEL_PLAYBOOK_DEFINITIVE.md:
 
 The bead QA process (BD-02) has a specific check for this: "is it optimally scoped?" If QA keeps finding beads that are too small, merge adjacent beads.
 
-**The right granularity:** 30-120 minutes of agent execution time per bead. This gives enough substance for meaningful self-review (RV-01) while keeping beads small enough to complete in a single context window.
+**The right granularity:** 30-90 minutes of agent execution time per bead. This gives enough substance for meaningful self-review (RV-01) while keeping beads small enough to complete in a single context window.
 
 ### 3.6.4 Under-Reviewing
 
@@ -153,7 +153,32 @@ These prompts change the model's internal prior from optimistic to paranoid. Som
 
 **How to shake them out of it:** The praise rounds (PL-03 through PL-05) exist precisely for this. PL-03 explicitly says the first output "barely scratches the surface and is light years away from being OPTIMAL." The Innovation Boost (PL-10) asks for transformative, not incremental improvements. Without these prompts, the model's default incrementalism becomes your project's ceiling.
 
-### 3.6.12 War Story: The Python-to-Rust Agent Mail Rewrite
+### 3.6.12 Git Worktrees for Agent Swarms
+
+Using git worktrees to give each agent an isolated copy of the repo is tempting but counterproductive. Conflicts that would surface immediately in a shared repo get deferred until merge time — when context is lost and the agents that created the conflicts cannot explain them.
+
+**Why shared-repo works:** Agent Mail file reservations prevent simultaneous edits. Merge conflicts surface in real time, when both agents still have context. The commit agent groups changes logically, not by branch.
+
+> *"All agents in same repo — surfaces conflicts early."*
+
+### 3.6.13 Sending Execution Prompts to Fresh Agents
+
+A fresh agent (newly spawned or post-compaction) has no project context. Sending EX-01 (Execute Beads) before EX-03 (Agent Introduction) produces agents that hallucinate project structure, invent conventions, and write code that does not fit.
+
+**Always:** EX-03 first. Wait for the agent to read AGENTS.md, register with Agent Mail, and understand the project. Then EX-01.
+
+### 3.6.14 Assuming Prompts Were Sent
+
+Terminal paste silently fails roughly 50% of the time. An agent sitting idle after you "sent" a prompt may have never received it.
+
+**Always verify after sending:**
+```bash
+sleep 10 && tail -3 ~/.claude/projects/<path>/*.jsonl | jq -r '{type, ts: .timestamp}'
+```
+
+If the JSONL shows no new activity, nudge with Enter or resend. This is the #1 operational failure mode that catches every new practitioner.
+
+### 3.6.15 War Story: The Python-to-Rust Agent Mail Rewrite
 
 The most concrete scaling war story from the source material. Jeff's Python Agent Mail worked at moderate scale (15-20 concurrent agents). When he pushed to 80 agents across 3 machines, it collapsed:
 
