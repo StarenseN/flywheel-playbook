@@ -3,8 +3,6 @@ title: "2.7 Daily Workflow"
 icon: lucide/calendar
 ---
 
-## 2.7 The Daily Workflow
-
 ### 2.7.1 Session Start
 
 A typical session start sequence:

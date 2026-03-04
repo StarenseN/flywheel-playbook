@@ -3,8 +3,6 @@ title: "3.2 Prompt Reference"
 icon: lucide/message-square
 ---
 
-## 3.2 Prompt Reference
-
 The ACFS prompt library contains 47 named prompts organized into 6 categories. They are designed to be used verbatim -- copy-paste, not paraphrase. Jeff maps them to physical Stream Deck buttons for instant dispatch to agents via NTM.
 
 | Prefix | Category | Count |

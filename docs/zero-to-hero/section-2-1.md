@@ -3,8 +3,6 @@ title: "2.1 Environment Setup"
 icon: lucide/monitor
 ---
 
-## 2.1 Setting Up Your Environment
-
 ### 2.1.1 Hardware
 
 **Minimum:** Any Linux or Mac machine, 16GB RAM, stable internet. This is enough to run a single agent and learn the methodology.

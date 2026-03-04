@@ -3,8 +3,6 @@ title: "2.5 Execution"
 icon: lucide/play
 ---
 
-## 2.5 Execution (Phases 6-8)
-
 ### 2.5.1 Your First Bead
 
 The execution prompt is short:

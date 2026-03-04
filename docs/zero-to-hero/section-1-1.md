@@ -3,8 +3,6 @@ title: "1.1 The Problem This Solves"
 icon: lucide/alert-triangle
 ---
 
-## 1.1 The Problem This Solves
-
 ### 1.1.1 The Reactive Loop
 
 Most AI-assisted development follows the same pattern:

@@ -3,8 +3,6 @@ title: "1.5 Core Principles"
 icon: lucide/compass
 ---
 
-## 1.5 Core Principles
-
 The methodology rests on nine core principles introduced here. (The site's [Principles](../playbook/principles.md) page covers all 15 in detail.) These are not aspirational guidelines; they are operational rules that practitioners apply on every project.
 
 ### 1.5.1 Figure Out What to Build, Then Build It

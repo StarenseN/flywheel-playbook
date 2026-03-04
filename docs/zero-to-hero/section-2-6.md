@@ -3,8 +3,6 @@ title: "2.6 Multi-Agent"
 icon: lucide/users
 ---
 
-## 2.6 Scaling to Multi-Agent
-
 > *"When the swarm is working correctly, I am not a programmer. I am a conductor. I read the JSONL logs to understand what the agents are thinking. I watch the bead tracker. I steer with prompts when something goes sideways. I review commits."*
 > — Jeffrey Emanuel
 

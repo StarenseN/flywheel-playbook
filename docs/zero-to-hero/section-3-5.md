@@ -3,8 +3,6 @@ title: "3.5 Troubleshooting"
 icon: lucide/bug
 ---
 
-## 3.5 Troubleshooting
-
 ### 3.5.1 Post-Install Issues
 
 **Problem: `acfs doctor` reports missing tools.**

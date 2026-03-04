@@ -3,8 +3,6 @@ title: "2.3 Writing the Plan"
 icon: lucide/file-text
 ---
 
-## 2.3 Writing the Plan (Phases 1-3)
-
 ### 2.3.1 Start With a Short Prompt
 
 Your first planning prompt should be 2-5 sentences describing **what** you want to build, not **how**. Resist the urge to enumerate features, specify implementation details, or "help" the model avoid tangents. Those constraints come later, during refinement rounds.

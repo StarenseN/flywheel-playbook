@@ -3,8 +3,6 @@ title: "3.4 Scaling Patterns"
 icon: lucide/trending-up
 ---
 
-## 3.4 Scaling Patterns
-
 ### 3.4.1 Formation Taxonomy
 
 The number of agents you run is not a dial you turn to "fast." It is a formation decision that depends on project size, bead graph shape, budget, and hardware. Jeff uses a six-tier formation taxonomy:

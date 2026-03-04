@@ -3,8 +3,6 @@ title: "1.2 The Flywheel"
 icon: lucide/refresh-cw
 ---
 
-## 1.2 The Agentic Coding Flywheel: What It Actually Is
-
 ### 1.2.1 One-Sentence Definition
 
 The Agentic Coding Flywheel is a methodology where the bulk of human effort goes into an upfront plan document, that plan is decomposed into a dependency graph of atomic tasks (called "beads"), and parallel AI coding agents execute against that graph under human oversight.

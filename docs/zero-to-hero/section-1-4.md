@@ -3,8 +3,6 @@ title: "1.4 The Economics"
 icon: lucide/dollar-sign
 ---
 
-## 1.4 The Economics
-
 ### 1.4.1 Time: Plan Longer, Ship Faster
 
 The most counterintuitive aspect of the methodology is the time allocation. The planning phase takes roughly 2x longer than the coding phase. Total delivery time still drops, often dramatically, because the coding phase produces working software on the first pass rather than requiring multiple debug-and-rewrite cycles.

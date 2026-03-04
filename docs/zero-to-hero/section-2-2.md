@@ -3,8 +3,6 @@ title: "2.2 Project Anatomy"
 icon: lucide/folder-tree
 ---
 
-## 2.2 Anatomy of an ACFS Project
-
 ### 2.2.1 Creating a Project
 
 ```bash

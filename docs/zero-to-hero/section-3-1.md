@@ -3,8 +3,6 @@ title: "3.1 Tool Reference"
 icon: lucide/wrench
 ---
 
-## 3.1 Tool Reference
-
 The flywheel is built from 29 interconnected tools (16 core plus 13 supporting). No single tool is transformative on its own; the compounding effect comes from how they reinforce each other. NTM spawns agents that use Agent Mail to coordinate. BV tells agents what to work on. CASS and CM give agents memory across sessions. DCG and SLB prevent disasters, which is what allows "vibe mode" (dangerous flags enabled) to be safe.
 
 > *"The magic isn't in any single tool. It's in how they work together. Using three tools is 10x better than using one."*

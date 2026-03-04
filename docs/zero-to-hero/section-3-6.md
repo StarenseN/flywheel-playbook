@@ -3,8 +3,6 @@ title: "3.6 Anti-Patterns"
 icon: lucide/shield-alert
 ---
 
-## 3.6 Anti-Patterns and War Stories
-
 ### 3.6.1 The Mega-Prompt Trap
 
 **Anti-pattern:** Writing enormous, multi-page prompts that attempt to specify every constraint, exception, and edge case in a single instruction.

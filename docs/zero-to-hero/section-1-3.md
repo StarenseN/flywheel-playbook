@@ -3,8 +3,6 @@ title: "1.3 What Makes This Different"
 icon: lucide/git-compare
 ---
 
-## 1.3 What Makes This Different
-
 ### 1.3.1 vs. Cursor / Copilot / Windsurf (IDE-Assist)
 
 IDE-assist tools are reactive by design. They watch what you type and suggest completions, or they accept natural-language instructions and generate code in your editor. They are excellent at what they do: reducing keystrokes, generating boilerplate, and answering inline questions about code.

@@ -3,8 +3,6 @@ title: "2.4 Plan to Beads"
 icon: lucide/git-branch
 ---
 
-## 2.4 Converting to Beads (Phases 4-5)
-
 ### 2.4.1 What a Bead Is
 
 A bead is an atomic unit of work: one task that one agent can complete in one session without needing external input. Each bead has an ID, a description, dependencies on other beads, acceptance criteria, and a status.

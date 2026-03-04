@@ -3,8 +3,6 @@ title: "3.3 Configuration"
 icon: lucide/settings
 ---
 
-## 3.3 Configuration Reference
-
 Three configuration surfaces define an ACFS project: AGENTS.md (the project constitution), CLAUDE.md (the model-specific configuration), and the MCP/hooks config in `settings.json`. Together they form the complete operating environment for agents.
 
 ---
