@@ -1,4 +1,5 @@
 ---
+title: "1.4 The Economics"
 icon: lucide/dollar-sign
 ---
 

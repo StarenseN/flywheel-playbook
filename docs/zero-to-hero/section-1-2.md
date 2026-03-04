@@ -1,4 +1,5 @@
 ---
+title: "1.2 The Flywheel"
 icon: lucide/refresh-cw
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "3.6 Anti-Patterns"
 icon: lucide/shield-alert
 ---
 

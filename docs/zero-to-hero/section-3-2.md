@@ -1,4 +1,5 @@
 ---
+title: "3.2 Prompt Reference"
 icon: lucide/message-square
 ---
 

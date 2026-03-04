@@ -1,4 +1,5 @@
 ---
+title: "2.3 Writing the Plan"
 icon: lucide/file-text
 ---
 

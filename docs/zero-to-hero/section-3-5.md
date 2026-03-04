@@ -1,4 +1,5 @@
 ---
+title: "3.5 Troubleshooting"
 icon: lucide/bug
 ---
 

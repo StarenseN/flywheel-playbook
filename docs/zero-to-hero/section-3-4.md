@@ -1,4 +1,5 @@
 ---
+title: "3.4 Scaling Patterns"
 icon: lucide/trending-up
 ---
 

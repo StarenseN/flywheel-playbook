@@ -1,4 +1,5 @@
 ---
+title: "2.2 Project Anatomy"
 icon: lucide/folder-tree
 ---
 

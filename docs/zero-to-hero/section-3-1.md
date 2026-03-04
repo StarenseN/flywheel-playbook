@@ -1,4 +1,5 @@
 ---
+title: "3.1 Tool Reference"
 icon: lucide/wrench
 ---
 

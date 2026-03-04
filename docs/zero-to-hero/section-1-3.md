@@ -1,4 +1,5 @@
 ---
+title: "1.3 What Makes This Different"
 icon: lucide/git-compare
 ---
 

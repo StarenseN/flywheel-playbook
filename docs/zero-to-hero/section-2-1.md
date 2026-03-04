@@ -1,4 +1,5 @@
 ---
+title: "2.1 Environment Setup"
 icon: lucide/monitor
 ---
 

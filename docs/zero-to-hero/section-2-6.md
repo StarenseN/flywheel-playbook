@@ -1,4 +1,5 @@
 ---
+title: "2.6 Multi-Agent"
 icon: lucide/users
 ---
 

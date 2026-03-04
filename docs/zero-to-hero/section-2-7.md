@@ -1,4 +1,5 @@
 ---
+title: "2.7 Daily Workflow"
 icon: lucide/calendar
 ---
 

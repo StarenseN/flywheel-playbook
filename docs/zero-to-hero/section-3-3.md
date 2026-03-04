@@ -1,4 +1,5 @@
 ---
+title: "3.3 Configuration"
 icon: lucide/settings
 ---
 

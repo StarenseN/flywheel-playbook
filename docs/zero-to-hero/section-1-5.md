@@ -1,4 +1,5 @@
 ---
+title: "1.5 Core Principles"
 icon: lucide/compass
 ---
 

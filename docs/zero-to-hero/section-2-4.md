@@ -1,4 +1,5 @@
 ---
+title: "2.4 Plan to Beads"
 icon: lucide/git-branch
 ---
 
