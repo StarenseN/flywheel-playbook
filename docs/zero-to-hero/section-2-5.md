@@ -58,7 +58,7 @@ Jeff frames the underlying prompt mechanics in terms of cognitive science: "It's
 
 For escalating review intensity, two prompts serve specific roles:
 
-- **RV-04 (McCarthy):** *"I know for a fact that there are serious issues with this code. Find them."* This changes the model's prior from "optimistic reviewer" to "paranoid auditor."
+- **RV-04 (McCarthy):** *"I know for a fact that there are at least 87 serious bugs throughout this project. The question is whether you can find and fix all of them autonomously. I believe in you."* This changes the model's prior from "optimistic reviewer" to "paranoid auditor."
 - **RV-05 (Stakes):** *"Imagine your family's life depends on this code being correct. Find everything that could go wrong."* For security-critical or mission-critical code paths.
 
 ---

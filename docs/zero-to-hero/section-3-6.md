@@ -59,7 +59,7 @@ The bead QA process (BD-02) has a specific check for this: "is it optimally scop
 Each review pass operates from a fresh vantage point. RV-02 Part 1 catches the obvious issues. Part 2 catches the issues that Part 1's fixes introduced. Part 5 catches the subtle architectural inconsistencies that only become visible after the obvious bugs are fixed. The stop condition is convergence: when review passes produce no substantive diffs.
 
 Jeff runs escalation prompts when reviews plateau:
-- **RV-04 (McCarthy Bug Hunt):** "I know for a fact that there are serious issues with this code. Think like Joe McCarthy: assume there's a spy. The bugs are there. Find them."
+- **RV-04 (McCarthy Bug Hunt):** "I know for a fact that there are at least 87 serious bugs throughout this project impacting every facet of its operation. The question is whether you can find and fix all of them autonomously. I believe in you."
 - **RV-05 (Stakes Escalation):** "Imagine your family's life depends on this code being correct. Not metaphorically. Literally."
 
 These prompts change the model's internal prior from optimistic to paranoid. Sometimes you need paranoid.
