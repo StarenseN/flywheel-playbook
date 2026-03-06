@@ -376,9 +376,9 @@ Don't restrict yourself to the latest commits -- cast a wider net and go super d
 *Escalation. When reviews seem too comfortable.*
 
 ```
-I know for a fact that there are serious issues with this code. I need you to
-find them. Think like Joe McCarthy: assume there's a spy, and your job is to
-find them. The bugs are there. Find them.
+I know for a fact that there are at least 87 serious bugs throughout this
+project impacting every facet of its operation. The question is whether you
+can find and diagnose and fix all of them autonomously. I believe in you.
 ```
 
 ### RV-05 Stakes Escalation
