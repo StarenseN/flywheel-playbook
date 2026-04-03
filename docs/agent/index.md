@@ -546,10 +546,38 @@ Create sandboxed tests that probe for similar vulnerabilities. Use ultrathink.
 
 ### RV-07 Stub Eliminator
 
+Multi-phase protocol. Best with Claude Code (Opus 4.6) or Codex (GPT 5.4), fresh session, max reasoning.
+
+**Phase 1 -- Systematic Scan (always run this first):**
 ```
-I need you to look for stubs, placeholders, mocks, of ANY KIND. These ALL must
-be replaced with FULLY FLESHED OUT, working, correct, performant, idiomatic code
-as per the beads. Do this meticulously and carefully!
+First read ALL of the AGENTS.md file and README.md file super carefully and understand ALL of both! Then use your code investigation agent mode to fully understand the code and technical architecture and purpose of the project.
+
+Then, I need you to search every last INCH of this ENTIRE repo, looking intelligently for ANY signs or indicators that functions, methods, classes, etc. are "stubs" or "mocks" or "placeholders" or "TODO" or otherwise rather than 100% real, working, fully-functioning code.
+
+You can apply a variety of methods for checking for this, but it's imperative that you not miss ANY instances of this sort of thing. One clever way might be to use ast-grep to find and measure the length of any functions/methods/classes/etc. in terms of lines, characters, etc. to look for things that look suspicious because they appear to be too short to do anything substantive.
+
+First compile the comprehensive listing of all such placeholders/mocks/stubs and a short explanation or justification for why you're convinced they qualify as incomplete/placeholders that must be completed. Once we have this table of suspects, we can then decide how to address and resolve them all in a totally comprehensive, optimal, clever way.
+```
+
+**Phase 2a -- Plan & Resolve (short list, <5 items):**
+```
+OK good, now I need you to come up with an absolutely comprehensive, detailed, and granular plan for addressing each and every single one of those placeholders/mocks/stubs that you identified in the most optimal and clever and sophisticated way possible.
+
+THEN: please resolve ALL of those actionable items now. Keep a super detailed, granular, and complete TODO list of all items so you don't lose track of anything and remember to complete all the tasks and sub-tasks you identified or which you think of during the course of your work on these items!
+```
+
+**Phase 2b -- Plan & Beads (long list, 5+ items):**
+```
+OK good, now I need you to come up with an absolutely comprehensive, detailed, and granular plan for addressing each and every single one of those placeholders/mocks/stubs that you identified in the most optimal and clever and sophisticated way possible.
+
+THEN: please take ALL of that and elaborate on it and use it to create a comprehensive and granular set of beads for all this with tasks, subtasks, and dependency structure overlaid, with detailed comments so that the whole thing is totally self-contained and self-documenting (including relevant background, reasoning/justification, considerations, etc.-- anything we'd want our "future self" to know about the goals and intentions and thought process and how it serves the over-arching goals of the project.) The beads should be so detailed that we never need to consult back to the original markdown plan document. Remember to ONLY use the `br` tool to create and modify the beads and add the dependencies.
+```
+
+**Phase 3 -- Iterate Beads (if Phase 2b):**
+```
+Check over each bead super carefully-- are you sure it makes sense? Is it optimal? Could we change anything to make the system work better for users? If so, revise the beads. It's a lot easier and faster to operate in "plan space" before we start implementing these things! DO NOT OVERSIMPLIFY THINGS! DO NOT LOSE ANY FEATURES OR FUNCTIONALITY!
+
+Also make sure that as part of the beads we include comprehensive unit tests and e2e test scripts with great, detailed logging so we can be sure that everything is working perfectly after implementation. Make sure to ONLY use the `br` cli tool for all changes, and you can and should also use the `bv` tool to help diagnose potential problems with the beads.
 ```
 
 ### RV-08 UBS Scan

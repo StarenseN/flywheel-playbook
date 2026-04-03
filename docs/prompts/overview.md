@@ -55,7 +55,7 @@ icon: lucide/terminal
 | RV-04 | McCarthy Hunt | "The bugs are there. Find them." Paranoid escalation. |
 | RV-05 | Stakes Escalation | "Your family's life depends on this code." |
 | RV-06 | CVE Probe | Research recent CVEs, probe for similar vulnerabilities. |
-| RV-07 | Stub Eliminator | Find and replace ALL stubs, placeholders, mocks. |
+| RV-07 | Stub Eliminator | Multi-phase: systematic scan for all stubs/mocks/TODOs, then plan & resolve. |
 | RV-08 | UBS Scan | Run `ubs .` and analyze every finding. |
 | RV-09 | Random Inspect | Pick 5 random files. Read. Trace. Fix. |
 
