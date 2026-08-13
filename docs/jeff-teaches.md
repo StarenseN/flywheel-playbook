@@ -536,3 +536,5 @@ How many of the playbook's 47 prompts trace directly to Jeff's public tweets:
 14 prompts from 7 tweets. The mega-tweet (status/1999934160442687526) alone sources 7 -- it was a multi-part thread containing the verbatim text for RV-01, RV-02, RV-03, QA-01, BD-01, BD-02, and EX-06.
 
 Prompts with no public tweet source include RV-05 Stakes Escalation, PL-03/04/05 Praise Pushes (the philosophy is tweeted; the exact text is not), and MT-04 De-Slopifier. These come from Jeff's AGENTS.md templates and repo documentation.
+
+MT-04 has since been expanded well past its source. Jeff's original is the six-line core still visible in Pass 1: read every line manually, kill the em dashes, kill "It's not X, it's Y" and "Here's why", no regex and no scripts. The tell taxonomy around it and the Pass 2 document-level sweep are this playbook's additions, drawn from a synthesis of AI-writing research rather than from Jeff.

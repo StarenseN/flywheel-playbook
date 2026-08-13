@@ -576,13 +576,139 @@ to add any new commands, options, or features that have been added.
 
 ### MT-04 De-Slopifier
 
+Three-pass protocol. Pass 1 is line-level, Pass 2 is document-level, Pass 3
+verifies. Best with Claude (prose quality) or Gemini (catches different patterns
+than Claude). Run Pass 2 in a fresh session so the agent reads the text as a
+stranger would, not as its own work.
+
+**Pass 1 -- Line-level sweep (audit, then revise):**
 ```
-Read through the complete text carefully and look for any telltale signs of
-"AI slop" style writing; one big tell is the use of em dash. Replace with a
-semicolon, a comma, or just recast the sentence. Also avoid: "It's not [just]
-XYZ, it's ABC" or "Here's why" or "Here's why it matters:". Anything that sounds
-like the kind of thing an LLM would write disproportionately more commonly than
-a human. You MUST manually read each line and revise it -- no regex, no scripts.
+Read through the complete text carefully, top to bottom, before changing a single
+word. You MUST manually read each line -- no regex, no scripts, no bulk find-and-
+replace. First build a list of every telltale sign of "AI slop" writing you find,
+quoting the line and saying why it qualifies. Fix nothing yet.
+
+CONSTRUCTIONS
+- Em dash used as a dramatic pause. The single biggest tell.
+- "It's not [just] XYZ, it's ABC", and every variant: "not just X but Y",
+  "The question isn't X, it's Y", "Not X. Not Y. Just Z."
+- "Here's why", "Here's why it matters:", "Here's the thing", "Let me be clear"
+- A rhetorical question answered on the spot: "The result? Devastating."
+- Rule of three: "fast, reliable, and scalable", triads in consecutive sentences
+- "serves as", "stands as", "represents", "functions as" where "is" would do
+- Participial tails: "..., highlighting the importance of", "..., underscoring"
+- "from X to Y" over items that form no actual spectrum
+- "experts agree", "studies show", "many argue" with no named source
+- Coined terms posing as established: "the supervision paradox"
+- Faux-insight setups: "what most people get wrong", "the part everyone misses"
+
+LEXICON
+- delve, leverage, utilize, facilitate, streamline, harness, foster, showcase,
+  empower, elevate, unlock, bolster, optimize, resonate, underscore
+- robust, seamless, pivotal, crucial, comprehensive, cutting-edge, meticulous,
+  intricate, nuanced, transformative, game-changing, multifaceted, ever-evolving
+- tapestry, realm, landscape, ecosystem, paradigm, testament, journey, myriad
+- "it's important to note", "it's worth noting", "at its core", "when it comes
+  to", "in today's fast-paced world", "let's dive in", "let's unpack"
+
+STRUCTURE
+- "In conclusion", "In summary", "Overall", or any closing paragraph that
+  restates what the reader just finished reading
+- Preview-and-recap at every level: "In this section we'll", "as we've seen"
+- Prompt echo: text that restates the assignment ("This document will explore")
+- A closing line that turns the point into a metaphor or an aphorism
+
+FORMATTING
+- Emoji in headings, bold sprinkled mid-sentence, Title Case Headings
+- Bold-first bullets ("**Security:** ...")
+- Bullet lists where two sentences of prose would read better
+- Markdown residue in a context that does not render markdown
+
+SMOKING GUNS (flag alone, no corroboration needed)
+- "Certainly! Here's...", "I hope this helps", "let me know if..."
+- "as an AI language model", knowledge-cutoff notes, "[insert example]"
+- utm_source=chatgpt.com in any URL
+
+One isolated hit is not evidence. Humans write triads and em dashes too. Flag a
+pattern when it repeats, or when several stack in the same paragraph. The smoking
+guns are the exception.
+
+Show me the list, then revise line by line:
+
+Em dashes: replace with a semicolon, a comma, or recast the sentence.
+"It's not just XYZ, it's ABC": state ABC directly.
+"Here's why": delete the setup, make the claim stand on its own.
+Copula dodges: "is" and "has".
+Participial tails: delete, or promote to a real claim with support.
+Vague authority: name the source or cut the claim. Never invent one.
+Signposted conclusions: delete, end on the last concrete point.
+Fake-profound closing lines: delete. Do not rewrite them into better metaphors.
+Lexicon: use the word you would say out loud, or better, a concrete noun from
+this project's own vocabulary.
+
+Three rules that override everything above:
+
+1. Invent nothing. No facts, numbers, names, quotes, or examples added to make a
+   sentence concrete. If a claim needs a specific you do not have, flag it for me.
+2. Do not flatten the voice. Strong opinions, blunt phrasing, humor, admissions,
+   and long sentences stay. Zero tells plus zero personality is still machine
+   writing.
+3. Minimum effective edit. If a sentence is already clear and human, leave it.
+```
+
+**Pass 2 -- Document-level sweep (De-Slop II, fresh session):**
+```
+You are reading this text for the first time. Do not assume anything a previous
+pass touched is now clean. These are the tells that are invisible line by line
+and only show up across the whole document.
+
+Read it end to end without editing. Then answer each of these in writing:
+
+1. OUTLINE TEST. Reduce the text to bullets. If every paragraph collapses into
+   one tidy bullet and the bullets form a clean intro-body-conclusion arc, this
+   was generated rather than written. Name the paragraphs that exist only to
+   complete the pattern.
+2. DILUTION TEST. List the distinct claims. Any claim made more than once in
+   different words is dilution. Keep the strongest statement, cut the rest.
+3. RHYTHM. Report the shortest sentence, the longest, and how many land between
+   15 and 20 words. If most of them do, that is machine rhythm. Split only the
+   sentences that are genuinely hard to follow. Do not manufacture fragments to
+   hit a number: stacked punchy fragments are their own tell.
+4. FRICTION TEST. Is everything upbeat, certain, and resolved? Real writing
+   carries friction: an unresolved edge, a limitation, something that did not
+   work. Find where the draft had friction and smoothed it away, and restore it.
+   Do not invent a complaint that was never there.
+5. PICTURE TEST. Do the first three sentences evoke anything visible: a number,
+   a name, a place, a thing? If not, the opening is abstract. Ask me for the
+   specific instead of inventing one.
+6. BOTH-SIDES TEST. Is every claim auto-balanced by its counterpoint? Commit to
+   the position the document actually holds.
+7. SYNONYM CYCLING. Does the same thing get three different names across the
+   document? Pick one word and use it every time. Repetition of the right word
+   reads as human; rotation for style reads as generated.
+
+Then widen to everything that ships alongside: README, docs, CLI help strings,
+error messages, UI copy, AGENTS.md. Error messages and help text are copy too.
+Headings go to sentence case, retitled from the most specific detail in the
+section. Kill Title Case and colon-split titles ("The Power of X: Why Y Works").
+
+Apply the fixes, and report what you deliberately did NOT change, and why.
+```
+
+**Pass 3 -- Verify:**
+```
+Re-read your own revised text from the top and run the Pass 1 audit against it.
+Report the tell count before and after, the biggest structural changes, and every
+item you flagged for me instead of fixing.
+
+Then the over-scrubbing check. Name three specific things about how this text
+sounds that a generic AI draft would not have produced. If you cannot name three,
+you over-edited: go back and restore what you flattened.
+
+One honest note to keep in mind: this whole protocol makes text pass a human
+reader who knows the patterns. It does not make text pass a statistical AI
+detector, which keys on the generating model's token fingerprint rather than on
+surface style. Never claim otherwise to me.
 ```
 
 ### MT-05 Code Reorganizer

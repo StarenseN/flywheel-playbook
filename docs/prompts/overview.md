@@ -79,7 +79,7 @@ icon: lucide/terminal
 | MT-01 | Deep Project Primer | Read AGENTS.md + README.md, understand everything. |
 | MT-02 | System Weaknesses | What are the weakest parts? What needs fresh ideas? |
 | MT-03 | README Reviser | Update docs to reflect current state. No "we added X." |
-| MT-04 | De-Slopifier | Kill AI slop: em-dashes, "Here's why", LLM patterns. |
+| MT-04 | De-Slopifier | Three passes: line-level tells, document-level shape, verify. |
 | MT-05 | Code Reorganizer | Propose a reorganization plan before touching anything. |
 | MT-06 | CLI Error Tolerance | Make CLI forgiving: honor intent, helpful errors. |
 | MT-07 | Dependency Analysis | Write COMPREHENSIVE_ANALYSIS before integrating anything. |
