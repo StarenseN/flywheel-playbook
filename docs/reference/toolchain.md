@@ -19,7 +19,7 @@ The core trio works together: **Beads** decomposes work into a dependency graph,
 | **[Agent Mail](https://github.com/Dicklesworthstone/mcp_agent_mail)** | Async inter-agent messaging with targeted recipients, file reservations, semi-persistent identity | Coordination without blocking. No broadcast-all, no ringleaders, no single points of failure. |
 | **NTM** (Named Tmux Manager) | Agent cockpit: spawn, monitor, and manage agent sessions across 80+ commands | The human's control plane for tending 9+ agents across multiple projects. |
 | **UBS** (Ultimate Bug Scanner) | 1000+ detection rules via AST-grep, 8 languages, deeper than standard linting | Catches semantic issues that linters miss: dead code paths, type mismatches, suspicious patterns. |
-| **CASS** (Coding Agent Session Search) | Tantivy-powered search across 11 agent formats, sub-60ms results | Find what any agent did in any session. Essential for debugging cross-agent issues. |
+| **CASS** (Coding Agent Session Search) | Search across 11 agent formats, sub-60ms results; canonical session format enables cross-harness resume (Codex ↔ Claude Code), having absorbed casr (2026-08-03). Search index: Quill (FrankenSearch), in-house lexical engine replacing Tantivy (decided 2026-07-17) | Find what any agent did in any session. Essential for debugging cross-agent issues. |
 | **SLB** (Simultaneous Launch Button) | Nuclear-launch-style confirmation with 4 risk tiers | Prevents accidental mass operations (killing all agents, wiping all state). |
 | **DCG** (Destructive Command Guard) | SIMD-accelerated pattern matching, 50+ safety rule packs | Catches dangerous commands (`rm -rf /`, `git push --force main`) before they execute. |
 
@@ -62,3 +62,5 @@ Idempotent. If interrupted, re-running resumes from last completed phase.
 - [Jeffrey's Prompts](https://jeffreysprompts.com/)
 - [MCP Agent Mail (Python)](https://github.com/Dicklesworthstone/mcp_agent_mail)
 - [MCP Agent Mail (Rust)](https://github.com/Dicklesworthstone/mcp_agent_mail_rust)
+
+For which model plays which role on top of this toolchain, see the dated [Model Roster](models.md).

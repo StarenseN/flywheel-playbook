@@ -21,6 +21,7 @@ You know the situation. You need the prompt. Find your row and go to the [Full P
 | Ready to stress-test plan against failure | PL-11 Premortem | PL |
 | Need honest project assessment | PL-12 Project Opinion | PL |
 | Injecting alien artifacts | PL-13 Alien Artifact Injection | PL |
+| Making the system agent-ergonomic after plan generation | PL-14 Agent Ergonomics Pass | PL |
 | Converting plan to beads | BD-01 Plan to Beads | BD |
 | Reviewing bead quality | BD-02 QA the Beads | BD |
 | Picking next bead to work on | BD-03 BV Triage | BD |
@@ -30,6 +31,7 @@ You know the situation. You need the prompt. Find your row and go to the [Full P
 | After context compaction | EX-04 Post-Compaction Refresh | EX |
 | Full autonomous push | EX-05 Full Push | EX |
 | Committing code (commit agent only) | EX-06 Git Commit | EX |
+| Agent slowing down or idling | EX-07 Encouragement Rotation | EX |
 | After completing a bead | RV-01 Self-Review | RV |
 | Numbered review session | RV-02 Deep Review | RV |
 | Reviewing other agents' code | RV-03 Cross-Agent Review | RV |
@@ -39,6 +41,7 @@ You know the situation. You need the prompt. Find your row and go to the [Full P
 | Hunting stubs and placeholders | RV-07 Stub Eliminator | RV |
 | Full codebase scan | RV-08 UBS Scan | RV |
 | Random codebase exploration | RV-09 Random Inspect | RV |
+| Agents looping on mutual reviews | RV-10 Fresh-Session Critique | RV |
 | UI/UX polish | QA-01 Stripe-Level UI | QA |
 | Comprehensive testing | QA-02 E2E Pipeline | QA |
 | UX audit | QA-03 UX Audit | QA |

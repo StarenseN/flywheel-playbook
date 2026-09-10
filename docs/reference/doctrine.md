@@ -4,7 +4,7 @@ icon: lucide/shield
 
 # Doctrine
 
-14 rules that are not negotiable. Each exists because violating it has destroyed real projects.
+16 rules that are not negotiable. Each exists because violating it has destroyed real projects.
 
 ---
 
@@ -20,7 +20,7 @@ icon: lucide/shield
 
 2. **AGENTS.md is written by hand** (or heavily directed). It embodies the human's taste, architecture, and quality bar. A generated AGENTS.md carries no conviction and agents treat it accordingly.
 
-3. **Agents are fungible generalists.** No roles, no specialization, no backstories. "You are a senior backend engineer" narrows the model's solution space. Let any agent pick up any bead.
+3. **Agents are fungible generalists.** No roles, no specialization, no backstories. "You are a senior backend engineer" narrows the model's solution space. Let any agent pick up any bead. Fungibility holds **within a tier**: deliberately assigning a small model to swarm logistics and big models to execution (see [Model Roster](models.md)) is tiering by capability, not specialization by role — the two are not in contradiction.
 
 4. **The commit agent is separate from coding agents.** Coding agents forced to commit produce lazy messages, monolithic commits, and accidentally bundle other agents' changes. One dedicated agent running EX-06 does nothing but group, document, and push.
 
@@ -43,3 +43,7 @@ icon: lucide/shield
 13. **Profiling is a scheduled bead,** not reactive debugging. Performance work happens proactively on a cadence, not as a fire drill after users report slowness.
 
 14. **Marathon sessions beat distributed sessions.** Context is perishable. A 17-hour continuous session with full context produces better work than five 3-hour sessions where the agent rebuilds understanding each time.
+
+15. **Blend models across architecture families.** Cross-review and cross-planning by models from different families beats any single model, or even groups of the same model: "the best results by far come from combining models... always going to work way better than using any model in isolation, or even groups of the same model" (2026-07-25). Architecture and training-data diversity is the mechanism — each family finds what the others missed. See [Model Roster](models.md).
+
+16. **Supersede policy.** Everything dated; on contradiction the newest position wins; the old one is logged with date and reason, never deleted. See [Supersede Log](supersede.md).

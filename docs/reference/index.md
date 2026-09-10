@@ -12,6 +12,8 @@ Lookup tables for when you already understand the methodology and need to find s
 | [Doctrine](doctrine.md) | You need a non-negotiable rule to settle an argument |
 | [Anti-Patterns](anti-patterns.md) | You suspect you're doing something wrong |
 | [Toolchain](toolchain.md) | You need to know what tool does what |
+| [Model Roster](models.md) | You need to know which model plays which role (dated at 2026-09) |
+| [Supersede Log](supersede.md) | You need to know whether a position you remember is still current |
 
 **Reading order when something breaks:** Anti-Patterns first (are you doing a known bad thing?), then Doctrine (what's the rule?), then Dispatch (what prompt fixes it?).
 

@@ -78,6 +78,19 @@ Don't restrict yourself to the latest commits -- cast a wider net and go super d
 !!! tip
     Run this with a different model than the one that wrote the code for true "fresh eyes."
 
+## Fresh-Session Critique (RV-10)
+
+When several agents start looping on mutual reviews, take the latest concrete problems raised, open a **brand-new session**, and ask for a candid analysis. A fresh, uncorrelated context window can "call BS" in a way the working session can't: "there's a fundamental difference between creation and critiquing as an outsider" (2026-07-27).
+
+```
+Start a fresh session. Read AGENTS.md and README.md, then look at the last
+several commits and the most recent problems the agents have been circling on.
+Give me your candid, unsparing analysis of what's actually going on -- call BS
+where you see it. You are critiquing as an outsider, not defending anyone's work.
+```
+
+Same pattern upstream: plans go through fresh-session revision rounds by GPT Pro in the web app (only converted to beads once Pro validates), with **Grok Heavy** (15 parallel agents + synthesis) as external validation from another harness (2026-07-15). The `/planning-workflow` skill (2026-08-17) is the canonical pipeline for this.
+
 ## Escalation Prompts
 
 When reviews plateau and the model seems too comfortable:

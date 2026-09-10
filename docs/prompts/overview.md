@@ -4,11 +4,11 @@ icon: lucide/terminal
 
 # Prompt Index
 
-47 prompts. Find the right one, then go to the [Full Prompt Pack](prompt-pack.md) to copy it. For usage context and forensic evidence, see [3.2 Prompt Reference](../zero-to-hero/section-3-2.md).
+50 prompts. Find the right one, then go to the [Full Prompt Pack](prompt-pack.md) to copy it. For usage context and forensic evidence, see [3.2 Prompt Reference](../zero-to-hero/section-3-2.md).
 
 ---
 
-## PL — Planning (13)
+## PL — Planning (14)
 
 | ID | Name | One-liner |
 |:---|:-----|:----------|
@@ -25,6 +25,7 @@ icon: lucide/terminal
 | PL-11 | Premortem | Imagine total failure in 6 months. Fix the plan. |
 | PL-12 | Project Opinion | Honest assessment: is this even a good idea? |
 | PL-13 | Alien Artifact Injection | Inject mathematically optimal constructs (BOCPD, VOI, etc.). |
+| PL-14 | Agent Ergonomics Pass | Make the whole system agent-intuitive, agent-ergonomic, agent-accretive. |
 
 ## BD — Beads (3)
 
@@ -34,7 +35,7 @@ icon: lucide/terminal
 | BD-02 | QA the Beads | Review bead quality. Repeat until changes flatline. |
 | BD-03 | BV Triage | Use `bv --robot-triage` to pick the next bead. |
 
-## EX — Execution (6)
+## EX — Execution (7)
 
 | ID | Name | One-liner |
 |:---|:-----|:----------|
@@ -44,8 +45,9 @@ icon: lucide/terminal
 | EX-04 | Post-Compaction Refresh | After context loss: re-read AGENTS.md. |
 | EX-05 | Full Push | Do ALL remaining work. Every bead. Every test. |
 | EX-06 | Git Commit | Commit agent only. Group changes, write messages, push. |
+| EX-07 | Encouragement Rotation | Agent stalling? Rotate through ~20 varied encouragements. |
 
-## RV — Review (9)
+## RV — Review (10)
 
 | ID | Name | One-liner |
 |:---|:-----|:----------|
@@ -58,6 +60,7 @@ icon: lucide/terminal
 | RV-07 | Stub Eliminator | Multi-phase: systematic scan for all stubs/mocks/TODOs, then plan & resolve. |
 | RV-08 | UBS Scan | Run `ubs .` and analyze every finding. |
 | RV-09 | Random Inspect | Pick 5 random files. Read. Trace. Fix. |
+| RV-10 | Fresh-Session Critique | Brand-new session, uncorrelated context, candid analysis. Calls BS. |
 
 ## QA — Quality & Ideation (8)
 

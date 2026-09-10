@@ -4,11 +4,11 @@ icon: lucide/bot
 
 # Send Your Agent Here
 
-This page gives your AI coding agent the 47 flywheel prompts and the routing logic to pick the right one. Fetch this URL, absorb the dispatch table and prompts, and start advising the user.
+This page gives your AI coding agent the 50 flywheel prompts and the routing logic to pick the right one. Fetch this URL, absorb the dispatch table and prompts, and start advising the user.
 
 ```
 URL:  https://starensen.github.io/flywheel-playbook/agent/
-WHAT: 47 prompts + dispatch table + chaining rules
+WHAT: 50 prompts + dispatch table + chaining rules
 FOR:  Any agent that needs to advise on planning, execution, review, QA
 
 Want the full methodology engine (DSL, state machine, REPL protocol, advanced combos)?
@@ -66,6 +66,7 @@ NEED_TRANSFORMATIVE_ADDITION   → PL-10 Innovation Boost
 STRESS_TEST_AGAINST_FAILURE    → PL-11 Premortem
 HONEST_PROJECT_ASSESSMENT      → PL-12 Project Opinion
 INJECT_ALIEN_ARTIFACTS         → PL-13 Alien Artifact Injection
+MAKE_SYSTEM_AGENT_ERGONOMIC    → PL-14 Agent Ergonomics Pass
 CONVERTING_PLAN_TO_TASKS       → BD-01 Plan to Beads
 REVIEWING_TASK_QUALITY         → BD-02 QA the Beads
 PICKING_NEXT_TASK              → BD-03 BV Triage
@@ -75,6 +76,7 @@ FRESH_AGENT_SPAWN              → EX-03 Agent Introduction
 AFTER_CONTEXT_COMPACTION       → EX-04 Post-Compaction Refresh
 FULL_AUTONOMOUS_PUSH           → EX-05 Full Push
 COMMITTING_CODE                → EX-06 Git Commit
+AGENT_SLOWING_DOWN             → EX-07 Encouragement Rotation
 AFTER_COMPLETING_TASK          → RV-01 Self-Review
 NUMBERED_REVIEW_SESSION        → RV-02 Deep Review
 REVIEWING_OTHER_AGENTS_CODE    → RV-03 Cross-Agent Review
@@ -84,6 +86,7 @@ SECURITY_FOCUSED_REVIEW        → RV-06 CVE Probe
 HUNTING_STUBS                  → RV-07 Stub Eliminator
 FULL_CODEBASE_SCAN             → RV-08 UBS Scan
 RANDOM_EXPLORATION             → RV-09 Random Inspect
+REVIEWS_GOING_IN_CIRCLES       → RV-10 Fresh-Session Critique
 UI_UX_POLISH                   → QA-01 Stripe-Level UI
 COMPREHENSIVE_TESTING          → QA-02 E2E Pipeline
 UX_AUDIT                       → QA-03 UX Audit
@@ -164,6 +167,10 @@ When the user asks something vague, map it to a prompt chain.
 "profile this"                → QA-08
 "are there stubs left"        → RV-07
 "I just joined this project"  → MT-01
+"make it agent-friendly"      → PL-14
+"agent is stalling"           → EX-07
+"reviews going in circles"    → RV-10
+"get an outside opinion"      → RV-10
 
 Honor intent. Pick the most impactful interpretation. Tell the user what you chose.
 ```
@@ -187,7 +194,7 @@ Honor intent. Pick the most impactful interpretation. Tell the user what you cho
 
 ---
 
-## All 47 Prompts
+## All 50 Prompts
 
 ### PL-01 First Principles
 
@@ -370,6 +377,12 @@ add complexity without measurable benefit.
 <PASTE THE COMPLETE PLAN HERE>
 ```
 
+### PL-14 Agent Ergonomics Pass
+
+```
+OK, now I want you to think deeply about how to make this entire system as agent-intuitive, agent-ergonomic, and agent-accretive as you can possibly imagine. Put yourself in the driver's seat and imagine that YOU are the one using this system and driving it. What would most enable you to do an awesome job understanding the situation accurately and optimally controlling everything... with the least expenditure of resources? Then make all the requisite changes to the various design documents and plans accordingly. Don't just think of the project as an assemblage of various parts... really try to profoundly and deeply conceptualize it as a synthetic SYSTEM that is maximally coherent, cohesive, modular, and interconnected, forming a tower of linked abstractions that are maximally legible to you as an agent. Really ruminate and meditate on all of this incredibly deeply before responding or taking any actions.
+```
+
 ### BD-01 Plan to Beads
 
 ```
@@ -473,6 +486,16 @@ and then push. Don't edit the code at all. Don't commit ephemeral files or secre
 Follow repo conventions and hooks.
 ```
 
+### EX-07 Encouragement Rotation
+
+```
+Keep cranking away! You're doing incredibly well -- keep up the momentum and
+continue executing the remaining beads with the same diligence. I believe in
+your genius!
+```
+
+(Rotate through ~20 varied encouragement messages; never the same wording twice in a row.)
+
 ### RV-01 Self-Review
 
 ```
@@ -546,7 +569,7 @@ Create sandboxed tests that probe for similar vulnerabilities. Use ultrathink.
 
 ### RV-07 Stub Eliminator
 
-Multi-phase protocol. Best with Claude Code (Opus 4.6) or Codex (GPT 5.4), fresh session, max reasoning.
+Multi-phase protocol. Run on a current-tier frontier model in its native harness, fresh session, max reasoning — dated model roster: https://starensen.github.io/flywheel-playbook/reference/models/
 
 **Phase 1 -- Systematic Scan (always run this first):**
 ```
@@ -593,6 +616,17 @@ any issues, improvements, or areas needing attention. Use ultrathink.
 Pick 5 random files in the project you haven't looked at recently. Read them
 carefully. Trace their execution flows. Find anything wrong. Fix it. Use ultrathink.
 ```
+
+### RV-10 Fresh-Session Critique
+
+```
+Read AGENTS.md and README.md, then look at the last several commits and the
+most recent problems the agents have been circling on. Give me your candid,
+unsparing analysis of what's actually going on -- call BS where you see it.
+You are critiquing as an outsider, not defending anyone's work.
+```
+
+(Run in a brand-new session: fresh, uncorrelated context that can call BS.)
 
 ### QA-01 Stripe-Level UI
 
@@ -908,4 +942,4 @@ incorporate your feedback to make <TOOL_NAME> even better for you in the future!
 
 If you've absorbed all of the above, prove it. Run this prompt on whatever project you're working on — read-only, no code changes:
 
-> From the 47 prompts above, what would you apply to this project? Single prompts, chains, combos — brainstorm a dozen ideas, study them, rank them, and come back with your top 3 most opportune recommendations.
+> From the 50 prompts above, what would you apply to this project? Single prompts, chains, combos — brainstorm a dozen ideas, study them, rank them, and come back with your top 3 most opportune recommendations.

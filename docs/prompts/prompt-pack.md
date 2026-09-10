@@ -4,14 +4,14 @@ icon: lucide/copy
 
 # Full Prompt Pack
 
-47 prompts on one page for copy-paste. Organized by category. Each ID is self-documenting: the prefix tells you the category, the number gives you order within it.
+50 prompts on one page for copy-paste. Organized by category. Each ID is self-documenting: the prefix tells you the category, the number gives you order within it.
 
 | Prefix | Category | Count |
 |:-------|:---------|:------|
-| **PL-** | Planning | 13 |
+| **PL-** | Planning | 14 |
 | **BD-** | Beads | 3 |
-| **EX-** | Execution | 6 |
-| **RV-** | Review | 9 |
+| **EX-** | Execution | 7 |
+| **RV-** | Review | 10 |
 | **QA-** | Quality & Ideation | 8 |
 | **MT-** | Meta | 8 |
 
@@ -202,6 +202,13 @@ add complexity without measurable benefit.
 <PASTE THE COMPLETE PLAN HERE>
 ```
 
+### PL-14 Agent Ergonomics Pass
+*Run in the same session, right after a frontier model generates the plan (ideally GPT Pro). Verbatim from @doodlestein (2026-08-31) — the "magic spell" for agent-ergonomics.*
+
+```
+OK, now I want you to think deeply about how to make this entire system as agent-intuitive, agent-ergonomic, and agent-accretive as you can possibly imagine. Put yourself in the driver's seat and imagine that YOU are the one using this system and driving it. What would most enable you to do an awesome job understanding the situation accurately and optimally controlling everything... with the least expenditure of resources? Then make all the requisite changes to the various design documents and plans accordingly. Don't just think of the project as an assemblage of various parts... really try to profoundly and deeply conceptualize it as a synthetic SYSTEM that is maximally coherent, cohesive, modular, and interconnected, forming a tower of linked abstractions that are maximally legible to you as an agent. Really ruminate and meditate on all of this incredibly deeply before responding or taking any actions.
+```
+
 ---
 
 ## BD — Beads
@@ -317,6 +324,17 @@ and then push. Don't edit the code at all. Don't commit ephemeral files or secre
 Follow repo conventions and hooks.
 ```
 
+### EX-07 Encouragement Rotation
+*When an agent slows down or idles. Rotate through ~20 varied encouragement messages instead of repeating a single "Proceed" key — repetition reads as insincere (2026-08-09 → 2026-08-12).*
+
+```
+Keep cranking away! You're doing incredibly well -- keep up the momentum and
+continue executing the remaining beads with the same diligence. I believe in
+your genius!
+```
+
+Vary the wording every time. "Keep cranking away" measurably outperforms "proceed".
+
 ---
 
 ## RV — Review
@@ -397,7 +415,7 @@ Create sandboxed tests that probe for similar vulnerabilities. Use ultrathink.
 
 ### RV-07 Stub Eliminator
 
-Multi-phase protocol. Best with Claude Code (Opus 4.6) or Codex (GPT 5.4), fresh session, max reasoning.
+Multi-phase protocol. Run on a current-tier frontier model in its native harness, fresh session, max reasoning — model assignments rot fast; the dated roster is in [Model Roster (at 2026-09)](../reference/models.md).
 
 **Phase 1 -- Systematic Scan (always run this first):**
 ```
@@ -443,6 +461,16 @@ any issues, improvements, or areas needing attention. Use ultrathink.
 ```
 Pick 5 random files in the project you haven't looked at recently. Read them
 carefully. Trace their execution flows. Find anything wrong. Fix it. Use ultrathink.
+```
+
+### RV-10 Fresh-Session Critique
+*When several agents are looping on mutual reviews. A fresh, uncorrelated context window can "call BS" -- "there's a fundamental difference between creation and critiquing as an outsider" (2026-07-27). Run in a brand-new session.*
+
+```
+Read AGENTS.md and README.md, then look at the last several commits and the
+most recent problems the agents have been circling on. Give me your candid,
+unsparing analysis of what's actually going on -- call BS where you see it.
+You are critiquing as an outsider, not defending anyone's work.
 ```
 
 ---

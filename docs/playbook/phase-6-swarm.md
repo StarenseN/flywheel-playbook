@@ -71,6 +71,25 @@ Follow repo conventions and hooks.
 
 It reads the diff, groups changes into logical commits, writes detailed messages with bead IDs, and commits. That is its entire job. Think of it like the cleaner at a hair salon -- it does not style hair, it just keeps the floor clean so the stylists can work.
 
+## The Small-Model Orchestrator (position at 2026-09)
+
+Counter-intuitive inversion, settled 2026-07-13: the swarm's **logistics orchestrator is a small model** (5.6 Terra-type), while big models execute.
+
+The orchestrator's job is logistics — keeping agents busy, keeping them unblocked — not deciding the "how". Task allocation comes from `bv`'s graph analysis, not from orchestrator intelligence. Terra orchestrating Sol, with very good results. Measured speedups of **2x to 72x** (2026-07-13, 23 instances across 11 projects in a single ntm swarm). This supersedes the earlier big-model-orchestrator setup; see [Supersede Log](../reference/supersede.md) entry 1 and the [Model Roster](../reference/models.md).
+
+## Encouragement Rotation (EX-07)
+
+When an agent slows down or idles, don't hammer the same "Proceed" key. The Stream Deck "Proceed" button (2026-07-20) was superseded by "keep cranking away" (2026-08-09), then by a **random rotation of ~20 encouragement messages** (2026-08-12) — measured wording effectiveness, and repetition gets perceived as insincere. Full prompt: [EX-07 Encouragement Rotation](../prompts/prompt-pack.md#ex-07-encouragement-rotation).
+
+## Swarm Safety Infrastructure
+
+Two tools guard the swarm against itself:
+
+- **dcg** (Destructive Command Guard) — blocks destructive commands (e.g. `git reset --hard`) that would silently erase other agents' uncommitted work.
+- **slb** (Simultaneous Launch Button) — nuclear-launch-style confirmation for mass operations (killing all agents, wiping all state).
+
+Details in the [Toolchain](../reference/toolchain.md).
+
 ## The Perception Loop
 
 Source: [Swarm Steering Cookbook](https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup)

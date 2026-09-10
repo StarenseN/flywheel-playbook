@@ -1,6 +1,6 @@
 # The Flywheel Planning Playbook
 
-> Complete guide to building software with AI agent swarms. 12 principles, 9 phases, 47 prompts. Based on Jeffrey Emanuel's agentic coding methodology.
+> Complete guide to building software with AI agent swarms. 12 principles, 9 phases, 50 prompts. Based on Jeffrey Emanuel's agentic coding methodology.
 
 ## Playbook
 
@@ -17,18 +17,20 @@
 
 ## Prompts
 
-- [Prompt Index](https://starensen.github.io/flywheel-playbook/prompts/overview/): 47 prompts organized by category (PL, BD, EX, RV, QA, MT)
-- [Full Prompt Pack](https://starensen.github.io/flywheel-playbook/prompts/prompt-pack/): All 47 prompts verbatim, copy-paste ready
+- [Prompt Index](https://starensen.github.io/flywheel-playbook/prompts/overview/): 50 prompts organized by category (PL, BD, EX, RV, QA, MT)
+- [Full Prompt Pack](https://starensen.github.io/flywheel-playbook/prompts/prompt-pack/): All 50 prompts verbatim, copy-paste ready
 
 ## Reference
 
 - [Dispatch Table](https://starensen.github.io/flywheel-playbook/reference/dispatch/): When in situation X, use prompt Y
-- [Doctrine](https://starensen.github.io/flywheel-playbook/reference/doctrine/): 14 non-negotiable rules
+- [Doctrine](https://starensen.github.io/flywheel-playbook/reference/doctrine/): 16 non-negotiable rules
 - [Anti-Patterns](https://starensen.github.io/flywheel-playbook/reference/anti-patterns/): 14 ways to destroy your project
 - [Toolchain](https://starensen.github.io/flywheel-playbook/reference/toolchain/): 23 tools that make the flywheel turn
+- [Model Roster](https://starensen.github.io/flywheel-playbook/reference/models/): Which model plays which role — dated position at 2026-09
+- [Supersede Log](https://starensen.github.io/flywheel-playbook/reference/supersede/): Supersede policy + history of 14 replaced positions
 
 ## Agent Injection
 
-- [Prompt Injector](https://starensen.github.io/flywheel-playbook/agent/): 47 prompts + dispatch table + chaining rules + routing heuristic. Lightweight, no state machine.
-- [Methodology Kernel](https://starensen.github.io/flywheel-playbook/agent/kernel/): Full operating system: compressed kernel, DSL with state machine, REPL protocol, 3 advanced combos, 47 prompts.
+- [Prompt Injector](https://starensen.github.io/flywheel-playbook/agent/): 50 prompts + dispatch table + chaining rules + routing heuristic. Lightweight, no state machine.
+- [Methodology Kernel](https://starensen.github.io/flywheel-playbook/agent/kernel/): Full operating system: compressed kernel, DSL with state machine, REPL protocol, 3 advanced combos, 50 prompts.
 - [Methodology Kernel (llms-full.txt)](https://starensen.github.io/flywheel-playbook/llms-full.txt): Same as Methodology Kernel but plain text (~45KB vs ~200KB HTML). Preferred for agent context injection.
